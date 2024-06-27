@@ -12,11 +12,13 @@ body
 
 header
 {
-    background-color:black;
+    background:linear-gradient(to right, black,#434343);
     color:gold;
     padding: 1px;
     text-align: center;
     font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 section
