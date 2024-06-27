@@ -1,0 +1,20 @@
+body
+{
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+header
+{
+    background-color:black;
+    color:gold;
+    padding: 1px;
+    text-align: center;
+}
+
+section
+{
+    margin: 20px;
+    padding:20px;
+}
