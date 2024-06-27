@@ -3,6 +3,8 @@ body
     font-family: 'Times New Roman', Times, serif;
     margin-top: 20px;
     padding: 10px;
+    background: linear-gradient(to bottom, black,#434343);
+    color:rgb(243, 232, 232);
 }
 
 header
@@ -11,6 +13,7 @@ header
     color:gold;
     padding: 1px;
     text-align: center;
+    font-size: 60px;
 }
 
 section
