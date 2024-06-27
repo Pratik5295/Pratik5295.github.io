@@ -5,6 +5,9 @@ body
     padding: 10px;
     background: linear-gradient(to right, black,#434343);
     color:rgb(243, 232, 232);
+    height: 100vh; /* Make sure the body takes the full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 header
