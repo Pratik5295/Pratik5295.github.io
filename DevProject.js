@@ -1,6 +1,7 @@
 
 // Function to fetch the template from an external file
 async function fetchTemplate(templatePath) {
+    console.log(templatePath);
     const response = await fetch(templatePath);
     const text = await response.text();
     const template = document.createElement('div');
@@ -37,7 +38,7 @@ async function fetchDataFromMultipleFiles(filePaths) {
 
 // Function to initialize the grid with fetched data
 async function fetchDataAndFillGrid() {
-    console.log("Fetching data and filling grid...");
+    console.log("New grid fetching..");
     const gridContainer = document.getElementById('grid-container');
     const template = await fetchTemplate('ProjectTemplate.html');
 
