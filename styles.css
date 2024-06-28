@@ -33,4 +33,7 @@ section
     border: 5px gold;
     border-radius: 25px;
     font-size: 35px;
+    text-align: center;
+    margin-left: 50px;
+    color:red;
 }
