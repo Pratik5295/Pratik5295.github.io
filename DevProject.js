@@ -14,7 +14,13 @@ try {
     const response = await fetch(file);
     const data = await response.json();
    
-    return data;
+    return data.map(item =>
+    ({
+            title:item.title.Trim(),
+            content:item.content.Trim(),
+            videoTitle:item.videoTitle.Trim(),
+            videoUrl:item.videoUrl.Trim()
+    }));
 
 } catch (error) {
     console.error('Error loading content:', error);
@@ -45,10 +51,10 @@ async function fetchDataAndFillGrid()
 
     data.forEach(item => {
         const clone = template.cloneNode(true);
-        clone.querySelector('title').textContent = item.title;
-        clone.querySelector('content').textContent = item.content;
-        clone.querySelector('videoTitle').textContent = item.videoTitle;
-        clone.querySelector('videoUrl').textContent = item.videoUrl;
+        clone.querySelector('h1').textContent = item.title;
+        clone.querySelector('p').textContent = item.content;
+        clone.querySelector('p').textContent = item.videoTitle;
+        clone.querySelector('iframe').textContent = item.videoUrl;
         gridContainer.appendChild(clone);
     });
 }
