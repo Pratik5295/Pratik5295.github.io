@@ -1,6 +1,6 @@
 {
-    "title":"Demon Spawn",
-    "content": "2D Action Platformer made using Unity and C#. Masters Capstone Team Project",
-    "videoTitle":"Gameplay Demonstration",
-    "videoUrl":""https://www.youtube.com/embed/c03LAqpoiuE?si=uvKp44WQiBMDfQuv"
+    "title": "Demon Spawn",
+    "content": "An action platformer game made with Unity and C#",
+    "videoTitle": "Gameplay Demonstration:",
+    "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE?si=xO22PM2Opro1QyBN"
 }
