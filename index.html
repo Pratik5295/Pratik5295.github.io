@@ -14,7 +14,7 @@
             return response.text();
             }
 
-            async function loadContent(file) 
+            async function loadContent(file,area) 
             {
             try {
                 const response = await fetch(file);
@@ -27,14 +27,16 @@
                     .replace('{{videoTitle}}',data.videoTitle)
                     .replace('{{videoUrl}}',data.videoUrl);
 
-                document.getElementById('content').innerHTML = constructedPage;
+                document.getElementById(area).innerHTML = constructedPage;
             } catch (error) {
                 console.error('Error loading content:', error);
             }
         }
 
-        window.onload = function(){
-            loadContent('about.txt');
+        window.onload = function()
+        {
+            loadContent('tower-defense.txt','game-projects');
+            loadContent('demon-spawn.txt','game-projects');
         };
         </script>
     </head>
@@ -42,38 +44,24 @@
     <body>
 
        <!-- Page Header -->
-        <header>Pratik Shringarpure</header>
+    <header>Pratik Shringarpure
+
+          <!-- Navigation Bar -->
         <nav>
-            <a href="#">Game Dev</a>
+            <a href="#">Github</a>
+            <a href="#">Art Station</a>
+            <a href="#">Resume</a>
         </nav>
+
+    </header>
         
         <!-- Projects Section -->
         <section>
-            <h2> Projects</h2>
+            <h1> Game Projects</h1>
 
-            <ul>
-                <li>Project2</li>
-            </ul>
-        </section>
-
-        <!-- About me Section -->
-        <section>
-            <h2>About Me</h2>
-            <p>Greetings and welcome to my portfolio!
-
-                I’m Pratik, a seasoned Unity and C# Developer boasting four years of hands-on experience, coupled with a Master’s degree in Game Design and Development.
-                
-                Take a moment to explore my YouTube channels.
-                
-                Should you wish to collaborate or engage my services, please don’t hesitate to reach out using the contact information provided below.</p>
-        </section>
-
-        <main>
-            <div id="content">
-                <h1>Welcome to My Portfolio</h1>
-                <p>This is the homepage of my portfolio website.</p>
+            <div id="game-projects">
             </div>
-        </main>
+        </section>
 
     </body>
 </html>
