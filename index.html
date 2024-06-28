@@ -6,39 +6,8 @@
         <title>Pratik Shringarpure Portfolio</title>
         <link rel = "stylesheet" href = "styles.css">
         
-        <script>
+        <script src = "DevProject.js"></script>
 
-            async function fetchTemplate() 
-            {
-            const response = await fetch('ProjectTemplate.html');
-            return response.text();
-            }
-
-            async function loadContent(file,area) 
-            {
-            try {
-                const response = await fetch(file);
-                const data = await response.json();
-
-                const template = await fetchTemplate();
-                const constructedPage = template
-                    .replace('{{title}}', data.title)
-                    .replace('{{content}}', data.content)
-                    .replace('{{videoTitle}}',data.videoTitle)
-                    .replace('{{videoUrl}}',data.videoUrl);
-
-                document.getElementById(area).innerHTML = constructedPage;
-            } catch (error) {
-                console.error('Error loading content:', error);
-            }
-        }
-
-        window.onload = () =>
-        {
-            loadContent('tower-defense.txt','game-projects');
-            loadContent('demon-spawn.txt','demon-spawn-area');
-        };
-        </script>
     </head>
 
     <body>
@@ -59,8 +28,8 @@
         <section>
             <h1> Game Projects</h1>
 
-            <div id="game-projects"> </div>
-            <div id = "demon-spawn-area"></div>
+            <div id = "grid-container">
+                <!--Projects grid will be created here--> </div>
         </section>
 
     </body>
