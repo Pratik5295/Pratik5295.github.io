@@ -1,65 +1,64 @@
 
-async function fetchTemplate() 
-{
-    const response = await fetch('ProjectTemplate.html');
+// Function to fetch the template from an external file
+async function fetchTemplate(templatePath) {
+    const response = await fetch(templatePath);
     const text = await response.text();
     const template = document.createElement('div');
     template.innerHTML = text;
     return template;
 }
 
-async function loadContent(file) 
-{
-try {
-    const response = await fetch(file);
-    const data = await response.json();
-   
-    return data.map(item =>
-    ({
-            title:item.title.Trim(),
-            content:item.content.Trim(),
-            videoTitle:item.videoTitle.Trim(),
-            videoUrl:item.videoUrl.Trim()
+async function fetchDataFromFile(filePath) {
+    const response = await fetch(filePath);
+    const text = await response.text();
+    const data = JSON.parse(text);
+    return data.map(item => ({
+        title: item.title.trim(),
+        content: item.content.trim(),
+        videoTitle: item.videoTitle.trim(),
+        videoUrl: item.videoUrl.trim()
     }));
-
-} catch (error) {
-    console.error('Error loading content:', error);
-}
 }
 
-async function LoadMultipleFiles(filepaths)
-{
+async function fetchDataFromMultipleFiles(filePaths) {
     const allData = [];
-
-    for(const filepath in filepaths)
-        {
-            const data = await loadContent(filepath);
-            allData.push(...data);
-        }
-
-        return allData;
+    for (const filePath of filePaths) {
+        const data = await fetchDataFromFile(filePath);
+        allData.push(...data);
+    }
+    return allData;
 }
 
-async function fetchDataAndFillGrid() 
-{
+
+// Function to initialize the grid with fetched data
+async function fetchDataAndFillGrid() {
     console.log("Fetching data and filling grid...");
     const gridContainer = document.getElementById('grid-container');
-    const template =  await fetchTemplate();
+    const template = await fetchTemplate('project-template.html');
 
-    const filePaths = ['tower-defense.txt','demon-spawn.txt'];
-    const data = await LoadMultipleFiles(filePaths);
+    const filePaths = ['tower-defense.txt','demon-spawn.txt']; // List of text file paths containing JSON
+    const data = await fetchDataFromMultipleFiles(filePaths);
 
     data.forEach(item => {
         const clone = template.cloneNode(true);
-        clone.querySelector('h1').textContent = item.title;
-        clone.querySelector('p').textContent = item.content;
-        clone.querySelector('p').textContent = item.videoTitle;
-        clone.querySelector('iframe').textContent = item.videoUrl;
+        clone.innerHTML = clone.innerHTML
+            .replace('{{title}}', item.title)
+            .replace('{{content}}', item.content)
+            .replace('{{videoTitle}}', item.videoTitle)
+            .replace('{{videoUrl}}', item.videoUrl);
         gridContainer.appendChild(clone);
     });
 }
 
-window.onload = () =>
-{
+function initializeGrid() {
+    console.log("Initializing grid...");
+    // Grid initialization code here if needed
+}
+
+
+// Initialize the grid and set up event listeners
+document.addEventListener("DOMContentLoaded", () => {
+    initializeGrid();
     fetchDataAndFillGrid();
-};
+});
+
