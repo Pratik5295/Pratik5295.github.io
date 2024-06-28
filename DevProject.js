@@ -1,8 +1,11 @@
 
 async function fetchTemplate() 
 {
-const response = await fetch('ProjectTemplate.html');
-return response.text();
+    const response = await fetch('ProjectTemplate.html');
+    const text = await response.text();
+    const template = document.createElement('div');
+    template.innerHTML = text;
+    return template;
 }
 
 async function loadContent(file) 
@@ -10,10 +13,8 @@ async function loadContent(file)
 try {
     const response = await fetch(file);
     const data = await response.json();
-
-    const template = await fetchTemplate();
    
-    return template;
+    return data;
 
 } catch (error) {
     console.error('Error loading content:', error);
@@ -43,12 +44,12 @@ async function fetchDataAndFillGrid()
     const data = await LoadMultipleFiles(filePaths);
 
     data.forEach(item => {
-        const constructedPage = template
-        .replace('{{title}}', item.title)
-        .replace('{{content}}', item.content)
-        .replace('{{videoTitle}}',item.videoTitle)
-        .replace('{{videoUrl}}',item.videoUrl);
-        gridContainer.appendChild(constructedPages);
+        const clone = template.cloneNode(true);
+        clone.querySelector('title').textContent = item.title;
+        clone.querySelector('content').textContent = item.content;
+        clone.querySelector('videoTitle').textContent = item.videoTitle;
+        clone.querySelector('videoUrl').textContent = item.videoUrl;
+        gridContainer.appendChild(clone);
     });
 }
 
