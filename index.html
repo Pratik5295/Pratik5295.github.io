@@ -5,6 +5,17 @@
         <meta name = "viewport" content = "width=device-width",initial-scale=1.0">
         <title>Pratik Shringarpure Portfolio</title>
         <link rel = "stylesheet" href = "styles.css">
+        <script>
+            function LoadContent(Page)
+            {
+                fetch(Page)
+                .then(response =>response.text())
+                .then(data =>{
+                    document.getElementById('content').innerHTML.data;
+                })
+                .catch(error => console.error('Error loading content:',error));
+            }
+        </script>
     </head>
 
     <body>
@@ -13,6 +24,7 @@
         <header>Pratik Shringarpure</header>
         <nav>
             <a href="#" onclick="LoadContent('aboutme.html')">About Me</a>
+            <a href="#" onclick="loadContent('about.txt')">Game Dev</a>
         </nav>
         
         <!-- Projects Section -->
@@ -35,20 +47,6 @@
                 Take a moment to explore my YouTube channels.
                 
                 Should you wish to collaborate or engage my services, please don’t hesitate to reach out using the contact information provided below.</p>
-        </section>
-
-        <section>
-            <script>
-                function LoadContent(Page)
-                {
-                    fetch(Page)
-                    .then(response =>response.text())
-                    .then(data =>{
-                        document.getElementById('content').innerHTML.data;
-                    })
-                    .catch(error => console.error('Error loading content:',error));
-                }
-            </script>
         </section>
 
     </body>
