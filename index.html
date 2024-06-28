@@ -11,7 +11,9 @@
 
        <!-- Page Header -->
         <header>Pratik Shringarpure</header>
-
+        <nav>
+            <a href="#" onclick="LoadContent('aboutme.html')">About Me</a>
+        </nav>
         
         <!-- Projects Section -->
         <section>
@@ -33,6 +35,20 @@
                 Take a moment to explore my YouTube channels.
                 
                 Should you wish to collaborate or engage my services, please don’t hesitate to reach out using the contact information provided below.</p>
+        </section>
+
+        <section>
+            <script>
+                function LoadContent(Page)
+                {
+                    fetch(Page)
+                    .then(response =>response.text())
+                    .then(data =>{
+                        document.getElementById('content').innerHTML.data;
+                    })
+                    .catch(error => console.error('Error loading content:',error));
+                }
+            </script>
         </section>
 
     </body>
