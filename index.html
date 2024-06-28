@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         <meta charset="UTF-8">
-        <meta name = "viewport" content = "width=device-width",initial-scale=1.0">
+        <meta name = "viewport" content = "width=device-width ,initial-scale=1.0">
         <title>Pratik Shringarpure Portfolio</title>
         <link rel = "stylesheet" href = "styles.css">
         
@@ -32,6 +32,10 @@
                 console.error('Error loading content:', error);
             }
         }
+
+        window.onload = function(){
+            loadContent('about.txt');
+        };
         </script>
     </head>
 
@@ -40,7 +44,7 @@
        <!-- Page Header -->
         <header>Pratik Shringarpure</header>
         <nav>
-            <a href="#" onclick="loadContent('about.txt')">Game Dev</a>
+            <a href="#">Game Dev</a>
         </nav>
         
         <!-- Projects Section -->
@@ -48,7 +52,6 @@
             <h2> Projects</h2>
 
             <ul>
-                <li>Project1</li>
                 <li>Project2</li>
             </ul>
         </section>
