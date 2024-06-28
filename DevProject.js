@@ -17,7 +17,9 @@ async function fetchDataFromFile(filePath) {
         const text = await response.text();
         const data = JSON.parse(text);
         return [data]; // Wrap the parsed data in an array (assuming each file contains one JSON object)
-    } catch (error) {
+    } 
+    catch (error) 
+    {
         console.error('Error fetching or parsing data:', error);
         return []; // Return empty array or handle error gracefully
     }
@@ -37,7 +39,7 @@ async function fetchDataFromMultipleFiles(filePaths) {
 async function fetchDataAndFillGrid() {
     console.log("Fetching data and filling grid...");
     const gridContainer = document.getElementById('grid-container');
-    const template = await fetchTemplate('project-template.html');
+    const template = await fetchTemplate('ProjectTemplate.html');
 
     const filePaths = ['tower-defense.txt','demon-spawn.txt']; // List of text file paths containing JSON
     const data = await fetchDataFromMultipleFiles(filePaths);
