@@ -9,15 +9,18 @@ async function fetchTemplate(templatePath) {
 }
 
 async function fetchDataFromFile(filePath) {
-    const response = await fetch(filePath);
-    const text = await response.text();
-    const data = JSON.parse(text);
-    return data.map(item => ({
-        title: item.title.trim(),
-        content: item.content.trim(),
-        videoTitle: item.videoTitle.trim(),
-        videoUrl: item.videoUrl.trim()
-    }));
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data from ${filePath}`);
+        }
+        const text = await response.text();
+        const data = JSON.parse(text);
+        return [data]; // Wrap the parsed data in an array (assuming each file contains one JSON object)
+    } catch (error) {
+        console.error('Error fetching or parsing data:', error);
+        return []; // Return empty array or handle error gracefully
+    }
 }
 
 async function fetchDataFromMultipleFiles(filePaths) {
