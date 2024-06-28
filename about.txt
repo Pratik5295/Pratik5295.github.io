@@ -1,1 +1,4 @@
-Hello World should get displayed here without a doubt
+{
+    "title": "About Me",
+    "content": "Write about yourself here. and say Hello World"
+}
