@@ -23,7 +23,8 @@
                 const template = await fetchTemplate();
                 const constructedPage = template
                     .replace('{{title}}', data.title)
-                    .replace('{{content}}', data.content);
+                    .replace('{{content}}', data.content)
+                    .replace('{{videoUrl}}',data.videoUrl);
 
                 document.getElementById('content').innerHTML = constructedPage;
             } catch (error) {
