@@ -26,3 +26,11 @@ section
     margin: 20px;
     padding:20px;
 }
+
+.project-template
+{
+    background-color: lightblue;
+    border: 5px gold;
+    border-radius: 25px;
+    font-size: 35px;
+}
