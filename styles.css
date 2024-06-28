@@ -27,23 +27,35 @@ section
     padding:20px;
 }
 
-.project-template
-{
-    background-color: black;
-    border: 5px solid gold;
-    border-radius: 25px;
-    font-size: 12px;
-    text-align: center;
-    margin-left: 50px;
-    color:rgb(255, 255, 255);
-    width: 20%;
-    height: 40%;
-    
-}
-
+/* Grid container styles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    margin-top: 20px;
+}
+
+/* Project template styles */
+.project-template {
+    background-color: #fff;
     padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-template h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-template p {
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+.project-template iframe {
+    display: block;
+    margin-top: 10px;
+    border: none;
 }
