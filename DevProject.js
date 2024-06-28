@@ -37,7 +37,7 @@ async function fetchDataAndFillGrid()
 {
     console.log("Fetching data and filling grid...");
     const gridContainer = document.getElementById('grid-container');
-    const template = document.getElementById('grid-item-template').content;
+    const template =  await fetchTemplate();
 
     const filePaths = ['tower-defense.txt','demon-spawn.txt'];
     const data = await LoadMultipleFiles(filePaths);
