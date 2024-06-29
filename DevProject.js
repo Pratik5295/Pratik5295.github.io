@@ -52,7 +52,7 @@ async function fetchDataAndFillGrid() {
             .replace('{{content}}', item.content)
             .replace('{{videoTitle}}', item.videoTitle)
             .replace('{{videoUrl}}', item.videoUrl)
-            .replace('{{pageName}}',item.pageName);
+            .replace('{{pageLink}}',item.pageLink);
         gridContainer.appendChild(clone);
     });
 }
