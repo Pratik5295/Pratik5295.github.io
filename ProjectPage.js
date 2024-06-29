@@ -52,3 +52,9 @@ async function TestFunction(testMessage)
 {
     console.log(testMessage);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filePath = "demon-spawn.txt";
+    PopulateProjectPage(filePath);
+});
