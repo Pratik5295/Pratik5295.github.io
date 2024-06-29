@@ -10,6 +10,13 @@ body
     flex-direction: column;
 }
 
+nav
+{
+    padding: 30px;
+    color: silver;
+    font-size: 30px;
+}
+
 header
 {
     color:gold;

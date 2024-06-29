@@ -51,10 +51,13 @@ async function fetchDataAndFillGrid() {
             .replace('{{title}}', item.title)
             .replace('{{content}}', item.content)
             .replace('{{videoTitle}}', item.videoTitle)
-            .replace('{{videoUrl}}', item.videoUrl);
+            .replace('{{videoUrl}}', item.videoUrl)
+            .replace('{{pageName}}',item.pageName);
         gridContainer.appendChild(clone);
     });
 }
+
+
 
 function initializeGrid() {
     console.log("Initializing grid...");
