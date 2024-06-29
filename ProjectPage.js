@@ -40,9 +40,29 @@ async function PopulateProjectPage(filePath)
 
     const clone = template.cloneNode(true);
     clone.innerHTML = clone.innerHTML
-        .replace('{{title}}',pageData.title)
-        .replace('{{content}}',pageData.content);
+        .replace('{{title}}', pageData.title || 'Title not found')
+        .replace('{{content}}', pageData.content || 'Content not found');
 
+    if (pageData.videoTitle && pageData.videoUrl) {
+        clone.innerHTML = clone.innerHTML
+            .replace('{{videoTitle}}', pageData.videoTitle)
+            .replace('{{videoUrl}}', pageData.videoUrl);
+    } else {
+        const videoTitleElement = clone.querySelector('.video-title');
+        const videoElement = clone.querySelector('.video-iframe');
+        if (videoTitleElement) videoTitleElement.remove();
+        if (videoElement) videoElement.remove();
+    }
+
+    if (pageData.pageLink) {
+        clone.innerHTML = clone.innerHTML
+            .replace('{{pageLink}}', pageData.pageLink);
+    } else {
+        const pageLinkElement = clone.querySelector('.page-link');
+        if (pageLinkElement) pageLinkElement.remove();
+    }
+
+    console.log("Populated template:", clone.innerHTML); 
     pageContainer.appendChild(clone);
 }
 
