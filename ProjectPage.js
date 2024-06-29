@@ -35,8 +35,8 @@ async function PopulateProjectPage(filePath)
 
     const pageData = await FetchData(filePath);
 
-    console.log("Page title: " + pageData.title);
-    console.log("Page Content: " + pageData.content);
+    console.log("Demon Page title: " + pageData.title);
+    console.log("Demon Page Content: " + pageData.content);
 
     const clone = template.cloneNode(true);
     clone.innerHTML = clone.innerHTML
