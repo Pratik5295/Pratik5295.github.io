@@ -28,8 +28,8 @@ async function FetchTemplate(templatePath)
 
 async function PopulateProjectPage(filePath)
 {
-    const pageContainer = document.getElementById("project-page-container");
-    const template = await FetchTemplate("ProjectTemplate.html");
+    const pageContainer = document.getElementById('project-page-container');
+    const template = await FetchTemplate('Project-Page-Template.html');
 
     console.log("Finding data from: " + filePath);
 
@@ -75,6 +75,6 @@ async function TestFunction(testMessage)
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const filePath = "demon-spawn.txt";
+    const filePath = 'demon-spawn.txt';
     PopulateProjectPage(filePath);
 });
