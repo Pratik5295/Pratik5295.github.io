@@ -29,7 +29,7 @@ async function FetchTemplate(templatePath)
 async function PopulateProjectPage(filePath)
 {
     const pageContainer = document.getElementById("project-page-container");
-    const template = await FetchTemplate("Project-Page-Template.html");
+    const template = await FetchTemplate("'ProjectTemplate.html");
 
     console.log("Finding data from: " + filePath);
 
