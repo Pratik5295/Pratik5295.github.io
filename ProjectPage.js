@@ -3,7 +3,6 @@
 
 async function FetchData(filePath)
 {
-    console.log("Fetching data from" + filePath);
     const response = await fetch(filePath);
     const responseText = await response.text();
 
@@ -16,7 +15,6 @@ async function FetchData(filePath)
 
 async function FetchTemplate(templatePath)
 {
-    console.log("Fetching template data" + templatePath);
     const response = await fetch(templatePath);
     const text = await response.text();
     const template = document.createElement('div');
@@ -33,7 +31,7 @@ async function PopulateProjectPage(filePath)
     const pageContainer = document.getElementById("project-page-container");
     const template = await FetchTemplate("Project-Page-Template.html");
 
-    
+    console.log("Finding data from: " + filePath);
 
     const pageData = await FetchData(filePath);
 
@@ -44,8 +42,6 @@ async function PopulateProjectPage(filePath)
 
     pageContainer.appendChild(clone);
 }
-
-
 
 //Test function
 
