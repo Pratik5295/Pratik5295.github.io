@@ -37,8 +37,8 @@ async function PopulateProjectPage(filePath)
 
     const clone = template.cloneNode(true);
     clone.innerHTML = clone.innerHTML
-        .replace('{{projectTitle}}',pageData.title)
-        .replace('{{description}}',pageData.content);
+        .replace('{{title}}',pageData.title)
+        .replace('{{content}}',pageData.content);
 
     pageContainer.appendChild(clone);
 }
