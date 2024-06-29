@@ -45,10 +45,6 @@ async function PopulateProjectPage(filePath)
     pageContainer.appendChild(clone);
 }
 
-document.addEventListener("DOMContentLoaded", ()=>
-{
-    PopulateProjectPage();
-});
 
 
 //Test function
