@@ -3,11 +3,20 @@
 
 async function FetchData(filePath)
 {
-    const response = await fetch(filePath);
-    const responseText = await response.text();
-
-    const data = JSON.parse(responseText);
-    return [data];
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data from ${filePath}`);
+        }
+        const text = await response.text();
+        const data = JSON.parse(text);
+        return [data]; // Wrap the parsed data in an array (assuming each file contains one JSON object)
+    } 
+    catch (error) 
+    {
+        console.error('Error fetching or parsing data:', error);
+        return []; // Return empty array or handle error gracefully
+    }
 }
 
 // A function to get Project Page template html look
@@ -33,9 +42,9 @@ async function PopulateProjectPage(filePath)
 
     console.log("Finding data from: " + filePath);
 
-    const pageData = await FetchData(filePath);
+    const pageData = await FetchData('demon-spawn.txt');
 
-    console.log("Demon Page title: " + pageData.title);
+    console.log("Final try for day Page title: " + pageData.title);
     console.log("Demon Page Content: " + pageData.content);
 
     const clone = template.cloneNode(true);
