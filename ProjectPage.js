@@ -28,12 +28,12 @@ async function FetchTemplate(templatePath)
 
 // A function to display the data from the json file into the project template page
 
-async function PopulateProjectPage()
+async function PopulateProjectPage(filePath)
 {
     const pageContainer = document.getElementById("project-page-container");
     const template = await FetchTemplate("Project-Page-Template.html");
 
-    const filePath = "demon-spawn.txt";
+    
 
     const pageData = await FetchData(filePath);
 
