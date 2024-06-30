@@ -29,7 +29,8 @@ async function fetchDataFromFile(filePath) {
 async function fetchDataFromMultipleFiles(filePaths) {
     const allData = [];
     for (const filePath of filePaths) {
-        const data = await fetchDataFromFile(filePath);
+        const newPath = "./Data/" + filePath;
+        const data = await fetchDataFromFile(newPath);
         allData.push(...data);
     }
     return allData;
@@ -40,7 +41,7 @@ async function fetchDataFromMultipleFiles(filePaths) {
 async function fetchDataAndFillGrid() {
     console.log("New grid fetching..");
     const gridContainer = document.getElementById('grid-container');
-    const template = await fetchTemplate('ProjectTemplate.html');
+    const template = await fetchTemplate('Index-Project-Template.html');
 
     const filePaths = ['tower-defense.txt','demon-spawn.txt']; // List of text file paths containing JSON
     const data = await fetchDataFromMultipleFiles(filePaths);

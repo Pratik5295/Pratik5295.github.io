@@ -5,16 +5,22 @@
     <meta charset = 'UTF-8'>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Demon Spawn</title>
-    <link ref="stylesheet" href="projTemplate.css">
+    <link rel = "stylesheet" href = "projTemplate.css">
 </head>
 
 <body>
-    <h1>This line will soon be obsolete</h1>
+    <h1>Live server setup</h1>
 
     <div id = "project-page-container" class = "project-page-container"></div>
 
+   <section>
     <script src = "ProjectPage.js"></script>
 
+    <script>
+          const filePath = '../Data/demon-spawn.txt';
+          PopulateProjectPage(filePath);
+    </script>
+   </section>
 
 </body>
 

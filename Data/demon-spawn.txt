@@ -2,6 +2,6 @@
     "title": "Demon Spawn",
     "content": "An action platformer game made with Unity and C#",
     "videoTitle": "Gameplay Demonstration:",
-    "pageLink":"./proj-demon-spawn.html",
+    "pageLink":"./DevProjects/proj-demon-spawn.html",
     "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE?si=xO22PM2Opro1QyBN"
 }
