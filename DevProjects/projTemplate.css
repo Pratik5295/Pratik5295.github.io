@@ -3,9 +3,37 @@
     font-family: Verdana, Helvetica, sans-serif;
     margin-top: 20px;
     padding: 10px;
-    background: linear-gradient(to right, black,#434343);
     color:rgb(243, 232, 232);
     height: 100vh; /* Make sure the body takes the full viewport height */
     display: flex;
     flex-direction: column;
 }
+
+.subheader
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    color: orange;
+    font-size: 30px;
+}
+
+header
+{
+    font-family: Verdana, Helvetica, sans-serif;
+   color: gold;
+   font-size: 40px;
+    font-weight: bold;
+   
+}
+
+html
+{
+    background: linear-gradient(to right, black,#434343);
+    
+}
+
+body
+{
+    margin-top: 60px;
+    margin-left:100px;
+}
+

@@ -39,6 +39,7 @@ async function FetchTemplate(templatePath)
 
 async function PopulateProjectPage(filePath)
 {
+    const pageHeader = document.getElementById('project-page-header')
     const pageContainer = document.getElementById('project-page-container');
     const template = await FetchTemplate('Project-Page-Template.html');
 
@@ -50,7 +51,9 @@ async function PopulateProjectPage(filePath)
     const clone = template.cloneNode(true);
     clone.innerHTML = clone.innerHTML
         .replace('{{title}}', projectData.title || 'Title not found')
-        .replace('{{content}}', projectData.content || 'Content not found');
+        .replace('{{description}}', projectData.description || 'Content not found');
 
     pageContainer.appendChild(clone);
+
+    pageHeader.innerHTML = projectData.title;
 }
