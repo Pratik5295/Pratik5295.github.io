@@ -2,6 +2,8 @@ body
 {
     font-family: Verdana, Helvetica, sans-serif;
     margin-top: 20px;
+    margin-left:60px;
+    margin-right:60px;
     padding: 10px;
     background: linear-gradient(to right, black,#434343);
     color:rgb(243, 232, 232);
@@ -9,14 +11,6 @@ body
     display: flex;
     flex-direction: column;
 }
-
-nav
-{
-    padding: 30px;
-    color: silver;
-    font-size: 30px;
-}
-
 header
 {
     color:gold;
@@ -52,8 +46,11 @@ section
     color: white;
 }
 
-.project-template h1 {
-    font-size: 1.5em;
+
+.projTitle
+{
+    color:white;
+    text-decoration: none;
     margin-bottom: 10px;
 }
 

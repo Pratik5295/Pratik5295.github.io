@@ -1,7 +1,13 @@
+
+.project-page-template
+{
+    margin-top:80px;
+}
+
 .project-page-container
 {
     font-family: Verdana, Helvetica, sans-serif;
-    margin-top: 20px;
+    margin-top: 60px;
     padding: 10px;
     color:rgb(243, 232, 232);
     height: 100vh; /* Make sure the body takes the full viewport height */
@@ -14,14 +20,16 @@
     font-family: Verdana, Helvetica, sans-serif;
     color: orange;
     font-size: 30px;
+    text-decoration: none;
 }
 
 header
 {
     font-family: Verdana, Helvetica, sans-serif;
-   color: gold;
-   font-size: 40px;
+    color: gold;
+    font-size: 40px;
     font-weight: bold;
+    margin-top:60px;
    
 }
 
@@ -33,7 +41,9 @@ html
 
 body
 {
-    margin-top: 60px;
+    height: 100vh; /* Make sure the body takes the full viewport height */
+   
     margin-left:100px;
+    margin-right:100px;
 }
 

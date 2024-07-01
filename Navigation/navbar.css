@@ -1,0 +1,39 @@
+
+nav
+{
+    margin-top:35px;
+    background: black;
+    height: 50px;
+}
+
+nav ul
+{
+    margin:0px;
+    padding:0px;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Ensure items are centered vertically */
+}
+
+nav ul li a 
+{
+    font-size: 25px;
+    color:silver;
+    text-decoration: none;
+    font-family: Verdana, Helvetica, sans-serif;
+    display: block; /* Ensure the clickable area covers the padding */
+}
+
+subtitle
+{
+    margin-top:20px;
+    font-size: 25px;
+}
+
+header
+{
+    margin-bottom: 15px;
+}
