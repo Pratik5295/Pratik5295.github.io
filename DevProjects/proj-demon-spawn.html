@@ -3,25 +3,29 @@
 <title>Project:Demon Spawn</title>
 
 <head>
-    <div id = "navbar"></div>
+    <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
+    <script src = "ProjectPage.js"></script>
+    
 </head>
 
 <body>
-    
+    <div id = "navbar"></div>
     <header id = "project-page-header" class = "project-page-header">
     </header>
     
+    <section>
     <div id = "project-page-container" class = "project-page-container"></div>
 
-   <section>
-    <script src = "ProjectPage.js"></script>
-
     <script>
-          const filePath = '../Data/demon-spawn.txt';
-          PopulateProjectPage(filePath);
+        document.addEventListener("DOMContentLoaded",()=>{
+            const filePath = '../Data/demon-spawn.txt';
+            PopulateProjectPage(filePath);
+        })
+         
     </script>
    </section>
 
+   <!--Nav bar loader-->
    <section>
     <script src = "../Scripts/HtmlLoader.js"></script>
 
@@ -29,7 +33,12 @@
         LoadPage("../NavbarFolder/navbar.html","navbar");
     </script>
     </section>
- 
-    
 </body>
+
+<addtionalData>
+    <section>
+        <div id = "static-content">This is just an additional experimental section to ensure we can seemlessly expand on each individual page
+        </div>
+    </section>
+</addtionalData>
 </html>

@@ -2,5 +2,7 @@
     "title": "3D Tower Defense in Unity",
     "content": "An ongoing project and devlog series for a tower defense game made using Unity and C#",
     "videoTitle": "Gameplay Demonstration Devlog:",
+    "imageUrl": "../Assets/Project-Data/SSTowerDef.png",
+    "pageLink":"../DevProjects/proj-demon-spawn.html",
     "videoUrl": "https://www.youtube.com/embed/9yGib-2zKTc?si=XYwg6_pjzOzdRps_"
 }

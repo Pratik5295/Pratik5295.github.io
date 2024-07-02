@@ -39,3 +39,9 @@ header
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.subtitle
+{
+    margin-top:20px;
+    font-size: 25px;
+}

@@ -41,7 +41,7 @@ async function fetchDataFromMultipleFiles(filePaths) {
 async function fetchDataAndFillGrid() {
     console.log("New grid fetching..");
     const gridContainer = document.getElementById('grid-container');
-    const template = await fetchTemplate('Index-Project-Template.html');
+    const template = await fetchTemplate('Homepage-Project-Template.html');
 
     const filePaths = ['tower-defense.txt','demon-spawn.txt']; // List of text file paths containing JSON
     const data = await fetchDataFromMultipleFiles(filePaths);
@@ -49,11 +49,13 @@ async function fetchDataAndFillGrid() {
     data.forEach(item => {
         const clone = template.cloneNode(true);
         clone.innerHTML = clone.innerHTML
+            .replace('{{imageUrl}}',item.imageUrl)
             .replace('{{title}}', item.title)
             .replace('{{content}}', item.content)
             .replace('{{videoTitle}}', item.videoTitle)
             .replace('{{videoUrl}}', item.videoUrl)
-            .replace('{{pageLink}}',item.pageLink);
+            .replace('{{pageLink}}',item.pageLink)
+            .replace('{{fromTitleLink}}',item.pageLink);
         gridContainer.appendChild(clone);
     });
 }

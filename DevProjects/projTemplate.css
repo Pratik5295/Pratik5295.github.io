@@ -4,6 +4,12 @@
     margin-top:80px;
 }
 
+.project-page-template iframe {
+    display: block;
+    margin-top: 10px;
+    border: none;
+}
+
 .project-page-container
 {
     font-family: Verdana, Helvetica, sans-serif;
@@ -41,7 +47,7 @@ html
 
 body
 {
-    height: 100vh; /* Make sure the body takes the full viewport height */
+    
    
     margin-left:100px;
     margin-right:100px;
