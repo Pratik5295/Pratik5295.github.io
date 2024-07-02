@@ -11,16 +11,6 @@ body
     display: flex;
     flex-direction: column;
 }
-header
-{
-    color:gold;
-    padding: 1px;
-    margin-top:60px;
-    text-align: left;
-    font-size: 40px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
 
 section
 {
