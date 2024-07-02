@@ -2,8 +2,8 @@
     "title": "Demon Spawn",
     "content": "An action platformer game made with Unity and C#",
     "videoTitle": "Gameplay Demonstration:",
-    "imageUrl": "../Images/ProjectData/SSDemonSpawn.jpg",
-    "pageLink":"../DevProjects/proj-demon-spawn.html",
+    "imageUrl": "/Images/ProjectData/SSDemonSpawn.jpg",
+    "pageLink":"/DevProjects/proj-demon-spawn.html",
     "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE?si=xO22PM2Opro1QyBN",
     "description": "Demon Spawn is a 2D action platformer crafted by a team of six individuals for our capstone project. Within the team, I served as the AI programmer, undertaking the responsibility of crafting diverse enemy types, bosses, and their array of behavioral states. To achieve this, I implemented finite state machines and a tactical waypoint system to govern the AI’s decision-making processes and movement patterns."
 }
