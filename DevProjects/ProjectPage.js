@@ -49,11 +49,13 @@ async function PopulateProjectPage(filePath)
     const projectData = (await pageData)[0];
     
     const clone = template.cloneNode(true);
+    
     clone.innerHTML = clone.innerHTML
         .replace('{{title}}', projectData.title || 'Title not found')
         .replace('{{description}}', projectData.description || 'Content not found')
         .replace('{{videoUrl}}', projectData.videoUrl)
         .replace('{{videoTitle}}', projectData.videoTitle);
+
     pageContainer.appendChild(clone);
 
     pageHeader.innerHTML = projectData.title;

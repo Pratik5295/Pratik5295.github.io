@@ -56,7 +56,9 @@ async function fetchDataAndFillGrid() {
             .replace('{{videoUrl}}', item.videoUrl)
             .replace('{{pageLink}}',item.pageLink)
             .replace('{{fromTitleLink}}',item.pageLink);
-        gridContainer.appendChild(clone);
+        
+            console.log("Image url: " + item.imageUrl);
+            gridContainer.appendChild(clone);
     });
 }
 
