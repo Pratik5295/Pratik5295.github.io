@@ -8,5 +8,5 @@ async function LoadPage(path,id)
 document.addEventListener("DOMContentLoaded", () =>{
 
     //Load Nav bar
-    LoadPage("../Navigation/navbar.html","navbar");
+    LoadPage("../NavbarFolder/navbar.html","navbar");
 });
