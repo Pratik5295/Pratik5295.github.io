@@ -27,12 +27,6 @@ nav ul li a
     display: block; /* Ensure the clickable area covers the padding */
 }
 
-subtitle
-{
-    margin-top:20px;
-    font-size: 25px;
-}
-
 header
 {
     margin-bottom: 15px;
