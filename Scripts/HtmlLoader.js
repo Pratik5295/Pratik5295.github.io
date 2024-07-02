@@ -5,8 +5,3 @@ async function LoadPage(path,id)
     document.getElementById(id).innerHTML = text;
 }
 
-document.addEventListener("DOMContentLoaded", () =>{
-
-    //Load Nav bar
-    LoadPage("../NavbarFolder/navbar.html","navbar");
-});
