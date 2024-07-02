@@ -43,7 +43,7 @@ async function fetchDataAndFillGrid() {
     const gridContainer = document.getElementById('grid-container');
     const template = await fetchTemplate('Homepage-Project-Template.html');
 
-    const filePaths = ['tower-defense.txt','demon-spawn.txt']; // List of text file paths containing JSON
+    const filePaths = ['tower-defense.txt','demon-spawn.txt','demon-spawn.txt','tower-defense.txt','demon-spawn.txt','demon-spawn.txt']; // List of text file paths containing JSON
     const data = await fetchDataFromMultipleFiles(filePaths);
 
     data.forEach(item => {

@@ -1,6 +1,6 @@
 {
     "title": "Demon Spawn",
-    "content": "An action platformer game made with Unity and C#",
+    "content": "Group Capstone Masters Project: An action platformer game made with Unity and C#",
     "videoTitle": "Gameplay Demonstration:",
     "imageUrl": "Images/ProjectData/SSDemonSpawn.jpg",
     "pageLink":"DevProjects/proj-demon-spawn.html",

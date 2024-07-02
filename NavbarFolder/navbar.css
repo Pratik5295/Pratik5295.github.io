@@ -40,8 +40,10 @@ header
     text-transform: uppercase;
 }
 
-.subtitle
+subtitle
 {
     margin-top:20px;
-    font-size: 25px;
+    font-size: 30px;
+    color:white;
+    font-weight:bold;
 }
