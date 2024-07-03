@@ -1,7 +1,6 @@
 
 // Function to fetch the template from an external file
 async function fetchTemplate(templatePath) {
-    console.log(templatePath);
     const response = await fetch(templatePath);
     const text = await response.text();
     const template = document.createElement('div');
@@ -39,7 +38,6 @@ async function fetchDataFromMultipleFiles(filePaths) {
 
 // Function to initialize the grid with fetched data
 async function fetchDataAndFillGrid() {
-    console.log("New grid fetching..");
     const gridContainer = document.getElementById('grid-container');
     const template = await fetchTemplate('Homepage-Project-Template.html');
 
@@ -56,8 +54,6 @@ async function fetchDataAndFillGrid() {
             .replace('{{videoUrl}}', item.videoUrl)
             .replace('{{pageLink}}',item.pageLink)
             .replace('{{fromTitleLink}}',item.pageLink);
-        
-            console.log("Image url: " + item.imageUrl);
             gridContainer.appendChild(clone);
     });
 }
@@ -65,7 +61,6 @@ async function fetchDataAndFillGrid() {
 
 
 function initializeGrid() {
-    console.log("Initializing grid...");
     // Grid initialization code here if needed
 }
 
@@ -74,5 +69,6 @@ function initializeGrid() {
 document.addEventListener("DOMContentLoaded", () => {
     initializeGrid();
     fetchDataAndFillGrid();
+
 });
 

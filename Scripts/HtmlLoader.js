@@ -1,8 +1,9 @@
 async function LoadPage(path,id)
 {
-    const response = await fetch(path);
-    const text = await response.text();
-    document.getElementById(id).innerHTML = text;
-    console.log("Loaded page: " + path);
+    fetch(path) // Replace with the path to your HTML page
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch(error => console.error('Error fetching content:', error));
 }
-

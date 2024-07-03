@@ -7,6 +7,11 @@
         <link rel = "stylesheet" href = "styles.css">
         <link rel = "stylesheet" href = "NavbarFolder/navbar.css">
        
+
+        <script src = "Scripts/HtmlLoader.js">  </script>
+       
+
+
     </head>
 
 <body>
@@ -28,17 +33,16 @@
     </script>
     </section>
 
-
     <!-- Art Section -->
-<section>
-    <h1>Art</h1>
-    <div id = "artHomePage"></div>
-    <script src = "Scripts/HtmlLoader.js">  </script>
+    <section>
+        <h1>Art</h1>
+        <div id = "artHomePage"></div>
     <script> 
-        LoadPage("Art/Homepage-Art.html","artHomePage");
+        window.addEventListener("load", function()
+        {
+            LoadPage("Art/Homepage-Art.html","artHomePage");
+        });
     </script>
-
-</section>
-
+    </section>
 </body>
 </html>
