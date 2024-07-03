@@ -11,6 +11,7 @@ nav ul
     margin:0px;
     padding:0px;
     height: 100%;
+    width:100%;
     list-style-type: none;
     display: flex;
     text-align: center;
@@ -21,6 +22,7 @@ nav ul
 nav ul li a 
 {
     font-size: 25px;
+    width:100%;
     color:silver;
     text-decoration: none;
     font-family: Verdana, Helvetica, sans-serif;
@@ -46,4 +48,26 @@ subtitle
     font-size: 30px;
     color:white;
     font-weight:bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%; /* Ensure each item takes full width */
+    }
+
+    nav ul li a {
+        font-size: 1em; /* Adjust font-size for smaller screens */
+        padding: 15px; /* Increase padding for better touch area */
+    }
 }
