@@ -6,25 +6,39 @@
         <title>Pratik Shringarpure Portfolio</title>
         <link rel = "stylesheet" href = "styles.css">
         <link rel = "stylesheet" href = "NavbarFolder/navbar.css">
+       
     </head>
 
-    <body>
-        <div id = "navbar"></div>
-       <!-- Page Header & Navigation <div id = "navbar"></div> -->
-        <!-- Projects Section -->
-        <section>
-            <h1> Game Projects</h1>
-            <div class="grid-container" id = "grid-container">
-                <!--Projects grid will be created here--> </div>
+<body>
+    <div id = "navbar"></div>
 
-                <script src = "DevProject.js"></script>
-        </section>
-
-        <script src = "Scripts/HtmlLoader.js"></script>
-
-        <script>
-            LoadPage("./NavbarFolder/navbar.html","navbar");
-        </script>
+    <!-- Projects Section -->
+    <section>
+        <h1> Game Projects</h1>
+        <div class="grid-container" id = "grid-container">
+          <!--Projects grid will be created here--> 
+        </div>
+        <script src = "DevProject.js"></script>
     
-    </body>
+
+    <script src = "Scripts/HtmlLoader.js"></script>
+
+    <script>
+        LoadPage("./NavbarFolder/navbar.html","navbar");
+    </script>
+    </section>
+
+
+    <!-- Art Section -->
+<section>
+    <h1>Art</h1>
+    <div id = "artHomePage"></div>
+    <script src = "Scripts/HtmlLoader.js">  </script>
+    <script> 
+        LoadPage("Art/Homepage-Art.html","artHomePage");
+    </script>
+
+</section>
+
+</body>
 </html>
