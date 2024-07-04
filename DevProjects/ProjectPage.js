@@ -37,26 +37,50 @@ async function FetchTemplate(templatePath)
 
 // A function to display the data from the json file into the project template page
 
-async function PopulateProjectPage(filePath)
+async function LoadProjectPageData(filePath)
 {
     const pageHeader = document.getElementById('project-page-header');
     const pageContainer = document.getElementById('project-page-container');
     const template = await FetchTemplate('Project-Page-Template.html');
 
+
+  
     const pageData = FetchData(filePath);
 
 
     const projectData = (await pageData)[0];
-    
+
     const clone = template.cloneNode(true);
     
     clone.innerHTML = clone.innerHTML
         .replace('{{title}}', projectData.title || 'Title not found')
         .replace('{{description}}', projectData.description || 'Content not found')
         .replace('{{videoUrl}}', projectData.videoUrl)
-        .replace('{{videoTitle}}', projectData.videoTitle);
+
+    pageContainer.appendChild(clone);
+
+    pageHeader.innerHTML = projectData.title;
+    
+    return projectData;
+    
+}
+
+async function DisplayContent(projectData)
+{
+    const pageHeader = document.getElementById('project-page-header');
+    const pageContainer = document.getElementById('project-page-container');
+    const template = await FetchTemplate('Project-Page-Template.html');
+
+    const clone = template.cloneNode(true);
+    
+    clone.innerHTML = clone.innerHTML
+        .replace('{{title}}', projectData.title || 'Title not found')
+        .replace('{{description}}', projectData.description || 'Content not found')
+        .replace('{{videoUrl}}', projectData.videoUrl)
 
     pageContainer.appendChild(clone);
 
     pageHeader.innerHTML = projectData.title;
 }
+
+

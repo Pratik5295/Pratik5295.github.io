@@ -3,7 +3,10 @@
 <head>
     <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
     <script src = "ProjectPage.js"></script>
-    
+    <script>
+        //We get the entire page's data from the JSON to be used
+        let  projectData = null;
+    </script>
 </head>
 
 <body>
@@ -11,32 +14,79 @@
     <header id = "project-page-header" class = "project-page-header">
     </header>
     
-    <section>
+<section>
     <div id = "project-page-container" class = "project-page-container"></div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded",()=>{
-            const filePath = '../Data/demon-spawn.txt';
-            PopulateProjectPage(filePath);
-        })
-    </script>
-   </section>
+    
+</section>
 
-   <!--Nav bar loader-->
-   <section>
+<!--Nav bar loader-->
+<section>
     <script src = "../Scripts/HtmlLoader.js"></script>
 
     <script>
         LoadPage("../NavbarFolder/navbar.html","navbar");
     </script>
-    </section>
-
     
+</section>
+
+
+<!--Role and responsibility Section-->
+<section>
+
+    <h3 id = "subheader" class = "subheader">Role:</h3>
+    <ul>
+        <li>Led development of enemies and environment elements functioning as AI Programmer.</li>
+        <li>Enemy concept and design including the visual appearance of the various enemies.</li>
+        <li>Successful development of variety of enemies including: Melee skeleton, Range attack skeleton, Flying skull/bat enemy, Game Boss with various abilities.</li>
+
+    </ul>
+</section>
+
+<!--Game Engine Section-->
+<section>
+    <div class = "project-page-engine-header">
+    <h3 id = "subheader" class = "subheader">Game Engine:</h3>
+    <div id = "project-engine" class = "project-engine"><p>{{engine}}</p></div>
+    </div>
+
+</section>
+
 
 <script>
-    window.onload = function()
+    document.addEventListener("DOMContentLoaded",async ()=>{
+        const filePath = '../Data/demon-spawn.txt';
+        projectData = await FetchData(filePath);
+       console.log("Got data");
+       document.dispatchEvent(new CustomEvent("projectDataLoaded"));
+    })
+</script>
+
+
+<script>
+    document.addEventListener("projectDataLoaded",function()
     {
-        console.log("Project page loading test");
+        console.log("Project Data downlaoded" + projectData[0].gameEngine);
+        DisplayContent(projectData[0]);
+       
+        PopulateInnerInformation('project-page-engine-header',"project-engine","{{engine}}");
+    })
+</script>
+
+
+<script>
+
+   
+    function PopulateInnerInformation(pageTag,elementId,textID)
+    {
+        const pageHeader = document.getElementById(pageTag);
+        const element = document.getElementById(elementId);
+       
+        element.innerHTML = element.innerHTML
+        .replace(textID,projectData[0].gameEngine)
+
+        pageHeader.appendChild(element);
     }
 </script>
+
 </body>

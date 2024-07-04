@@ -8,10 +8,8 @@
 
 .project-page-template
 {
-    font-family: Verdana, Helvetica, sans-serif;
     margin-top: 60px;
     padding: 20px;
-    color:rgb(243, 232, 232);
     height: 100vh; /* Make sure the body takes the full viewport height */
     display: flex;
     flex-direction: column;
@@ -45,4 +43,20 @@ body
     margin-left:100px;
     margin-right:100px;
 }
+
+p
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    color:silver;
+    font-size: 20px;
+}
+
+ul li
+{
+    font-size: 20px;
+    width:100%;
+    color:silver;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+
 
