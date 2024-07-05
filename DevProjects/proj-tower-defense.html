@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Page</title>
+    <link rel="stylesheet" href="projectPageStyles.css">
+
+
+    <!---Navigation Bar Loading-->
+    <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
+    <script src = "../Scripts/HtmlLoader.js"></script>
+
+    <script>
+        LoadPage("../NavbarFolder/navbar.html","navbar");
+    </script>
+
+
+</head>
+<body>
+    <div id = "navbar"></div>
+
+    <div class="section-title" id = "section-title">
+        <h1>Title</h1>
+    </div>
+
+    <div class="section-description" id = "section-description">
+        <div class = "titleField">Overview:</div>
+            <div class = "contentField">
+            <div id = "project-description"><p>{{Description}}</p></div>
+            </div>
+    </div>
+
+    <div class="section-details">
+        
+        <div class="section-left-details" id = "section-left-details">
+            <div class = "titleField">Gameplay:</div>
+            <iframe id = "projectVideo" src="{{gameplayVideo}}" title="Gameplay Demonstration" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="section-right-details">
+            <div class = "titleField">Role:</div>
+                <div class = "contentField">
+                <ul>
+                    <li>Designed and developed the concept of the game.</li>
+                    <li>Scripted all of game functionality including Managers, Gameplay features: Hero character, AI enemies, Towers and Placement mechanics.</li>
+                    <li>Design and development on abilities for the hero.</li>
+                    <li>Modular code to expand, asset integration (models,animations).</li>
+                </ul>
+                </div>
+        </div>
+    </div>
+    <div class="section-info">
+        <div class="section-left-info">
+            <div class = "titleField">Tech Used:</div>
+            <div class = "contentField">
+            <ul>
+                <li>Engine</li>
+                <li>EFG</li>
+                <li>U</li>
+                <li>SE</li>
+                <li>UX</li>
+            </ul>
+        </div>
+    </div>
+        <div class="section-middle-info">
+            <div class = "titleField">Goals:</div>
+            <div class = "contentField">
+            <ul>
+                <li>Goal 1</li>
+                <li>Goal 2</li>
+                <li>Goal 3</li>
+            </ul>
+        </div>
+    </div>
+        <div class="section-right-info">
+            <div class = "titleField">Details</div>
+            <div class = "contentField">
+            <ul>
+                <li>DW</li>
+                <li>Team Size</li>
+                <li>Link</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!---Scripts Section-->
+
+<!---Load File-->
+<script>
+    document.addEventListener("DOMContentLoaded",async ()=>{
+        const filePath = '../Data/tower-defense.txt';
+        projectData = await FetchData(filePath);
+       document.dispatchEvent(new CustomEvent("projectDataLoaded"));
+    })
+</script>
+
+
+<!--On Page Loaded Event-->
+<script>
+    document.addEventListener("projectDataLoaded",function()
+    {
+        DisplayProjectHeaderPage();
+
+        //Populate Description
+        PopulateInnerInformation("section-description","project-description","{{Description}}",projectData[0].description);
+
+        //Populate Video
+         var videoElement = document.getElementById('projectVideo');
+        videoElement.setAttribute('src',projectData[0].videoUrl);
+    
+    })
+</script>
+
+
+
+<!---Populate Function-->
+<script>
+
+   
+    function PopulateInnerInformation(pageTag,elementId,textID,value)
+    {
+        const pageHeader = document.getElementById(pageTag);
+        const element = document.getElementById(elementId);
+       
+        element.innerHTML = element.innerHTML
+        .replace(textID,value)
+
+        pageHeader.appendChild(element);
+    }
+</script>
+
+
+
+<!--Populate Header-->
+<script>
+
+function DisplayProjectHeaderPage()
+{
+    const pageHeader = document.getElementById("section-title");
+    pageHeader.innerHTML = projectData[0].title;
+}
+
+</script>
+
+
+</body>
+</html>

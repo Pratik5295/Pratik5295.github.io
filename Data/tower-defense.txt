@@ -2,10 +2,11 @@
     "title": "3D Tower Defense in Unity",
     "content": "An ongoing project and devlog series for a tower defense game made using Unity and C#",
     "imageUrl": "Images/ProjectData/SSTowerDef.png",
-    "pageLink":"DevProjects/proj-demon-spawn.html",
-    "fromTitleLink":"DevProjects/proj-demon-spawn.html",
+    "pageLink":"DevProjects/proj-tower-defense.html",
+    "fromTitleLink":"DevProjects/proj-tower-defense.html",
     "videoUrl": "https://www.youtube.com/embed/9yGib-2zKTc?si=XYwg6_pjzOzdRps_",
     "gameEngine": "Unity",
-    "status": "Development Paused"
+    "status": "Development Paused",
+    "description":"Ready to defend your village against a horde of rampaging goblins!? You are the village's last hope of an organized defense. Build towers and lay traps to successfully defend. The village has a variety to provide with mages and archers! But the horde is equally well equipped to fight! Lets see how wins! The hunger of the horde or the determination and grit to survive of humans!"
 
 }
