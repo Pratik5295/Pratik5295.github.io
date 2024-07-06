@@ -4,12 +4,34 @@
     <head>
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width=device-width , initial-scale=1.0">
-        <link rel="stylesheet" href = "styles.css">
+        <link rel = "stylesheet" href = "aboutme.css">
+        
         <title>About Me</title>
+
+    <!---Navigation Bar Loading-->
+    <link rel = "stylesheet" href = "../../NavbarFolder/navbar.css">
+    <script src = "../../Scripts/HtmlLoader.js"></script>
+
+    <script>
+        LoadPage("../NavbarFolder/navbar.html","navbar");
+    </script>
     </head>
 
     <body>
-        <p>A highlighted summary about my profile will go here</p>
+
+        <div id = "navbar"></div>
+        <pageTitle>About Me</pageTitle>
+      
+        <div class="container">
+            <div class="text-section">
+                <p>Greetings and welcome to my portfolio!</p>
+                <p>I’m Pratik, a seasoned Unity and C# Developer boasting four years of hands-on experience, coupled with a Master’s degree in Game Design and Development.</p>
+                <p>Take a moment to explore my YouTube channels.</p>
+                <p>Should you wish to collaborate or engage my services, please don’t hesitate to reach out using the contact information provided below.</p>
+            </div>
+            <div class="image-section">
+                <img src="../../Images/ProjectData/Profile.png" alt="Pratik's photo">
+            </div>
 
     </body>
 
