@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Page</title>
+    <title>Project: 3D Tower Defense</title>
     <link rel="stylesheet" href="projectPageStyles.css">
-
+    <link rel = "stylesheet" href = "../FooterFolder/footer.css">
 
     <!---Navigation Bar Loading-->
     <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
@@ -14,10 +14,10 @@
     <script>
         LoadPage("../NavbarFolder/navbar.html","navbar");
     </script>
-
-
 </head>
+
 <body>
+
     <div id = "navbar"></div>
 
     <div class="section-title" id = "section-title">
@@ -37,6 +37,7 @@
             <div class = "titleField">Gameplay:</div>
             <iframe id = "projectVideo" src="{{gameplayVideo}}" title="Gameplay Demonstration" frameborder="0" allowfullscreen></iframe>
         </div>
+
         <div class="section-right-details">
             <div class = "titleField">Role:</div>
                 <div class = "contentField">
@@ -50,6 +51,7 @@
                 </div>
         </div>
     </div>
+
     <div class="section-info">
         <div class="section-left-info">
             <div class = "titleField">Tech Used:</div>
@@ -61,8 +63,9 @@
                 <li>Github</li>
                 <li>JIRA</li>
             </ul>
+            </div>
         </div>
-    </div>
+
         <div class="section-middle-info">
             <div class = "titleField">Project Details:</div>
             <div class = "contentField">
@@ -77,7 +80,8 @@
                 The user interface (UI) comprises simple buttons for tower placement, offering a choice between two types: Single Target and Area Effect Towers. Additionally, the UI enables the selection of player abilities during gameplay.
                 
                 While the game is being developed primarily for the PC platform, it can be seamlessly adapted for mobile platforms. The provided link directs to the latest video in the development log; for a comprehensive view of the entire process, please subscribe to the YouTube channel.</p>
-        </div>
+            </div>
+         </div>
     </div>
         
 
@@ -143,4 +147,11 @@ function DisplayProjectHeaderPage()
 
 
 </body>
+
+
+<footer id = "footer">
+    <script>
+        LoadPage("../FooterFolder/footer.html","footer");
+    </script>
+</footer>
 </html>

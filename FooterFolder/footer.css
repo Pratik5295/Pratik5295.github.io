@@ -1,0 +1,45 @@
+
+footer {
+    background: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+
+    border: 1px solid gold;
+    border-radius: 10px;
+}
+
+footer h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    background-color: silver;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
