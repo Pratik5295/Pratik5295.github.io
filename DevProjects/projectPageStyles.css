@@ -42,7 +42,7 @@ body
 {
     font-size:20px;
     color:white;
-    text-align:justify;
+    text-align:none;
 }
 
 .section-title
@@ -60,6 +60,7 @@ body
     justify-content: space-between;
 }
 
+/*Gameplay and Role Section */
 .section-left-details, .section-right-details 
 {
    width: 48%;
@@ -98,6 +99,8 @@ body
 
     padding:0.35em;
     flex-direction: column;
+    color:white;
+    font-size:20px;
 
 }
 

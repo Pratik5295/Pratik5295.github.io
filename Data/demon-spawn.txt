@@ -1,11 +1,41 @@
 {
     "title": "Demon Spawn",
+
     "content": "Group Capstone Masters Project: An action platformer game made with Unity and C#",
+
     "imageUrl": "Images/ProjectData/SSDemonSpawn.jpg",
+
     "pageLink":"DevProjects/proj-demon-spawn.html",
+
     "fromTitleLink":"DevProjects/proj-demon-spawn.html",
+
     "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE?si=xO22PM2Opro1QyBN",
+
     "description": "Play as a lost prince in this action packed 2D metroidvania style game. Explore the dungeons, use fists, bows and arrows to fight a variety of monsters. Feeling a bit overpowered by combat? Let your dark side take over to become a demon temporarily, allowing new and powerful abilities to balance the scales and maybe some into your favor. Solve engaging puzzles to explore all the levels in the game. Test yourself against the boss and defeat him to complete the game demo. One final question - Are you ready?",
+
     "gameEngine": "Unity",
-    "status": "Development Paused"
+
+    "status": "Development Paused",
+    
+    "roles": 
+    [
+        "Led development of enemies and environment elements functioning as AI Programmer.",
+        "Enemy concept and design including the visual appearance of the various enemies.",
+        "Successful development of a variety of enemies including: Melee skeleton, Range attack skeleton, Flying skull/bat enemy, Game Boss with various abilities."
+    ],
+
+    "tech":
+    [
+        "Unity",
+        "C#",
+        "Unity Asset Store",
+        "Github",
+        "JIRA"
+    ],
+
+"details":
+
+"For our capstone project in Masters degree, we created a vertical slice of a 2D action platformer featuring a metroidvania style level design. Design and Development of this game took place over the course of 9 months. Working as the AI programmer, I was responsible for designing and developing AI creatures that will challenge the player in combat. The development involved using techniques like Behavior trees, Waypoint system to patrol, Hit and Hurt boxes for combat development. This project was my first experience working in a game development team towards making a polished game. It taught me a lot about game development process, and involved wearing multiple hats to create a smooth and playable experience together."
+
+
 }

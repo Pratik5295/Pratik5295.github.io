@@ -1,92 +1,166 @@
-<title>Project:Demon Spawn</title>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Demon Spawn</title>
+    <link rel="stylesheet" href="projectPageStyles.css">
+    <link rel = "stylesheet" href = "../FooterFolder/footer.css">
+
+    <!---Navigation Bar Loading-->
     <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
-    <script src = "ProjectPage.js"></script>
-    <script>
-        //We get the entire page's data from the JSON to be used
-        let  projectData = null;
-    </script>
-</head>
-
-<body>
-    <div id = "navbar"></div>
-    <header id = "project-page-header" class = "project-page-header">
-    </header>
-    
-<section>
-    <div id = "project-page-container" class = "project-page-container"></div>
-
-    
-</section>
-
-<!--Nav bar loader-->
-<section>
     <script src = "../Scripts/HtmlLoader.js"></script>
 
     <script>
         LoadPage("../NavbarFolder/navbar.html","navbar");
     </script>
-    
-</section>
+</head>
 
+<body>
 
-<!--Role and responsibility Section-->
-<section>
+    <div id = "navbar"></div>
 
-    <h3 id = "subheader" class = "subheader">Role:</h3>
-    <ul>
-        <li>Led development of enemies and environment elements functioning as AI Programmer.</li>
-        <li>Enemy concept and design including the visual appearance of the various enemies.</li>
-        <li>Successful development of variety of enemies including: Melee skeleton, Range attack skeleton, Flying skull/bat enemy, Game Boss with various abilities.</li>
-
-    </ul>
-</section>
-
-<!--Game Engine Section-->
-<section>
-    <div class = "project-page-engine-header">
-    <h3 id = "subheader" class = "subheader">Game Engine:</h3>
-    <div id = "project-engine" class = "project-engine"><p>{{engine}}</p></div>
+    <div class="section-title" id = "section-title">
+        <h1>Title</h1>
     </div>
 
-</section>
+    <div class="section-description" id = "section-description">
+            <div class = "titleField">Overview:</div>
+
+            <div class = "contentField">
+                <div id = "project-description"><p>{{Description}}</p></div>
+            </div>
+    </div>
+
+    <div class="section-details">
+        
+        <div class="section-left-details" id = "section-left-details">
+            <div class = "titleField">Gameplay:</div>
+            <iframe id = "projectVideo" src="{{gameplayVideo}}" title="Gameplay Demonstration" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="section-right-details">
+            <div class = "titleField">Role:</div>
+
+            <div class = "contentField">
+                <ul id="roles-list"></ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section-info">
+
+        <div class="section-left-info">
+            <div class = "titleField">Tech Used:</div>
+            <div class = "contentField">
+                <ul id="tech-list"></ul>
+            </div>
+        </div>
+
+        <div class="section-middle-info" id = "section-middle-info">
+            <div class = "titleField">Project Details:</div>
+            <div id = "contentField"><p>{{Details}}</p></div>
+        
+        </div>
+
+    </div>
+        
 
 
+<!---Scripts Section-->
+
+<!---Load File-->
 <script>
     document.addEventListener("DOMContentLoaded",async ()=>{
         const filePath = '../Data/demon-spawn.txt';
         projectData = await FetchData(filePath);
-       console.log("Got data");
        document.dispatchEvent(new CustomEvent("projectDataLoaded"));
     })
 </script>
 
 
+<!--On Page Loaded Event-->
 <script>
     document.addEventListener("projectDataLoaded",function()
     {
-        console.log("Project Data downlaoded" + projectData[0].gameEngine);
-        DisplayContent(projectData[0]);
-       
-        PopulateInnerInformation('project-page-engine-header',"project-engine","{{engine}}");
+        DisplayProjectHeaderPage();
+
+        //Populate Description
+        PopulateInnerInformation("section-description","project-description","{{Description}}",projectData[0].description);
+
+        //Populate Video
+         var videoElement = document.getElementById('projectVideo');
+        videoElement.setAttribute('src',projectData[0].videoUrl);
+
+
+        //Populate Role:
+        const roles = projectData[0].roles;
+        PopulateListWithData(roles,'roles-list');
+
+        //Populate Tech:
+        const tech = projectData[0].tech;
+        PopulateListWithData(tech,'tech-list');
+
+        //Populate Project Details:
+        const details = projectData[0].details;
+        PopulateInnerInformation("section-middle-info","contentField","{{Details}}",details);
     })
 </script>
 
 
+
+<!---Populate Function-->
 <script>
 
    
-    function PopulateInnerInformation(pageTag,elementId,textID)
+    function PopulateInnerInformation(pageTag,elementId,textID,value)
     {
         const pageHeader = document.getElementById(pageTag);
         const element = document.getElementById(elementId);
        
         element.innerHTML = element.innerHTML
-        .replace(textID,projectData[0].gameEngine)
+        .replace(textID,value)
 
         pageHeader.appendChild(element);
     }
 </script>
 
+
+<!--Populate Header-->
+<script>
+
+function DisplayProjectHeaderPage()
+{
+    const pageHeader = document.getElementById("section-title");
+    pageHeader.innerHTML = projectData[0].title;
+}
+
+</script>
+
+
+<!--Populate List for UL and LI-->
+<script>
+
+function PopulateListWithData(roles,elementID)
+{
+    const rolesList = document.getElementById(elementID);
+    roles.forEach(role => {
+        const li = document.createElement('li');
+        li.textContent = role;
+        rolesList.appendChild(li);
+    });
+}
+</script>
+
+
 </body>
+
+
+<footer id = "footer">
+    <script>
+        LoadPage("../FooterFolder/footer.html","footer");
+    </script>
+</footer>
+</html>

@@ -40,15 +40,10 @@
 
         <div class="section-right-details">
             <div class = "titleField">Role:</div>
-                <div class = "contentField">
-                <ul>
-                    <li>Designed and developed the concept of the game.</li>
-                    <li>Scripted all of game functionality including Managers, Gameplay features: Hero character, AI enemies, Towers and Placement mechanics.</li>
-                    <li>Design and development on abilities for the hero.</li>
-                    <li>Modular code to expand, asset integration (models,animations).</li>
-                    <li>Integration with a level editor tool made for easy level building.</li>
-                </ul>
-                </div>
+
+            <div class = "contentField">
+                <ul id="roles-list"></ul>
+            </div>
         </div>
     </div>
 
@@ -56,31 +51,13 @@
         <div class="section-left-info">
             <div class = "titleField">Tech Used:</div>
             <div class = "contentField">
-            <ul>
-                <li>Unity Game Engine</li>
-                <li>C#</li>
-                <li>Unity Asset Store</li>
-                <li>Github</li>
-                <li>JIRA</li>
-            </ul>
+                <ul id="tech-list"></ul>
             </div>
         </div>
 
         <div class="section-middle-info">
             <div class = "titleField">Project Details:</div>
-            <div class = "contentField">
-            <p>This ongoing project entails the development of a 3D Tower Defense game utilizing Unity and C#.
-
-                The game revolves around defending your base/town hall against waves of incoming enemies.
-                
-                In addition to traditional tower placement, players have the ability to control a playable character (hero) equipped with various abilities to defeat enemies.
-                
-                Currently, the game features only one type of enemy (melee). The Enemy AI is designed to locate the town hall and move towards it with the intention of destruction. They can switch targets, attacking the player hero character when incoming and reverting to targeting the town hall once the hero is defeated. This system is implemented using Unity Navmesh Agent, Pathfinding, and State Machines.
-                
-                The user interface (UI) comprises simple buttons for tower placement, offering a choice between two types: Single Target and Area Effect Towers. Additionally, the UI enables the selection of player abilities during gameplay.
-                
-                While the game is being developed primarily for the PC platform, it can be seamlessly adapted for mobile platforms. The provided link directs to the latest video in the development log; for a comprehensive view of the entire process, please subscribe to the YouTube channel.</p>
-            </div>
+            <div id = "contentField"><p>{{Details}}</p></div>
          </div>
     </div>
         
@@ -110,7 +87,18 @@
         //Populate Video
          var videoElement = document.getElementById('projectVideo');
         videoElement.setAttribute('src',projectData[0].videoUrl);
-    
+
+         //Populate Role:
+         const roles = projectData[0].roles;
+        PopulateListWithData(roles,'roles-list');
+
+         //Populate Tech:
+         const tech = projectData[0].tech;
+        PopulateListWithData(tech,'tech-list');
+
+        //Populate Project Details:
+        const details = projectData[0].details;
+        PopulateInnerInformation("section-middle-info","contentField","{{Details}}",details);
     })
 </script>
 
@@ -133,6 +121,19 @@
 </script>
 
 
+<!--Populate List for UL and LI-->
+<script>
+
+function PopulateListWithData(roles,elementID)
+{
+    const rolesList = document.getElementById(elementID);
+    roles.forEach(role => {
+        const li = document.createElement('li');
+        li.textContent = role;
+        rolesList.appendChild(li);
+    });
+}
+</script>
 
 <!--Populate Header-->
 <script>

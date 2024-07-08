@@ -1,3 +1,5 @@
+var websiteAddress = "https://pratik5295.github.io/PratikGameDev.github.io/";
+
 async function LoadPage(path,id)
 {
     fetch(path) // Replace with the path to your HTML page
