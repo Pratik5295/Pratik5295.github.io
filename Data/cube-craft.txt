@@ -1,5 +1,5 @@
 {
-    "title": "Cube Craft: A Minescraft inspired demo",
+    "title": "Cube Craft: Minescraft inspired demo",
 
     "content": "A first person building game created using Unreal Engine 5 and Blueprints.",
 
