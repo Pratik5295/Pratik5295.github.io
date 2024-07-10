@@ -40,6 +40,7 @@ section
 .projImage
 {
     height: 80%;
+    max-height: 300px;
 }
 .projTitle
 {

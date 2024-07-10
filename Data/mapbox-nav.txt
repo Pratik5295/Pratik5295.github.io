@@ -1,0 +1,38 @@
+{
+    "title": "Mapbox - Navigation",
+
+    "content": "Integration of Mapbox API with Unity to create a simple navigation system using real world co-ordinates",
+
+    "imageUrl": "Images/ProjectData/SSMapbox.png",
+
+    "pageLink":"DevProjects/proj-mapbox-nav.html",
+
+    "fromTitleLink":"DevProjects/proj-mapbox-nav.html",
+
+    "videoUrl": "https://www.youtube.com/embed/7ykU7ceGFKE?si=1OXoaPjcHjnZPyOU",
+
+    "description": "Learning is something I throughly enjoy, this project involved me first hand trying the Mapbox API to create a simple navigation application which can determine shortest pathway to a nearby area/building of interest.",
+
+    "gameEngine": "Unity",
+
+    "status": "Complete",
+    
+    "roles": 
+    [
+        "Learning, understanding and integrating Mapbox with Unity."    ],
+
+    "tech":
+    [
+        "Unity",
+        "C#",
+        "Unity Asset Store",
+        "Github",
+	"Mapbox"
+    ],
+
+"details":
+
+"This project was more of a learning experiment to get a grasp of Mapbox API, its uses, features and integration with Unity to generate map and related navigational elements associated with it."
+
+
+}

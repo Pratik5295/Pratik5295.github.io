@@ -1,0 +1,41 @@
+{
+    "title": "Drinkology",
+
+    "content": "An hyper-casual drinking party game made for mobile platform.",
+
+    "imageUrl": "Images/ProjectData/SSDrinkology.jpg",
+
+    "pageLink":"DevProjects/proj-drinkology.html",
+
+    "fromTitleLink":"DevProjects/proj-drinkology.html",
+
+    "videoUrl": "https://www.youtube.com/embed/F1eaBGKisQg?si=-6lAApiLgBTeoegT",
+
+    "description": "Find yourself at a party and struggling to connect with people! Always try to play a game together! Drinkology is a party game on your phone, which has multiple mini games, starting from Kings Cup with an inbuilt deck on your phone! To a clicker like tug of war! We got it all!",
+    "gameEngine": "Unity",
+
+    "status": "Released on Google Play Store",
+    
+    "roles": 
+    [
+        "Designed and developed core concept of the game.",
+        "Developed King's Cup game logic and collaborated with other developers to integrate it into the game.",
+        "Collaborated with artists to help create assets and integrate into the game.",
+	"Worked on Google Play Store policies and releasing the game to said platform."
+    ],
+
+    "tech":
+    [
+        "Unity",
+        "C#",
+        "Unity Asset Store",
+        "Github",
+        "Trello"
+    ],
+
+"details":
+
+"This game started as a solo weekend project and transitions to a group project. Relatively short as it only took around a month to complete the game and release on Play Store. This was a game made during my time at RIT for my masters. Diving deep into the gameplay features and logistics required to make a simple mobile game fun for parties was my primary task. Made use of randomizing value generators for features like shuffling card decks, drawing cards. Wearing multiple hats (other than developer) majorly in the field of game design helped me aquire and expand on my knowledge of game designing."
+
+
+}
