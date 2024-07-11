@@ -1,0 +1,40 @@
+{
+    "title": "Really Bad Pinball",
+
+    "content": "2D Action Platformer made using Unity and C#",
+
+    "imageUrl": "Images/ProjectData/SSPinball.png",
+
+    "pageLink":"DevProjects/proj-pinball.html",
+
+    "fromTitleLink":"DevProjects/proj-pinball.html",
+
+    "videoUrl": "https://www.youtube.com/embed/yePjMyQLxrQ?si=mpdg4RnN0W9QwOCU",
+
+    "gameEngine": "Unity",
+
+    "status": "Development Paused",
+
+    "description":"Really Bad Pinball is an eccentric game where players manipulate the level itself to guide the ball. Developed as a prototype over a period of two weeks, the game challenges players to control the level to navigate through obstacles, gather coins, and unlock gates.",
+
+    "roles": 
+    [
+         "Designed and developed the concept of the game.",
+        "Designed and structured the levels in the game using the game engine.",
+        "Design and development on abilities for the hero.",
+        "Scripted core mechanics of the game.",
+        "Implemented lighting and VFX to give the game a polished look."
+    ],
+
+    "tech":
+    [
+        "Unity",
+        "C#",
+        "Unity Asset Store",
+        "Github",
+        "Trello"
+    ],
+
+    "details":
+    "This was a team assignment for our Gameplay Prototyping course at RIT. Developed over the span of a weekend, the group dived deep into designing and implementing mechanics of the game, where you control the level instead of the actual player. This funky project had you rotating the level via controls to guide the ball through out the level.  I was involved with designing the levels associated with the game and structuring the levels in game engine using modular assets. Polishing the game levels for a playable demo involved additional of my tasks."
+}
