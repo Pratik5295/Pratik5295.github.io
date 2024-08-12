@@ -1,14 +1,33 @@
+:root
+{
+    --main-font: 'Roboto Slab', serif;;
+    --section-bg:grey;
+}
+
+
 html {
-    background: linear-gradient(to right, black, #434343);
+    background: linear-gradient(to bottom, #052101 0%, #0d3108 100%);
 }
 
 body {
-    font-family: Verdana, Helvetica, sans-serif;
+    font-family: var(--main-font);
     padding: 0;
     box-sizing: border-box;
     margin: 0 auto;
     width: 90%;
     font-size: 20px;
+}
+
+.outerBody
+{
+    background: black;
+    width: 100%;
+    box-sizing: content-box;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+
 }
 
 .navbar {
@@ -21,7 +40,7 @@ body {
 .section-description, .section-details, .section-info {
     padding: 0.5em;
     border-radius: 12px;
-    border: 3px solid green;
+    border: 3px solid white;
     margin-bottom: 1em;
 }
 
@@ -36,14 +55,15 @@ body {
 .contentField, .section-description {
     font-size: 20px;
     color: white;
+    background-color: var(--section-bg);
+    
 }
 
 .section-title {
     margin: 1em 0;
-    color: green;
-    font-size: 30px;
+    color: rgb(8, 151, 10);
+    font-size: 35px;
     font-weight: bold;
-    padding: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,6 +83,7 @@ body {
     border: 1px solid gold;
     border-radius: 10px;
     margin-bottom: 1em;
+    background-color:  var(--section-bg);
 }
 
 .section-info {
@@ -77,6 +98,7 @@ body {
     border: 1px solid gold;
     border-radius: 10px;
     margin-bottom: 1em;
+    background-color:  var(--section-bg);
 }
 
 .section-middle-info {
@@ -90,6 +112,7 @@ body {
     color: white;
     font-size: 20px;
     margin-bottom: 1em;
+    background-color:  var(--section-bg);
 }
 
 h1, h2, h3, h4 {

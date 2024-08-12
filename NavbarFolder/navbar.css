@@ -2,7 +2,6 @@
 nav
 {
     margin-top:35px;
-    background: black;
     height: 50px;
 }
 
@@ -23,8 +22,9 @@ nav ul li a
 {
     font-size: 25px;
     width:100%;
-    color:silver;
+    color:#FFFFFF;
     text-decoration: none;
+    font-weight: bold;
     font-family: Verdana, Helvetica, sans-serif;
     display: block; /* Ensure the clickable area covers the padding */
 }
@@ -33,7 +33,7 @@ nav ul li a
 header
 {
     margin-bottom: 15px;
-    color:gold;
+    color:#04BC75;
     padding: 1px;
     margin-top:60px;
     text-align: left;
@@ -42,12 +42,14 @@ header
     text-transform: uppercase;
 }
 
-subtitle
+.subtitle 
 {
     margin-top:20px;
     font-size: 30px;
+    font-weight: bold;
     color:white;
-    font-weight:bold;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Responsive Styles */
@@ -70,4 +72,40 @@ subtitle
         font-size: 1em; /* Adjust font-size for smaller screens */
         padding: 15px; /* Increase padding for better touch area */
     }
+}
+
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    background-color: silver;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 3px solid #04BC75;
 }

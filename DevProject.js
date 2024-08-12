@@ -53,7 +53,8 @@ async function fetchDataAndFillGrid() {
             .replace('{{videoTitle}}', item.videoTitle)
             .replace('{{videoUrl}}', item.videoUrl)
             .replace('{{pageLink}}',item.pageLink)
-            .replace('{{fromTitleLink}}',item.pageLink);
+            .replace('{{fromTitleLink}}',item.pageLink)
+            .replace('{{gameEngine}}',item.gameEngine);
             gridContainer.appendChild(clone);
     });
 }

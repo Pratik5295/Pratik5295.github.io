@@ -1,6 +1,7 @@
 
 .artHomePage
 {
+    margin-top: 40px;
     background-color: black;
     display: flex;
     width: 100%;

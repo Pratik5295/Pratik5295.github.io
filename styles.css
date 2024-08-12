@@ -1,11 +1,11 @@
 body
 {
     font-family: Verdana, Helvetica, sans-serif;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left:60px;
     margin-right:60px;
     padding: 10px;
-    background: linear-gradient(to right, black,#434343);
+    background: #26262D;
     color:rgb(243, 232, 232);
     height: 100vh; /* Make sure the body takes the full viewport height */
     display: flex;
@@ -16,6 +16,18 @@ section
 {
     margin: 20px;
     padding:20px;
+}
+
+.section-header
+{
+    border-bottom: 5px solid #04BC75;
+}
+
+.section-header h1
+{
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
 }
 
 /* Grid container styles */

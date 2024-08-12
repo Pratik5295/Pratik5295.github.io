@@ -6,21 +6,28 @@
         <title>Pratik Shringarpure Portfolio</title>
         <link rel = "stylesheet" href = "styles.css">
         <link rel = "stylesheet" href = "NavbarFolder/navbar.css">
-        <link rel = "stylesheet" href = "./FooterFolder/footer.css">
-
+        
         <script src = "Scripts/HtmlLoader.js">  </script>
        
         <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
 
+       
 
     </head>
 
 <body>
-    <div id = "navbar"></div>
+    <div id = "navbar">
+        <div id = "footer",class = "footer">
+            <script>
+                LoadPage("./FooterFolder/footer.html","footer");
+            </script>
+        </div>
+    </div>
+    
 
     <!-- Projects Section -->
     <section>
-        <h1> Game Projects</h1>
+        <div class=" section-header"><h1>Game Projects</h1></div>
         <div class="grid-container" id = "grid-container">
           <!--Projects grid will be created here--> 
         </div>
@@ -36,7 +43,7 @@
 
     <!-- Art Section -->
     <section>
-        <h1>Art</h1>
+        <div class=" section-header"><h1>Art Projects</h1></div>
         <div id = "artHomePage"></div>
     <script> 
         window.addEventListener("load", function()
@@ -47,9 +54,5 @@
     </section>
 </body>
 
-<footer id = "footer">
-    <script>
-        LoadPage("./FooterFolder/footer.html","footer");
-    </script>
-</footer>
+
 </html>
