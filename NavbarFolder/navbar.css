@@ -1,32 +1,40 @@
 
 nav
 {
-    margin-top:35px;
+    margin-top: 2vw;
     height: 50px;
+    text-align: center;
 }
 
 nav ul
 {
     margin:0px;
     padding:0px;
-    height: 100%;
-    width:100%;
+    height: 100%;   
     list-style-type: none;
     display: flex;
     text-align: center;
     justify-content: space-around; /* Distribute items evenly */
     align-items: center; /* Ensure items are centered vertically */
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+nav ul li {
+    flex: 1; /* Distribute space evenly */
+    margin: 1vw; /* Add margin for better spacing */
+    text-align: center; /* Center-align each item */
 }
 
 nav ul li a 
 {
-    font-size: 25px;
-    width:100%;
+    font-size: 1.5vw; /* Adjusted for responsiveness */
+    width:40%;
     color:#FFFFFF;
     text-decoration: none;
     font-weight: bold;
     font-family: Verdana, Helvetica, sans-serif;
     display: block; /* Ensure the clickable area covers the padding */
+    padding: 0.5vw; /* Adjusted for responsiveness */
 }
 
 
@@ -35,43 +43,20 @@ header
     margin-bottom: 15px;
     color:#04BC75;
     padding: 1px;
-    margin-top:60px;
     text-align: left;
-    font-size: 40px;
+    font-size: 5vw; /* Adjusted for responsiveness */
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .subtitle 
 {
-    margin-top:20px;
-    font-size: 30px;
+    margin-top: 2vw; /* Adjusted for responsiveness */
+    font-size: 3vw; /* Adjusted for responsiveness */
     font-weight: bold;
     color:white;
     display: inline-block;
     vertical-align: middle;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    nav {
-        height: auto; /* Allow height to adjust based on content */
-    }
-
-    nav ul {
-        flex-direction: column; /* Stack items vertically */
-        justify-content: center;
-        align-items: center;
-    }
-
-    nav ul li {
-        width: 100%; /* Ensure each item takes full width */
-    }
-
-    nav ul li a {
-        font-size: 1em; /* Adjust font-size for smaller screens */
-        padding: 15px; /* Increase padding for better touch area */
-    }
 }
 
 
@@ -79,12 +64,13 @@ header
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 2vw; /* Adjusted for responsiveness */
+    margin-top: 2vw; /* Adjusted for responsiveness */
 }
 
 .social-icons a img {
-    width: 30px;
-    height: 30px;
+    width: 2vw; /* Adjusted for responsiveness */
+    height: 2vw; /* Adjusted for responsiveness */
     transition: transform 0.3s;
 }
 
@@ -98,7 +84,7 @@ header
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 1vw; /* Adjusted for responsiveness */
 }
 
 
@@ -108,4 +94,72 @@ header
     align-items: center;
     padding: 10px 0;
     border-top: 3px solid #04BC75;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: row; /* Keep items in a row */
+        justify-content: space-between;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        font-size: 2.5vw; /* Adjust for smaller screens */
+        padding: 5px;
+    }
+
+    .footer {
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 50px;
+    }
+
+    header {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+
+    .social-icons {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header {
+        padding: 20px 20px;
+    }
+
+    header {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 2.5rem;
+    }
+
+    nav ul li a {
+        font-size: 1.5vw; /* Slightly smaller on large screens */
+    }
+
+    .social-icons a {
+        padding: 12px;
+    }
 }
