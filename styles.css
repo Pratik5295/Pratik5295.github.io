@@ -32,19 +32,19 @@ body
 /* Grid container styles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 elements per row */
+    grid-template-columns: repeat(3, 1fr); /* 4 elements per row */
     margin-top: 20px;
     margin-bottom: 40px;
-    gap: 10px;
-    margin-left:10px;
+    gap: 20px;
+    justify-items: start; /* Align items to the left */
 }
 
 /* Project template styles - Refers to grid cells on Index page */
 
 
 .project-template {
-    width: 20vw; /* Width of the container */
-    height: 24vw; /* Height of the container */
+    width: 26vw; /* 20% of the viewport width */
+    height: 30vh; /* 24% of the viewport height */
     border: 1px solid gold; /* Gold border */
     position: relative; /* Context for absolutely positioned elements */
     overflow: hidden; /* Ensure the content stays inside the container */
@@ -55,6 +55,8 @@ body
     padding: 20px; /* Add some padding around the text */
     box-sizing: border-box;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 1.5em;
 
     /* Background Image */
     
@@ -102,29 +104,11 @@ body
 
 
 /* For smaller screens, adjust the grid */
-@media (max-width: 900px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr); /* 2 grid containers in a row */
-    }
-}
-
-@media (max-width: 600px) {
-    .grid-container {
-        grid-template-columns: 2fr; /* 1 grid container in a row */
-    }
-}
 
 @media (max-width: 768px) {
-    .project-template {
-        width: 80vw;
-        height: 96vw;
-    }
-
-    .project-template h1 {
-        font-size: 5vw;
-    }
-
-    .project-template p {
-        font-size: 3.5vw;
+   
+    .grid-container 
+    {
+        grid-template-columns: repeat(2, 1fr); /* 4 elements per row */
     }
 }
