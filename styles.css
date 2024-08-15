@@ -12,11 +12,6 @@ body
     flex-direction: column;
 }
 
-section
-{
-    margin: 20px;
-    padding:20px;
-}
 
 .section-header
 {
@@ -30,44 +25,106 @@ section
     text-align: center;
 }
 
+
+
+/* SECTION: EACH PROJECT OVERVIEW */
+
 /* Grid container styles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 3 elements per row */
     margin-top: 20px;
+    margin-bottom: 40px;
+    gap: 10px;
+    margin-left:10px;
 }
 
 /* Project template styles - Refers to grid cells on Index page */
+
+
 .project-template {
-    background-color: black;
-    padding: 20px;
-    border: 1px solid gold;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    color: white;
-    min-height:400px;
+    width: 20vw; /* Width of the container */
+    height: 24vw; /* Height of the container */
+    border: 1px solid gold; /* Gold border */
+    position: relative; /* Context for absolutely positioned elements */
+    overflow: hidden; /* Ensure the content stays inside the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align text at the bottom */
+    color: #FFFFFF; /* White text color */
+    padding: 20px; /* Add some padding around the text */
+    box-sizing: border-box;
+    text-align: center;
+
+    /* Background Image */
+    
+    background-size: cover;          
+    background-position: center;      /* Centers the image */
+    background-repeat: no-repeat;     /* Prevents the image from repeating */
 }
 
-.projImage
+.grid-container :hover
 {
-    height: 80%;
-    max-height: 300px;
+    transform: scale(1.025);
+    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+
 .projTitle
 {
     color:white;
     text-decoration: none;
+    margin: 10px 0;
     margin-bottom: 10px;
+    position: relative;
+}
+
+.project-template h1, .project-template p {
+    position: relative; /* Keep the text on top of the background */
+    z-index: 2; /* Ensure text stays above the background image */
+    margin: 10px 0;
+}
+
+.project-template h1 {
+    font-size: 2vw; /* Font size relative to the viewport width */
+    margin-bottom: 5px;
 }
 
 .project-template p {
-    font-size: 1.2em;
-    line-height: 1.4;
+    font-size: 1.2vw; /* Smaller font size for the paragraphs */
+    margin-bottom: 5px;
 }
 
-.project-template iframe {
-    display: block;
-    margin-top: 10px;
-    border: none;
+
+
+
+/* RESPONSIVE PAGE SECTION */
+
+
+/* For smaller screens, adjust the grid */
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 2 grid containers in a row */
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 2fr; /* 1 grid container in a row */
+    }
+}
+
+@media (max-width: 768px) {
+    .project-template {
+        width: 80vw;
+        height: 96vw;
+    }
+
+    .project-template h1 {
+        font-size: 5vw;
+    }
+
+    .project-template p {
+        font-size: 3.5vw;
+    }
 }
