@@ -1,7 +1,7 @@
 body
 {
     font-family: Verdana, Helvetica, sans-serif;
-    margin-top: 40px;
+    margin-top: 80px;
     margin-left:60px;
     margin-right:60px;
     padding: 10px;
@@ -35,7 +35,7 @@ body
     grid-template-columns: repeat(3, 1fr); /* 4 elements per row */
     margin-top: 20px;
     margin-bottom: 40px;
-    gap: 20px;
+    gap: 30px;
     justify-items: start; /* Align items to the left */
 }
 
@@ -44,7 +44,7 @@ body
 
 .project-template {
     width: 26vw; /* 20% of the viewport width */
-    height: 30vh; /* 24% of the viewport height */
+    height: 36vh; /* 24% of the viewport height */
     border: 1px solid gold; /* Gold border */
     position: relative; /* Context for absolutely positioned elements */
     overflow: hidden; /* Ensure the content stays inside the container */
@@ -57,6 +57,8 @@ body
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 1.5em;
+
+    text-shadow: 2em 2em 2em black;
 
     /* Background Image */
     

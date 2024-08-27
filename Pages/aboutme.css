@@ -10,12 +10,13 @@ body
     height: 100vh; /* Make sure the body takes the full viewport height */
     display: flex;
     flex-direction: column;
+    
 }
 
 pageTitle
 {
-    color: gold;
-    font-size: 35px;
+    color: #04BC75;
+    font-size: 4vw;
     font-weight: bold;
     margin-left: 15px;
     margin-top:60px;
@@ -28,22 +29,42 @@ pageTitle
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    width:100%;
+
 }
 
 .text-section
 {
     font-weight:normal;
     color:white;
-    font-size: 25px;
-    margin-top: 60px;
-    margin-left: 80px;
-    max-width: 60%;
-    text-align:normal;
+    font-size: 1.2vw;
+    margin-top: 10vh;
+    max-width: 50vw;
+    max-height: 80vh;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
 
 }
 
 .image-section img {
-    margin-top:30px;
-    max-width: 375px;
+    margin-top:10vh;
+    max-width: 50vw;
+    max-height: 80vh;
     border-radius: 10px;
+}
+
+
+iframe {
+    width: 50vw; /* Set the width to 100% of the viewport width */
+    height:100vh;
+}
+
+@media (max-width: 768px) {
+   
+    .container 
+    {
+        grid-template-columns: repeat(2, 1fr); /* 4 elements per row */
+    }
 }

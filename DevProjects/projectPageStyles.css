@@ -1,21 +1,28 @@
 :root
 {
-    --main-font: 'Roboto Slab', serif;;
-    --section-bg:grey;
+    --main-font: Verdana, Helvetica, sans-serif;
 }
 
 
 html {
-    background: linear-gradient(to bottom, #052101 0%, #0d3108 100%);
+    background: #26262D;
 }
 
 body {
+    
     font-family: var(--main-font);
     padding: 0;
     box-sizing: border-box;
     margin: 0 auto;
     width: 90%;
     font-size: 20px;
+    margin-top: 40px;
+    margin-left:60px;
+    margin-right:60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .outerBody
@@ -27,24 +34,17 @@ body {
     padding-right: 1em;
     padding-top:0.5em;
     padding-bottom:0.5em;
-
 }
 
-.navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
-}
 
 .section-description, .section-details, .section-info {
+   
     padding: 0.5em;
-    border-radius: 12px;
-    border: 3px solid white;
     margin-bottom: 1em;
 }
 
-.titleField {
+.titleField 
+{
     color: gold;
     font-size: 25px;
     font-weight: bold;
@@ -60,8 +60,10 @@ body {
 }
 
 .section-title {
+    border-top: 5px solid #04BC75;
+    padding:30px;
     margin: 1em 0;
-    color: rgb(8, 151, 10);
+    color: #04BC75;
     font-size: 35px;
     font-weight: bold;
     display: flex;

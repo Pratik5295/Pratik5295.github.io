@@ -92,7 +92,7 @@ header
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 60px;
     border-top: 3px solid #04BC75;
 }
 
