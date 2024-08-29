@@ -8,7 +8,7 @@
 
     "fromTitleLink":"DevProjects/proj-slurpcore.html",
 
-    "videoUrl": "https://youtu.be/cvonGtU0uNM",
+    "videoUrl": "https://www.youtube.com/embed/cvonGtU0uNM?si=7xHmNGZpG23Q-K1f",
 
     "gameEngine": "Unity",
 
