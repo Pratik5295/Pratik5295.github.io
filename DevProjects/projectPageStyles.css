@@ -244,3 +244,11 @@ iframe {
 .section-title .titleField:last-child {
     margin-left: 0;
 }
+
+
+#gameplayVideo
+{
+    width: 80%; /* Adjust width as needed */ 
+    height: 700px; /* Adjust height as needed */ 
+    border: 3px solid #000; /* Customize border if necessary */
+}
