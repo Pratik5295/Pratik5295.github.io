@@ -252,3 +252,8 @@ iframe {
     height: 700px; /* Adjust height as needed */ 
     border: 3px solid #000; /* Customize border if necessary */
 }
+
+.paragraph
+{
+    margin-bottom:20px;
+}
