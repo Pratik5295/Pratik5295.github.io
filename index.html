@@ -7,8 +7,7 @@
         <link rel = "stylesheet" href = "styles.css">
         <link rel = "stylesheet" href = "NavbarFolder/navbar.css">
         
-        <script src = "Scripts/HtmlLoader.js">  </script>
-       
+        <script src = "Scripts/HtmlLoader.js"></script>
         <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
 
        
@@ -24,6 +23,14 @@
         </div>
     </div>
     
+    <!-- New Project Section-->
+     <section>
+        <div class = "section-header"><h1>Recent Work</h1></div>
+        <div class = "grid-container-new" id = "grid-container-new">
+        </div>
+        
+     </section>
+
 
     <!-- Projects Section -->
     <section>
@@ -31,14 +38,6 @@
         <div class="grid-container" id = "grid-container">
           <!--Projects grid will be created here--> 
         </div>
-        <script src = "DevProject.js"></script>
-    
-
-    <script src = "Scripts/HtmlLoader.js"></script>
-
-    <script>
-        LoadPage("./NavbarFolder/navbar.html","navbar");
-    </script>
     </section>
 
     <!-- Art Section -->
@@ -52,7 +51,13 @@
         });
     </script>
     </section>
+
+
+    <script>
+        LoadPage("./NavbarFolder/navbar.html","navbar");
+    </script>
+    
+    <script src = "RecentProjects.js"></script>
+    <script src = "DevProject.js"></script>
 </body>
-
-
 </html>

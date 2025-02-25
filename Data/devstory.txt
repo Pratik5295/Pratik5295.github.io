@@ -1,7 +1,7 @@
 {
     "title": "A Hell of a Shift",
 
-    "content": "An ongoing project and devlog series for a tower defense game made using Unity and C#",
+    "content": "A 2D point-and-click simulation game where you join a game Studio as an Intern ",
 
     "imageUrl": "Images/ProjectData/SSTowerDef.png",
 
@@ -13,13 +13,13 @@
 
     "gameEngine": "Unity",
 
-    "status": "Development Paused",
+    "status": "Vertical Slice Complete",
 
-    "description":"Ready to defend your village against a horde of rampaging goblins!? You are the village's last hope of an organized defense. Build towers and lay traps to successfully defend. The village has a variety to provide with mages and archers! But the horde is equally well equipped to fight! Lets see how wins! The hunger of the horde or the determination and grit to survive of humans!",
+    "description":"Game Developer Story is a 2D point-and-click simulation game where you join a game Studio as an Intern. Your role is to finish the tasks you’ve been given day to day, to be completed on time and manage your stress levels.",
 
     "roles": 
     [
-         "Designed and developed the concept of the game.",
+        "Designed and developed the concept of the game.",
         "Scripted all of game functionality including Managers, Gameplay features: Hero character, AI enemies, Towers and Placement mechanics.",
         "Design and development on abilities for the hero.",
         "Modular code to expand, asset integration (models,animations).",
@@ -36,7 +36,7 @@
     ],
 
     "details":
-    "This ongoing project entails the development of a 3D Tower Defense game utilizing Unity and C#. The game revolves around defending your base/town hall against waves of incoming enemies. In addition to traditional tower placement, players have the ability to control a playable character (hero) equipped with various abilities to defeat enemies. Currently, the game features only one type of enemy (melee). The Enemy AI is designed to locate the town hall and move towards it with the intention of destruction. They can switch targets, attacking the player hero character when incoming and reverting to targeting the town hall once the hero is defeated. This system is implemented using Unity Navmesh Agent, Pathfinding, and State Machines. The user interface (UI) comprises simple buttons for tower placement, offering a choice between two types: Single Target and Area Effect Towers. Additionally, the UI enables the selection of player abilities during gameplay. While the game is being developed primarily for the PC platform, it can be seamlessly adapted for mobile platforms. The provided link directs to the latest video in the development log; for a comprehensive view of the entire process, please subscribe to the YouTube channel."
+    "The main objective of the player would become a full-time developer at the company. They will start at the company as an Intern but by completing the tasks well and on time, will gain experience to get promoted to a junior position. Which they’ll have to continue their work journey with more responsibilities and tasks to eventually reach the full developer position. Though this is the general narrative for the game there is a secondary narrative that is around the setting of the game being in hell, in which the player must complete the task well to be turned into a demon and live a normal life in hell or be sent to the pits of hell to be tortured. This is showcased via the art style and subtle hints in the writing. "
 
    
 }
