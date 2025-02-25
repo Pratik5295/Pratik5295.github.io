@@ -59,7 +59,7 @@ async function fetchDataAndFillGrid() {
     });
 
     const recentGridContainer = document.getElementById('recent-projects-grid');
-    const recentfilePaths = ['devstory.txt'];
+    const recentfilePaths = ['detective.txt','devstory.txt'];
     const recentData = await fetchDataFromMultipleFiles(recentfilePaths);
 
     recentData.forEach(item => {

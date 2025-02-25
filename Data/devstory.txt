@@ -1,7 +1,7 @@
 {
     "title": "A Hell of a Shift",
 
-    "content": "A 2D point-and-click simulation game where you join a game Studio as an Intern ",
+    "content": "Point-and-Click | Work Simulator | Puzzles | Game Studio ",
 
     "imageUrl": "Images/ProjectData/SSHellShift.png",
 

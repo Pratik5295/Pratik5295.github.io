@@ -1,13 +1,13 @@
 {
-    "title": "A Hell of a Shift",
+    "title": "Detective Game",
 
-    "content": "An ongoing project and devlog series for a tower defense game made using Unity and C#",
+    "content": "Third Person | Narrative | Puzzle Solving | Shooting",
 
-    "imageUrl": "Images/ProjectData/SSTowerDef.png",
+    "imageUrl": "Images/ProjectData/SSDetective.png",
 
-    "pageLink":"DevProjects/proj-dev-story.html",
+    "pageLink":"DevProjects/proj-detective.html",
 
-    "fromTitleLink":"DevProjects/proj-tower-defense.html",
+    "fromTitleLink":"DevProjects/proj-detective.html",
 
     "videoUrl": "https://www.youtube.com/embed/9yGib-2zKTc?si=XYwg6_pjzOzdRps_",
 
