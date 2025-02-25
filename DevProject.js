@@ -57,6 +57,25 @@ async function fetchDataAndFillGrid() {
             .replace('{{gameEngine}}',item.gameEngine);
             gridContainer.appendChild(clone);
     });
+
+    const recentGridContainer = document.getElementById('recent-projects-grid');
+    const recentfilePaths = ['devstory.txt'];
+    const recentData = await fetchDataFromMultipleFiles(recentfilePaths);
+
+    recentData.forEach(item => {
+        const clone = template.cloneNode(true);
+        clone.innerHTML = clone.innerHTML
+            .replace('{{imageUrl}}',item.imageUrl)
+            .replace('{{title}}', item.title)
+            .replace('{{content}}', item.content)
+            .replace('{{videoTitle}}', item.videoTitle)
+            .replace('{{videoUrl}}', item.videoUrl)
+            .replace('{{pageLink}}',item.pageLink)
+            .replace('{{fromTitleLink}}',item.pageLink)
+            .replace('{{gameEngine}}',item.gameEngine);
+            recentGridContainer.appendChild(clone);
+    });
+
 }
 
 

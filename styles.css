@@ -39,6 +39,15 @@ body
     justify-items: start; /* Align items to the left */
 }
 
+.recent-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 elements per row */
+    margin-top: 20px;
+    margin-bottom: 40px;
+    gap: 30px;
+    justify-items: start; /* Align items to the left */
+}
+
 /* Project template styles - Refers to grid cells on Index page */
 
 
@@ -68,6 +77,11 @@ body
 }
 
 .grid-container :hover
+{
+    transform: scale(1.025);
+    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.recent-projects-grid :hover
 {
     transform: scale(1.025);
     transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -110,6 +124,10 @@ body
 @media (max-width: 768px) {
    
     .grid-container 
+    {
+        grid-template-columns: repeat(2, 1fr); /* 4 elements per row */
+    }
+    .recent-projects-grid
     {
         grid-template-columns: repeat(2, 1fr); /* 4 elements per row */
     }
