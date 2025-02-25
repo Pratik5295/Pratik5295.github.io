@@ -3,7 +3,7 @@
 
     "content": "A 2D point-and-click simulation game where you join a game Studio as an Intern ",
 
-    "imageUrl": "Images/ProjectData/SSTowerDef.png",
+    "imageUrl": "Images/ProjectData/SSHellShift.png",
 
     "pageLink":"DevProjects/proj-dev-story.html",
 
