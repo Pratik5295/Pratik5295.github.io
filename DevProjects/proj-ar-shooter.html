@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: AR Shooter</title>
+    <link rel="stylesheet" href="projectPageStyles.css">
+    <link rel = "stylesheet" href = "../FooterFolder/footer.css">
+
+    <!---Navigation Bar Loading-->
+    <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
+    <script src = "../Scripts/HtmlLoader.js"></script>
+
+    <script>
+        LoadPage("../NavbarFolder/navbar.html","navbar");
+    </script>
+
+</head>
+
+<body>
+    <div id = "navbar"></div>
+
+    <div class="section-title" id = "section-title">
+        <h2>AR Shooter</h2>
+    </div>
+
+    <div class="section-description" id = "section-description">
+        <div class = "titleField">Description</div>
+        <p class = "paragraph">
+            Explored Unity AR Core and AR Foundation functionalities to create a shooter game, where you select a playable character from a selection of 2 player characters with different stats. 
+            Survive the hords of enemies attacking you. There are two types of enemies in the game, and the game is structured to easily handle more.
+            This game was developed for mobile devices and an apk is available to download: <a href="Downloads/AR-Shooter.apk" download = "AR-Shooter.apk">here</a>.
+        </p>
+
+        <div class = "titleField">Gameplay</div>
+        <p class = "paragraph"></p>
+        <iframe id = "gameplayVideo" src="https://drive.google.com/file/d/1SJVhhtWOK_xAZ6B58hiev9yYY2HIB8O3/preview" title="Gameplay Demonstration" frameborder="3" allowfullscreen></iframe>
+    </div>
+
+    <div class = "section-description" id = "section-description">
+    <div class = "titleField">Highlights</div>
+
+    <p class = "paragraph">
+
+        <li><u><b>Integration with AR Core: </b></u>Integrated Unity with ARCore & AR Foundation packages, to create an empty game world on a real world plane.</li>
+        <li><u><b>Combat:</b></u> Simple combat mechanic between player and the enemies where the player uses gun to shoot, and the enemies get close and perform melee attacks.</li>
+        <li><u><b>Character Selection:</b></u> Select from two different characters with different stats to play.</li>
+        <li><u><b>Different classes of Enemies:</b></u> Use of inheritence to create different enemy classes.</li>
+        <li><u><b>Enemy Waves:</b></u> A 3 wave spawner created using scriptable objects to handle different enemies per wave and per level.</li>
+    </p>
+
+    </div>
+
+    <div class = "section-description" id = "section-description">
+        <div class = "titleField">Role</div>
+    
+        <p class = "paragraph">
+            
+            <li>Solo developer</li>
+
+        </p>
+    
+        </div>
+    
+
+</body>
+
+
+</html>
