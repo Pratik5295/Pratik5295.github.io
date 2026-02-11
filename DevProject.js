@@ -1,5 +1,5 @@
 async function fetchTemplate(templatePath) {
-    var response = await fetch(templatePath);
+    var response = await fetch(cacheBust(templatePath));
     var text = await response.text();
     var template = document.createElement('div');
     template.innerHTML = text;
@@ -8,7 +8,7 @@ async function fetchTemplate(templatePath) {
 
 async function fetchProjectData(projectId) {
     try {
-        var response = await fetch('./Data/' + projectId + '.json');
+        var response = await fetch(cacheBust('./Data/' + projectId + '.json'));
         if (!response.ok) throw new Error('Failed to load ' + projectId);
         var data = await response.json();
         data._id = projectId;
@@ -46,7 +46,7 @@ async function init() {
     var template = await fetchTemplate('Homepage-Project-Template.html');
 
     try {
-        var response = await fetch('./Data/projects.json');
+        var response = await fetch(cacheBust('./Data/projects.json'));
         var projects = await response.json();
 
         await fillGrid('recent-projects-grid', projects.recent, template);

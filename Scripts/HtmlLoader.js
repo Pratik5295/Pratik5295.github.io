@@ -1,6 +1,12 @@
+// Cache-bust: append timestamp so browsers always fetch fresh content
+function cacheBust(url) {
+    var sep = url.indexOf('?') === -1 ? '?' : '&';
+    return url + sep + 'v=' + Date.now();
+}
+
 async function LoadPage(path, id) {
     try {
-        var response = await fetch(path);
+        var response = await fetch(cacheBust(path));
         var html = await response.text();
         var container = document.getElementById(id);
         container.innerHTML = html;
@@ -22,7 +28,7 @@ async function LoadPage(path, id) {
 }
 
 function FetchData(filePath) {
-    return fetch(filePath)
+    return fetch(cacheBust(filePath))
         .then(function(response) {
             if (!response.ok) {
                 throw new Error('Failed to fetch data from ' + filePath);

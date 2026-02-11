@@ -9,7 +9,7 @@
 
     var dataPath = '../Data/' + projectId + '.json';
 
-    fetch(dataPath)
+    fetch(cacheBust(dataPath))
         .then(function(response) {
             if (!response.ok) throw new Error('Could not load project data');
             return response.json();
