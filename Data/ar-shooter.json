@@ -1,0 +1,22 @@
+{
+    "title": "AR Shooter",
+    "subtitle": "AR Core | Enemy Waves | Character Selection",
+    "content": "AR Core | Enemy Waves | Character Selection",
+    "imageUrl": "Images/ProjectData/SSARShooter.png",
+    "engine": "Unity",
+    "status": "Development Complete",
+    "description": "Explored Unity AR Core and AR Foundation functionalities to create a shooter game, where you select a playable character from a selection of 2 player characters with different stats. Survive the hordes of enemies attacking you. There are two types of enemies in the game, and the game is structured to easily handle more. This game was developed for mobile devices.",
+    "videoUrl": "https://drive.google.com/file/d/1SJVhhtWOK_xAZ6B58hiev9yYY2HIB8O3/preview",
+    "highlights": [
+        { "name": "Integration with AR Core", "detail": "Integrated Unity with ARCore & AR Foundation packages, to create an empty game world on a real world plane." },
+        { "name": "Combat", "detail": "Simple combat mechanic between player and the enemies where the player uses gun to shoot, and the enemies get close and perform melee attacks." },
+        { "name": "Character Selection", "detail": "Select from two different characters with different stats to play." },
+        { "name": "Different classes of Enemies", "detail": "Use of inheritance to create different enemy classes." },
+        { "name": "Enemy Waves", "detail": "A 3 wave spawner created using scriptable objects to handle different enemies per wave and per level." }
+    ],
+    "roles": [
+        "Solo developer"
+    ],
+    "tech": ["Unity", "C#", "AR Core", "AR Foundation", "Github"],
+    "details": "Explored Unity AR Core and AR Foundation functionalities to create a shooter game, where you select a playable character from a selection of 2 player characters with different stats. Survive the hordes of enemies attacking you. There are two types of enemies in the game, and the game is structured to easily handle more. This game was developed for mobile devices."
+}

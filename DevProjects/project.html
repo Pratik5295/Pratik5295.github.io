@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css">
+    <link rel="stylesheet" href="../FooterFolder/footer.css">
+    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <script src="../Scripts/HtmlLoader.js"></script>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <main id="project-content">
+        <div class="project-header" id="project-header">
+            <h1 id="project-title"></h1>
+            <p class="project-subtitle" id="project-subtitle"></p>
+            <div class="project-meta">
+                <span class="meta-badge engine" id="project-engine"></span>
+                <span class="meta-badge status" id="project-status"></span>
+            </div>
+        </div>
+
+        <section class="project-section">
+            <h2 class="section-label">Description</h2>
+            <p id="project-description"></p>
+        </section>
+
+        <section class="project-section" id="video-section" style="display:none;">
+            <h2 class="section-label">Video</h2>
+            <div class="video-wrapper">
+                <iframe id="project-video" title="Project Video" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="project-section" id="highlights-section" style="display:none;">
+            <h2 class="section-label">Highlights</h2>
+            <ul id="highlights-list" class="highlights-list"></ul>
+        </section>
+
+        <div class="two-column">
+            <section class="project-section" id="roles-section" style="display:none;">
+                <h2 class="section-label">Role</h2>
+                <ul id="roles-list"></ul>
+            </section>
+
+            <section class="project-section" id="tech-section" style="display:none;">
+                <h2 class="section-label">Tech Used</h2>
+                <div class="tech-tags" id="tech-list"></div>
+            </section>
+        </div>
+
+        <section class="project-section" id="details-section" style="display:none;">
+            <h2 class="section-label">Project Details</h2>
+            <p id="project-details"></p>
+        </section>
+
+        <div id="download-section" style="display:none;">
+            <a id="download-link" class="download-btn" target="_blank">Download Playable Build</a>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        LoadPage("../NavbarFolder/navbar.html", "navbar");
+        LoadPage("../FooterFolder/footer.html", "footer-container");
+    </script>
+    <script src="project.js"></script>
+</body>
+</html>

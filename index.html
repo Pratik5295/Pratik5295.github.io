@@ -1,61 +1,45 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name = "viewport" content = "width=device-width ,initial-scale=1.0">
-        <title>Pratik Shringarpure Portfolio</title>
-        <link rel = "stylesheet" href = "styles.css">
-        <link rel = "stylesheet" href = "NavbarFolder/navbar.css">
-        
-        <script src = "Scripts/HtmlLoader.js"></script>
-        <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
-
-       
-
-    </head>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Shringarpure Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="NavbarFolder/navbar.css">
+    <link rel="stylesheet" href="FooterFolder/footer.css">
+    <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
+    <script src="Scripts/HtmlLoader.js"></script>
+</head>
 <body>
-    <div id = "navbar">
-        <div id = "footer",class = "footer">
-            <script>
-                LoadPage("./FooterFolder/footer.html","footer");
-            </script>
-        </div>
-    </div>
-    
-    <!-- New Project Section-->
-     <section>
-        <div class = "section-header"><h1>Recent Work</h1></div>
-        <div class = "recent-projects-grid" id = "recent-projects-grid">
-        </div>
-     </section>
+    <div id="navbar"></div>
 
-
-    <!-- Projects Section -->
+    <!-- Recent Work Section -->
     <section>
-        <div class=" section-header"><h1>Game Projects</h1></div>
-        <div class="grid-container" id = "grid-container">
-          <!--Projects grid will be created here--> 
-        </div>
+        <div class="section-header"><h1>Recent Work</h1></div>
+        <div class="projects-grid" id="recent-projects-grid"></div>
+    </section>
+
+    <!-- Game Projects Section -->
+    <section>
+        <div class="section-header"><h1>Game Projects</h1></div>
+        <div class="projects-grid" id="grid-container"></div>
     </section>
 
     <!-- Art Section -->
     <section>
-        <div class=" section-header"><h1>Art Projects</h1></div>
-        <div id = "artHomePage"></div>
-    <script> 
-        window.addEventListener("load", function()
-        {
-            LoadPage("Art/Homepage-Art.html","artHomePage");
-        });
-    </script>
+        <div class="section-header"><h1>Art Projects</h1></div>
+        <div id="artHomePage"></div>
     </section>
 
+    <div id="footer-container"></div>
 
     <script>
-        LoadPage("./NavbarFolder/navbar.html","navbar");
+        LoadPage("./NavbarFolder/navbar.html", "navbar");
+        LoadPage("./FooterFolder/footer.html", "footer-container");
+        window.addEventListener("load", function() {
+            LoadPage("Art/Homepage-Art.html", "artHomePage");
+        });
     </script>
-    
-    <script src = "DevProject.js"></script>
+    <script src="DevProject.js"></script>
 </body>
 </html>

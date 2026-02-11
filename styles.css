@@ -1,134 +1,135 @@
-body
-{
-    font-family: Verdana, Helvetica, sans-serif;
-    margin-top: 80px;
-    margin-left:60px;
-    margin-right:60px;
-    padding: 10px;
-    background: #26262D;
-    color:rgb(243, 232, 232);
-    height: 100vh; /* Make sure the body takes the full viewport height */
-    display: flex;
-    flex-direction: column;
-}
-
-
-.section-header
-{
-    border-bottom: 5px solid #04BC75;
-}
-
-.section-header h1
-{
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-}
-
-
-
-/* SECTION: EACH PROJECT OVERVIEW */
-
-/* Grid container styles */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 4 elements per row */
-    margin-top: 20px;
-    margin-bottom: 40px;
-    gap: 30px;
-    justify-items: start; /* Align items to the left */
-}
-
-.recent-projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 4 elements per row */
-    margin-top: 20px;
-    margin-bottom: 40px;
-    gap: 30px;
-    justify-items: start; /* Align items to the left */
-}
-
-/* Project template styles - Refers to grid cells on Index page */
-
-
-.project-template {
-    width: 26vw; /* 20% of the viewport width */
-    height: 36vh; /* 24% of the viewport height */
-    border: 1px solid gold; /* Gold border */
-    position: relative; /* Context for absolutely positioned elements */
-    overflow: hidden; /* Ensure the content stays inside the container */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Align text at the bottom */
-    color: #FFFFFF; /* White text color */
-    padding: 20px; /* Add some padding around the text */
+* {
     box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Helvetica, sans-serif;
+    margin: 0 auto;
+    padding: 2.5rem 3.5rem;
+    max-width: 1400px;
+    background: #26262D;
+    color: rgb(243, 232, 232);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Section Headers */
+.section-header {
+    border-bottom: 4px solid #04BC75;
+    margin-top: 2rem;
+}
+
+.section-header h1 {
+    font-weight: bold;
+    font-size: 1.75rem;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 1.5em;
-
-    text-shadow: 2em 2em 2em black;
-
-    /* Background Image */
-    
-    background-size: cover;          
-    background-position: center;      /* Centers the image */
-    background-repeat: no-repeat;     /* Prevents the image from repeating */
+    margin: 0.5rem 0;
 }
 
-.grid-container :hover
-{
-    transform: scale(1.025);
-    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-.recent-projects-grid :hover
-{
-    transform: scale(1.025);
-    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+/* Project Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
 }
 
-
-.projTitle
-{
-    color:white;
-    text-decoration: none;
-    margin: 10px 0;
-    margin-bottom: 10px;
+/* Project Card */
+.project-template {
+    aspect-ratio: 4 / 3;
+    border: 1px solid gold;
     position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #FFFFFF;
+    padding: 1.25rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.25s ease;
 }
 
-.project-template h1, .project-template p {
-    position: relative; /* Keep the text on top of the background */
-    z-index: 2; /* Ensure text stays above the background image */
-    margin: 10px 0;
+.project-template:hover {
+    transform: scale(1.03);
 }
 
-.project-template h1 {
-    font-size: 2vw; /* Font size relative to the viewport width */
-    margin-bottom: 5px;
+/* Card overlay for text readability */
+.project-template::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    z-index: 1;
+    pointer-events: none;
 }
 
-.project-template p {
-    font-size: 1.2vw; /* Smaller font size for the paragraphs */
-    margin-bottom: 5px;
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
 }
 
+.projTitle {
+    font-size: 1.2rem;
+    margin: 0 0 0.25rem 0;
+    text-shadow: 1px 1px 4px black;
+}
 
+.projEngine {
+    font-size: 0.85rem;
+    margin: 0 0 0.15rem 0;
+    color: #04BC75;
+    font-weight: bold;
+}
 
+.projContent {
+    font-size: 0.8rem;
+    margin: 0;
+    opacity: 0.85;
+}
 
-/* RESPONSIVE PAGE SECTION */
-
-
-/* For smaller screens, adjust the grid */
-
-@media (max-width: 768px) {
-   
-    .grid-container 
-    {
-        grid-template-columns: repeat(2, 1fr); /* 4 elements per row */
+/* Responsive: Tablet */
+@media (max-width: 1024px) {
+    body {
+        padding: 1.5rem 2rem;
     }
-    .recent-projects-grid
-    {
-        grid-template-columns: repeat(2, 1fr); /* 4 elements per row */
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+/* Responsive: Phone */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    .section-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .projTitle {
+        font-size: 1.1rem;
     }
 }

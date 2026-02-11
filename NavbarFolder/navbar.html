@@ -1,38 +1,48 @@
-<header>Pratik Shringarpure</header>
+<header>
+    <a href="/" class="logo">Pratik Shringarpure</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
 
-
-<div class = "footer">
-    <div class = "subtitle">Game Developer</div>
-    
+<div class="header-info">
+    <div class="subtitle">Game Developer</div>
     <div class="social-icons">
         <a href="https://github.com/Pratik5295" target="_blank">
-            <img src="https://pratikshringarpure.com/Images/Social/Icon-Github.png" alt="GitHub">
+            <img src="/Images/Social/Icon-Github.png" alt="GitHub">
         </a>
         <a href="https://www.linkedin.com/in/pratik-shringarpure/" target="_blank">
-            <img src="https://pratikshringarpure.com/Images/Social/LinkedIn-Icon.png" alt="LinkedIn">
+            <img src="/Images/Social/LinkedIn-Icon.png" alt="LinkedIn">
         </a>
         <a href="https://www.youtube.com/channel/UCMES0qUHnZriS-L0bVLqTLw" target="_blank">
-            <img src="https://pratikshringarpure.com/Images/Social/Icon-Youtube.png" alt="YouTube">
+            <img src="/Images/Social/Icon-Youtube.png" alt="YouTube">
         </a>
         <a href="mailto:pratik.shringarpure05@gmail.com">
-            <img src="https://pratikshringarpure.com/Images/Social/Icon-Email.png" alt="Email">
+            <img src="/Images/Social/Icon-Email.png" alt="Email">
         </a>
     </div>
 </div>
 
-<nav class = "navbar">
+<nav class="navbar" id="navbar-menu">
     <ul>
-        <li><a href = "https://pratikshringarpure.com/">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="https://github.com/Pratik5295" target="_blank">Github</a></li>
         <li><a href="https://www.artstation.com/pratikshringarpure5" target="_blank">Art Station</a></li>
-        <li><a href = "https://pratikshringarpure.com/Pages/aboutme.html">Resume</a></li>
-
-
-        <!--Removed game link as development paused for it-->
-        <!--<li><a href = "https://pratikshringarpure.com/WebGL/index.html">Game</a></li>
-        <li><a href = "WebGL/index.html">Local Game</a></li>-->
-        
-
+        <li><a href="/Pages/aboutme.html">Resume</a></li>
     </ul>
 </nav>
 
+<script>
+    (function() {
+        var btn = document.getElementById('hamburger');
+        var menu = document.getElementById('navbar-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', function() {
+                btn.classList.toggle('active');
+                menu.classList.toggle('open');
+            });
+        }
+    })();
+</script>

@@ -1,53 +1,41 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="aboutme.css">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css">
+    <link rel="stylesheet" href="../FooterFolder/footer.css">
+    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <script src="../Scripts/HtmlLoader.js"></script>
+</head>
+<body>
+    <div id="navbar"></div>
 
-    <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width , initial-scale=1.0">
-        <link rel = "stylesheet" href = "aboutme.css">
+    <h1 class="page-title">About Me</h1>
 
-        <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
-        
-        <title>About Me</title>
+    <div class="resume">
+        <iframe src="../Data/Resume.pdf" width="100%" height="800" type="application/pdf"></iframe>
+    </div>
 
-    <!---Navigation Bar Loading-->
-    <link rel = "stylesheet" href = "../NavbarFolder/navbar.css">
-    <script src = "../Scripts/HtmlLoader.js"></script>
+    <div class="about-container">
+        <div class="text-section">
+            <p>Greetings and welcome to my portfolio!</p>
+            <p>I'm Pratik, a seasoned Unity and C# Developer boasting four years of hands-on experience, coupled with a Master's degree in Game Design and Development.</p>
+            <p>Take a moment to explore my YouTube channels.</p>
+            <p>Should you wish to collaborate or engage my services, please don't hesitate to reach out using the contact information provided below.</p>
+        </div>
+        <div class="image-section">
+            <img src="../Images/ProjectData/Profile.png" alt="Pratik's photo">
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
 
     <script>
-        LoadPage("../NavbarFolder/navbar.html","navbar");
+        LoadPage("../NavbarFolder/navbar.html", "navbar");
+        LoadPage("../FooterFolder/footer.html", "footer-container");
     </script>
-
-    <link rel = "stylesheet" href = "../FooterFolder/footer.css">
-    </head>
-
-    <body>
-
-        <div id = "navbar"></div>
-        <pageTitle>About Me</pageTitle>
-      
-
-        <div class = "resume">
-            <iframe src="../Data/Resume.pdf"  width="100%" height="800" type="application/pdf"></iframe>
-        </div>
-
-
-
-        <div class="container">
-
-            <div class="text-section">
-                <p>Greetings and welcome to my portfolio!</p>
-                <p>I’m Pratik, a seasoned Unity and C# Developer boasting four years of hands-on experience, coupled with a Master’s degree in Game Design and Development.</p>
-                <p>Take a moment to explore my YouTube channels.</p>
-                <p>Should you wish to collaborate or engage my services, please don’t hesitate to reach out using the contact information provided below.</p>
-            </div>
-
-            <div class="image-section">
-                <img src="../Images/ProjectData/Profile.png" alt="Pratik's photo">
-            </div>
-
-        </div>
-           
-        
-    </body>
+</body>
 </html>

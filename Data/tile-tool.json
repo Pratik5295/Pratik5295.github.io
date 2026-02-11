@@ -1,0 +1,18 @@
+{
+    "title": "Tile Editor Tool",
+    "subtitle": "Unity Tool Programming | Custom Editor | Level Design",
+    "content": "Unity Tool Programming - A customizable tile editor tool to create levels!",
+    "imageUrl": "Images/ProjectData/SSTileEditor.png",
+    "engine": "Unity",
+    "status": "Development Complete and used in game",
+    "description": "An in-editor Unity Tool created using Unity and C# to assist developers/designers alike to easily populate a variety of tiles to make a level.",
+    "videoUrl": "https://www.youtube.com/embed/hcMgYlEsHhY?si=SEZ4Ftk26K4w-uo-",
+    "highlights": [],
+    "roles": [
+        "Designed the tool to optimize level designing process",
+        "Development of the tile editor UI windows and tool logic to create different palettes of tiles",
+        "Integration of this tool into a Tower Defense game prototype"
+    ],
+    "tech": ["Unity", "C#", "Github"],
+    "details": "The project delves into custom tool programming within Unity & C#, aimed at expediting game development processes. In order to facilitate level designers in swiftly exploring their level prototypes, a 3D tile editor tool has been developed. This tool offers the following functionalities: Customizable Tile Palette: Users can create a personalized tile palette by adding tiles of their choice. 3D Grid-Based System: The tool establishes a 3D grid-based system, enhancing the level's visibility and enabling users to paint tiles more efficiently. By integrating these features, the tool empowers designers to create levels at a faster pace, thus streamlining the development workflow."
+}

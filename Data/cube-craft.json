@@ -1,0 +1,19 @@
+{
+    "title": "Cube Craft: Minecraft inspired demo",
+    "subtitle": "Unreal Engine 5 | Blueprints | Building Game",
+    "content": "A first person building game created using Unreal Engine 5 and Blueprints.",
+    "imageUrl": "Images/ProjectData/SSCubeCraft.png",
+    "engine": "Unreal",
+    "status": "Development Complete",
+    "description": "A Minecraft-style game has been developed in Unreal Engine using Blueprints. This is my first prototype in Unreal Engine, and was learning the tool along with this project.",
+    "videoUrl": "https://www.youtube.com/embed/OukHUjFQ6OI?si=KdvrfQzav9nyrlU8",
+    "highlights": [],
+    "roles": [
+        "Designed and developed the concept of the game",
+        "Learned and explored Unreal Engine",
+        "Utilize Blueprints to create a playable demo",
+        "Modular code to expand, asset integration (models, animations)"
+    ],
+    "tech": ["Unreal", "Blueprints", "Github", "JIRA"],
+    "details": "In this first-person game, players have the ability to gather resources and erect blocks to construct their own village or base, selecting from a variety of six block types. The game boasts several features including Raycasting, a Save/Load System, UI system, Actor spawning, among others. Credit for the 3D model assets goes to Tidal Flask Studios."
+}

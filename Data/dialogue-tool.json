@@ -1,0 +1,23 @@
+{
+    "title": "Custom Dialogue Tool",
+    "subtitle": "Unity Tool | Dialogue System | Custom Editor",
+    "content": "Unity Tool | Dialogue System | Custom Editor",
+    "imageUrl": "Images/ProjectData/SSDialogueTool.png",
+    "engine": "Unity",
+    "status": "Development Complete",
+    "description": "Designed and developed a custom Unity Engine Editor tool to create dialogues and conversations to be played directly in the game. Each dialogue message comprises of Speaker Name, message, Unique Ids and Dialogue Options. Drag and drop connections via nodes or their option nodes to form a dialogue tree.",
+    "videoUrl": "https://drive.google.com/file/d/1KMcEGNsGffncaiMEq6sDTxCMmPlU0L1a/preview",
+    "highlights": [
+        { "name": "Dialogue System + UI", "detail": "A dialogue system branching different dialogue options." },
+        { "name": "Node Editor", "detail": "Create, Edit, Move and Delete nodes with ease. Allows easier setting of connections between nodes." },
+        { "name": "Scriptable Objects", "detail": "Tool creates scriptable objects of each dialogue tree, giving user the ability to edit them with ease in the future without the tool." },
+        { "name": "JSON Support", "detail": "Tool allows files to be created in JSON format as well, allowing the user ability to edit them without the game engine." }
+    ],
+    "roles": [
+        "Designed the features and working of the tool",
+        "Solo developer",
+        "Maintained a Confluence and JIRA board for the project to plan tasks"
+    ],
+    "tech": ["Unity", "C#", "Github", "JIRA", "Confluence"],
+    "details": "Designed and developed a custom Unity Engine Editor tool to create dialogues and conversations to be played directly in the game. Each dialogue message comprises of Speaker Name, message, Unique Ids and Dialogue Options. Drag and drop connections via nodes or their option nodes to form a dialogue tree. The tool supports creation of scriptable objects for each dialogue tree, and also provides JSON export support."
+}

@@ -1,81 +1,38 @@
-
-nav
-{
-    margin-top: 2vw;
-    height: 50px;
-    text-align: center;
-}
-
-nav ul
-{
-    margin:0px;
-    padding:0px;
-    height: 100%;   
-    list-style-type: none;
+/* Header / Logo */
+header {
     display: flex;
-    text-align: center;
-    justify-content: space-around; /* Distribute items evenly */
-    align-items: center; /* Ensure items are centered vertically */
-    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
 }
 
-nav ul li {
-    flex: 1; /* Distribute space evenly */
-    margin: 1vw; /* Add margin for better spacing */
-    text-align: center; /* Center-align each item */
-}
-
-nav ul li a 
-{
-    font-size: 1.5vw; /* Adjusted for responsiveness */
-    width:40%;
-    color:#FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: Verdana, Helvetica, sans-serif;
-    display: block; /* Ensure the clickable area covers the padding */
-    padding: 0.5vw; /* Adjusted for responsiveness */
-}
-
-
-header
-{
-    margin-bottom: 15px;
-    color:#04BC75;
-    padding: 1px;
-    text-align: left;
-    font-size: 5vw; /* Adjusted for responsiveness */
+header .logo {
+    color: #04BC75;
+    font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
-.subtitle 
-{
-    margin-top: 2vw; /* Adjusted for responsiveness */
-    font-size: 3vw; /* Adjusted for responsiveness */
+/* Subtitle + Social Row */
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-top: 3px solid #04BC75;
+}
+
+.subtitle {
+    font-size: 1.5rem;
     font-weight: bold;
-    color:white;
-    display: inline-block;
-    vertical-align: middle;
+    color: white;
 }
-
 
 /* Social Icons */
 .social-icons {
     display: flex;
-    justify-content: center;
-    gap: 2vw; /* Adjusted for responsiveness */
-    margin-top: 2vw; /* Adjusted for responsiveness */
-}
-
-.social-icons a img {
-    width: 2vw; /* Adjusted for responsiveness */
-    height: 2vw; /* Adjusted for responsiveness */
-    transition: transform 0.3s;
-}
-
-.social-icons a:hover img {
-    transform: scale(1.1);
+    gap: 0.75rem;
 }
 
 .social-icons a {
@@ -84,82 +41,159 @@ header
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 1vw; /* Adjusted for responsiveness */
+    padding: 0.5rem;
+    transition: transform 0.3s;
 }
 
+.social-icons a:hover {
+    transform: scale(1.1);
+}
 
-.footer {
+.social-icons a img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Navbar */
+nav.navbar {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+nav.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 10px 60px;
-    border-top: 3px solid #04BC75;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    nav {
-        height: auto;
-    }
-
-    nav ul {
-        flex-direction: row; /* Keep items in a row */
-        justify-content: space-between;
-    }
-
-    nav ul li {
-        width: 100%;
-    }
-
-    nav ul li a {
-        font-size: 2.5vw; /* Adjust for smaller screens */
-        padding: 5px;
-    }
-
-    .footer {
-        width: auto;
-    }
+nav.navbar ul li a {
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Verdana, Helvetica, sans-serif;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 0.2s;
 }
 
-@media (min-width: 768px) {
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 20px 50px;
-    }
-
-    header {
-        font-size: 2.5rem;
-    }
-
-    .subtitle {
-        font-size: 2rem;
-        margin-top: 0;
-    }
-
-    .social-icons {
-        margin-top: 0;
-    }
+nav.navbar ul li a:hover {
+    color: #04BC75;
 }
 
+/* Hamburger Button - hidden on desktop */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Desktop Large */
 @media (min-width: 1200px) {
-    .header {
-        padding: 20px 20px;
-    }
-
-    header {
+    header .logo {
         font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 2.5rem;
-    }
-
-    nav ul li a {
-        font-size: 1.5vw; /* Slightly smaller on large screens */
+        font-size: 2rem;
     }
 
     .social-icons a {
-        padding: 12px;
+        padding: 0.65rem;
+    }
+
+    .social-icons a img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    nav.navbar ul li a {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    header .logo {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav.navbar {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav.navbar.open {
+        max-height: 300px;
+    }
+
+    nav.navbar ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav.navbar ul li a {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1.4rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .social-icons a img {
+        width: 1rem;
+        height: 1rem;
     }
 }

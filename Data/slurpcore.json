@@ -1,0 +1,20 @@
+{
+    "title": "Slurpcore",
+    "subtitle": "FPS | Game Jam | Scaling Gun | Arena Survival",
+    "content": "An FPS game created for the GMTK Game Jam 2024",
+    "imageUrl": "Images/ProjectData/SSSlurpcore.png",
+    "engine": "Unity",
+    "status": "Released",
+    "description": "An FPS game made for GMTK Game Jam 2024, but instead of shooting bullets you enlarge or shrink the enemy with your scaling gun to make them vulnerable. You need to scale down and then crush/kill them by stomping or walking over them.",
+    "videoUrl": "https://www.youtube.com/embed/cvonGtU0uNM?si=7xHmNGZpG23Q-K1f",
+    "highlights": [],
+    "roles": [
+        "Designed and developed the concept of the game",
+        "Scripted all of game systems and managers involved like Level and Scene Management",
+        "Design and developed the UI of the game",
+        "Score System development",
+        "Development of all Menus and Audio Managers"
+    ],
+    "tech": ["Unity", "C#", "Github", "Trello"],
+    "details": "This game was created over a span of 3 days for the Game Maker's Toolkit GMTK Game Jam 2024. The team consisted of 2 gameplay programmers, 1 UI and system programmer, 1 animator and 2 game artists. Over the time of 3 days, the core design of game idea was created based on the theme provided at the start of the jam - Scaling. The theme was incorporated with enemies in an arena based survival FPS game. The bullets instead of harming the enemies would either shrink or expand the enemies, some enemy types had to be shrunk and stomped over while the other type had to be expanded and made to burst. Due to last minute bugs, the expanding enemy had to be scraped out. I functioned as the UI and System programmer, creating all UI menus, audio managers, game managers, score and level system and integrating the functionality into the game. Bug fixing and integrating art assets into the game also become a side responsibility."
+}
