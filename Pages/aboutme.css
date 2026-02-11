@@ -4,7 +4,7 @@ body {
     font-family: 'Inter', Verdana, Helvetica, sans-serif;
     margin: 0 auto;
     padding: 1.5rem 3.5rem;
-    max-width: 1200px;
+    max-width: 1400px;
     background: #0d0d14;
     color: #e0dfe4;
     min-height: 100vh;
@@ -49,80 +49,128 @@ body::before {
     background: linear-gradient(90deg, #04BC75, gold);
 }
 
-.resume {
+/* Side-by-side layout: bio left, resume right */
+.about-layout {
+    display: flex;
+    gap: 2.5rem;
+    align-items: stretch;
     margin-bottom: 2.5rem;
 }
 
-.resume iframe {
-    width: 100%;
-    height: 80vh;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
-    background: rgba(18, 18, 28, 0.8);
-}
-
-.about-container {
+/* Bio column */
+.bio-side {
+    flex: 0 0 340px;
     display: flex;
-    gap: 3rem;
+    flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    gap: 1.5rem;
     background: rgba(18, 18, 28, 0.6);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 12px;
-    margin-bottom: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.image-section img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(4, 188, 117, 0.35);
+    box-shadow: 0 0 25px rgba(4, 188, 117, 0.12);
 }
 
 .text-section {
-    flex: 1;
-    font-size: 1.05rem;
-    line-height: 1.9;
+    font-size: 0.95rem;
+    line-height: 1.8;
     font-weight: 300;
     color: #c0c0c0;
 }
 
 .text-section p {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.85rem 0;
 }
 
-.image-section {
-    flex-shrink: 0;
+/* Download button */
+.resume-download-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #04BC75, #03a368);
+    color: #0d0d14;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(4, 188, 117, 0.25);
+    margin-top: auto;
 }
 
-.image-section img {
-    max-width: 280px;
+.resume-download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(4, 188, 117, 0.35);
+}
+
+/* Resume viewer column */
+.resume-side {
+    flex: 1;
+    min-height: 0;
+}
+
+.resume-side iframe {
     width: 100%;
+    height: 100%;
+    min-height: 85vh;
+    border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 12px;
-    border: 1px solid rgba(4, 188, 117, 0.25);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background: rgba(18, 18, 28, 0.8);
+    display: block;
 }
 
 /* Tablet */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     body {
         padding: 1rem 1.5rem;
     }
 
-    .page-title {
-        font-size: 1.8rem;
-    }
-
-    .about-container {
+    .about-layout {
         flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
+        gap: 1.5rem;
     }
 
-    .page-title::after {
-        left: 50%;
-        transform: translateX(-50%);
+    .bio-side {
+        flex: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1.5rem;
+        gap: 1.25rem;
     }
 
     .image-section img {
-        max-width: 220px;
+        width: 140px;
+        height: 140px;
     }
 
-    .resume iframe {
-        height: 60vh;
+    .text-section {
+        flex: 1;
+        min-width: 200px;
+        text-align: left;
+    }
+
+    .resume-download-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .resume-side iframe {
+        min-height: 70vh;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
     }
 }
 
@@ -136,15 +184,22 @@ body::before {
         font-size: 1.5rem;
     }
 
-    .text-section {
-        font-size: 0.95rem;
+    .bio-side {
+        flex-direction: column;
+        padding: 1.25rem;
     }
 
-    .resume iframe {
-        height: 50vh;
+    .text-section {
+        font-size: 0.9rem;
+        text-align: center;
     }
 
     .image-section img {
-        max-width: 180px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .resume-side iframe {
+        min-height: 55vh;
     }
 }
