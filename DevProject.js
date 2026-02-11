@@ -25,9 +25,23 @@ function createProjectCard(template, data) {
     clone.innerHTML = clone.innerHTML
         .replace('{{imageUrl}}', data.imageUrl || '')
         .replace('{{title}}', data.title || '')
-        .replace('{{content}}', data.subtitle || data.content || '')
         .replace('{{gameEngine}}', data.engine || data.gameEngine || '')
         .replace('{{pageLink}}', pageLink);
+
+    // Split subtitle by | and create individual tag pills
+    var tagsContainer = clone.querySelector('.projTags');
+    var subtitle = data.subtitle || data.content || '';
+    var parts = subtitle.split('|');
+    parts.forEach(function(part) {
+        var trimmed = part.trim();
+        if (trimmed) {
+            var span = document.createElement('span');
+            span.className = 'projTag';
+            span.textContent = trimmed;
+            tagsContainer.appendChild(span);
+        }
+    });
+
     return clone;
 }
 

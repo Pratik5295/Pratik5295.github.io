@@ -150,19 +150,46 @@ body::before {
 }
 
 .projEngine {
-    font-size: 0.8rem;
-    margin: 0 0 0.2rem 0;
+    align-self: center;
+    font-size: 0.7rem;
+    margin: 0 0 0.5rem 0;
     color: #04BC75;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
+    background: rgba(4, 188, 117, 0.12);
+    border: 1px solid rgba(4, 188, 117, 0.35);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    width: fit-content;
 }
 
-.projContent {
-    font-size: 0.8rem;
+/* Subtitle tag pills */
+.projTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
     margin: 0;
-    color: #b0b0b0;
-    font-weight: 300;
+}
+
+.projTag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #c0c0c0;
+    background: rgba(192, 192, 192, 0.08);
+    border: 1px solid rgba(192, 192, 192, 0.25);
+    padding: 0.2rem 0.55rem;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.project-template:hover .projTag {
+    border-color: rgba(4, 188, 117, 0.35);
+    color: #d0d0d0;
 }
 
 /* Responsive: Tablet */
@@ -195,5 +222,10 @@ body::before {
 
     .projTitle {
         font-size: 1.05rem;
+    }
+
+    .projTag {
+        font-size: 0.6rem;
+        padding: 0.15rem 0.45rem;
     }
 }
