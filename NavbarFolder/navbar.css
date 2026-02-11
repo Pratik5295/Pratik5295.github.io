@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Header / Logo */
 header {
     display: flex;
@@ -7,11 +9,19 @@ header {
 }
 
 header .logo {
+    font-family: 'Cinzel', serif;
     color: #04BC75;
     font-size: 2.5rem;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
+    letter-spacing: 2px;
+    text-shadow: 0 0 30px rgba(4, 188, 117, 0.25);
+    transition: text-shadow 0.3s ease;
+}
+
+header .logo:hover {
+    text-shadow: 0 0 40px rgba(4, 188, 117, 0.45);
 }
 
 /* Subtitle + Social Row */
@@ -19,14 +29,18 @@ header .logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
-    border-top: 3px solid #04BC75;
+    padding: 0.75rem 0;
+    border-top: 2px solid;
+    border-image: linear-gradient(90deg, #04BC75, gold, #04BC75) 1;
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #c0c0c0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 /* Social Icons */
@@ -36,22 +50,31 @@ header .logo {
 }
 
 .social-icons a {
-    background-color: silver;
+    background: rgba(192, 192, 192, 0.15);
+    border: 1px solid rgba(192, 192, 192, 0.3);
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-    transform: scale(1.1);
+    background: rgba(4, 188, 117, 0.2);
+    border-color: #04BC75;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(4, 188, 117, 0.2);
 }
 
 .social-icons a img {
     width: 1.25rem;
     height: 1.25rem;
+    filter: brightness(0.9);
+}
+
+.social-icons a:hover img {
+    filter: brightness(1.1);
 }
 
 /* Navbar */
@@ -65,47 +88,62 @@ nav.navbar ul {
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 }
 
 nav.navbar ul li a {
-    font-size: 1rem;
-    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #c0c0c0;
     text-decoration: none;
-    font-weight: bold;
-    font-family: Verdana, Helvetica, sans-serif;
-    padding: 0.5rem 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
     display: block;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 nav.navbar ul li a:hover {
     color: #04BC75;
+    background: rgba(4, 188, 117, 0.08);
 }
 
 /* Hamburger Button - hidden on desktop */
 .hamburger {
     display: none;
     background: none;
-    border: none;
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    border-radius: 6px;
     cursor: pointer;
     padding: 0.5rem;
     flex-direction: column;
     gap: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.hamburger:hover {
+    border-color: #04BC75;
 }
 
 .hamburger span {
     display: block;
-    width: 28px;
-    height: 3px;
-    background: #FFFFFF;
+    width: 24px;
+    height: 2px;
+    background: #c0c0c0;
     border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s, background 0.3s;
+}
+
+.hamburger:hover span {
+    background: #04BC75;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -113,7 +151,7 @@ nav.navbar ul li a:hover {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Desktop Large */
@@ -123,31 +161,33 @@ nav.navbar ul li a:hover {
     }
 
     .subtitle {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .social-icons a {
-        padding: 0.65rem;
+        padding: 0.6rem;
     }
 
     .social-icons a img {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.4rem;
+        height: 1.4rem;
     }
 
     nav.navbar ul li a {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        padding: 0.5rem 1.5rem;
     }
 }
 
 /* Tablet */
 @media (max-width: 768px) {
     header .logo {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
     }
 
     .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .hamburger {
@@ -157,7 +197,7 @@ nav.navbar ul li a:hover {
     nav.navbar {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: max-height 0.4s ease;
     }
 
     nav.navbar.open {
@@ -167,12 +207,14 @@ nav.navbar ul li a:hover {
     nav.navbar ul {
         flex-direction: column;
         gap: 0;
+        padding: 0.5rem 0;
     }
 
     nav.navbar ul li a {
         padding: 0.75rem 1rem;
         font-size: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(192, 192, 192, 0.08);
+        border-radius: 0;
     }
 
     .header-info {
@@ -185,11 +227,11 @@ nav.navbar ul li a:hover {
 /* Phone */
 @media (max-width: 480px) {
     header .logo {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 
     .social-icons a img {

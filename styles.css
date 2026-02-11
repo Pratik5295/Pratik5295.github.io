@@ -1,37 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: Verdana, Helvetica, sans-serif;
+    font-family: 'Inter', Verdana, Helvetica, sans-serif;
     margin: 0 auto;
     padding: 2.5rem 3.5rem;
     max-width: 1400px;
-    background: #26262D;
-    color: rgb(243, 232, 232);
+    background: #0d0d14;
+    color: #e0dfe4;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* Subtle background texture */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(4, 188, 117, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(4, 188, 117, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 /* Section Headers */
 .section-header {
-    border-bottom: 4px solid #04BC75;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    text-align: center;
+}
+
+.section-header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #04BC75, gold, #04BC75, transparent);
+    margin-top: 0.5rem;
 }
 
 .section-header h1 {
-    font-weight: bold;
-    font-size: 1.75rem;
-    text-align: center;
-    margin: 0.5rem 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #e8e8e8;
+    text-shadow: 0 0 20px rgba(4, 188, 117, 0.3);
 }
 
 /* Project Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
     margin-bottom: 2.5rem;
     gap: 1.5rem;
 }
@@ -39,7 +73,6 @@ body {
 /* Project Card */
 .project-template {
     aspect-ratio: 4 / 3;
-    border: 1px solid gold;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -48,16 +81,22 @@ body {
     color: #FFFFFF;
     padding: 1.25rem;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 1rem;
+    border-radius: 12px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.25s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .project-template:hover {
-    transform: scale(1.03);
+    transform: translateY(-6px);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(4, 188, 117, 0.15),
+        inset 0 0 20px rgba(4, 188, 117, 0.05);
+    border-color: #04BC75;
 }
 
 /* Card overlay for text readability */
@@ -67,10 +106,28 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 70%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    height: 80%;
+    background: linear-gradient(to top, rgba(5, 5, 15, 0.95) 0%, rgba(5, 5, 15, 0.6) 50%, transparent 100%);
     z-index: 1;
     pointer-events: none;
+}
+
+/* Subtle green accent line at bottom of card */
+.project-template::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #04BC75, transparent);
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.project-template:hover::after {
+    opacity: 1;
 }
 
 .project-card-link {
@@ -84,22 +141,28 @@ body {
 }
 
 .projTitle {
-    font-size: 1.2rem;
-    margin: 0 0 0.25rem 0;
-    text-shadow: 1px 1px 4px black;
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.5px;
 }
 
 .projEngine {
-    font-size: 0.85rem;
-    margin: 0 0 0.15rem 0;
+    font-size: 0.8rem;
+    margin: 0 0 0.2rem 0;
     color: #04BC75;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .projContent {
     font-size: 0.8rem;
     margin: 0;
-    opacity: 0.85;
+    color: #b0b0b0;
+    font-weight: 300;
 }
 
 /* Responsive: Tablet */
@@ -122,6 +185,7 @@ body {
 
     .section-header h1 {
         font-size: 1.3rem;
+        letter-spacing: 2px;
     }
 
     .projects-grid {
@@ -130,6 +194,6 @@ body {
     }
 
     .projTitle {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 }
