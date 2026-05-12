@@ -4,20 +4,20 @@
     "imageUrl": "Images/ProjectData/SS8BallChampions.png",
     "engine": "Unity",
     "status": "Live on Google Play",
-    "description": "Working at Kazoo Games as a Tools Programmer and Backend Developer on 8 Ball Champions: PvP Pool Game, handling Azure backend tasks, gacha system development, and UI implementation.",
+    "description": "Worked at Kazoo Games as a Tools Programmer and Backend Developer on 8 Ball Champions: PvP Pool Game, handling Azure backend tasks, gacha system implementation, and UI development.",
     "highlights": [
-        { "name": "Gacha System", "detail": "Designing and implementing the gacha system for in-game rewards and player progression." },
-        { "name": "Azure Backend", "detail": "Handling backend tasks and service integrations using Microsoft Azure." },
-        { "name": "Tools Programming", "detail": "Building internal developer tools to support and streamline the development pipeline." },
-        { "name": "UI Development", "detail": "Creating and implementing UI screens and interactive components for the game." }
+        { "name": "Gacha System", "detail": "Implemented and developed the gacha system for in-game rewards and player progression." },
+        { "name": "Azure Backend", "detail": "Handled backend tasks and service integrations using Microsoft Azure." },
+        { "name": "Tools Programming", "detail": "Built internal developer tools to support and streamline the development pipeline." },
+        { "name": "UI Development", "detail": "Created and implemented UI screens and interactive components for the game." }
     ],
     "roles": [
         "Tools Programmer at Kazoo Games",
-        "Backend development and integration with Microsoft Azure",
-        "Gacha system design and implementation",
-        "UI development and screen implementation"
+        "Handled backend development and integration with Microsoft Azure",
+        "Implemented and developed the gacha system",
+        "Developed and implemented UI screens"
     ],
     "tech": ["Unity", "C#", "Azure", "Figma", "uGUI"],
-    "details": "At Kazoo Games, I work as a Tools Programmer and Backend Developer on 8 Ball Champions: PvP Pool Game. My responsibilities span multiple areas including building internal developer tools, handling backend tasks with Microsoft Azure, developing the gacha system for in-game rewards and progression, and contributing to UI development. 8 Ball Champions is a live multiplayer pool game available on the Google Play Store.",
+    "details": "At Kazoo Games, I worked as a Tools Programmer and Backend Developer on 8 Ball Champions: PvP Pool Game. My responsibilities spanned multiple areas including building internal developer tools, handling backend tasks with Microsoft Azure, implementing and developing the gacha system for in-game rewards and progression, and contributing to UI development. 8 Ball Champions is a live multiplayer pool game available on the Google Play Store.",
     "storeUrl": "https://play.google.com/store/apps/details?id=com.kazoo.pool2.gp&hl=en-US"
 }
