@@ -134,6 +134,8 @@ body::before {
     margin: 0;
     font-weight: 300;
     color: var(--silver);
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 /* Video */
@@ -170,6 +172,7 @@ body::before {
     line-height: 1.6;
     color: var(--silver);
     font-weight: 300;
+    overflow-wrap: break-word;
 }
 
 .highlights-list li strong {
@@ -199,6 +202,7 @@ body::before {
     line-height: 1.6;
     color: var(--silver);
     font-weight: 300;
+    overflow-wrap: break-word;
 }
 
 /* Tech Tags */

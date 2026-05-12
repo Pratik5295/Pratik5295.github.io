@@ -15,8 +15,11 @@
         { "name": "Enemy Waves", "detail": "A 3 wave spawner created using scriptable objects to handle different enemies per wave and per level." }
     ],
     "roles": [
-        "Solo developer"
+        "Designed and developed as a solo project",
+        "Designed the character selection system, enemy types, and wave structure",
+        "Integrated Unity AR Core and AR Foundation for real-world plane detection",
+        "Optimised and built for Android mobile devices"
     ],
     "tech": ["Unity", "C#", "AR Core", "AR Foundation", "Github"],
-    "details": "Explored Unity AR Core and AR Foundation functionalities to create a shooter game, where you select a playable character from a selection of 2 player characters with different stats. Survive the hordes of enemies attacking you. There are two types of enemies in the game, and the game is structured to easily handle more. This game was developed for mobile devices."
+    "details": "Designed and developed a mobile AR shooter game to explore Unity AR Core and AR Foundation. The game places a virtual battlefield on real-world detected planes, creating an immersive experience where enemies appear in the player's physical environment. Players choose from two characters with distinct stats before surviving waves of enemies. Enemy types use inheritance to share base AI behaviour while allowing for varied attack patterns. The wave system is built using scriptable objects, making it straightforward to configure new waves and enemy types without code changes."
 }

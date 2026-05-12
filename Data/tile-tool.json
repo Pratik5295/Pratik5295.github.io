@@ -7,12 +7,18 @@
     "status": "Development Complete and used in game",
     "description": "An in-editor Unity Tool created using Unity and C# to assist developers/designers alike to easily populate a variety of tiles to make a level.",
     "videoUrl": "https://www.youtube.com/embed/hcMgYlEsHhY?si=SEZ4Ftk26K4w-uo-",
-    "highlights": [],
+    "highlights": [
+        { "name": "Customisable Tile Palette", "detail": "Users can build a personalised palette by adding any tiles of their choice, keeping the workflow flexible." },
+        { "name": "3D Grid System", "detail": "A 3D grid-based painting system enhances level visibility and makes tile placement faster and more precise." },
+        { "name": "Designer-Focused Workflow", "detail": "Built to help level designers rapidly prototype and iterate without needing to write code." },
+        { "name": "In-Game Integration", "detail": "Integrated directly into a Tower Defense prototype, proving the tool in a real production context." }
+    ],
     "roles": [
-        "Designed the tool to optimize level designing process",
-        "Development of the tile editor UI windows and tool logic to create different palettes of tiles",
-        "Integration of this tool into a Tower Defense game prototype"
+        "Designed and developed as a solo project",
+        "Designed the tool's workflow with level designers as the primary user",
+        "Developed the tile editor UI windows, palette logic, and 3D grid system",
+        "Integrated the tool into a Tower Defense game prototype"
     ],
     "tech": ["Unity", "C#", "Github"],
-    "details": "The project delves into custom tool programming within Unity & C#, aimed at expediting game development processes. In order to facilitate level designers in swiftly exploring their level prototypes, a 3D tile editor tool has been developed. This tool offers the following functionalities: Customizable Tile Palette: Users can create a personalized tile palette by adding tiles of their choice. 3D Grid-Based System: The tool establishes a 3D grid-based system, enhancing the level's visibility and enabling users to paint tiles more efficiently. By integrating these features, the tool empowers designers to create levels at a faster pace, thus streamlining the development workflow."
+    "details": "Designed and developed a 3D tile editor tool within Unity and C# to streamline the level design process. The tool features a customisable tile palette where users can add tiles of their choice, and a 3D grid-based system that makes placing and painting tiles faster and more intuitive. Built with level designers in mind, it removes the need for manual scene setup and allows rapid prototyping of level layouts. The tool was subsequently integrated into a Tower Defense game prototype, validating it in a real development context."
 }

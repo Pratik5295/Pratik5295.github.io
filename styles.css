@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -209,6 +213,13 @@ body::before {
     }
 }
 
+/* Responsive: Tablet-phone (768px) */
+@media (max-width: 768px) {
+    .section-header {
+        margin-top: 2rem;
+    }
+}
+
 /* Responsive: Phone */
 @media (max-width: 600px) {
     body {
@@ -218,6 +229,10 @@ body::before {
     .section-header h1 {
         font-size: 1.3rem;
         letter-spacing: 2px;
+    }
+
+    .section-header {
+        margin-top: 1.5rem;
     }
 
     .projects-grid {

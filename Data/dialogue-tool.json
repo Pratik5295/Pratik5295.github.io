@@ -14,9 +14,9 @@
         { "name": "JSON Support", "detail": "Tool allows files to be created in JSON format as well, allowing the user ability to edit them without the game engine." }
     ],
     "roles": [
-        "Designed the features and working of the tool",
-        "Solo developer",
-        "Maintained a Confluence and JIRA board for the project to plan tasks"
+        "Designed and developed as a solo project",
+        "Designed the tool's features, node architecture, and dialogue data structure",
+        "Planned and tracked tasks using Confluence and JIRA"
     ],
     "tech": ["Unity", "C#", "Github", "JIRA", "Confluence"],
     "details": "Designed and developed a custom Unity Engine Editor tool to create dialogues and conversations to be played directly in the game. Each dialogue message comprises of Speaker Name, message, Unique Ids and Dialogue Options. Drag and drop connections via nodes or their option nodes to form a dialogue tree. The tool supports creation of scriptable objects for each dialogue tree, and also provides JSON export support."
