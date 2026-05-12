@@ -225,8 +225,9 @@ body::before {
     box-shadow: 0 0 10px rgba(4, 188, 117, 0.15);
 }
 
-/* Download Button */
-#download-section {
+/* Download / Store Buttons */
+#download-section,
+#store-section {
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -249,6 +250,15 @@ body::before {
 .download-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(4, 188, 117, 0.35);
+}
+
+.store-btn {
+    background: linear-gradient(135deg, #0f9d58, #0b7a44);
+    box-shadow: 0 4px 15px rgba(15, 157, 88, 0.3);
+}
+
+.store-btn:hover {
+    box-shadow: 0 8px 25px rgba(15, 157, 88, 0.45);
 }
 
 /* Responsive */

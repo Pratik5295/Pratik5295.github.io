@@ -78,6 +78,12 @@
                 document.getElementById('download-section').style.display = '';
                 document.getElementById('download-link').href = data.downloadUrl;
             }
+
+            // Store link
+            if (data.storeUrl) {
+                document.getElementById('store-section').style.display = '';
+                document.getElementById('store-link').href = data.storeUrl;
+            }
         })
         .catch(function(err) {
             console.error(err);

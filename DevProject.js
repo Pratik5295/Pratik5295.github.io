@@ -63,6 +63,7 @@ async function init() {
         var response = await fetch(cacheBust('./Data/projects.json'));
         var projects = await response.json();
 
+        await fillGrid('professional-projects-grid', projects.professional || [], template);
         await fillGrid('recent-projects-grid', projects.recent, template);
         await fillGrid('grid-container', projects.games, template);
     } catch (error) {

@@ -1,0 +1,21 @@
+{
+    "title": "Lawn Mowing Simulator 2",
+    "subtitle": "UI Developer | Skyhook Games | Professional",
+    "imageUrl": "Images/ProjectData/SSLawnMowingS2.png",
+    "engine": "Unity",
+    "status": "Commercial Release",
+    "description": "Contributed as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2, implementing and creating UI screens based on Figma design specifications.",
+    "highlights": [
+        { "name": "UI Implementation", "detail": "Implemented and built UI screens from scratch based on provided Figma design mockups." },
+        { "name": "Figma to Unity Pipeline", "detail": "Translated designer layouts and specifications into fully functional, polished in-game UI screens." },
+        { "name": "Designer Collaboration", "detail": "Worked closely with designers to ensure visual accuracy and a high quality player-facing experience." }
+    ],
+    "roles": [
+        "UI Developer at Skyhook Games",
+        "Implemented UI screens based on Figma design specifications",
+        "Translated designer mockups into functional in-game UI",
+        "Collaborated with designers to ensure visual accuracy and quality"
+    ],
+    "tech": ["Unity", "C#", "uGUI", "Figma"],
+    "details": "As a UI Developer at Skyhook Games, I worked on Lawn Mowing Simulator 2 implementing and creating UI screens based on Figma design specifications. My work involved translating designer mockups into fully functional and polished in-game UI, ensuring visual accuracy and a smooth player experience."
+}

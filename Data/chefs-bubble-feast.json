@@ -1,0 +1,21 @@
+{
+    "title": "Chef's Bubble Feast",
+    "subtitle": "Solo Developer | Gen AI Art | Mobile",
+    "imageUrl": "Images/ProjectData/SSChefsBubbleFeast.png",
+    "engine": "Unity",
+    "status": "Released on Google Play",
+    "description": "A mobile bubble shooter game featuring AI-generated artwork, designed and developed entirely as a solo project and published on the Google Play Store.",
+    "highlights": [
+        { "name": "Solo Development", "detail": "Designed, developed, and published the entire game as a solo project from concept to release." },
+        { "name": "Gen AI Art", "detail": "All game artwork was created using generative AI tools, enabling a rich visual style without a dedicated art team." },
+        { "name": "Mobile Release", "detail": "Successfully optimised and published on the Google Play Store." }
+    ],
+    "roles": [
+        "Solo Developer — full game design, programming, and publishing",
+        "Art direction and integration of generative AI artwork",
+        "Mobile optimisation and release management"
+    ],
+    "tech": ["Unity", "C#", "Gen AI", "Google Play"],
+    "details": "Chef's Bubble Feast is a mobile bubble shooter game developed entirely as a solo project. All artwork was created using generative AI tools, allowing for a rich visual style without a dedicated art team. The game was designed, developed, and successfully published on the Google Play Store under the Krazy Kraken Games label.",
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.krazykrakengames.chefsbubblefeast"
+}
