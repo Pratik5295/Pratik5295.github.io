@@ -19,20 +19,41 @@ async function fetchProjectData(projectId) {
     }
 }
 
-function createProjectCard(template, data) {
-    var clone = template.cloneNode(true);
-    var pageLink = 'DevProjects/project.html?id=' + data._id;
-    clone.innerHTML = clone.innerHTML
-        .replace('{{imageUrl}}', data.imageUrl || '')
-        .replace('{{title}}', data.title || '')
-        .replace('{{gameEngine}}', data.engine || data.gameEngine || '')
-        .replace('{{pageLink}}', pageLink);
+function createSkeletonCard() {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'skeleton-wrapper';
+    return wrapper;
+}
 
-    // Split subtitle by | and create individual tag pills
+function createProjectCard(template, data, staggerIndex) {
+    var clone = template.cloneNode(true);
+    var projectEl = clone.querySelector('.project-template');
+    var link = clone.querySelector('.project-card-link');
+    var pageLink = 'DevProjects/project.html?id=' + data._id;
+
+    link.href = pageLink;
+    clone.querySelector('.projTitle').textContent = data.title || '';
+    clone.querySelector('.projEngine').textContent = data.engine || data.gameEngine || '';
+
+    // Load image with error fallback
+    var imageUrl = data.imageUrl || '';
+    if (imageUrl) {
+        var img = new Image();
+        img.onload = function () {
+            projectEl.style.backgroundImage = "url('" + imageUrl + "')";
+        };
+        img.onerror = function () {
+            projectEl.classList.add('card-no-image');
+        };
+        img.src = imageUrl;
+    } else {
+        projectEl.classList.add('card-no-image');
+    }
+
+    // Tag pills from subtitle
     var tagsContainer = clone.querySelector('.projTags');
     var subtitle = data.subtitle || data.content || '';
-    var parts = subtitle.split('|');
-    parts.forEach(function(part) {
+    subtitle.split('|').forEach(function (part) {
         var trimmed = part.trim();
         if (trimmed) {
             var span = document.createElement('span');
@@ -42,16 +63,32 @@ function createProjectCard(template, data) {
         }
     });
 
+    // Scroll reveal with staggered delay
+    clone.classList.add('scroll-reveal');
+    clone.dataset.delay = Math.min(staggerIndex * 80, 400);
+
     return clone;
 }
 
 async function fillGrid(containerId, projectIds, template) {
     var container = document.getElementById(containerId);
+
+    // Insert skeleton placeholders first
+    var skeletons = projectIds.map(function () {
+        var sk = createSkeletonCard();
+        container.appendChild(sk);
+        return sk;
+    });
+
+    // Load real cards and replace skeletons one by one
     for (var i = 0; i < projectIds.length; i++) {
         var data = await fetchProjectData(projectIds[i]);
         if (data) {
-            var card = createProjectCard(template, data);
-            container.appendChild(card);
+            var card = createProjectCard(template, data, i);
+            container.replaceChild(card, skeletons[i]);
+            if (window.observeReveal) window.observeReveal(card);
+        } else {
+            container.removeChild(skeletons[i]);
         }
     }
 }
@@ -64,8 +101,8 @@ async function init() {
         var projects = await response.json();
 
         await fillGrid('professional-projects-grid', projects.professional || [], template);
-        await fillGrid('recent-projects-grid', projects.recent, template);
-        await fillGrid('grid-container', projects.games, template);
+        await fillGrid('recent-projects-grid', projects.recent || [], template);
+        await fillGrid('grid-container', projects.games || [], template);
     } catch (error) {
         console.error('Error loading projects list:', error);
     }

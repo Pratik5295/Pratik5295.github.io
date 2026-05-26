@@ -118,11 +118,28 @@ nav.navbar ul li a {
     border-radius: 6px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    position: relative;
 }
 
 nav.navbar ul li a:hover {
     color: #04BC75;
     background: rgba(4, 188, 117, 0.08);
+}
+
+nav.navbar ul li a.active {
+    color: #04BC75;
+}
+
+nav.navbar ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #04BC75, transparent);
+    border-radius: 2px;
 }
 
 /* Hamburger Button - hidden on desktop */

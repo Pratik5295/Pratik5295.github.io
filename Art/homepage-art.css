@@ -70,6 +70,13 @@
     transform: scale(1.05);
 }
 
+/* Center a lone last item in the 3-col grid (e.g. 4th of 4) */
+@media (min-width: 769px) {
+    .image-grid .grid-item:last-child:nth-child(3n + 1) {
+        grid-column: 2;
+    }
+}
+
 /* Tablet */
 @media (max-width: 768px) {
     .image-grid {

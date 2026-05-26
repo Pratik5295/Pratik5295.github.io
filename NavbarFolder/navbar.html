@@ -38,14 +38,36 @@
 </nav>
 
 <script>
-    (function() {
+    (function () {
         var btn = document.getElementById('hamburger');
         var menu = document.getElementById('navbar-menu');
+
         if (btn && menu) {
-            btn.addEventListener('click', function() {
+            // Hamburger toggle
+            btn.addEventListener('click', function () {
                 btn.classList.toggle('active');
                 menu.classList.toggle('open');
             });
+
+            // Auto-close on mobile when a nav link is tapped
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (menu.classList.contains('open')) {
+                        btn.classList.remove('active');
+                        menu.classList.remove('open');
+                    }
+                });
+            });
         }
+
+        // Active page highlight
+        var currentPath = window.location.pathname;
+        document.querySelectorAll('nav.navbar ul li a').forEach(function (link) {
+            var href = link.getAttribute('href') || '';
+            if (href.startsWith('http')) return;
+            var isHome = href === '/' && (currentPath === '/' || currentPath.endsWith('/index.html') || currentPath === '');
+            var isMatch = href !== '/' && currentPath.indexOf(href.replace(/^\//, '')) !== -1;
+            if (isHome || isMatch) link.classList.add('active');
+        });
     })();
 </script>

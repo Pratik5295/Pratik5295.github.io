@@ -12,18 +12,57 @@ body {
     flex-direction: column;
 }
 
+/* ---- Animated background orbs ---- */
+@keyframes floatOrbA {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%       { transform: translate(4%, -6%) scale(1.06); }
+    66%       { transform: translate(-3%, 4%) scale(0.95); }
+}
+@keyframes floatOrbB {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40%       { transform: translate(-6%, -4%) scale(1.04); }
+    75%       { transform: translate(5%, 7%) scale(0.97); }
+}
+
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(ellipse at 20% 50%, rgba(4, 188, 117, 0.03) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 30%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+    top: -20%;
+    left: -15%;
+    width: 60%;
+    height: 65%;
+    background: radial-gradient(ellipse, rgba(4, 188, 117, 0.09) 0%, transparent 68%);
     pointer-events: none;
     z-index: -1;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: floatOrbA 14s ease-in-out infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -20%;
+    right: -15%;
+    width: 55%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(212, 175, 55, 0.06) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: floatOrbB 18s ease-in-out infinite;
+}
+
+/* ---- Scroll Reveal ---- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .page-title {
@@ -49,7 +88,7 @@ body::before {
     background: linear-gradient(90deg, #04BC75, gold);
 }
 
-/* Side-by-side layout: bio left, resume right */
+/* ---- Side-by-side layout ---- */
 .about-layout {
     display: flex;
     gap: 2.5rem;
@@ -78,6 +117,12 @@ body::before {
     border-radius: 50%;
     border: 2px solid rgba(4, 188, 117, 0.35);
     box-shadow: 0 0 25px rgba(4, 188, 117, 0.12);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.image-section img:hover {
+    border-color: rgba(4, 188, 117, 0.7);
+    box-shadow: 0 0 35px rgba(4, 188, 117, 0.22);
 }
 
 .text-section {
@@ -129,7 +174,7 @@ body::before {
     display: block;
 }
 
-/* Tablet */
+/* ---- Tablet ---- */
 @media (max-width: 900px) {
     body {
         padding: 1rem 1.5rem;
@@ -174,7 +219,7 @@ body::before {
     }
 }
 
-/* Phone */
+/* ---- Phone ---- */
 @media (max-width: 480px) {
     body {
         padding: 1rem;

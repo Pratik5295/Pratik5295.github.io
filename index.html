@@ -15,31 +15,32 @@
     <link rel="stylesheet" href="FooterFolder/footer.css">
     <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
     <script src="Scripts/HtmlLoader.js"></script>
+    <script src="Scripts/animations.js"></script>
 </head>
 <body>
     <div id="navbar"></div>
 
     <!-- Professional Projects Section -->
     <section>
-        <div class="section-header"><h1>Professional Projects</h1></div>
+        <div class="section-header scroll-reveal"><h1>Professional Projects</h1></div>
         <div class="projects-grid" id="professional-projects-grid"></div>
     </section>
 
     <!-- Recent Work Section -->
     <section>
-        <div class="section-header"><h1>Recent Work</h1></div>
+        <div class="section-header scroll-reveal"><h1>Recent Work</h1></div>
         <div class="projects-grid" id="recent-projects-grid"></div>
     </section>
 
     <!-- Game Projects Section -->
     <section>
-        <div class="section-header"><h1>Game Projects</h1></div>
+        <div class="section-header scroll-reveal"><h1>Game Projects</h1></div>
         <div class="projects-grid" id="grid-container"></div>
     </section>
 
     <!-- Art Section -->
     <section>
-        <div class="section-header"><h1>Art Projects</h1></div>
+        <div class="section-header scroll-reveal"><h1>Art Projects</h1></div>
         <div id="artHomePage"></div>
     </section>
 
@@ -48,7 +49,7 @@
     <script>
         LoadPage("./NavbarFolder/navbar.html", "navbar");
         LoadPage("./FooterFolder/footer.html", "footer-container");
-        window.addEventListener("load", function() {
+        window.addEventListener("load", function () {
             LoadPage("Art/Homepage-Art.html", "artHomePage");
         });
     </script>

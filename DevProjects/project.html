@@ -15,27 +15,28 @@
     <link rel="stylesheet" href="../FooterFolder/footer.css">
     <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
     <script src="../Scripts/HtmlLoader.js"></script>
+    <script src="../Scripts/animations.js"></script>
 </head>
 <body>
     <div id="navbar"></div>
 
     <main id="project-content">
-        <div class="project-header" id="project-header">
-            <h1 id="project-title"></h1>
-            <p class="project-subtitle" id="project-subtitle"></p>
-            <div class="project-meta">
-                <span class="meta-badge engine" id="project-engine"></span>
-                <span class="meta-badge status" id="project-status"></span>
+
+        <!-- Hero banner (image + title overlay) -->
+        <div class="project-hero" id="project-hero">
+            <div class="project-hero-content">
+                <h1 id="project-title"></h1>
+                <p class="project-subtitle" id="project-subtitle"></p>
+                <div class="project-meta">
+                    <span class="meta-badge engine" id="project-engine"></span>
+                    <span class="meta-badge status" id="project-status"></span>
+                </div>
             </div>
         </div>
 
-        <section class="project-section">
+        <section class="project-section" id="description-section">
             <h2 class="section-label">Description</h2>
             <p id="project-description"></p>
-        </section>
-
-        <section class="project-section" id="screenshot-section" style="display:none;">
-            <img id="project-screenshot" class="project-screenshot" alt="Project screenshot">
         </section>
 
         <section class="project-section" id="video-section" style="display:none;">
@@ -74,6 +75,7 @@
         <div id="store-section" style="display:none;">
             <a id="store-link" class="download-btn store-btn" target="_blank"></a>
         </div>
+
     </main>
 
     <div id="footer-container"></div>
