@@ -98,8 +98,10 @@ footer::before {
 .footer-right a {
     color: #8a8a95;
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 400;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
     transition: color 0.25s ease;
     width: fit-content;
 }
