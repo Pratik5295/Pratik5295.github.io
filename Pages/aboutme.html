@@ -8,6 +8,12 @@
     <meta http-equiv="Expires" content="0">
     <title>About Me — Pratik Shringarpure</title>
     <meta name="description" content="About Pratik Shringarpure — Unity game developer with professional studio experience, a Master's in Game Design and Development, and a portfolio of shipped games and tools.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About Me — Pratik Shringarpure">
+    <meta property="og:description" content="Unity game developer with 4+ years of experience, professional studio credits at Skyhook Games and Kazoo Games, and a Master's in Game Design and Development.">
+    <meta property="og:image" content="/Images/ProjectData/Profile.png">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="aboutme.css">
@@ -18,6 +24,9 @@
     <script src="../Scripts/animations.js"></script>
 </head>
 <body>
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" aria-label="Back to top">&#8679;</button>
+
     <div id="navbar"></div>
 
     <h1 class="page-title scroll-reveal">About Me</h1>
@@ -45,5 +54,6 @@
         LoadPage("../NavbarFolder/navbar.html", "navbar");
         LoadPage("../FooterFolder/footer.html", "footer-container");
     </script>
+    <script src="../Scripts/ui.js"></script>
 </body>
 </html>

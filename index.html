@@ -8,6 +8,14 @@
     <meta http-equiv="Expires" content="0">
     <title>Pratik Shringarpure — Game Developer Portfolio</title>
     <meta name="description" content="Pratik Shringarpure — Unity game developer with professional studio experience at Skyhook Games and Kazoo Games. Browse shipped titles, tools, and solo projects.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pratik Shringarpure — Game Developer Portfolio">
+    <meta property="og:description" content="Unity game developer with professional studio experience at Skyhook Games and Kazoo Games. Shipped titles, tools programming, UI development, and mobile releases.">
+    <meta property="og:image" content="/Images/ProjectData/Profile.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pratikgamedev.github.io">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
@@ -18,30 +26,103 @@
     <script src="Scripts/animations.js"></script>
 </head>
 <body>
+
+    <!-- Fixed UI: progress bar + back-to-top -->
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" aria-label="Back to top">&#8679;</button>
+
     <div id="navbar"></div>
 
+    <!-- Stats Strip -->
+    <div class="stats-strip scroll-reveal">
+        <div class="stat-item">
+            <span class="stat-number" data-count="5" data-suffix="+">5+</span>
+            <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number" data-count="3">3</span>
+            <span class="stat-label">Shipped Titles</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number" data-count="17">17</span>
+            <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number" data-count="6">6</span>
+            <span class="stat-label">Platforms</span>
+            <span class="stat-sublabel">PC · Android · iOS · WebGL · VR · AR</span>
+        </div>
+    </div>
+
+    <!-- Skills Strip -->
+    <div class="skills-strip scroll-reveal" data-delay="80">
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Unreal Engine 5</span>
+        <span class="skill-tag">uGUI</span>
+        <span class="skill-tag">UI Toolkit</span>
+        <span class="skill-tag">Azure</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">AR Foundation</span>
+        <span class="skill-tag">Git</span>
+    </div>
+
     <!-- Professional Projects Section -->
-    <section>
+    <section id="section-professional">
         <div class="section-header scroll-reveal"><h1>Professional Projects</h1></div>
         <div class="projects-grid" id="professional-projects-grid"></div>
     </section>
 
     <!-- Recent Work Section -->
-    <section>
+    <section id="section-recent">
         <div class="section-header scroll-reveal"><h1>Recent Work</h1></div>
         <div class="projects-grid" id="recent-projects-grid"></div>
     </section>
 
     <!-- Game Projects Section -->
-    <section>
-        <div class="section-header scroll-reveal"><h1>Game Projects</h1></div>
-        <div class="projects-grid" id="grid-container"></div>
+    <section id="section-games">
+        <div class="section-header scroll-reveal">
+            <h1>Game Projects</h1>
+            <button class="section-toggle" data-target="games-body" aria-expanded="true" aria-label="Toggle Game Projects">
+                <span class="toggle-label">Hide</span>
+                <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <div class="section-body" id="games-body">
+            <!-- Filter bar — games grid only -->
+            <div class="filter-bar" id="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="game jam">Game Jam</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="hyper-casual">Hyper-Casual</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+                <button class="filter-btn" data-filter="2d">2D</button>
+                <button class="filter-btn" data-filter="unreal">Unreal</button>
+            </div>
+            <div class="projects-grid" id="grid-container"></div>
+        </div>
     </section>
 
     <!-- Art Section -->
-    <section>
-        <div class="section-header scroll-reveal"><h1>Art Projects</h1></div>
-        <div id="artHomePage"></div>
+    <section id="section-art">
+        <div class="section-header scroll-reveal">
+            <h1>Art Projects</h1>
+            <button class="section-toggle" data-target="art-body" aria-expanded="true" aria-label="Toggle Art Projects">
+                <span class="toggle-label">Hide</span>
+                <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+        </div>
+        <div class="section-body" id="art-body">
+            <div id="artHomePage"></div>
+        </div>
     </section>
 
     <div id="footer-container"></div>
@@ -54,5 +135,6 @@
         });
     </script>
     <script src="DevProject.js"></script>
+    <script src="Scripts/ui.js"></script>
 </body>
 </html>

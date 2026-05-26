@@ -8,6 +8,14 @@
     <meta http-equiv="Expires" content="0">
     <title>Project — Pratik Shringarpure</title>
     <meta name="description" content="Project detail — Pratik Shringarpure game developer portfolio.">
+
+    <!-- Open Graph (populated dynamically by project.js) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pratik Shringarpure — Game Developer">
+    <meta id="og-title"       property="og:title"       content="Project — Pratik Shringarpure">
+    <meta id="og-description" property="og:description" content="Game developer portfolio project.">
+    <meta id="og-image"       property="og:image"       content="/Images/ProjectData/Profile.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="project.css">
@@ -18,11 +26,22 @@
     <script src="../Scripts/animations.js"></script>
 </head>
 <body>
+
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" aria-label="Back to top">&#8679;</button>
+
     <div id="navbar"></div>
 
     <main id="project-content">
 
-        <!-- Hero banner (image + title overlay) -->
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span id="breadcrumb-title">Project</span>
+        </nav>
+
+        <!-- Hero banner -->
         <div class="project-hero" id="project-hero">
             <div class="project-hero-content">
                 <h1 id="project-title"></h1>
@@ -56,7 +75,6 @@
                 <h2 class="section-label">Role</h2>
                 <ul id="roles-list"></ul>
             </section>
-
             <section class="project-section" id="tech-section" style="display:none;">
                 <h2 class="section-label">Tech Used</h2>
                 <div class="tech-tags" id="tech-list"></div>
@@ -76,6 +94,12 @@
             <a id="store-link" class="download-btn store-btn" target="_blank"></a>
         </div>
 
+        <!-- Prev / Next navigation -->
+        <div class="project-nav" id="project-nav" style="display:none;">
+            <a class="project-nav-btn prev-btn" id="prev-project" href="#">&#8592; Previous</a>
+            <a class="project-nav-btn next-btn" id="next-project" href="#">Next &#8594;</a>
+        </div>
+
     </main>
 
     <div id="footer-container"></div>
@@ -85,5 +109,6 @@
         LoadPage("../FooterFolder/footer.html", "footer-container");
     </script>
     <script src="project.js"></script>
+    <script src="../Scripts/ui.js"></script>
 </body>
 </html>

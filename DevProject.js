@@ -25,34 +25,32 @@ function createSkeletonCard() {
     return wrapper;
 }
 
-function createProjectCard(template, data, staggerIndex) {
+function createProjectCard(template, data, staggerIndex, category) {
     var clone = template.cloneNode(true);
     var projectEl = clone.querySelector('.project-template');
     var link = clone.querySelector('.project-card-link');
-    var pageLink = 'DevProjects/project.html?id=' + data._id;
 
-    link.href = pageLink;
+    link.href = 'DevProjects/project.html?id=' + data._id;
     clone.querySelector('.projTitle').textContent = data.title || '';
     clone.querySelector('.projEngine').textContent = data.engine || data.gameEngine || '';
 
-    // Load image with error fallback
+    // Store subtitle as tags for filtering
+    var subtitle = data.subtitle || data.content || '';
+    clone.dataset.tags = subtitle.toLowerCase();
+
+    // Image with error fallback
     var imageUrl = data.imageUrl || '';
     if (imageUrl) {
         var img = new Image();
-        img.onload = function () {
-            projectEl.style.backgroundImage = "url('" + imageUrl + "')";
-        };
-        img.onerror = function () {
-            projectEl.classList.add('card-no-image');
-        };
+        img.onload = function () { projectEl.style.backgroundImage = "url('" + imageUrl + "')"; };
+        img.onerror = function () { projectEl.classList.add('card-no-image'); };
         img.src = imageUrl;
     } else {
         projectEl.classList.add('card-no-image');
     }
 
-    // Tag pills from subtitle
+    // Tag pills
     var tagsContainer = clone.querySelector('.projTags');
-    var subtitle = data.subtitle || data.content || '';
     subtitle.split('|').forEach(function (part) {
         var trimmed = part.trim();
         if (trimmed) {
@@ -63,28 +61,44 @@ function createProjectCard(template, data, staggerIndex) {
         }
     });
 
-    // Scroll reveal with staggered delay
+    // Professional badge
+    if (category === 'professional') {
+        var badge = document.createElement('div');
+        badge.className = 'pro-badge';
+        badge.textContent = 'Professional';
+        projectEl.appendChild(badge);
+    }
+
+    // Scroll reveal with stagger
     clone.classList.add('scroll-reveal');
     clone.dataset.delay = Math.min(staggerIndex * 80, 400);
+
+    // Respect active filter if one is set
+    var activeFilter = document.querySelector('#filter-bar .filter-btn.active');
+    if (activeFilter && activeFilter.dataset.filter !== 'all') {
+        if (clone.dataset.tags.indexOf(activeFilter.dataset.filter) === -1) {
+            clone.style.display = 'none';
+        }
+    }
 
     return clone;
 }
 
-async function fillGrid(containerId, projectIds, template) {
+async function fillGrid(containerId, projectIds, template, category) {
     var container = document.getElementById(containerId);
 
-    // Insert skeleton placeholders first
+    // Skeleton placeholders
     var skeletons = projectIds.map(function () {
         var sk = createSkeletonCard();
         container.appendChild(sk);
         return sk;
     });
 
-    // Load real cards and replace skeletons one by one
+    // Load and replace one by one
     for (var i = 0; i < projectIds.length; i++) {
         var data = await fetchProjectData(projectIds[i]);
         if (data) {
-            var card = createProjectCard(template, data, i);
+            var card = createProjectCard(template, data, i, category);
             container.replaceChild(card, skeletons[i]);
             if (window.observeReveal) window.observeReveal(card);
         } else {
@@ -95,14 +109,12 @@ async function fillGrid(containerId, projectIds, template) {
 
 async function init() {
     var template = await fetchTemplate('Homepage-Project-Template.html');
-
     try {
         var response = await fetch(cacheBust('./Data/projects.json'));
         var projects = await response.json();
-
-        await fillGrid('professional-projects-grid', projects.professional || [], template);
-        await fillGrid('recent-projects-grid', projects.recent || [], template);
-        await fillGrid('grid-container', projects.games || [], template);
+        await fillGrid('professional-projects-grid', projects.professional || [], template, 'professional');
+        await fillGrid('recent-projects-grid', projects.recent || [], template, 'recent');
+        await fillGrid('grid-container', projects.games || [], template, 'games');
     } catch (error) {
         console.error('Error loading projects list:', error);
     }

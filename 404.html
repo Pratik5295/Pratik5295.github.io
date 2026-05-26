@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Pratik Shringarpure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        @keyframes floatOrbA {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%       { transform: translate(4%, -6%) scale(1.06); }
+            66%       { transform: translate(-3%, 4%) scale(0.95); }
+        }
+        @keyframes floatOrbB {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            40%       { transform: translate(-6%, -4%) scale(1.04); }
+            75%       { transform: translate(5%, 7%) scale(0.97); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glitchNum {
+            0%, 90%, 100% { text-shadow: 0 0 30px rgba(4, 188, 117, 0.35); }
+            92% { text-shadow: -4px 0 #d4af37, 4px 0 #04BC75; }
+            94% { text-shadow: 4px 0 #d4af37, -4px 0 #04BC75; }
+            96% { text-shadow: 0 0 30px rgba(4, 188, 117, 0.35); }
+        }
+
+        html, body {
+            height: 100%;
+            background: #0d0d14;
+            color: #e0dfe4;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%; left: -15%;
+            width: 60%; height: 65%;
+            background: radial-gradient(ellipse, rgba(4, 188, 117, 0.09) 0%, transparent 68%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: floatOrbA 14s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%; right: -15%;
+            width: 55%; height: 60%;
+            background: radial-gradient(ellipse, rgba(212, 175, 55, 0.06) 0%, transparent 68%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: floatOrbB 18s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .error-code {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(6rem, 20vw, 10rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #04BC75 0%, #d4af37 55%, #04BC75 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            animation: glitchNum 5s infinite;
+            margin-bottom: 0.5rem;
+        }
+
+        .divider {
+            width: 180px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #04BC75, #d4af37, #04BC75, transparent);
+            margin: 1rem auto 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #e8e8e8;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #8a8a95;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 380px;
+            margin-bottom: 2.5rem;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 0.8rem 2.2rem;
+            background: linear-gradient(135deg, #04BC75, #03a368);
+            color: #0d0d14;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(4, 188, 117, 0.3);
+        }
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(4, 188, 117, 0.45);
+        }
+
+        .logo-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: linear-gradient(135deg, #04BC75, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="logo-link">Pratik Shringarpure</a>
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="divider"></div>
+        <h1>Page Not Found</h1>
+        <p>This level doesn't exist. The page you're looking for may have been moved or deleted.</p>
+        <a href="/" class="home-btn">Back to Portfolio</a>
+    </div>
+</body>
+</html>

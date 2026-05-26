@@ -75,21 +75,170 @@ body::after {
     transform: translateY(0);
 }
 
+/* ---- Stats Strip ---- */
+.stats-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 2rem 0 0.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(18, 18, 28, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    flex: 1;
+    min-width: 100px;
+}
+
+.stat-number {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #04BC75, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #8a8a95;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+.stat-sublabel {
+    font-size: 0.62rem;
+    color: #5a5a65;
+    letter-spacing: 0.5px;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 0.15rem;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 3rem;
+    background: rgba(212, 175, 55, 0.2);
+    flex-shrink: 0;
+    margin: 0 1rem;
+}
+
+/* ---- Skills Strip ---- */
+.skills-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1rem 0 0.5rem;
+    padding: 1rem 1.5rem;
+}
+
+.skill-tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #c0c0c0;
+    background: rgba(192, 192, 192, 0.07);
+    border: 1px solid rgba(192, 192, 192, 0.2);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(4, 188, 117, 0.1);
+    border-color: rgba(4, 188, 117, 0.4);
+    color: #04BC75;
+}
+
+/* ---- Filter Bar ---- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.25rem 0 1rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: rgba(18, 18, 28, 0.7);
+    color: #8a8a95;
+    border: 1px solid rgba(192, 192, 192, 0.18);
+    padding: 0.4rem 1.1rem;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+    border-color: rgba(4, 188, 117, 0.4);
+    color: #c0c0c0;
+}
+
+.filter-btn.active {
+    background: rgba(4, 188, 117, 0.15);
+    border-color: #04BC75;
+    color: #04BC75;
+}
+
+/* ---- Professional Badge ---- */
+.pro-badge {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    background: linear-gradient(135deg, #d4af37, #b8952a);
+    color: #0d0d14;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 0.22rem 0.55rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* ---- Section anchor offset for sticky nav ---- */
+section[id] {
+    scroll-margin-top: 72px;
+}
+
 /* ---- Section Headers ---- */
 .section-header {
     margin-top: 3rem;
     margin-bottom: 0.5rem;
     position: relative;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* h1 stays centered always */
 }
 
 .section-header::after {
     content: '';
-    display: block;
-    width: 100%;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, #04BC75, gold, #04BC75, transparent);
-    margin-top: 0.5rem;
 }
 
 .section-header h1 {
@@ -100,6 +249,56 @@ body::after {
     letter-spacing: 3px;
     color: #e8e8e8;
     text-shadow: 0 0 20px rgba(4, 188, 117, 0.3);
+}
+
+/* ---- Section Toggle Button — absolute right so h1 stays centered ---- */
+.section-toggle {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(18, 18, 28, 0.7);
+    border: 1px solid rgba(4, 188, 117, 0.28);
+    border-radius: 20px;
+    padding: 0.32rem 0.9rem;
+    color: #7a7a88;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.22s ease, color 0.22s ease, background 0.22s ease;
+}
+
+.section-toggle:hover {
+    border-color: #04BC75;
+    color: #04BC75;
+    background: rgba(4, 188, 117, 0.08);
+}
+
+.toggle-chevron {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.section-toggle[aria-expanded="false"] .toggle-chevron {
+    transform: rotate(-90deg);
+}
+
+/* ---- Collapsible Section Body ---- */
+.section-body {
+    overflow: hidden;
+    max-height: 6000px;
+    opacity: 1;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.section-body.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* ---- Project Grid ---- */
@@ -277,6 +476,11 @@ body::after {
 
 /* ---- Responsive: Tablet ---- */
 @media (max-width: 1024px) {
+    .stat-number { font-size: 2rem; }
+    .stat-divider { margin: 0 0.75rem; }
+}
+
+@media (max-width: 1024px) {
     body {
         padding: 1.5rem 2rem;
     }
@@ -295,6 +499,19 @@ body::after {
 }
 
 /* ---- Responsive: Phone ---- */
+@media (max-width: 600px) {
+    .stats-strip { gap: 0.5rem; padding: 1.25rem 1rem; }
+    .stat-number { font-size: 1.7rem; }
+    .stat-divider { display: none; }
+    .stat-item { min-width: 80px; }
+    .filter-bar { gap: 0.4rem; }
+    .filter-btn { font-size: 0.7rem; padding: 0.35rem 0.8rem; }
+
+    /* Toggle button: icon-only on mobile to avoid overlapping centered h1 */
+    .section-toggle .toggle-label { display: none; }
+    .section-toggle { padding: 0.4rem 0.55rem; }
+}
+
 @media (max-width: 600px) {
     body {
         padding: 1rem;

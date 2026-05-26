@@ -17,118 +17,151 @@
         });
     }
 
-    function revealWrapper(id) {
+    function setMeta(id, content) {
         var el = document.getElementById(id);
-        if (!el) return;
-        el.style.display = '';
-        el.classList.add('scroll-reveal');
-        requestAnimationFrame(function () {
-            if (window.observeReveal) window.observeReveal(el);
-        });
+        if (el) el.setAttribute('content', content);
     }
 
-    fetch(cacheBust('../Data/' + projectId + '.json'))
-        .then(function (response) {
-            if (!response.ok) throw new Error('Could not load project data');
-            return response.json();
-        })
-        .then(function (data) {
-            document.title = 'Project: ' + data.title;
+    // Fetch project data + master project list in parallel
+    Promise.all([
+        fetch(cacheBust('../Data/' + projectId + '.json')).then(function (r) {
+            if (!r.ok) throw new Error('Project not found');
+            return r.json();
+        }),
+        fetch(cacheBust('../Data/projects.json')).then(function (r) { return r.json(); })
+    ])
+    .then(function (results) {
+        var data = results[0];
+        var projectList = results[1];
 
-            // Hero banner — prefer screenshotUrl, fall back to imageUrl
-            var hero = document.getElementById('project-hero');
-            var heroImage = data.screenshotUrl
-                ? '../' + data.screenshotUrl
-                : data.imageUrl ? '../' + data.imageUrl : '';
-            if (heroImage) {
-                hero.style.backgroundImage = "url('" + heroImage + "')";
-                hero.classList.add('has-image');
-            }
+        // ---- Page title ----
+        document.title = data.title + ' — Pratik Shringarpure';
 
-            document.getElementById('project-title').textContent = data.title;
-            document.getElementById('project-subtitle').textContent = data.subtitle || data.content || '';
-            document.getElementById('project-engine').textContent = data.engine || data.gameEngine || '';
-            document.getElementById('project-status').textContent = data.status || '';
-            document.getElementById('project-description').textContent = data.description || '';
+        // ---- OG tags ----
+        setMeta('og-title', data.title + ' — Pratik Shringarpure');
+        setMeta('og-description', data.description || '');
+        var ogImage = data.screenshotUrl
+            ? '/' + data.screenshotUrl
+            : data.imageUrl ? '/' + data.imageUrl : '/Images/ProjectData/Profile.png';
+        setMeta('og-image', ogImage);
 
-            // Video
-            if (data.videoUrl) {
-                revealSection('video-section');
-                document.getElementById('project-video').src = data.videoUrl;
-            }
+        // ---- Breadcrumb ----
+        document.getElementById('breadcrumb-title').textContent = data.title;
 
-            // Highlights
-            if (data.highlights && data.highlights.length > 0) {
-                revealSection('highlights-section');
-                var highlightsList = document.getElementById('highlights-list');
-                data.highlights.forEach(function (h) {
-                    var li = document.createElement('li');
-                    var strong = document.createElement('strong');
-                    strong.textContent = h.name + ': ';
-                    li.appendChild(strong);
-                    li.appendChild(document.createTextNode(h.detail));
-                    highlightsList.appendChild(li);
+        // ---- Hero banner ----
+        var hero = document.getElementById('project-hero');
+        var heroImage = data.screenshotUrl
+            ? '../' + data.screenshotUrl
+            : data.imageUrl ? '../' + data.imageUrl : '';
+        if (heroImage) {
+            hero.style.backgroundImage = "url('" + heroImage + "')";
+            hero.classList.add('has-image');
+        }
+
+        // ---- Core fields ----
+        document.getElementById('project-title').textContent = data.title;
+        document.getElementById('project-subtitle').textContent = data.subtitle || data.content || '';
+        document.getElementById('project-engine').textContent = data.engine || data.gameEngine || '';
+        document.getElementById('project-status').textContent = data.status || '';
+        document.getElementById('project-description').textContent = data.description || '';
+
+        // ---- Video ----
+        if (data.videoUrl) {
+            revealSection('video-section');
+            document.getElementById('project-video').src = data.videoUrl;
+        }
+
+        // ---- Highlights ----
+        if (data.highlights && data.highlights.length > 0) {
+            revealSection('highlights-section');
+            var hl = document.getElementById('highlights-list');
+            data.highlights.forEach(function (h) {
+                var li = document.createElement('li');
+                var strong = document.createElement('strong');
+                strong.textContent = h.name + ': ';
+                li.appendChild(strong);
+                li.appendChild(document.createTextNode(h.detail));
+                hl.appendChild(li);
+            });
+        }
+
+        // ---- Roles + Tech ----
+        var showTwoCol = false;
+        if (data.roles && data.roles.length > 0) {
+            revealSection('roles-section');
+            var rl = document.getElementById('roles-list');
+            data.roles.forEach(function (r) {
+                var li = document.createElement('li');
+                li.textContent = r;
+                rl.appendChild(li);
+            });
+            showTwoCol = true;
+        }
+        if (data.tech && data.tech.length > 0) {
+            revealSection('tech-section');
+            var tl = document.getElementById('tech-list');
+            data.tech.forEach(function (t) {
+                var span = document.createElement('span');
+                span.className = 'tech-tag';
+                span.textContent = t;
+                tl.appendChild(span);
+            });
+            showTwoCol = true;
+        }
+        if (showTwoCol) {
+            var twoCol = document.querySelector('.two-column');
+            if (twoCol) {
+                twoCol.style.display = '';
+                twoCol.classList.add('scroll-reveal');
+                requestAnimationFrame(function () {
+                    if (window.observeReveal) window.observeReveal(twoCol);
                 });
             }
+        }
 
-            // Roles + Tech (two-column wrapper)
-            var showTwoCol = false;
-            if (data.roles && data.roles.length > 0) {
-                revealSection('roles-section');
-                var rolesList = document.getElementById('roles-list');
-                data.roles.forEach(function (role) {
-                    var li = document.createElement('li');
-                    li.textContent = role;
-                    rolesList.appendChild(li);
-                });
-                showTwoCol = true;
-            }
+        // ---- Details ----
+        if (data.details) {
+            revealSection('details-section');
+            document.getElementById('project-details').textContent = data.details;
+        }
 
-            if (data.tech && data.tech.length > 0) {
-                revealSection('tech-section');
-                var techList = document.getElementById('tech-list');
-                data.tech.forEach(function (t) {
-                    var span = document.createElement('span');
-                    span.className = 'tech-tag';
-                    span.textContent = t;
-                    techList.appendChild(span);
-                });
-                showTwoCol = true;
-            }
+        // ---- Download / Store ----
+        if (data.downloadUrl) {
+            revealSection('download-section');
+            document.getElementById('download-link').href = data.downloadUrl;
+        }
+        if (data.storeUrl) {
+            revealSection('store-section');
+            var sl = document.getElementById('store-link');
+            sl.href = data.storeUrl;
+            sl.textContent = data.storeLinkText || 'View on Store';
+        }
 
-            if (showTwoCol) {
-                var twoCol = document.querySelector('.two-column');
-                if (twoCol) {
-                    twoCol.style.display = '';
-                    twoCol.classList.add('scroll-reveal');
-                    requestAnimationFrame(function () {
-                        if (window.observeReveal) window.observeReveal(twoCol);
-                    });
-                }
-            }
+        // ---- Prev / Next ----
+        var allIds = (projectList.professional || [])
+            .concat(projectList.recent || [])
+            .concat(projectList.games || []);
+        var idx = allIds.indexOf(projectId);
+        var prevId = idx > 0 ? allIds[idx - 1] : null;
+        var nextId = idx < allIds.length - 1 ? allIds[idx + 1] : null;
 
-            // Details
-            if (data.details) {
-                revealSection('details-section');
-                document.getElementById('project-details').textContent = data.details;
-            }
-
-            // Download link
-            if (data.downloadUrl) {
-                revealWrapper('download-section');
-                document.getElementById('download-link').href = data.downloadUrl;
-            }
-
-            // Store link
-            if (data.storeUrl) {
-                revealWrapper('store-section');
-                var storeLink = document.getElementById('store-link');
-                storeLink.href = data.storeUrl;
-                storeLink.textContent = data.storeLinkText || 'View on Store';
-            }
-        })
-        .catch(function (err) {
-            console.error(err);
-            document.getElementById('project-title').textContent = 'Error loading project';
-        });
+        if (prevId || nextId) {
+            var nav = document.getElementById('project-nav');
+            nav.style.display = '';
+            nav.classList.add('scroll-reveal');
+            requestAnimationFrame(function () {
+                if (window.observeReveal) window.observeReveal(nav);
+            });
+            var prevBtn = document.getElementById('prev-project');
+            var nextBtn = document.getElementById('next-project');
+            if (prevId) { prevBtn.href = 'project.html?id=' + prevId; }
+            else { prevBtn.style.visibility = 'hidden'; }
+            if (nextId) { nextBtn.href = 'project.html?id=' + nextId; }
+            else { nextBtn.style.visibility = 'hidden'; }
+        }
+    })
+    .catch(function (err) {
+        console.error(err);
+        document.getElementById('project-title').textContent = 'Error loading project';
+    });
 })();

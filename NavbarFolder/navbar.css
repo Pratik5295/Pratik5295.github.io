@@ -1,5 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* ---- Sticky nav wrapper ---- */
+.nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Full-width frosted glass backdrop bleeds beyond container via ::after */
+    isolation: isolate;
+}
+
+.nav-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -50vw;
+    right: -50vw;
+    background: rgba(13, 13, 20, 0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(4, 188, 117, 0.15);
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.55);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.nav-wrapper.nav-compact::after {
+    opacity: 1;
+}
+
+/* Collapse header-info when compact */
+.header-info {
+    /* transition added for collapse animation */
+    max-height: 200px;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-compact .header-info {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-color: transparent !important;
+    pointer-events: none;
+}
+
+/* Shrink logo in compact mode */
+header .logo {
+    transition: font-size 0.3s ease;
+}
+.logo-avatar {
+    transition: width 0.3s ease, height 0.3s ease;
+}
+.nav-compact header .logo {
+    font-size: 1.5rem;
+}
+.nav-compact .logo-avatar {
+    width: 2rem;
+    height: 2rem;
+}
+
 /* Header / Logo */
 header {
     display: flex;
@@ -66,6 +129,96 @@ header .logo:hover {
     color: #c0c0c0;
     letter-spacing: 2px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Typewriter blinking cursor */
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: #04BC75;
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: cursorBlink 0.85s step-end infinite;
+}
+
+/* ---- Scroll Progress Bar ---- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #04BC75, #d4af37, #04BC75);
+    background-size: 200% 100%;
+    z-index: 9999;
+    transition: width 0.12s linear;
+    pointer-events: none;
+}
+
+/* ---- Back to Top ---- */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #04BC75, #03a368);
+    color: #0d0d14;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 998;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(4, 188, 117, 0.3);
+    pointer-events: none;
+}
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+#back-to-top:hover {
+    box-shadow: 0 6px 22px rgba(4, 188, 117, 0.5);
+    transform: translateY(-3px);
+}
+
+/* ---- Toast ---- */
+#toast-notification {
+    position: fixed;
+    bottom: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(13, 13, 20, 0.96);
+    color: #04BC75;
+    border: 1px solid rgba(4, 188, 117, 0.45);
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+#toast-notification.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* Social Icons */
@@ -152,6 +305,80 @@ nav.navbar ul li a.active::after {
     height: 2px;
     background: linear-gradient(90deg, transparent, #04BC75, transparent);
     border-radius: 2px;
+}
+
+/* ---- Dropdown ---- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-arrow {
+    display: inline-block;
+    font-size: 0.6em;
+    margin-left: 2px;
+    vertical-align: middle;
+    transition: transform 0.22s ease;
+    line-height: 1;
+}
+
+.dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    list-style: none;
+    padding: 0.4rem;
+    margin: 0;
+    min-width: 170px;
+    background: rgba(13, 13, 20, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(4, 188, 117, 0.22);
+    border-radius: 10px;
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 200;
+}
+
+.dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.55rem 1rem;
+    color: #b0b0b8;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(4, 188, 117, 0.12);
+    color: #04BC75;
 }
 
 /* Hamburger Button - hidden on desktop */
@@ -273,6 +500,40 @@ nav.navbar ul li a.active::after {
         flex-direction: column;
         gap: 0.5rem;
         align-items: flex-start;
+    }
+
+    /* Mobile dropdown — inline, no float */
+    .dropdown-menu {
+        position: static;
+        transform: none !important;
+        opacity: 1;
+        visibility: visible;
+        border: none;
+        background: rgba(4, 188, 117, 0.05);
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        display: none;
+        pointer-events: auto;
+        min-width: 0;
+        max-height: none;
+        backdrop-filter: none;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        padding: 0.65rem 2rem;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(192, 192, 192, 0.05);
+        border-radius: 0;
+    }
+
+    /* Mobile nav max-height needs to be larger to accommodate dropdown */
+    nav.navbar.open {
+        max-height: 500px;
     }
 }
 
