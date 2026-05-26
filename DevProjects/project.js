@@ -23,6 +23,12 @@
             document.getElementById('project-status').textContent = data.status || '';
             document.getElementById('project-description').textContent = data.description || '';
 
+            // Screenshot
+            if (data.screenshotUrl) {
+                document.getElementById('screenshot-section').style.display = '';
+                document.getElementById('project-screenshot').src = '../' + data.screenshotUrl;
+            }
+
             // Video
             var videoUrl = data.videoUrl || '';
             if (videoUrl) {
@@ -82,7 +88,9 @@
             // Store link
             if (data.storeUrl) {
                 document.getElementById('store-section').style.display = '';
-                document.getElementById('store-link').href = data.storeUrl;
+                var storeLink = document.getElementById('store-link');
+                storeLink.href = data.storeUrl;
+                storeLink.textContent = data.storeLinkText || 'View on Store';
             }
         })
         .catch(function(err) {

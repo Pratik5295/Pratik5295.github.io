@@ -138,6 +138,14 @@ body::before {
     word-break: break-word;
 }
 
+/* Screenshot */
+.project-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
 /* Video */
 .video-wrapper {
     position: relative;

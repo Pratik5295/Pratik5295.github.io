@@ -1,7 +1,8 @@
 {
     "title": "Lawn Mowing Simulator 2",
     "subtitle": "UI Developer | Skyhook Games | Professional",
-    "imageUrl": "Images/ProjectData/SSLawnMowingS2.png",
+    "imageUrl": "Images/ProjectData/SS-LMS2.jpg",
+    "screenshotUrl": "Images/ProjectData/SS-LMS2.jpg",
     "engine": "Unity",
     "status": "Commercial Release",
     "description": "Contributed as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2, implementing and creating UI screens based on Figma design specifications.",
@@ -17,5 +18,7 @@
         "Collaborated with designers to ensure visual accuracy and quality"
     ],
     "tech": ["Unity", "C#", "uGUI", "UI Toolkit", "Figma"],
-    "details": "As a UI Developer at Skyhook Games, I worked on Lawn Mowing Simulator 2 implementing and creating UI screens based on Figma design specifications. My work involved translating designer mockups into fully functional and polished in-game UI using both uGUI and UI Toolkit, ensuring visual accuracy and a smooth player experience."
+    "details": "As a UI Developer at Skyhook Games, I worked on Lawn Mowing Simulator 2 implementing and creating UI screens based on Figma design specifications. My work involved translating designer mockups into fully functional and polished in-game UI using both uGUI and UI Toolkit, ensuring visual accuracy and a smooth player experience.",
+    "storeUrl": "https://store.steampowered.com/app/3831210/Lawn_Mowing_Simulator_2/",
+    "storeLinkText": "Check it out"
 }
