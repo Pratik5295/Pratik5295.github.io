@@ -35,10 +35,13 @@
         .then(function (data) {
             document.title = 'Project: ' + data.title;
 
-            // Hero banner
+            // Hero banner — prefer screenshotUrl, fall back to imageUrl
             var hero = document.getElementById('project-hero');
-            if (data.screenshotUrl) {
-                hero.style.backgroundImage = "url('../" + data.screenshotUrl + "')";
+            var heroImage = data.screenshotUrl
+                ? '../' + data.screenshotUrl
+                : data.imageUrl ? '../' + data.imageUrl : '';
+            if (heroImage) {
+                hero.style.backgroundImage = "url('" + heroImage + "')";
                 hero.classList.add('has-image');
             }
 
