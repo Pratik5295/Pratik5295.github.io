@@ -13,16 +13,16 @@
 
     <div class="header-info">
         <div class="subtitle">
-            <span id="typewriter">Game Developer</span><span class="typewriter-cursor"></span>
+            <span id="typewriter">Game Developer</span>
         </div>
         <div class="social-icons">
-            <a href="https://github.com/Pratik5295" target="_blank" aria-label="GitHub">
+            <a href="https://github.com/Pratik5295" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <img src="/Images/Social/Icon-Github.png" alt="GitHub">
             </a>
-            <a href="https://www.linkedin.com/in/pratik-shringarpure/" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/pratik-shringarpure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <img src="/Images/Social/LinkedIn-Icon.png" alt="LinkedIn">
             </a>
-            <a href="https://www.youtube.com/channel/UCMES0qUHnZriS-L0bVLqTLw" target="_blank" aria-label="YouTube">
+            <a href="https://www.youtube.com/channel/UCMES0qUHnZriS-L0bVLqTLw" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                 <img src="/Images/Social/Icon-Youtube.png" alt="YouTube">
             </a>
             <a href="#" data-copy-email="pratikshringarpure05@gmail.com" aria-label="Copy email">
@@ -45,9 +45,10 @@
                     <li><a href="/#section-art">Art Projects</a></li>
                 </ul>
             </li>
-            <li><a href="https://github.com/Pratik5295" target="_blank">Github</a></li>
-            <li><a href="https://www.artstation.com/pratikshringarpure5" target="_blank">Art Station</a></li>
+            <li><a href="https://github.com/Pratik5295" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.artstation.com/pratikshringarpure5" target="_blank" rel="noopener noreferrer">ArtStation</a></li>
             <li><a href="/Pages/aboutme.html">Resume</a></li>
+            <li><a href="#" data-copy-email="pratikshringarpure05@gmail.com">Contact</a></li>
         </ul>
     </nav>
 </div>
@@ -132,32 +133,7 @@
         var el = document.getElementById('typewriter');
         if (el && !el.dataset.init) {
             el.dataset.init = '1';
-            var roles = ['Game Developer', 'Unity Developer', 'UI Developer', 'Tools Programmer', 'Indie Game Developer'];
-            var ri = 0, ci = 0, deleting = false;
-            function type() {
-                var word = roles[ri];
-                if (deleting) {
-                    ci--;
-                    el.textContent = word.slice(0, ci);
-                    if (ci === 0) {
-                        deleting = false;
-                        ri = (ri + 1) % roles.length;
-                        setTimeout(type, 420);
-                        return;
-                    }
-                    setTimeout(type, 42);
-                } else {
-                    ci++;
-                    el.textContent = word.slice(0, ci);
-                    if (ci === word.length) {
-                        deleting = true;
-                        setTimeout(type, 2000);
-                        return;
-                    }
-                    setTimeout(type, 85);
-                }
-            }
-            setTimeout(type, 800);
+            el.textContent = 'Game Developer';
         }
     })();
 </script>

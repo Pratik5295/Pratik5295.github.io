@@ -5,6 +5,7 @@
     "imageUrl": "Images/ProjectData/SSPreordained.png",
     "engine": "Unity",
     "status": "Development Complete",
+    "summary": "Led core systems and a custom level tool for a strategy puzzle game supervised by SUMO Digital.",
     "description": "Preordained is a unique puzzle game where players control the turn order of characters rather than the characters themselves, creating a fresh strategic layer. This project was developed as part of the Master's in Professional Games Development course, under the supervision of SUMO Digital.",
     "videoUrl": "https://drive.google.com/file/d/1U6AmwGnbQNX--Uqw0lFwqbwTWbffCQiU/preview",
     "highlights": [
@@ -19,7 +20,7 @@
         "Designed and built a custom level creation tool for rapid designer iteration",
         "Contributed to technical direction, task planning, and cross-discipline coordination"
     ],
-    "tech": ["Unity", "C#", "Github"],
+    "tech": ["Unity", "C#", "GitHub"],
     "details": "Preordained is a unique puzzle game where players control the turn order of characters rather than the characters themselves, creating a fresh strategic layer. This project was developed as part of the Master's in Professional Games Development course, under the supervision of SUMO Digital. I acted as Lead Developer and Associate Producer, contributing to technical direction, task planning, and cross-discipline coordination. I architected and implemented core game systems including game managers, turn management, and UI systems, with a strong focus on scalability and maintainability. I also designed and built a custom level creation tool that enabled designers to rapidly create and iterate on content through a user-friendly and scalable workflow. Preordained was regarded as one of the strongest projects produced on the course in over four years and described as having \"a clear vision, well executed.\" The design team was praised for creating an experience that felt new while effectively managing player unfamiliarity, and SUMO Digital highlighted the project management as a \"model for how this would work within a twelve-week timeframe.\"",
     "downloadUrl": "https://drive.google.com/file/d/1KcH-cmTMN6Dy_pkAQHaEKHzzRSnGNNVP/view?usp=sharing"
 }

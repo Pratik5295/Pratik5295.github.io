@@ -5,6 +5,7 @@
     "imageUrl": "Images/ProjectData/SSPinball.png",
     "engine": "Unity",
     "status": "Development Paused",
+    "summary": "Designed levels and polish for a physics prototype where players rotate the level instead of the ball.",
     "description": "Really Bad Pinball is an eccentric game where players manipulate the level itself to guide the ball. Developed as a prototype over a period of two weeks, the game challenges players to control the level to navigate through obstacles, gather coins, and unlock gates.",
     "videoUrl": "https://www.youtube.com/embed/yePjMyQLxrQ?si=mpdg4RnN0W9QwOCU",
     "highlights": [],
@@ -12,8 +13,8 @@
         "Designed and developed the concept of the game",
         "Designed and structured the levels in the game using the game engine",
         "Scripted core mechanics of the game",
-        "Implemented lighting and VFX to give the game a polished look"
+        "Implemented lighting and VFX to give the game a more polished look"
     ],
-    "tech": ["Unity", "C#", "Unity Asset Store", "Github", "Trello"],
-    "details": "This was a team assignment for our Gameplay Prototyping course at RIT. Developed over the span of a weekend, the group dived deep into designing and implementing mechanics of the game, where you control the level instead of the actual player. This funky project had you rotating the level via controls to guide the ball throughout the level. I was involved with designing the levels associated with the game and structuring the levels in game engine using modular assets. Polishing the game levels for a playable demo involved additional of my tasks."
+    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Trello"],
+    "details": "This was a team assignment for our Gameplay Prototyping course at RIT. Developed over a weekend, the prototype explored a mechanic where players control the level instead of directly controlling the ball. Players rotate the level to guide the ball through obstacles, collect coins, and unlock gates. I designed and structured levels using modular assets, then supported lighting, VFX, and general polish for the playable demo."
 }

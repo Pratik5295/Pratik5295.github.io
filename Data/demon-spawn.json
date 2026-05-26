@@ -5,7 +5,8 @@
     "imageUrl": "Images/ProjectData/SSDemonSpawn.jpg",
     "engine": "Unity",
     "status": "Development Paused",
-    "description": "Play as a lost prince in this action packed 2D metroidvania style game. Explore the dungeons, use fists, bows and arrows to fight a variety of monsters. Feeling a bit overpowered by combat? Let your dark side take over to become a demon temporarily, allowing new and powerful abilities to balance the scales and maybe some into your favor. Solve engaging puzzles to explore all the levels in the game. Test yourself against the boss and defeat him to complete the game demo. One final question - Are you ready?",
+    "summary": "Led enemy AI and combat interactions for a 2D metroidvania capstone vertical slice.",
+    "description": "A 2D action-platformer vertical slice where players explore dungeon spaces, solve puzzles, and use melee, ranged, and temporary transformation abilities to survive combat encounters.",
     "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE?si=xO22PM2Opro1QyBN",
     "highlights": [
         { "name": "Enemy AI", "detail": "Developed enemy AI using behaviour trees, waypoint-based patrol systems, and state machines." },
@@ -19,6 +20,6 @@
         "Developed four enemy types including a multi-ability boss character",
         "Contributed to enemy concept and visual design"
     ],
-    "tech": ["Unity", "C#", "Unity Asset Store", "Github", "JIRA"],
-    "details": "For our capstone project in Masters degree, we created a vertical slice of a 2D action platformer featuring a metroidvania style level design. Design and Development of this game took place over the course of 9 months. Working as the AI programmer, I was responsible for designing and developing AI creatures that will challenge the player in combat. The development involved using techniques like Behavior trees, Waypoint system to patrol, Hit and Hurt boxes for combat development. This project was my first experience working in a game development team towards making a polished game. It taught me a lot about game development process, and involved wearing multiple hats to create a smooth and playable experience together."
+    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "JIRA"],
+    "details": "For our Master's capstone project, we created a vertical slice of a 2D action platformer with metroidvania-style level design. The project was designed and developed over nine months. As AI programmer, I designed and implemented enemy behaviours that challenged the player in combat, using behaviour trees, waypoint patrols, and hit/hurt box systems. This was my first experience working in a game-development team toward a polished playable slice, and it taught me a great deal about collaboration, production structure, and wearing multiple hats to deliver a cohesive experience."
 }

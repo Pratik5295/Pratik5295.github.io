@@ -18,9 +18,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="NavbarFolder/navbar.css">
-    <link rel="stylesheet" href="FooterFolder/footer.css">
+    <link rel="stylesheet" href="styles.css?v=20260526">
+    <link rel="stylesheet" href="NavbarFolder/navbar.css?v=20260526">
+    <link rel="stylesheet" href="FooterFolder/footer.css?v=20260526">
     <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
     <script src="Scripts/HtmlLoader.js"></script>
     <script src="Scripts/animations.js"></script>
@@ -32,6 +32,31 @@
     <button id="back-to-top" aria-label="Back to top">&#8679;</button>
 
     <div id="navbar"></div>
+
+    <main>
+    <!-- Hero -->
+    <section class="hero-section scroll-reveal" aria-labelledby="hero-title" id="featured-carousel">
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow" id="hero-category">Featured Work</p>
+            <h1 id="hero-title">Professional and recent project work</h1>
+            <p class="hero-copy" id="hero-copy">A rotating look at shipped titles, studio work, tools, and systems-focused Unity projects.</p>
+            <div class="hero-meta" aria-label="Featured project details">
+                <span id="hero-engine">Unity</span>
+                <span id="hero-status">Portfolio</span>
+            </div>
+            <div class="hero-actions" aria-label="Primary actions">
+                <a class="primary-action" id="hero-view-more" href="#section-professional">View More</a>
+                <a class="secondary-action" href="/Data/Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                <button class="secondary-action" type="button" data-copy-email="pratikshringarpure05@gmail.com">Email</button>
+            </div>
+        </div>
+        <div class="hero-carousel-controls" aria-label="Featured project carousel controls">
+            <button class="hero-carousel-btn" type="button" id="hero-prev" aria-label="Previous featured project">&#8249;</button>
+            <div class="hero-carousel-dots" id="hero-dots" aria-hidden="true"></div>
+            <button class="hero-carousel-btn" type="button" id="hero-next" aria-label="Next featured project">&#8250;</button>
+        </div>
+    </section>
 
     <!-- Stats Strip -->
     <div class="stats-strip scroll-reveal">
@@ -57,35 +82,31 @@
         </div>
     </div>
 
-    <!-- Skills Strip -->
-    <div class="skills-strip scroll-reveal" data-delay="80">
-        <span class="skill-tag">Unity</span>
-        <span class="skill-tag">C#</span>
-        <span class="skill-tag">Unreal Engine 5</span>
-        <span class="skill-tag">uGUI</span>
-        <span class="skill-tag">UI Toolkit</span>
-        <span class="skill-tag">Azure</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">AR Foundation</span>
-        <span class="skill-tag">Git</span>
-    </div>
-
     <!-- Professional Projects Section -->
     <section id="section-professional">
-        <div class="section-header scroll-reveal"><h1>Professional Projects</h1></div>
+        <div class="section-header scroll-reveal">
+            <h1>Professional Projects</h1>
+            <p>Commercial and released work with clear production responsibilities.</p>
+        </div>
         <div class="projects-grid" id="professional-projects-grid"></div>
     </section>
 
     <!-- Recent Work Section -->
     <section id="section-recent">
-        <div class="section-header scroll-reveal"><h1>Recent Work</h1></div>
+        <div class="section-header scroll-reveal">
+            <h1>Recent Work</h1>
+            <p>Recent prototypes, tools, and team projects with deeper systems work.</p>
+        </div>
         <div class="projects-grid" id="recent-projects-grid"></div>
     </section>
 
     <!-- Game Projects Section -->
     <section id="section-games">
-        <div class="section-header scroll-reveal">
-            <h1>Game Projects</h1>
+        <div class="section-header section-header-with-toggle scroll-reveal">
+            <div>
+                <h1>Game Projects</h1>
+                <p>Playable experiments, jams, mobile releases, and technical prototypes.</p>
+            </div>
             <button class="section-toggle" data-target="games-body" aria-expanded="true" aria-label="Toggle Game Projects">
                 <span class="toggle-label">Hide</span>
                 <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -96,23 +117,33 @@
 
         <div class="section-body" id="games-body">
             <!-- Filter bar — games grid only -->
-            <div class="filter-bar" id="filter-bar">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="game jam">Game Jam</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="hyper-casual">Hyper-Casual</button>
-                <button class="filter-btn" data-filter="tools">Tools</button>
-                <button class="filter-btn" data-filter="2d">2D</button>
-                <button class="filter-btn" data-filter="unreal">Unreal</button>
+            <div class="project-controls">
+                <div class="filter-bar" id="filter-bar" aria-label="Filter game projects">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="game jam">Game Jam</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="hyper-casual">Hyper-Casual</button>
+                    <button class="filter-btn" data-filter="tools">Tools</button>
+                    <button class="filter-btn" data-filter="2d">2D</button>
+                    <button class="filter-btn" data-filter="unreal">Unreal</button>
+                </div>
+                <label class="project-search" for="project-search-input">
+                    <span>Search</span>
+                    <input id="project-search-input" type="search" placeholder="Search projects or tech" autocomplete="off">
+                </label>
             </div>
+            <p class="empty-state" id="game-projects-empty" hidden>No matching projects found.</p>
             <div class="projects-grid" id="grid-container"></div>
         </div>
     </section>
 
     <!-- Art Section -->
     <section id="section-art">
-        <div class="section-header scroll-reveal">
-            <h1>Art Projects</h1>
+        <div class="section-header section-header-with-toggle scroll-reveal">
+            <div>
+                <h1>Art Projects</h1>
+                <p>3D art and visual experiments that support the broader game-development craft.</p>
+            </div>
             <button class="section-toggle" data-target="art-body" aria-expanded="true" aria-label="Toggle Art Projects">
                 <span class="toggle-label">Hide</span>
                 <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -124,6 +155,7 @@
             <div id="artHomePage"></div>
         </div>
     </section>
+    </main>
 
     <div id="footer-container"></div>
 

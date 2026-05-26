@@ -22,6 +22,38 @@
         if (el) el.setAttribute('content', content);
     }
 
+    function addProjectAction(label, href, isExternal) {
+        var actions = document.getElementById('project-actions');
+        if (!actions || !href) return;
+        var link = document.createElement('a');
+        link.className = 'project-action-link';
+        link.href = href;
+        link.textContent = label;
+        if (isExternal) {
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+        }
+        actions.appendChild(link);
+        actions.style.display = 'flex';
+    }
+
+    function addSnapshotItem(label, value) {
+        if (!value) return;
+        var list = document.getElementById('snapshot-list');
+        var section = document.getElementById('snapshot-section');
+        if (!list || !section) return;
+        var item = document.createElement('div');
+        item.className = 'snapshot-item';
+        var labelEl = document.createElement('span');
+        labelEl.textContent = label;
+        var valueEl = document.createElement('strong');
+        valueEl.textContent = value;
+        item.appendChild(labelEl);
+        item.appendChild(valueEl);
+        list.appendChild(item);
+        revealSection('snapshot-section');
+    }
+
     // Fetch project data + master project list in parallel
     Promise.all([
         fetch(cacheBust('../Data/' + projectId + '.json')).then(function (r) {
@@ -64,6 +96,11 @@
         document.getElementById('project-engine').textContent = data.engine || data.gameEngine || '';
         document.getElementById('project-status').textContent = data.status || '';
         document.getElementById('project-description').textContent = data.description || '';
+
+        addSnapshotItem('Engine', data.engine || data.gameEngine || '');
+        addSnapshotItem('Status', data.status || '');
+        addSnapshotItem('Focus', data.subtitle || data.content || '');
+        addSnapshotItem('Tech', data.tech && data.tech.length ? data.tech.slice(0, 5).join(', ') : '');
 
         // ---- Video ----
         if (data.videoUrl) {
@@ -127,14 +164,17 @@
 
         // ---- Download / Store ----
         if (data.downloadUrl) {
-            revealSection('download-section');
-            document.getElementById('download-link').href = data.downloadUrl;
+            var dl = document.getElementById('download-link');
+            dl.href = data.downloadUrl;
+            dl.rel = 'noopener noreferrer';
+            addProjectAction('Download Build', data.downloadUrl, true);
         }
         if (data.storeUrl) {
-            revealSection('store-section');
             var sl = document.getElementById('store-link');
             sl.href = data.storeUrl;
+            sl.rel = 'noopener noreferrer';
             sl.textContent = data.storeLinkText || 'View on Store';
+            addProjectAction(data.storeLinkText || 'View on Store', data.storeUrl, true);
         }
 
         // ---- Prev / Next ----

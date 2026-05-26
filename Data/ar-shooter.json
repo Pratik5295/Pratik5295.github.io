@@ -5,14 +5,15 @@
     "imageUrl": "Images/ProjectData/SSARShooter.png",
     "engine": "Unity",
     "status": "Development Complete",
-    "description": "Explored Unity AR Core and AR Foundation functionalities to create a shooter game, where you select a playable character from a selection of 2 player characters with different stats. Survive the hordes of enemies attacking you. There are two types of enemies in the game, and the game is structured to easily handle more. This game was developed for mobile devices.",
+    "summary": "Explored AR Foundation through a mobile shooter with plane detection, characters, waves, and enemy types.",
+    "description": "Explored Unity ARCore and AR Foundation by creating a mobile shooter where players choose between two characters with different stats and survive enemy waves placed on real-world detected planes.",
     "videoUrl": "https://drive.google.com/file/d/1SJVhhtWOK_xAZ6B58hiev9yYY2HIB8O3/preview",
     "highlights": [
-        { "name": "Integration with AR Core", "detail": "Integrated Unity with ARCore & AR Foundation packages, to create an empty game world on a real world plane." },
-        { "name": "Combat", "detail": "Simple combat mechanic between player and the enemies where the player uses gun to shoot, and the enemies get close and perform melee attacks." },
-        { "name": "Character Selection", "detail": "Select from two different characters with different stats to play." },
-        { "name": "Different classes of Enemies", "detail": "Use of inheritance to create different enemy classes." },
-        { "name": "Enemy Waves", "detail": "A 3 wave spawner created using scriptable objects to handle different enemies per wave and per level." }
+        { "name": "AR Foundation", "detail": "Integrated ARCore and AR Foundation packages to place the game space on a detected real-world plane." },
+        { "name": "Combat", "detail": "Built simple shooting and melee combat interactions between the player and enemies." },
+        { "name": "Character Selection", "detail": "Created two playable characters with different stats." },
+        { "name": "Enemy Classes", "detail": "Used inheritance to support multiple enemy classes." },
+        { "name": "Enemy Waves", "detail": "Created a three-wave spawner using ScriptableObjects to configure enemies per wave and level." }
     ],
     "roles": [
         "Designed and developed as a solo project",
@@ -20,6 +21,6 @@
         "Integrated Unity AR Core and AR Foundation for real-world plane detection",
         "Optimised and built for Android mobile devices"
     ],
-    "tech": ["Unity", "C#", "AR Core", "AR Foundation", "Github"],
+    "tech": ["Unity", "C#", "AR Core", "AR Foundation", "GitHub"],
     "details": "Designed and developed a mobile AR shooter game to explore Unity AR Core and AR Foundation. The game places a virtual battlefield on real-world detected planes, creating an immersive experience where enemies appear in the player's physical environment. Players choose from two characters with distinct stats before surviving waves of enemies. Enemy types use inheritance to share base AI behaviour while allowing for varied attack patterns. The wave system is built using scriptable objects, making it straightforward to configure new waves and enemy types without code changes."
 }

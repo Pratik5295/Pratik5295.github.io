@@ -5,7 +5,8 @@
     "imageUrl": "Images/ProjectData/SSDetective.png",
     "engine": "Unity",
     "status": "Development Paused",
-    "description": "A 3rd Person Game made using Unity and C#. This game follows the story of Derek, a detective who is recently re-joining the force after a 9 month break due to an accident. Solve the case allotted while also figuring out what caused the accident leading to your comatose state. This was a solo project made over a span of 2-months including designing phase.",
+    "summary": "Built a solo third-person detective prototype with quests, dialogue, shooting, IK, and puzzle systems.",
+    "description": "A third-person narrative prototype made in Unity and C#. The game follows Derek, a detective returning to the force after a nine-month absence caused by an accident. Players solve an assigned case while uncovering what happened during Derek's comatose state.",
     "videoUrl": "https://drive.google.com/file/d/1dJvNPQteytIBZTnUvsmZp2EfaQ9TOXXa/preview",
     "highlights": [
         { "name": "Dialogue System", "detail": "A dialogue system branching different dialogue options. Messages can trigger different quests, and fire events of its own." },
@@ -21,6 +22,6 @@
         "Wrote the full game narrative and dialogue content",
         "Planned and tracked tasks using Confluence and JIRA"
     ],
-    "tech": ["Unity", "C#", "Github", "JIRA", "Confluence"],
-    "details": "A 3rd Person Game made using Unity and C#. This game follows the story of Derek, a detective who is recently re-joining the force after a 9 month break due to an accident. Solve the case allotted while also figuring out what caused the accident leading to your comatose state. This was a solo project made over a span of 2-months including the designing phase."
+    "tech": ["Unity", "C#", "GitHub", "JIRA", "Confluence"],
+    "details": "A third-person narrative prototype made in Unity and C#. The game follows Derek, a detective returning to the force after a nine-month absence caused by an accident. Players solve an assigned case while uncovering what happened during Derek's comatose state. This was a solo project developed over two months, including the design phase."
 }

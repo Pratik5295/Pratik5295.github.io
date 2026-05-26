@@ -5,7 +5,8 @@
     "screenshotUrl": "Images/ProjectData/SS-LMS2.jpg",
     "engine": "Unity",
     "status": "Commercial Release",
-    "description": "Contributed as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2, implementing and creating UI screens based on Figma design specifications.",
+    "summary": "Implemented player-facing UI screens from Figma specifications for a commercial Unity release.",
+    "description": "Contributed as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2, building player-facing UI screens from Figma design specifications.",
     "highlights": [
         { "name": "UI Implementation", "detail": "Implemented and built UI screens from scratch based on provided Figma design mockups." },
         { "name": "Figma to Unity Pipeline", "detail": "Translated designer layouts and specifications into fully functional, polished in-game UI screens." },
@@ -18,7 +19,7 @@
         "Collaborated with designers to ensure visual accuracy and quality"
     ],
     "tech": ["Unity", "C#", "uGUI", "UI Toolkit", "Figma"],
-    "details": "As a UI Developer at Skyhook Games, I worked on Lawn Mowing Simulator 2 implementing and creating UI screens based on Figma design specifications. My work involved translating designer mockups into fully functional and polished in-game UI using both uGUI and UI Toolkit, ensuring visual accuracy and a smooth player experience.",
+    "details": "As a UI Developer at Skyhook Games, I worked on Lawn Mowing Simulator 2 by translating Figma mockups into functional in-game UI using uGUI and UI Toolkit. The work focused on visual accuracy, clean implementation, and a smooth player experience.",
     "storeUrl": "https://store.steampowered.com/app/3831210/Lawn_Mowing_Simulator_2/",
     "storeLinkText": "Check it out"
 }

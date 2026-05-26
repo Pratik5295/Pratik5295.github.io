@@ -1,10 +1,12 @@
 footer {
-    background: linear-gradient(135deg, rgba(13, 13, 20, 0.95), rgba(20, 20, 30, 0.95));
-    color: #c0c0c0;
+    background:
+        linear-gradient(135deg, rgba(4, 188, 117, 0.08), transparent 40%),
+        rgba(7, 11, 13, 0.94);
+    color: #c7ccd0;
     padding: 2.5rem 2rem 1.25rem;
     margin-top: 3rem;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
+    border: 1px solid rgba(199, 204, 208, 0.14);
+    border-radius: 8px;
     position: relative;
     overflow: hidden;
 }
@@ -16,7 +18,7 @@ footer::before {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #04BC75, gold, #04BC75, transparent);
+    background: linear-gradient(90deg, transparent, #04BC75, #d4af37, #04BC75, transparent);
 }
 
 /* Two-column inner layout */
@@ -43,6 +45,8 @@ footer::before {
     font-size: 0.88rem;
     margin: 0 0 1.1rem 0;
     font-weight: 300;
+    line-height: 1.6;
+    max-width: 420px;
 }
 
 .footer-social-icons {
@@ -51,8 +55,8 @@ footer::before {
 }
 
 .footer-social-icons a {
-    background: rgba(192, 192, 192, 0.12);
-    border: 1px solid rgba(192, 192, 192, 0.25);
+    background: rgba(199, 204, 208, 0.1);
+    border: 1px solid rgba(199, 204, 208, 0.22);
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -96,7 +100,7 @@ footer::before {
 }
 
 .footer-right a {
-    color: #8a8a95;
+    color: #90999c;
     text-decoration: none;
     font-size: 0.78rem;
     font-weight: 500;
@@ -112,14 +116,14 @@ footer::before {
 
 /* Bottom copyright bar */
 .footer-bottom {
-    border-top: 1px solid rgba(192, 192, 192, 0.08);
+    border-top: 1px solid rgba(199, 204, 208, 0.1);
     padding-top: 1rem;
     text-align: center;
 }
 
 .footer-bottom p {
     font-size: 0.78rem;
-    color: #4a4a55;
+    color: #596267;
     font-weight: 300;
     letter-spacing: 0.5px;
 }

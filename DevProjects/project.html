@@ -18,9 +18,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="project.css">
-    <link rel="stylesheet" href="../NavbarFolder/navbar.css">
-    <link rel="stylesheet" href="../FooterFolder/footer.css">
+    <link rel="stylesheet" href="project.css?v=20260526">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260526">
+    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260526">
     <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
     <script src="../Scripts/HtmlLoader.js"></script>
     <script src="../Scripts/animations.js"></script>
@@ -43,7 +43,9 @@
 
         <!-- Hero banner -->
         <div class="project-hero" id="project-hero">
+            <div class="project-actions" id="project-actions" style="display:none;"></div>
             <div class="project-hero-content">
+                <p class="project-kicker">Project Case Study</p>
                 <h1 id="project-title"></h1>
                 <p class="project-subtitle" id="project-subtitle"></p>
                 <div class="project-meta">
@@ -54,8 +56,13 @@
         </div>
 
         <section class="project-section" id="description-section">
-            <h2 class="section-label">Description</h2>
+            <h2 class="section-label">Overview</h2>
             <p id="project-description"></p>
+        </section>
+
+        <section class="project-section" id="snapshot-section" style="display:none;">
+            <h2 class="section-label">Snapshot</h2>
+            <div class="snapshot-list" id="snapshot-list"></div>
         </section>
 
         <section class="project-section" id="video-section" style="display:none;">
@@ -87,11 +94,11 @@
         </section>
 
         <div id="download-section" style="display:none;">
-            <a id="download-link" class="download-btn" target="_blank">Download Playable Build</a>
+            <a id="download-link" class="download-btn" target="_blank" rel="noopener noreferrer">Download Playable Build</a>
         </div>
 
         <div id="store-section" style="display:none;">
-            <a id="store-link" class="download-btn store-btn" target="_blank"></a>
+            <a id="store-link" class="download-btn store-btn" target="_blank" rel="noopener noreferrer"></a>
         </div>
 
         <!-- Prev / Next navigation -->

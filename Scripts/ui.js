@@ -58,29 +58,12 @@
         }
     });
 
-    // ---- Animated Stat Counters ----
+    // ---- Stat Counters ----
     var statEls = document.querySelectorAll('[data-count]');
     if (statEls.length) {
-        var statObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (!entry.isIntersecting) return;
-                var el = entry.target;
-                var target = parseInt(el.dataset.count, 10);
-                var suffix = el.dataset.suffix || '';
-                var start = performance.now();
-                var dur = 1400;
-                function tick(now) {
-                    var p = Math.min((now - start) / dur, 1);
-                    var eased = 1 - Math.pow(1 - p, 3);
-                    el.textContent = Math.floor(eased * target) + suffix;
-                    if (p < 1) requestAnimationFrame(tick);
-                    else el.textContent = target + suffix;
-                }
-                requestAnimationFrame(tick);
-                statObserver.unobserve(el);
-            });
-        }, { threshold: 0.6 });
-        statEls.forEach(function (el) { statObserver.observe(el); });
+        statEls.forEach(function (el) {
+            el.textContent = el.dataset.count + (el.dataset.suffix || '');
+        });
     }
 
     // ---- Section Toggle (collapsible) ----
@@ -97,26 +80,49 @@
         if (label) label.textContent = expanded ? 'Show' : 'Hide';
     });
 
-    // ---- Project Filter ----
+    // ---- Project Filter + Search ----
     var filterBar = document.getElementById('filter-bar');
+    var projectSearch = document.getElementById('project-search-input');
+    var emptyState = document.getElementById('game-projects-empty');
+    function applyProjectFilters() {
+        var activeBtn = filterBar ? filterBar.querySelector('.filter-btn.active') : null;
+        var filter = activeBtn ? activeBtn.dataset.filter : 'all';
+        var query = projectSearch ? projectSearch.value.trim().toLowerCase() : '';
+        var visibleCount = 0;
+
+        document.querySelectorAll('#grid-container > [data-tags]').forEach(function (card) {
+            var matchesFilter = filter === 'all' || card.dataset.tags.indexOf(filter) !== -1;
+            var matchesQuery = !query || card.dataset.tags.indexOf(query) !== -1;
+            var match = matchesFilter && matchesQuery;
+            if (match) {
+                visibleCount++;
+                card.style.display = '';
+                requestAnimationFrame(function () { card.style.opacity = '1'; });
+            } else {
+                card.style.opacity = '0';
+                setTimeout(function () {
+                    if (card.style.opacity === '0') card.style.display = 'none';
+                }, 220);
+            }
+        });
+
+        if (emptyState) {
+            emptyState.hidden = visibleCount !== 0;
+        }
+    }
+    window.applyProjectFilters = applyProjectFilters;
+
     if (filterBar) {
         filterBar.addEventListener('click', function (e) {
             var btn = e.target.closest('.filter-btn');
             if (!btn) return;
             filterBar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
-            var filter = btn.dataset.filter;
-            document.querySelectorAll('#grid-container > [data-tags]').forEach(function (card) {
-                var match = filter === 'all' || card.dataset.tags.indexOf(filter) !== -1;
-                if (match) {
-                    card.style.display = '';
-                    requestAnimationFrame(function () { card.style.opacity = '1'; });
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(function () { card.style.display = 'none'; }, 280);
-                }
-            });
+            applyProjectFilters();
         });
+    }
+    if (projectSearch) {
+        projectSearch.addEventListener('input', applyProjectFilters);
     }
 
 })();

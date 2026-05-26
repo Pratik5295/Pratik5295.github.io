@@ -5,7 +5,8 @@
     "imageUrl": "Images/ProjectData/SSTileEditor.png",
     "engine": "Unity",
     "status": "Development Complete and used in game",
-    "description": "An in-editor Unity Tool created using Unity and C# to assist developers/designers alike to easily populate a variety of tiles to make a level.",
+    "summary": "Built a custom Unity editor tool for tile palettes, 3D grid painting, and faster level iteration.",
+    "description": "An in-editor Unity tool created with C# to help developers and designers quickly populate levels with configurable tiles.",
     "videoUrl": "https://www.youtube.com/embed/hcMgYlEsHhY?si=SEZ4Ftk26K4w-uo-",
     "highlights": [
         { "name": "Customisable Tile Palette", "detail": "Users can build a personalised palette by adding any tiles of their choice, keeping the workflow flexible." },
@@ -19,6 +20,6 @@
         "Developed the tile editor UI windows, palette logic, and 3D grid system",
         "Integrated the tool into a Tower Defense game prototype"
     ],
-    "tech": ["Unity", "C#", "Github"],
-    "details": "Designed and developed a 3D tile editor tool within Unity and C# to streamline the level design process. The tool features a customisable tile palette where users can add tiles of their choice, and a 3D grid-based system that makes placing and painting tiles faster and more intuitive. Built with level designers in mind, it removes the need for manual scene setup and allows rapid prototyping of level layouts. The tool was subsequently integrated into a Tower Defense game prototype, validating it in a real development context."
+    "tech": ["Unity", "C#", "GitHub"],
+    "details": "Designed and developed a 3D tile editor tool in Unity and C# to streamline level design. The tool features a customisable tile palette and a 3D grid-based painting system, making tile placement faster and easier to reason about. Built with level designers in mind, it reduces manual scene setup and supports rapid layout prototyping. The tool was integrated into a tower-defense prototype, validating it in a real project context."
 }

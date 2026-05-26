@@ -5,13 +5,14 @@
     "imageUrl": "Images/ProjectData/SSMapbox.png",
     "engine": "Unity",
     "status": "Complete",
-    "description": "Learning is something I thoroughly enjoy, this project involved me first hand trying the Mapbox API to create a simple navigation application which can determine shortest pathway to a nearby area/building of interest.",
+    "summary": "Integrated Mapbox with Unity to prototype a real-world coordinate navigation and route display system.",
+    "description": "A Unity learning project exploring Mapbox API integration for a simple navigation application that can determine and display a route to a nearby area or building of interest.",
     "videoUrl": "https://www.youtube.com/embed/7ykU7ceGFKE?si=1OXoaPjcHjnZPyOU",
     "highlights": [],
     "roles": [
-        "Learning, understanding and integrating Mapbox with Unity",
-        "UI Development"
+        "Learned, understood, and integrated Mapbox with Unity",
+        "Developed the supporting UI"
     ],
-    "tech": ["Unity", "C#", "Unity Asset Store", "Github", "Mapbox"],
-    "details": "This project was more of a learning experiment to get a grasp of Mapbox API, its uses, features and integration with Unity to generate map and related navigational elements associated with it. Users could input specific locations, landmarks, or general instructions akin to Google Maps functionality. The system would then generate and display the fastest route from the current location to the designated destination."
+    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Mapbox"],
+    "details": "This project was a learning experiment to understand Mapbox API features and Unity integration for map generation and navigation UI. Users could input specific locations, landmarks, or route requests, and the system would generate and display a route from the current location to the chosen destination."
 }

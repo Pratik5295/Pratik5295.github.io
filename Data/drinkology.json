@@ -5,7 +5,8 @@
     "imageUrl": "Images/ProjectData/SSDrinkology.jpg",
     "engine": "Unity",
     "status": "Released on Google Play Store",
-    "description": "Find yourself at a party and struggling to connect with people! Always try to play a game together! Drinkology is a party game on your phone, which has multiple mini games, starting from Kings Cup with an inbuilt deck on your phone! To a clicker like tug of war! We got it all!",
+    "summary": "Designed mobile party-game systems, King's Cup logic, asset integration, and Google Play release support.",
+    "description": "Drinkology is a mobile party game featuring multiple mini-games, including King's Cup with an in-app deck and quick competitive tap challenges.",
     "videoUrl": "https://www.youtube.com/embed/F1eaBGKisQg?si=-6lAApiLgBTeoegT",
     "highlights": [],
     "roles": [
@@ -14,6 +15,6 @@
         "Collaborated with artists to help create assets and integrate into the game",
         "Worked on Google Play Store policies and releasing the game to said platform"
     ],
-    "tech": ["Unity", "C#", "Unity Asset Store", "Github", "Trello"],
-    "details": "This game started as a solo weekend project and transitions to a group project. Relatively short as it only took around a month to complete the game and release on Play Store. This was a game made during my time at RIT for my masters. Diving deep into the gameplay features and logistics required to make a simple mobile game fun for parties was my primary task. Made use of randomizing value generators for features like shuffling card decks, drawing cards. Wearing multiple hats (other than developer) majorly in the field of game design helped me acquire and expand on my knowledge of game designing."
+    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Trello"],
+    "details": "This game started as a solo weekend project and later became a small group project. It took around one month to complete and release on Google Play during my Master's studies at RIT. My work focused on gameplay features and the design logistics needed to make a simple mobile party game feel quick, readable, and fun in a social setting. I implemented systems such as card shuffling, random draws, and King's Cup logic while also contributing to game design, asset integration, and release preparation."
 }

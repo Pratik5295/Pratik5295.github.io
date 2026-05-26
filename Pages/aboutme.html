@@ -6,19 +6,19 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>About Me — Pratik Shringarpure</title>
-    <meta name="description" content="About Pratik Shringarpure — Unity game developer with professional studio experience, a Master's in Game Design and Development, and a portfolio of shipped games and tools.">
+    <title>About & Resume — Pratik Shringarpure</title>
+    <meta name="description" content="About Pratik Shringarpure — Unity game developer with professional studio experience, a Master's in Game Design and Development, and a portfolio of shipped games, tools, and UI systems.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="About Me — Pratik Shringarpure">
-    <meta property="og:description" content="Unity game developer with 4+ years of experience, professional studio credits at Skyhook Games and Kazoo Games, and a Master's in Game Design and Development.">
+    <meta property="og:title" content="About & Resume — Pratik Shringarpure">
+    <meta property="og:description" content="Unity game developer with professional studio credits at Skyhook Games and Kazoo Games, and a Master's in Game Design and Development.">
     <meta property="og:image" content="/Images/ProjectData/Profile.png">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="aboutme.css">
-    <link rel="stylesheet" href="../NavbarFolder/navbar.css">
-    <link rel="stylesheet" href="../FooterFolder/footer.css">
+    <link rel="stylesheet" href="aboutme.css?v=20260526">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260526">
+    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260526">
     <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
     <script src="../Scripts/HtmlLoader.js"></script>
     <script src="../Scripts/animations.js"></script>
@@ -29,7 +29,7 @@
 
     <div id="navbar"></div>
 
-    <h1 class="page-title scroll-reveal">About Me</h1>
+    <h1 class="page-title scroll-reveal">About &amp; Resume</h1>
 
     <div class="about-layout scroll-reveal" data-delay="100">
         <div class="bio-side">
@@ -37,14 +37,48 @@
                 <img src="../Images/ProjectData/Profile.png" alt="Pratik's photo">
             </div>
             <div class="text-section">
-                <p>Hi, I'm Pratik — a Unity and C# game developer with four years of experience and a Master's degree in Game Design and Development.</p>
-                <p>I've worked professionally as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2, and as a Tools and Backend Developer at Kazoo Games on 8 Ball Champions. Alongside studio work, I build my own projects spanning gameplay systems, tools programming, UI development, and mobile releases.</p>
-                <p>I enjoy turning complex requirements into clean, maintainable systems and polished player experiences. Feel free to reach out using the links below.</p>
+                <p>Hi, I'm Pratik, a Unity and C# game developer focused on player-facing UI, tools programming, gameplay systems, and mobile releases.</p>
+                <p>Professionally, I have worked as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2 and as a Tools and Backend Developer at Kazoo Games on 8 Ball Champions. My personal work spans puzzle games, editor tools, AR experiments, game jams, and live mobile projects.</p>
+                <p>I like making complex requirements feel calm: readable systems, fast iteration loops, and polished interfaces that help players and developers understand what to do next.</p>
             </div>
-            <a class="resume-download-btn" href="../Data/Resume.pdf" download>Download Resume</a>
+            <div class="profile-facts" aria-label="Profile highlights">
+                <span>Unity UI</span>
+                <span>Tools Programming</span>
+                <span>Backend Integrations</span>
+                <span>Gameplay Systems</span>
+            </div>
+            <div class="resume-actions">
+                <a class="resume-download-btn" href="../Data/Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+                <a class="resume-download-btn secondary" href="../Data/Resume.pdf" download>Download PDF</a>
+            </div>
         </div>
         <div class="resume-side">
-            <iframe src="../Data/Resume.pdf" type="application/pdf"></iframe>
+            <section class="resume-panel" aria-labelledby="resume-snapshot-title">
+                <p class="resume-eyebrow">Resume Snapshot</p>
+                <h2 id="resume-snapshot-title">Production experience with UI, tools, backend, and gameplay systems.</h2>
+                <div class="experience-list">
+                    <article class="experience-item">
+                        <span>Skyhook Games</span>
+                        <h3>UI Developer</h3>
+                        <p>Implemented Unity UI screens for Lawn Mowing Simulator 2 from Figma specifications, focusing on visual accuracy and player-facing polish.</p>
+                    </article>
+                    <article class="experience-item">
+                        <span>Kazoo Games</span>
+                        <h3>Tools &amp; Backend Developer</h3>
+                        <p>Worked on 8 Ball Champions with Azure backend tasks, gacha system implementation, internal tooling, and UI development.</p>
+                    </article>
+                    <article class="experience-item">
+                        <span>Master's Projects</span>
+                        <h3>Lead Developer / Systems Programmer</h3>
+                        <p>Built game managers, turn systems, custom level tools, dialogue systems, AI behaviour, and UI flows across team projects.</p>
+                    </article>
+                    <article class="experience-item">
+                        <span>Independent Releases</span>
+                        <h3>Solo &amp; Team Developer</h3>
+                        <p>Released mobile games, completed game jam projects, and developed Unity editor tools for faster iteration and content creation.</p>
+                    </article>
+                </div>
+            </section>
         </div>
     </div>
 

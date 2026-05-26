@@ -5,15 +5,16 @@
     "imageUrl": "Images/ProjectData/SSCubeCraft.png",
     "engine": "Unreal",
     "status": "Development Complete",
-    "description": "A Minecraft-style game has been developed in Unreal Engine using Blueprints. This is my first prototype in Unreal Engine, and was learning the tool along with this project.",
+    "summary": "Created a first-person Unreal Engine 5 building prototype with Blueprints, raycasting, and save/load.",
+    "description": "A Minecraft-inspired first-person building prototype developed in Unreal Engine 5 using Blueprints. This was my first Unreal prototype and a practical way to learn the engine through a playable project.",
     "videoUrl": "https://www.youtube.com/embed/OukHUjFQ6OI?si=KdvrfQzav9nyrlU8",
     "highlights": [],
     "roles": [
         "Designed and developed the concept of the game",
         "Learned and explored Unreal Engine",
-        "Utilize Blueprints to create a playable demo",
+        "Used Blueprints to create a playable demo",
         "Modular code to expand, asset integration (models, animations)"
     ],
-    "tech": ["Unreal", "Blueprints", "Github", "JIRA"],
-    "details": "In this first-person game, players have the ability to gather resources and erect blocks to construct their own village or base, selecting from a variety of six block types. The game boasts several features including Raycasting, a Save/Load System, UI system, Actor spawning, among others. Credit for the 3D model assets goes to Tidal Flask Studios."
+    "tech": ["Unreal", "Blueprints", "GitHub", "JIRA"],
+    "details": "In this first-person building prototype, players gather resources and place blocks to construct a base using six block types. The project includes raycasting, actor spawning, UI systems, and save/load functionality. It was built as a hands-on Unreal Engine 5 learning project using Blueprints. Credit for the 3D model assets goes to Tidal Flask Studios."
 }
