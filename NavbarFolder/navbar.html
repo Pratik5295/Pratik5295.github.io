@@ -45,6 +45,15 @@
                     <li><a href="/#section-art">Art Projects</a></li>
                 </ul>
             </li>
+            <li class="dropdown" id="nav-dropdown-tools">
+                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Useful Tools <span class="dropdown-arrow">&#9660;</span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="/Tools/tools.html">All Tools</a></li>
+                    <li><a href="/Tools/figma-unity-color-converter.html">Figma → Unity Converter</a></li>
+                </ul>
+            </li>
             <li><a href="https://github.com/Pratik5295" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             <li><a href="https://www.artstation.com/pratikshringarpure5" target="_blank" rel="noopener noreferrer">ArtStation</a></li>
             <li><a href="/Pages/aboutme.html">Resume</a></li>
@@ -74,24 +83,26 @@
             });
         }
 
-        // ---- Dropdown toggle ----
-        var dropdownEl = document.getElementById('nav-dropdown');
-        var dropdownToggle = dropdownEl ? dropdownEl.querySelector('.dropdown-toggle') : null;
-        var dropdownMenu = dropdownEl ? dropdownEl.querySelector('.dropdown-menu') : null;
+        // ---- Dropdown toggle (supports multiple dropdowns) ----
+        var dropdowns = Array.prototype.slice.call(document.querySelectorAll('.navbar .dropdown'));
 
-        if (dropdownToggle && dropdownMenu) {
+        dropdowns.forEach(function (dropdownEl) {
+            var dropdownToggle = dropdownEl.querySelector('.dropdown-toggle');
+            var dropdownMenu = dropdownEl.querySelector('.dropdown-menu');
+            if (!dropdownToggle || !dropdownMenu) return;
+
             dropdownToggle.addEventListener('click', function (e) {
                 e.preventDefault();
+                // Close any sibling dropdowns first
+                dropdowns.forEach(function (other) {
+                    if (other !== dropdownEl) {
+                        other.classList.remove('open');
+                        var t = other.querySelector('.dropdown-toggle');
+                        if (t) t.setAttribute('aria-expanded', 'false');
+                    }
+                });
                 var open = dropdownEl.classList.toggle('open');
                 dropdownToggle.setAttribute('aria-expanded', open);
-            });
-
-            // Close when clicking outside
-            document.addEventListener('click', function (e) {
-                if (dropdownEl && !dropdownEl.contains(e.target)) {
-                    dropdownEl.classList.remove('open');
-                    dropdownToggle.setAttribute('aria-expanded', 'false');
-                }
             });
 
             // Close dropdown + mobile menu when a dropdown link is clicked
@@ -105,7 +116,18 @@
                     }
                 });
             });
-        }
+        });
+
+        // Close all dropdowns when clicking outside of them
+        document.addEventListener('click', function (e) {
+            dropdowns.forEach(function (dropdownEl) {
+                if (!dropdownEl.contains(e.target)) {
+                    dropdownEl.classList.remove('open');
+                    var t = dropdownEl.querySelector('.dropdown-toggle');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
 
         // Close mobile menu when a top-level non-dropdown link is clicked
         if (menu) {

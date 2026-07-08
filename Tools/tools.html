@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Useful Tools — Pratik Shringarpure</title>
+    <meta name="description" content="A small collection of free, offline utilities for game developers — built by Pratik Shringarpure to solve real production problems in Unity and beyond.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Useful Game Dev Tools — Pratik Shringarpure">
+    <meta property="og:description" content="Free, offline utilities for game developers, built to solve real Unity production problems.">
+    <meta property="og:image" content="/Images/ProjectData/Profile.png">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="tools.css?v=20260708">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260708">
+    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260708">
+    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <script src="../Scripts/HtmlLoader.js"></script>
+    <script src="../Scripts/animations.js"></script>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" aria-label="Back to top">&#8679;</button>
+
+    <div id="navbar"></div>
+
+    <main>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-current">Useful Tools</span>
+        </nav>
+
+        <header class="tools-header scroll-reveal">
+            <p class="tools-kicker">Game Dev Utilities</p>
+            <h1>Useful Tools</h1>
+            <p class="tools-lead">Small, free, offline utilities I built to solve real problems while shipping games — the kind of fiddly production issues that don't have a clean tool online. Everything here runs entirely in your browser; nothing is uploaded.</p>
+        </header>
+
+        <section class="tools-grid" aria-label="Available tools">
+            <a class="tool-card scroll-reveal" href="/Tools/figma-unity-color-converter.html">
+                <div class="tool-card-icon" aria-hidden="true">🎨</div>
+                <h2>Figma → Unity Color Converter</h2>
+                <p>Convert a Figma sRGB color (with alpha) into the equivalent Unity UI Toolkit <strong>Linear-space</strong> rgba, so semi-transparent UI renders exactly like your design instead of coming out lighter.</p>
+                <div class="tool-card-tags">
+                    <span class="tool-card-tag">Unity</span>
+                    <span class="tool-card-tag">UI Toolkit</span>
+                    <span class="tool-card-tag">Color</span>
+                    <span class="tool-card-tag">Offline</span>
+                </div>
+                <span class="tool-card-cta">Open Tool</span>
+            </a>
+
+            <!-- More tools land here as they're built -->
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        LoadPage("../NavbarFolder/navbar.html", "navbar");
+        LoadPage("../FooterFolder/footer.html", "footer-container");
+    </script>
+    <script src="../Scripts/ui.js"></script>
+</body>
+</html>
