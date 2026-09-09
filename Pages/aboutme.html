@@ -6,84 +6,146 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>About & Resume — Pratik Shringarpure</title>
-    <meta name="description" content="About Pratik Shringarpure — Unity game developer with professional studio experience, a Master's in Game Design and Development, and a portfolio of shipped games, tools, and UI systems.">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="About & Resume — Pratik Shringarpure">
-    <meta property="og:description" content="Unity game developer with professional studio credits at Skyhook Games and Kazoo Games, and a Master's in Game Design and Development.">
+    <title>About & Résumé — Pratik Shringarpure</title>
+    <meta name="description" content="Pratik Shringarpure is a Unity and C# game developer based in Dundee, UK, with experience across international studios and teams. Explore his experience, education, and résumé.">
+    <meta property="og:title" content="About & Résumé — Pratik Shringarpure">
+    <meta property="og:description" content="Unity and C# game developer working across gameplay, UI, tools, multiplayer, and audio. Experience, education, and résumé.">
     <meta property="og:image" content="/Images/ProjectData/Profile.png">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="aboutme.css?v=20260526">
+    <link rel="stylesheet" href="aboutme.css?v=20260909">
+    <link rel="stylesheet" href="../NavbarFolder/portfolio-nav.css?v=20260909">
     <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260526">
     <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260526">
-    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <link rel="icon" href="../Images/Logo.png" type="image/png">
     <script src="../Scripts/HtmlLoader.js"></script>
-    <script src="../Scripts/animations.js"></script>
 </head>
-<body>
+<body class="about-page portfolio-page">
+    <a class="skip-link" href="#about-content">Skip to content</a>
     <div id="scroll-progress"></div>
     <button id="back-to-top" aria-label="Back to top">&#8679;</button>
-
     <div id="navbar"></div>
 
-    <h1 class="page-title scroll-reveal">About &amp; Resume</h1>
+    <main id="about-content" tabindex="-1">
+        <section class="about-intro" aria-labelledby="about-title">
+            <div class="intro-content">
+                <p class="page-eyebrow">Game developer · Dundee, UK</p>
+                <h1 id="about-title">About &amp; résumé</h1>
+                <p class="intro-lead">I'm Pratik, a Unity and C# game developer with five years of experience working across studios and teams internationally.</p>
+                <p class="intro-copy">My work spans gameplay, player interfaces, developer tools, multiplayer systems, and audio integration. I collaborate with designers, artists, and engineers to bring features from design into production.</p>
+                <div class="resume-actions">
+                    <a class="resume-action" href="../Data/Resume.pdf?v=877d85bd" target="_blank" rel="noopener noreferrer">View résumé <span aria-hidden="true">↗</span><span class="sr-only">(PDF, opens in a new tab)</span></a>
+                    <a class="resume-action secondary" href="../Data/Resume.pdf?v=877d85bd" download="Pratik Shringarpure - CV.pdf">Download PDF <span aria-hidden="true">↓</span></a>
+                </div>
+            </div>
+            <figure class="profile-photo">
+                <img src="../Images/ProjectData/Profile.png" alt="Pratik Shringarpure" width="1515" height="1515" decoding="async">
+                <figcaption>Based in Dundee, United Kingdom</figcaption>
+            </figure>
+        </section>
 
-    <div class="about-layout scroll-reveal" data-delay="100">
-        <div class="bio-side">
-            <div class="image-section">
-                <img src="../Images/ProjectData/Profile.png" alt="Pratik's photo">
-            </div>
-            <div class="text-section">
-                <p>Hi, I'm Pratik, a Unity and C# game developer focused on player-facing UI, tools programming, gameplay systems, and mobile releases.</p>
-                <p>Professionally, I have worked as a UI Developer at Skyhook Games on Lawn Mowing Simulator 2 and as an Associate Software Engineer at Kazoo Games, where I supported the team on 8 Ball Champions. My personal work spans puzzle games, editor tools, AR experiments, game jams, and live mobile projects.</p>
-                <p>I like making complex requirements feel calm: readable systems, fast iteration loops, and polished interfaces that help players and developers understand what to do next.</p>
-            </div>
-            <div class="profile-facts" aria-label="Profile highlights">
-                <span>Unity UI</span>
-                <span>Tools Programming</span>
-                <span>Backend Integrations</span>
-                <span>Gameplay Systems</span>
-            </div>
-            <div class="resume-actions">
-                <a class="resume-download-btn" href="../Data/Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
-                <a class="resume-download-btn secondary" href="../Data/Resume.pdf" download>Download PDF</a>
-            </div>
-        </div>
-        <div class="resume-side">
-            <section class="resume-panel" aria-labelledby="resume-snapshot-title">
-                <p class="resume-eyebrow">Resume Snapshot</p>
-                <h2 id="resume-snapshot-title">Production experience with UI, tools, backend, and gameplay systems.</h2>
+        <div class="about-layout">
+            <section class="experience-section" aria-labelledby="experience-title">
+                <div class="section-heading">
+                    <h2 id="experience-title">Professional experience</h2>
+                </div>
                 <div class="experience-list">
                     <article class="experience-item">
-                        <span>Skyhook Games</span>
-                        <h3>UI Developer</h3>
-                        <p>Implemented Unity UI screens for Lawn Mowing Simulator 2 from Figma specifications, focusing on visual accuracy and player-facing polish.</p>
+                        <p class="experience-dates"><time datetime="2026-03">Mar 2026</time> – Present</p>
+                        <div class="experience-content">
+                            <h3>Unity Developer</h3>
+                            <p class="experience-company">Skyhook Games <span>· Liverpool, UK</span></p>
+                            <p class="experience-description">Contribute UI screens, HUD functionality, and FMOD audio integration to Lawn Mowing Simulator 2. Work from Figma designs in Unity UI Toolkit, supporting UI and gameplay bug fixing across production builds.</p>
+                            <a class="experience-project" href="../DevProjects/project.html?id=lawn-mowing-sim2">View project <span aria-hidden="true">↗</span></a>
+                        </div>
                     </article>
                     <article class="experience-item">
-                        <span>Kazoo Games</span>
-                        <h3>Associate Software Engineer</h3>
-                        <p>Supported the development team on 8 Ball Champions across Azure backend tasks, gacha features, internal tooling, and UI implementation.</p>
+                        <p class="experience-dates"><time datetime="2025-10">Oct 2025</time> – <time datetime="2026-02">Feb 2026</time></p>
+                        <div class="experience-content">
+                            <h3>Unity SDK Developer</h3>
+                            <p class="experience-company">Adinmo <span>· Glasgow, UK</span></p>
+                            <p class="experience-description">Developed a rewarded-ad proof of concept and Unity demo games for a mobile SDK. Supported ad-network integrations, testing, debugging, and developer onboarding across Android and iOS.</p>
+                        </div>
                     </article>
                     <article class="experience-item">
-                        <span>Master's Projects</span>
-                        <h3>Lead Developer / Systems Programmer</h3>
-                        <p>Built game managers, turn systems, custom level tools, dialogue systems, AI behaviour, and UI flows across team projects.</p>
+                        <p class="experience-dates"><time datetime="2023-12">Dec 2023</time> – <time datetime="2025-09">Sep 2025</time></p>
+                        <div class="experience-content">
+                            <h3>Game Developer I</h3>
+                            <p class="experience-company">Bencin Studios <span>· Fierce Guppy Game Labs · USA, remote</span></p>
+                            <p class="experience-description">Developed and shipped multiplayer games in Unity and C#, integrating PlayFab, Firebase, and Photon. Implemented gameplay features and maintained FMOD audio systems across projects within an Agile team.</p>
+                        </div>
+                    </article>
+                    <article class="experience-item" id="kazoo-experience">
+                        <p class="experience-dates"><time datetime="2023-02">Feb 2023</time> – <time datetime="2023-08">Aug 2023</time></p>
+                        <div class="experience-content">
+                            <h3>Associate Software Engineer</h3>
+                            <p class="experience-company">Kazoo Games <span>· USA, remote</span></p>
+                            <p class="experience-description">Supported the team on 8 Ball Champions across UI features, internal tools, existing test cases, and backend integrations with PlayFab and Azure. Contributions were part of the team's shared development work.</p>
+                            <a class="experience-project" href="../DevProjects/project.html?id=8-ball-champions">View project <span aria-hidden="true">↗</span></a>
+                        </div>
                     </article>
                     <article class="experience-item">
-                        <span>Independent Releases</span>
-                        <h3>Solo &amp; Team Developer</h3>
-                        <p>Released mobile games, completed game jam projects, and developed Unity editor tools for faster iteration and content creation.</p>
+                        <p class="experience-dates"><time datetime="2021-07">Jul 2021</time> – <time datetime="2022-10">Oct 2022</time></p>
+                        <div class="experience-content">
+                            <h3>Unity Developer</h3>
+                            <p class="experience-company">UX Magicians <span>· USA, remote</span></p>
+                            <p class="experience-description">Built Unity interfaces and features for enterprise and sports applications, including chat, notifications, scheduling, and training workflows. Worked from Figma designs and mentored a junior programmer.</p>
+                        </div>
+                    </article>
+                    <article class="experience-item">
+                        <p class="experience-dates"><time datetime="2021-03">Mar 2021</time> – <time datetime="2022-11">Nov 2022</time></p>
+                        <div class="experience-content">
+                            <h3>Video Game Developer &amp; Designer</h3>
+                            <p class="experience-company">RSM <span>· Virginia, USA</span></p>
+                            <p class="experience-description">Developed Firebase-backed systems for player data, analytics, and responses in an interactive story-driven simulation, working across the game's backend and frontend.</p>
+                        </div>
+                    </article>
+                    <article class="experience-item">
+                        <p class="experience-dates"><time datetime="2020-03">Mar 2020</time> – <time datetime="2021-03">Mar 2021</time></p>
+                        <div class="experience-content">
+                            <h3>Unity Game Developer</h3>
+                            <p class="experience-company">Mad Guardian LLC <span>· Remote</span></p>
+                            <p class="experience-description">Implemented gameplay features for a 2D fighting game, collaborated with the art team on asset and animation integration, and connected Wwise audio events to combat, gameplay, and UI.</p>
+                        </div>
                     </article>
                 </div>
             </section>
+
+            <aside class="about-sidebar" aria-label="Education and technical background">
+                <section class="sidebar-section" aria-labelledby="education-title">
+                    <h2 id="education-title">Education</h2>
+                    <article class="education-item">
+                        <p class="education-dates"><time datetime="2024-09">Sep 2024</time> – <time datetime="2025-08">Aug 2025</time></p>
+                        <h3>Professional Master's in Game Development</h3>
+                        <p>Abertay University<br>Dundee, UK</p>
+                    </article>
+                    <article class="education-item">
+                        <p class="education-dates"><time datetime="2017-08">Aug 2017</time> – <time datetime="2019-12">Dec 2019</time></p>
+                        <h3>M.S. in Game Design and Development</h3>
+                        <p>Rochester Institute of Technology<br>New York, USA</p>
+                    </article>
+                    <article class="education-item">
+                        <p class="education-dates"><time datetime="2013-08">Aug 2013</time> – <time datetime="2017-05">May 2017</time></p>
+                        <h3>B.E. in Information Technology</h3>
+                        <p>Savitribai Phule Pune University<br>Pune, India</p>
+                    </article>
+                </section>
+
+                <section class="sidebar-section" aria-labelledby="skills-title">
+                    <h2 id="skills-title">Technical focus</h2>
+                    <dl class="skills-list">
+                        <div><dt>Gameplay &amp; UI</dt><dd>Unity, C#, UI Toolkit, uGUI, Unreal Engine, Blueprints, C++</dd></div>
+                        <div><dt>Multiplayer &amp; backend</dt><dd>Photon, PlayFab, Firebase, Azure, Netcode for GameObjects</dd></div>
+                        <div><dt>Audio integration</dt><dd>FMOD, Wwise</dd></div>
+                        <div><dt>Team workflows</dt><dd>GitHub, Perforce, Plastic SCM, Figma, Jira</dd></div>
+                    </dl>
+                </section>
+            </aside>
         </div>
-    </div>
+    </main>
 
     <div id="footer-container"></div>
-
     <script>
         LoadPage("../NavbarFolder/navbar.html", "navbar");
         LoadPage("../FooterFolder/footer.html", "footer-container");
