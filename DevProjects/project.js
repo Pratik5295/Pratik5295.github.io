@@ -1,207 +1,193 @@
 (function () {
-    var params = new URLSearchParams(window.location.search);
-    var projectId = params.get('id');
+    var projectId = new URLSearchParams(window.location.search).get('id');
+    var main = document.getElementById('project-content');
 
-    if (!projectId) {
-        document.getElementById('project-title').textContent = 'Project not found';
-        return;
+    function showSection(id) {
+        document.getElementById(id).hidden = false;
     }
 
-    function revealSection(id) {
-        var el = document.getElementById(id);
-        if (!el) return;
-        el.style.display = '';
-        el.classList.add('scroll-reveal');
-        requestAnimationFrame(function () {
-            if (window.observeReveal) window.observeReveal(el);
-        });
+    function setText(id, text) {
+        document.getElementById(id).textContent = text || '';
     }
 
     function setMeta(id, content) {
-        var el = document.getElementById(id);
-        if (el) el.setAttribute('content', content);
+        document.getElementById(id).setAttribute('content', content || '');
     }
 
-    function addProjectAction(label, href, isExternal) {
-        var actions = document.getElementById('project-actions');
-        if (!actions || !href) return;
+    function showError(message) {
+        setText('project-title', 'Project unavailable');
+        setText('project-summary', message);
+        document.title = 'Project unavailable — Pratik Shringarpure';
+        main.setAttribute('aria-busy', 'false');
+    }
+
+    async function fetchJSON(path) {
+        var response = await fetch(cacheBust(path));
+        if (!response.ok) throw new Error('Could not load ' + path);
+        return response.json();
+    }
+
+    function addProjectAction(label, href, external, primary) {
         var link = document.createElement('a');
-        link.className = 'project-action-link';
+        link.className = 'project-action-link' + (primary ? '' : ' secondary');
         link.href = href;
         link.textContent = label;
-        if (isExternal) {
+        if (external) {
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
+            var hint = document.createElement('span');
+            hint.className = 'sr-only';
+            hint.textContent = ' (opens in a new tab)';
+            link.appendChild(hint);
         }
-        actions.appendChild(link);
-        actions.style.display = 'flex';
+        var actions = document.getElementById('project-actions');
+        actions.insertBefore(link, document.getElementById('all-projects-link'));
     }
 
-    function addSnapshotItem(label, value) {
-        if (!value) return;
-        var list = document.getElementById('snapshot-list');
-        var section = document.getElementById('snapshot-section');
-        if (!list || !section) return;
-        var item = document.createElement('div');
-        item.className = 'snapshot-item';
-        var labelEl = document.createElement('span');
-        labelEl.textContent = label;
-        var valueEl = document.createElement('strong');
-        valueEl.textContent = value;
-        item.appendChild(labelEl);
-        item.appendChild(valueEl);
-        list.appendChild(item);
-        revealSection('snapshot-section');
+    function storeLabel(data) {
+        if (data.storeUrl.indexOf('store.steampowered.com/') !== -1) return 'View on Steam';
+        if (data.storeUrl.indexOf('play.google.com/') !== -1) return 'View on Google Play';
+        return data.storeLinkText || 'View store page';
     }
 
-    // Fetch project data + master project list in parallel
+    function addNeighbour(id, direction) {
+        if (!id) return;
+        var link = document.getElementById(direction + '-project');
+        link.href = 'project.html?id=' + encodeURIComponent(id);
+        link.hidden = false;
+        showSection('project-nav');
+        fetchJSON('../Data/' + encodeURIComponent(id) + '.json').then(function (data) {
+            setText(direction + '-project-title', data.title || 'View project');
+        }).catch(function () {
+            // The working navigation link remains available if its title cannot load.
+            setText(direction + '-project-title', 'View project');
+        });
+    }
+
+    if (!projectId || !/^[a-z0-9-]+$/.test(projectId)) {
+        showError('Choose a project from the portfolio to see its details.');
+        return;
+    }
+
+    // Navigation data is optional: a list failure should not hide a valid project.
     Promise.all([
-        fetch(cacheBust('../Data/' + projectId + '.json')).then(function (r) {
-            if (!r.ok) throw new Error('Project not found');
-            return r.json();
-        }),
-        fetch(cacheBust('../Data/projects.json')).then(function (r) { return r.json(); })
-    ])
-    .then(function (results) {
+        fetchJSON('../Data/' + encodeURIComponent(projectId) + '.json'),
+        fetchJSON('../Data/projects.json').catch(function () { return null; })
+    ]).then(function (results) {
         var data = results[0];
         var projectList = results[1];
+        if (!data || !data.title) throw new Error('Missing project title');
 
-        // ---- Page title ----
+        var summary = data.summary || data.description || data.content || '';
+        var engine = data.engine || data.gameEngine || '';
         document.title = data.title + ' — Pratik Shringarpure';
+        setMeta('page-description', summary);
+        setMeta('og-title', document.title);
+        setMeta('og-description', summary);
+        setText('breadcrumb-title', data.title);
+        setText('project-title', data.title);
+        setText('project-summary', summary);
+        setText('project-engine', engine);
+        setText('project-status', data.status);
 
-        // ---- OG tags ----
-        setMeta('og-title', data.title + ' — Pratik Shringarpure');
-        setMeta('og-description', data.description || '');
-        var ogImage = data.screenshotUrl
-            ? '/' + data.screenshotUrl
-            : data.imageUrl ? '/' + data.imageUrl : '/Images/ProjectData/Profile.png';
-        setMeta('og-image', ogImage);
-
-        // ---- Breadcrumb ----
-        document.getElementById('breadcrumb-title').textContent = data.title;
-
-        // ---- Hero banner ----
-        var hero = document.getElementById('project-hero');
-        var heroImage = data.screenshotUrl
-            ? '../' + data.screenshotUrl
-            : data.imageUrl ? '../' + data.imageUrl : '';
-        if (heroImage) {
-            hero.style.backgroundImage = "url('" + heroImage + "')";
-            hero.classList.add('has-image');
+        var imagePath = data.screenshotUrl || data.imageUrl;
+        setMeta('og-image', new URL(imagePath ? '../' + imagePath : '../Images/ProjectData/Profile.png', window.location.href).href);
+        if (imagePath) {
+            var hero = document.getElementById('project-hero');
+            var image = document.getElementById('project-image');
+            image.alt = data.title + ' — project preview';
+            image.onerror = function () {
+                document.getElementById('project-media').hidden = true;
+                hero.classList.remove('has-media');
+            };
+            showSection('project-media');
+            hero.classList.add('has-media');
+            image.src = '../' + imagePath;
         }
 
-        // ---- Core fields ----
-        document.getElementById('project-title').textContent = data.title;
-        document.getElementById('project-subtitle').textContent = data.subtitle || data.content || '';
-        document.getElementById('project-engine').textContent = data.engine || data.gameEngine || '';
-        document.getElementById('project-status').textContent = data.status || '';
-        document.getElementById('project-description').textContent = data.description || '';
+        if (data.description && data.description !== summary) {
+            setText('project-description', data.description);
+            showSection('description-section');
+        }
+        if (data.roles && data.roles.length) {
+            data.roles.forEach(function (role) {
+                var item = document.createElement('li');
+                item.textContent = role;
+                document.getElementById('roles-list').appendChild(item);
+            });
+            showSection('roles-section');
+        }
+        if (data.highlights && data.highlights.length) {
+            data.highlights.forEach(function (highlight) {
+                var item = document.createElement('li');
+                var heading = document.createElement('h3');
+                heading.textContent = highlight.name;
+                var detail = document.createElement('p');
+                detail.textContent = highlight.detail;
+                item.appendChild(heading);
+                item.appendChild(detail);
+                document.getElementById('highlights-list').appendChild(item);
+            });
+            showSection('highlights-section');
+        }
+        if (data.details && data.details !== data.description && data.details !== summary) {
+            setText('project-details', data.details);
+            showSection('details-section');
+        }
 
-        addSnapshotItem('Engine', data.engine || data.gameEngine || '');
-        addSnapshotItem('Status', data.status || '');
-        addSnapshotItem('Focus', data.subtitle || data.content || '');
-        addSnapshotItem('Tech', data.tech && data.tech.length ? data.tech.slice(0, 5).join(', ') : '');
+        var focus = String(data.subtitle || '').split('|').map(function (part) {
+            return part.trim();
+        }).filter(function (part) {
+            return part && part.toLowerCase() !== 'professional' && part.toLowerCase() !== String(engine).toLowerCase();
+        });
+        if (focus.length) {
+            setText('project-focus', focus.join(' · '));
+            showSection('focus-section');
+            showSection('project-sidebar');
+        }
+        if (data.tech && data.tech.length) {
+            data.tech.forEach(function (tech) {
+                var item = document.createElement('li');
+                item.textContent = tech;
+                document.getElementById('tech-list').appendChild(item);
+            });
+            showSection('tech-section');
+            showSection('project-sidebar');
+        }
+        if (document.getElementById('project-sidebar').hidden) {
+            document.getElementById('project-layout').classList.add('without-sidebar');
+        }
+        showSection('project-layout');
 
-        // ---- Video ----
+        if (data.storeUrl) addProjectAction(storeLabel(data), data.storeUrl, true, true);
+        if (data.downloadUrl) addProjectAction('Get playable build', data.downloadUrl, true, !data.storeUrl);
         if (data.videoUrl) {
-            revealSection('video-section');
-            document.getElementById('project-video').src = data.videoUrl;
+            var video = document.getElementById('project-video');
+            video.title = data.title + ' — project video';
+            video.src = data.videoUrl;
+            showSection('video-section');
+            addProjectAction('Watch video', '#video-section', false, false);
         }
 
-        // ---- Highlights ----
-        if (data.highlights && data.highlights.length > 0) {
-            revealSection('highlights-section');
-            var hl = document.getElementById('highlights-list');
-            data.highlights.forEach(function (h) {
-                var li = document.createElement('li');
-                var strong = document.createElement('strong');
-                strong.textContent = h.name + ': ';
-                li.appendChild(strong);
-                li.appendChild(document.createTextNode(h.detail));
-                hl.appendChild(li);
+        if (projectList) {
+            var sections = { professional: 'Professional project', recent: 'Recent work', games: 'Game project' };
+            Object.keys(sections).forEach(function (category) {
+                if ((projectList[category] || []).indexOf(projectId) === -1) return;
+                setText('project-category', sections[category]);
+                var target = '/#section-' + category;
+                document.getElementById('back-to-projects').href = target;
+                document.getElementById('all-projects-link').href = target;
             });
-        }
-
-        // ---- Roles + Tech ----
-        var showTwoCol = false;
-        if (data.roles && data.roles.length > 0) {
-            revealSection('roles-section');
-            var rl = document.getElementById('roles-list');
-            data.roles.forEach(function (r) {
-                var li = document.createElement('li');
-                li.textContent = r;
-                rl.appendChild(li);
-            });
-            showTwoCol = true;
-        }
-        if (data.tech && data.tech.length > 0) {
-            revealSection('tech-section');
-            var tl = document.getElementById('tech-list');
-            data.tech.forEach(function (t) {
-                var span = document.createElement('span');
-                span.className = 'tech-tag';
-                span.textContent = t;
-                tl.appendChild(span);
-            });
-            showTwoCol = true;
-        }
-        if (showTwoCol) {
-            var twoCol = document.querySelector('.two-column');
-            if (twoCol) {
-                twoCol.style.display = '';
-                twoCol.classList.add('scroll-reveal');
-                requestAnimationFrame(function () {
-                    if (window.observeReveal) window.observeReveal(twoCol);
-                });
+            var allIds = (projectList.professional || []).concat(projectList.recent || [], projectList.games || []);
+            var index = allIds.indexOf(projectId);
+            if (index !== -1) {
+                addNeighbour(allIds[index - 1], 'prev');
+                addNeighbour(allIds[index + 1], 'next');
             }
         }
-
-        // ---- Details ----
-        if (data.details) {
-            revealSection('details-section');
-            document.getElementById('project-details').textContent = data.details;
-        }
-
-        // ---- Download / Store ----
-        if (data.downloadUrl) {
-            var dl = document.getElementById('download-link');
-            dl.href = data.downloadUrl;
-            dl.rel = 'noopener noreferrer';
-            addProjectAction('Download Build', data.downloadUrl, true);
-        }
-        if (data.storeUrl) {
-            var sl = document.getElementById('store-link');
-            sl.href = data.storeUrl;
-            sl.rel = 'noopener noreferrer';
-            sl.textContent = data.storeLinkText || 'View on Store';
-            addProjectAction(data.storeLinkText || 'View on Store', data.storeUrl, true);
-        }
-
-        // ---- Prev / Next ----
-        var allIds = (projectList.professional || [])
-            .concat(projectList.recent || [])
-            .concat(projectList.games || []);
-        var idx = allIds.indexOf(projectId);
-        var prevId = idx > 0 ? allIds[idx - 1] : null;
-        var nextId = idx < allIds.length - 1 ? allIds[idx + 1] : null;
-
-        if (prevId || nextId) {
-            var nav = document.getElementById('project-nav');
-            nav.style.display = '';
-            nav.classList.add('scroll-reveal');
-            requestAnimationFrame(function () {
-                if (window.observeReveal) window.observeReveal(nav);
-            });
-            var prevBtn = document.getElementById('prev-project');
-            var nextBtn = document.getElementById('next-project');
-            if (prevId) { prevBtn.href = 'project.html?id=' + prevId; }
-            else { prevBtn.style.visibility = 'hidden'; }
-            if (nextId) { nextBtn.href = 'project.html?id=' + nextId; }
-            else { nextBtn.style.visibility = 'hidden'; }
-        }
-    })
-    .catch(function (err) {
-        console.error(err);
-        document.getElementById('project-title').textContent = 'Error loading project';
+        main.setAttribute('aria-busy', 'false');
+    }).catch(function (error) {
+        console.error(error);
+        showError('This project could not be loaded. Refresh the page to try again, or return to the portfolio.');
     });
 })();

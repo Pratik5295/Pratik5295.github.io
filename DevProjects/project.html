@@ -7,115 +7,114 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Project — Pratik Shringarpure</title>
-    <meta name="description" content="Project detail — Pratik Shringarpure game developer portfolio.">
-
-    <!-- Open Graph (populated dynamically by project.js) -->
+    <meta id="page-description" name="description" content="Game development projects by Pratik Shringarpure: UI, tools, and gameplay systems.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Pratik Shringarpure — Game Developer">
-    <meta id="og-title"       property="og:title"       content="Project — Pratik Shringarpure">
-    <meta id="og-description" property="og:description" content="Game developer portfolio project.">
-    <meta id="og-image"       property="og:image"       content="/Images/ProjectData/Profile.png">
-
+    <meta id="og-title" property="og:title" content="Project — Pratik Shringarpure">
+    <meta id="og-description" property="og:description" content="Game development projects by Pratik Shringarpure.">
+    <meta id="og-image" property="og:image" content="/Images/ProjectData/Profile.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="project.css?v=20260526">
+    <link rel="stylesheet" href="project.css?v=20260909">
+    <link rel="stylesheet" href="../NavbarFolder/portfolio-nav.css?v=20260909">
     <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260526">
     <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260526">
-    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <link rel="icon" href="../Images/Logo.png" type="image/png">
     <script src="../Scripts/HtmlLoader.js"></script>
-    <script src="../Scripts/animations.js"></script>
 </head>
-<body>
-
+<body class="project-page portfolio-page">
+    <a class="skip-link" href="#project-content">Skip to content</a>
     <div id="scroll-progress"></div>
     <button id="back-to-top" aria-label="Back to top">&#8679;</button>
-
     <div id="navbar"></div>
 
-    <main id="project-content">
-
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span class="breadcrumb-sep">›</span>
-            <span id="breadcrumb-title">Project</span>
+    <main id="project-content" tabindex="-1" aria-busy="true">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a id="back-to-projects" href="/#section-professional">All projects</a>
+            <span aria-hidden="true">/</span>
+            <span id="breadcrumb-title" aria-current="page">Project</span>
         </nav>
 
-        <!-- Hero banner -->
         <div class="project-hero" id="project-hero">
-            <div class="project-actions" id="project-actions" style="display:none;"></div>
-            <div class="project-hero-content">
-                <p class="project-kicker">Project Case Study</p>
-                <h1 id="project-title"></h1>
-                <p class="project-subtitle" id="project-subtitle"></p>
-                <div class="project-meta">
-                    <span class="meta-badge engine" id="project-engine"></span>
-                    <span class="meta-badge status" id="project-status"></span>
+            <div class="project-introduction">
+                <p class="project-kicker" id="project-category">Project</p>
+                <h1 id="project-title">Project details</h1>
+                <p class="project-summary" id="project-summary" role="status">Loading project details…</p>
+                <div class="project-meta" aria-label="Engine and project status">
+                    <span class="project-engine" id="project-engine"></span>
+                    <span id="project-status"></span>
+                </div>
+                <div class="project-actions" id="project-actions">
+                    <a class="project-action-link secondary" href="/#section-professional" id="all-projects-link">All projects <span aria-hidden="true">↗</span></a>
                 </div>
             </div>
+            <figure class="project-media" id="project-media" hidden>
+                <img id="project-image" width="1600" height="1000" alt="" decoding="async">
+            </figure>
         </div>
 
-        <section class="project-section" id="description-section">
-            <h2 class="section-label">Overview</h2>
-            <p id="project-description"></p>
-        </section>
+        <noscript><p class="noscript-message">Enable JavaScript to load this project's details.</p></noscript>
 
-        <section class="project-section" id="snapshot-section" style="display:none;">
-            <h2 class="section-label">Snapshot</h2>
-            <div class="snapshot-list" id="snapshot-list"></div>
-        </section>
+        <div class="project-layout" id="project-layout" hidden>
+            <div class="project-main-column">
+                <section class="project-section" id="description-section" aria-labelledby="overview-heading" hidden>
+                    <h2 class="section-label" id="overview-heading">Overview</h2>
+                    <p id="project-description"></p>
+                </section>
 
-        <section class="project-section" id="video-section" style="display:none;">
-            <h2 class="section-label">Video</h2>
+                <section class="project-section" id="roles-section" aria-labelledby="contribution-heading" hidden>
+                    <h2 class="section-label" id="contribution-heading">My contribution</h2>
+                    <ul id="roles-list" class="contribution-list"></ul>
+                </section>
+
+                <section class="project-section" id="highlights-section" aria-labelledby="highlights-heading" hidden>
+                    <h2 class="section-label" id="highlights-heading">Technical highlights</h2>
+                    <ul id="highlights-list" class="highlights-list"></ul>
+                </section>
+
+                <details class="development-notes" id="details-section" hidden>
+                    <summary>Development notes</summary>
+                    <p id="project-details"></p>
+                </details>
+            </div>
+
+            <aside class="project-sidebar" id="project-sidebar" aria-label="Project context" hidden>
+                <section class="context-section" id="focus-section" aria-labelledby="focus-heading" hidden>
+                    <h2 class="context-heading" id="focus-heading">Project focus</h2>
+                    <p id="project-focus"></p>
+                </section>
+                <section class="context-section" id="tech-section" aria-labelledby="tech-heading" hidden>
+                    <h2 class="context-heading" id="tech-heading">Tools &amp; technology</h2>
+                    <ul class="tech-tags" id="tech-list"></ul>
+                </section>
+            </aside>
+        </div>
+
+        <section class="project-video-section" id="video-section" aria-labelledby="video-heading" hidden>
+            <h2 class="section-label" id="video-heading">Project video</h2>
             <div class="video-wrapper">
-                <iframe id="project-video" title="Project Video" frameborder="0" allowfullscreen></iframe>
+                <iframe id="project-video" title="Project video" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
             </div>
         </section>
 
-        <section class="project-section" id="highlights-section" style="display:none;">
-            <h2 class="section-label">Highlights</h2>
-            <ul id="highlights-list" class="highlights-list"></ul>
-        </section>
-
-        <div class="two-column">
-            <section class="project-section" id="roles-section" style="display:none;">
-                <h2 class="section-label">Role</h2>
-                <ul id="roles-list"></ul>
-            </section>
-            <section class="project-section" id="tech-section" style="display:none;">
-                <h2 class="section-label">Tech Used</h2>
-                <div class="tech-tags" id="tech-list"></div>
-            </section>
-        </div>
-
-        <section class="project-section" id="details-section" style="display:none;">
-            <h2 class="section-label">Project Details</h2>
-            <p id="project-details"></p>
-        </section>
-
-        <div id="download-section" style="display:none;">
-            <a id="download-link" class="download-btn" target="_blank" rel="noopener noreferrer">Download Playable Build</a>
-        </div>
-
-        <div id="store-section" style="display:none;">
-            <a id="store-link" class="download-btn store-btn" target="_blank" rel="noopener noreferrer"></a>
-        </div>
-
-        <!-- Prev / Next navigation -->
-        <div class="project-nav" id="project-nav" style="display:none;">
-            <a class="project-nav-btn prev-btn" id="prev-project" href="#">&#8592; Previous</a>
-            <a class="project-nav-btn next-btn" id="next-project" href="#">Next &#8594;</a>
-        </div>
-
+        <nav class="project-nav" id="project-nav" aria-label="More projects" hidden>
+            <a class="project-nav-link prev-project" id="prev-project" hidden>
+                <span class="project-nav-label">← Previous project</span>
+                <span class="project-nav-title" id="prev-project-title">Previous</span>
+            </a>
+            <a class="project-nav-link next-project" id="next-project" hidden>
+                <span class="project-nav-label">Next project →</span>
+                <span class="project-nav-title" id="next-project-title">Next</span>
+            </a>
+        </nav>
     </main>
 
     <div id="footer-container"></div>
-
     <script>
         LoadPage("../NavbarFolder/navbar.html", "navbar");
         LoadPage("../FooterFolder/footer.html", "footer-container");
     </script>
-    <script src="project.js"></script>
+    <script src="project.js?v=20260909"></script>
     <script src="../Scripts/ui.js"></script>
 </body>
 </html>

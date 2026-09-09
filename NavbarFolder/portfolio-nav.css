@@ -1,0 +1,124 @@
+/* Shared header for the updated portfolio pages. */
+.portfolio-page #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 11, 13, 0.97);
+    border-bottom: 1px solid var(--line);
+}
+
+.portfolio-page .nav-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-top: 0.5rem;
+}
+
+.portfolio-page .nav-wrapper::after {
+    content: none;
+}
+
+.portfolio-page header .logo {
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    text-transform: none;
+    color: var(--text);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    animation: none;
+}
+
+.portfolio-page .logo-avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--line);
+    box-shadow: none;
+}
+
+.portfolio-page .header-info {
+    border: 0;
+    padding: 0;
+    gap: 1.25rem;
+    max-height: none;
+    opacity: 1;
+    pointer-events: auto;
+    overflow: visible;
+}
+
+.portfolio-page .subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--muted);
+}
+
+.portfolio-page .social-icons {
+    gap: 0.3rem;
+}
+
+.portfolio-page .social-icons a {
+    min-width: 40px;
+    min-height: 40px;
+    border-color: transparent;
+    background: transparent;
+    padding: 0.6rem;
+}
+
+.portfolio-page .social-icons a img {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.portfolio-page nav.navbar {
+    grid-column: 1 / -1;
+    margin-top: 0.35rem;
+}
+
+.portfolio-page nav.navbar > ul {
+    justify-content: flex-start;
+    gap: 0.3rem;
+}
+
+.portfolio-page nav.navbar ul li a {
+    font-size: 0.875rem;
+    min-height: 44px;
+    padding: 0.85rem 1rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+
+@media (max-width: 768px) {
+    .portfolio-page .nav-wrapper {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .portfolio-page header .logo {
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+    }
+
+    .portfolio-page .header-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .portfolio-page nav.navbar {
+        margin-top: 0;
+    }
+
+    .portfolio-page nav.navbar > ul {
+        align-items: stretch;
+    }
+
+    .portfolio-page nav.navbar ul li a {
+        font-size: 1rem;
+    }
+}
+
