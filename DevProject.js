@@ -110,7 +110,6 @@ function setupHeroCarousel(projects) {
 
 function createProjectCard(template, data, staggerIndex, category) {
     var clone = template.cloneNode(true);
-    var projectEl = clone.querySelector('.project-template');
     var link = clone.querySelector('.project-card-link');
 
     link.href = 'DevProjects/project.html?id=' + data._id;
@@ -118,50 +117,44 @@ function createProjectCard(template, data, staggerIndex, category) {
     clone.querySelector('.projTitle').textContent = data.title || '';
     clone.querySelector('.projEngine').textContent = data.engine || data.gameEngine || '';
     clone.querySelector('.projStatus').textContent = data.status || category || '';
-    clone.querySelector('.projSummary').textContent = trimText(data.summary || data.description || data.content || '', 138);
+    clone.querySelector('.projSummary').textContent = data.summary || data.description || data.content || '';
 
-    // Store subtitle as tags for filtering
+    // Keep all project metadata searchable, including labels omitted from the card.
     var subtitle = data.subtitle || data.content || '';
     clone.dataset.tags = [
         data.title,
         data.engine,
         data.status,
         subtitle,
+        data.summary,
         data.description,
         (data.tech || []).join(' ')
     ].join(' ').toLowerCase();
     clone.dataset.category = category || '';
 
-    // Image with error fallback
-    var imageUrl = data.imageUrl || '';
+    // Reserve image space and defer off-screen previews until they are needed.
+    var img = clone.querySelector('.projImage');
+    var fallback = clone.querySelector('.project-image-fallback');
+    function showImageFallback() {
+        img.hidden = true;
+        fallback.hidden = false;
+    }
+    var imageUrl = data.screenshotUrl || data.imageUrl || '';
     if (imageUrl) {
-        var img = new Image();
-        img.onload = function () { projectEl.style.backgroundImage = "url('" + imageUrl + "')"; };
-        img.onerror = function () { projectEl.classList.add('card-no-image'); };
+        img.onerror = showImageFallback;
         img.src = imageUrl;
     } else {
-        projectEl.classList.add('card-no-image');
+        showImageFallback();
     }
 
-    // Tag pills
-    var tagsContainer = clone.querySelector('.projTags');
-    subtitle.split('|').forEach(function (part) {
-        var trimmed = part.trim();
-        if (trimmed) {
-            var span = document.createElement('span');
-            span.className = 'projTag';
-            span.textContent = trimmed;
-            tagsContainer.appendChild(span);
-        }
-    });
-
-    // Professional badge
-    if (category === 'professional') {
-        var badge = document.createElement('div');
-        badge.className = 'pro-badge';
-        badge.textContent = 'Professional';
-        projectEl.appendChild(badge);
-    }
+    // A short focus line replaces repeated category and engine badges.
+    var engine = String(data.engine || data.gameEngine || '').toLowerCase();
+    var focus = String(data.subtitle || '').split('|').map(function (part) {
+        return part.trim();
+    }).filter(function (part) {
+        return part && part.toLowerCase() !== 'professional' && part.toLowerCase() !== engine;
+    }).slice(0, 2);
+    clone.querySelector('.projFocus').textContent = focus.join(' · ');
 
     // Scroll reveal with stagger
     clone.classList.add('scroll-reveal');

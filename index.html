@@ -18,7 +18,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20260909">
+    <link rel="stylesheet" href="styles.css?v=20260909-cards">
     <link rel="stylesheet" href="NavbarFolder/navbar.css?v=20260526">
     <link rel="stylesheet" href="FooterFolder/footer.css?v=20260526">
     <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
@@ -99,7 +99,7 @@
     <section id="section-professional">
         <div class="section-header scroll-reveal">
             <h2>Professional Projects</h2>
-            <p>Commercial and released work with clear production responsibilities.</p>
+            <p>Studio projects and independent releases, spanning UI, backend systems, and full game development.</p>
         </div>
         <div class="projects-grid" id="professional-projects-grid"></div>
     </section>
@@ -108,7 +108,7 @@
     <section id="section-recent">
         <div class="section-header scroll-reveal">
             <h2>Recent Work</h2>
-            <p>Recent prototypes, tools, and team projects with deeper systems work.</p>
+            <p>Gameplay systems, custom Unity tools, and narrative prototypes.</p>
         </div>
         <div class="projects-grid" id="recent-projects-grid"></div>
     </section>
@@ -120,7 +120,7 @@
                 <h2>Game Projects</h2>
                 <p>Playable experiments, jams, mobile releases, and technical prototypes.</p>
             </div>
-            <button class="section-toggle" data-target="games-body" aria-expanded="true" aria-label="Toggle Game Projects">
+            <button class="section-toggle" data-target="games-body" aria-controls="games-body" aria-expanded="true" aria-label="Toggle Game Projects">
                 <span class="toggle-label">Hide</span>
                 <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -131,14 +131,14 @@
         <div class="section-body" id="games-body">
             <!-- Filter bar — games grid only -->
             <div class="project-controls">
-                <div class="filter-bar" id="filter-bar" aria-label="Filter game projects">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="game jam">Game Jam</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="hyper-casual">Hyper-Casual</button>
-                    <button class="filter-btn" data-filter="tools">Tools</button>
-                    <button class="filter-btn" data-filter="2d">2D</button>
-                    <button class="filter-btn" data-filter="unreal">Unreal</button>
+                <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter game projects">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="game jam" aria-pressed="false">Game jam</button>
+                    <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile</button>
+                    <button class="filter-btn" data-filter="hyper-casual" aria-pressed="false">Hyper-casual</button>
+                    <button class="filter-btn" data-filter="tool" aria-pressed="false">Tools</button>
+                    <button class="filter-btn" data-filter="2d" aria-pressed="false">2D</button>
+                    <button class="filter-btn" data-filter="unreal" aria-pressed="false">Unreal</button>
                 </div>
                 <label class="project-search" for="project-search-input">
                     <span>Search</span>
@@ -157,7 +157,7 @@
                 <h2>Art Projects</h2>
                 <p>3D art and visual experiments that support the broader game-development craft.</p>
             </div>
-            <button class="section-toggle" data-target="art-body" aria-expanded="true" aria-label="Toggle Art Projects">
+            <button class="section-toggle" data-target="art-body" aria-controls="art-body" aria-expanded="true" aria-label="Toggle Art Projects">
                 <span class="toggle-label">Hide</span>
                 <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
