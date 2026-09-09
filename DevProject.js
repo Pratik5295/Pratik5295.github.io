@@ -48,79 +48,63 @@ function setupHeroCarousel(projects) {
     var prevBtn = document.getElementById('hero-prev');
     var nextBtn = document.getElementById('hero-next');
     var dotsEl = document.getElementById('hero-dots');
+    var announcementEl = document.getElementById('hero-announcement');
 
     Promise.all(projectIds.map(fetchProjectData)).then(function (loadedProjects) {
         var slides = loadedProjects.filter(Boolean);
         if (!slides.length) return;
 
         var currentIndex = 0;
-        var timer = null;
-
         dotsEl.innerHTML = '';
-        slides.forEach(function (_, index) {
+        slides.forEach(function (slide, index) {
             var dot = document.createElement('button');
             dot.type = 'button';
             dot.className = 'hero-dot';
-            dot.setAttribute('aria-label', 'Show featured project ' + (index + 1));
+            dot.setAttribute('aria-label', 'Show ' + (slide.title || 'featured project ' + (index + 1)));
             dot.addEventListener('click', function () {
                 showSlide(index);
-                restartTimer();
             });
             dotsEl.appendChild(dot);
         });
 
-        function showSlide(index) {
+        function showSlide(index, announce) {
             currentIndex = (index + slides.length) % slides.length;
             var slide = slides[currentIndex];
             var category = (projects.professional || []).indexOf(slide._id) !== -1 ? 'Professional Work' : 'Recent Work';
             var imageUrl = slide.screenshotUrl || slide.imageUrl || '';
 
-            hero.classList.add('is-changing');
-            window.setTimeout(function () {
-                categoryEl.textContent = category;
-                titleEl.textContent = slide.title || 'Featured Project';
-                copyEl.textContent = trimText(slide.summary || slide.description || slide.content || '', 190);
-                engineEl.textContent = slide.engine || slide.gameEngine || 'Unity';
-                statusEl.textContent = slide.status || category;
-                viewMoreEl.href = 'DevProjects/project.html?id=' + slide._id;
-                if (imageUrl) {
-                    hero.style.setProperty('--hero-image', "url('" + imageUrl + "')");
-                }
-                Array.prototype.forEach.call(dotsEl.children, function (dot, dotIndex) {
-                    dot.classList.toggle('active', dotIndex === currentIndex);
-                });
-                hero.classList.remove('is-changing');
-            }, 140);
-        }
-
-        function nextSlide() {
-            showSlide(currentIndex + 1);
-        }
-
-        function restartTimer() {
-            if (timer) window.clearInterval(timer);
-            timer = window.setInterval(nextSlide, 5500);
+            categoryEl.textContent = category;
+            titleEl.textContent = slide.title || 'Featured Project';
+            copyEl.textContent = trimText(slide.summary || slide.description || slide.content || '', 190);
+            engineEl.textContent = slide.engine || slide.gameEngine || 'Unity';
+            statusEl.textContent = slide.status || category;
+            viewMoreEl.href = 'DevProjects/project.html?id=' + slide._id;
+            if (imageUrl) {
+                hero.style.setProperty('--hero-image', "url('" + imageUrl + "')");
+            } else {
+                hero.style.setProperty('--hero-image', 'none');
+            }
+            Array.prototype.forEach.call(dotsEl.children, function (dot, dotIndex) {
+                dot.classList.toggle('active', dotIndex === currentIndex);
+                dot.setAttribute('aria-pressed', dotIndex === currentIndex ? 'true' : 'false');
+            });
+            if (announcementEl && announce !== false) {
+                announcementEl.textContent = 'Project ' + (currentIndex + 1) + ' of ' + slides.length + ': ' + titleEl.textContent;
+            }
         }
 
         if (prevBtn) {
             prevBtn.addEventListener('click', function () {
                 showSlide(currentIndex - 1);
-                restartTimer();
             });
         }
         if (nextBtn) {
             nextBtn.addEventListener('click', function () {
-                nextSlide();
-                restartTimer();
+                showSlide(currentIndex + 1);
             });
         }
-        hero.addEventListener('mouseenter', function () {
-            if (timer) window.clearInterval(timer);
-        });
-        hero.addEventListener('mouseleave', restartTimer);
-
-        showSlide(0);
-        restartTimer();
+        // Keep the selection still so visitors can read at their own pace.
+        showSlide(0, false);
     });
 }
 

@@ -18,14 +18,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20260526">
+    <link rel="stylesheet" href="styles.css?v=20260909">
     <link rel="stylesheet" href="NavbarFolder/navbar.css?v=20260526">
     <link rel="stylesheet" href="FooterFolder/footer.css?v=20260526">
     <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
     <script src="Scripts/HtmlLoader.js"></script>
     <script src="Scripts/animations.js"></script>
 </head>
-<body>
+<body class="home-page">
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <!-- Fixed UI: progress bar + back-to-top -->
     <div id="scroll-progress"></div>
@@ -33,30 +35,41 @@
 
     <div id="navbar"></div>
 
-    <main>
-    <!-- Hero -->
-    <section class="hero-section scroll-reveal" aria-labelledby="hero-title" id="featured-carousel">
-        <div class="hero-scrim" aria-hidden="true"></div>
+    <main id="main-content" tabindex="-1">
+    <!-- Introduction and featured work -->
+    <div class="home-intro">
+        <section class="intro-content" aria-labelledby="intro-title">
+            <p class="intro-eyebrow">Unity &amp; C# developer</p>
+            <h1 id="intro-title">Game development.<br><span>UI, tools &amp; systems.</span></h1>
+            <p class="intro-copy">I'm Pratik, a game developer with experience working across studios and teams internationally. I build player interfaces, gameplay systems, and tools that help teams make games.</p>
+            <div class="intro-actions">
+                <a class="primary-action" href="#section-professional">Explore projects <span aria-hidden="true">↗</span></a>
+                <a class="secondary-action" href="/Data/Resume.pdf" target="_blank" rel="noopener noreferrer">View résumé <span class="sr-only">(PDF, opens in a new tab)</span></a>
+                <button class="email-action" type="button" data-copy-email="pratikshringarpure05@gmail.com">Copy email <span aria-hidden="true">↗</span></button>
+            </div>
+        </section>
+
+    <section class="hero-section" aria-labelledby="hero-title" aria-roledescription="carousel" id="featured-carousel">
         <div class="hero-content">
-            <p class="hero-eyebrow" id="hero-category">Featured Work</p>
-            <h1 id="hero-title">Professional and recent project work</h1>
-            <p class="hero-copy" id="hero-copy">A rotating look at shipped titles, studio work, tools, and systems-focused Unity projects.</p>
+            <p class="hero-eyebrow" id="hero-category">Selected work</p>
+            <h2 id="hero-title">Lawn Mowing Simulator 2</h2>
+            <p class="hero-copy" id="hero-copy">Implemented player-facing UI screens from Figma specifications at Skyhook Games.</p>
             <div class="hero-meta" aria-label="Featured project details">
                 <span id="hero-engine">Unity</span>
-                <span id="hero-status">Portfolio</span>
+                <span id="hero-status">UI development</span>
             </div>
             <div class="hero-actions" aria-label="Primary actions">
-                <a class="primary-action" id="hero-view-more" href="#section-professional">View More</a>
-                <a class="secondary-action" href="/Data/Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-                <button class="secondary-action" type="button" data-copy-email="pratikshringarpure05@gmail.com">Email</button>
+                <a class="featured-project-link" id="hero-view-more" href="DevProjects/project.html?id=lawn-mowing-sim2">View project <span aria-hidden="true">↗</span></a>
             </div>
         </div>
         <div class="hero-carousel-controls" aria-label="Featured project carousel controls">
             <button class="hero-carousel-btn" type="button" id="hero-prev" aria-label="Previous featured project">&#8249;</button>
-            <div class="hero-carousel-dots" id="hero-dots" aria-hidden="true"></div>
+            <div class="hero-carousel-dots" id="hero-dots" role="group" aria-label="Choose a featured project"></div>
             <button class="hero-carousel-btn" type="button" id="hero-next" aria-label="Next featured project">&#8250;</button>
         </div>
+        <p class="sr-only" id="hero-announcement" aria-live="polite" aria-atomic="true"></p>
     </section>
+    </div>
 
     <!-- Stats Strip -->
     <div class="stats-strip scroll-reveal">
@@ -76,16 +89,16 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-            <span class="stat-number" data-count="6">6</span>
+            <span class="stat-number" data-count="8">8</span>
             <span class="stat-label">Platforms</span>
-            <span class="stat-sublabel">PC · Android · iOS · WebGL · VR · AR</span>
+            <span class="stat-sublabel">PC · Android · iOS · WebGL · VR · AR · Consoles (PlayStation &amp; Xbox)</span>
         </div>
     </div>
 
     <!-- Professional Projects Section -->
     <section id="section-professional">
         <div class="section-header scroll-reveal">
-            <h1>Professional Projects</h1>
+            <h2>Professional Projects</h2>
             <p>Commercial and released work with clear production responsibilities.</p>
         </div>
         <div class="projects-grid" id="professional-projects-grid"></div>
@@ -94,7 +107,7 @@
     <!-- Recent Work Section -->
     <section id="section-recent">
         <div class="section-header scroll-reveal">
-            <h1>Recent Work</h1>
+            <h2>Recent Work</h2>
             <p>Recent prototypes, tools, and team projects with deeper systems work.</p>
         </div>
         <div class="projects-grid" id="recent-projects-grid"></div>
@@ -104,7 +117,7 @@
     <section id="section-games">
         <div class="section-header section-header-with-toggle scroll-reveal">
             <div>
-                <h1>Game Projects</h1>
+                <h2>Game Projects</h2>
                 <p>Playable experiments, jams, mobile releases, and technical prototypes.</p>
             </div>
             <button class="section-toggle" data-target="games-body" aria-expanded="true" aria-label="Toggle Game Projects">
@@ -141,7 +154,7 @@
     <section id="section-art">
         <div class="section-header section-header-with-toggle scroll-reveal">
             <div>
-                <h1>Art Projects</h1>
+                <h2>Art Projects</h2>
                 <p>3D art and visual experiments that support the broader game-development craft.</p>
             </div>
             <button class="section-toggle" data-target="art-body" aria-expanded="true" aria-label="Toggle Art Projects">
