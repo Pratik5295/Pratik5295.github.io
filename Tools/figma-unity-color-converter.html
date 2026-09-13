@@ -4,201 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Figma → Unity Color Converter — Pratik Shringarpure</title>
-    <meta name="description" content="A free offline tool that converts Figma sRGB colors (with alpha) into the equivalent Unity UI Toolkit Linear-space rgba value, so semi-transparent UI matches your design exactly.">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Figma → Unity UI Toolkit Color Converter">
-    <meta property="og:description" content="Solve the Unity Linear alpha needed to visually match Figma-style sRGB alpha blending. Offline, dependency-free, with a full math breakdown.">
+    <meta name="description" content="Estimate a Unity alpha value for matching an sRGB overlay over an opaque background. Compare color previews and copy RGBA or hex output.">
+    <meta property="og:title" content="Figma → Unity Color Converter">
+    <meta property="og:description" content="Compare sRGB and linear alpha blending, with live previews, copyable results, and a math breakdown.">
     <meta property="og:image" content="/Images/ProjectData/Profile.png">
     <meta property="og:type" content="website">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="tools.css?v=20260708">
-    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260708">
-    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260708">
-    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="tools.css?v=20260912">
+    <link rel="stylesheet" href="../NavbarFolder/portfolio-nav.css?v=20260912">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260912">
+    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260912">
+    <link rel="icon" href="../Images/Logo.png" type="image/png">
     <script src="../Scripts/HtmlLoader.js"></script>
-    <script src="../Scripts/animations.js"></script>
 </head>
-<body>
-
+<body class="tools-page portfolio-page">
+    <a class="skip-link" href="#converter-content">Skip to converter</a>
     <div id="scroll-progress"></div>
     <button id="back-to-top" aria-label="Back to top">&#8679;</button>
-
     <div id="navbar"></div>
 
-    <main>
-        <!-- Breadcrumb -->
+    <main id="converter-content" tabindex="-1">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span class="breadcrumb-sep">›</span>
-            <a href="/Tools/tools.html">Useful Tools</a>
-            <span class="breadcrumb-sep">›</span>
-            <span class="breadcrumb-current">Figma → Unity Color Converter</span>
+            <a href="/Tools/tools.html">Developer tools</a><span aria-hidden="true">/</span><span aria-current="page">Color converter</span>
         </nav>
-
-        <!-- Hero -->
-        <div class="tool-hero scroll-reveal">
+        <div class="tool-hero">
             <h1>Figma → Unity Color Converter</h1>
-            <div class="tool-hero-meta">
-                <span class="tool-badge">Offline &amp; Free</span>
-                <span class="tool-badge">No Dependencies</span>
-                <span class="tool-badge gold">Unity UI Toolkit</span>
-            </div>
+            <p class="tools-lead">Estimate an alpha adjustment for linear blending over a fixed background. Paste a color to compare the results.</p>
         </div>
 
-        <!-- What it is -->
-        <section class="tool-section scroll-reveal">
-            <h2>What this tool is</h2>
-            <p>When you build UI in Unity's <strong>UI Toolkit</strong> with the project set to <strong>Linear</strong> color space, semi-transparent colors don't blend the way they do in Figma. Figma composites alpha in <strong>gamma / sRGB</strong> space, while Unity blends the same color in <strong>linear</strong> space. The result: a panel that looks like a clean 35% black scrim in your design comes out visibly lighter and weaker in the built game.</p>
-            <p>This converter solves the exact alpha (and gives a matching hex) you need to type into Unity so a Figma color reproduces <strong>pixel-for-pixel</strong> on the target background — no more eyeballing values until it "looks close enough."</p>
-        </section>
-
-        <!-- Why it's needed -->
-        <section class="tool-section scroll-reveal">
-            <h2>Why I built it</h2>
-            <p>While matching a mobile UI to its Figma spec, semi-transparent greys kept coming out wrong in Unity. I looked for an existing site that would take a Figma value like <code>#00000059</code> and hand back the Unity Linear equivalent — and there wasn't one. The closest tools each solved only half of the problem:</p>
-            <div class="tool-table-wrap">
-                <table class="tool-table">
-                    <thead>
-                        <tr><th>Existing tool</th><th>What it does</th><th>What it's missing</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Alpha blending calculators</td>
-                            <td>Blend a foreground + alpha over a background and show the resulting visible color.</td>
-                            <td>Never gives you the <em>Unity Linear equivalent alpha</em> to type back in.</td>
-                        </tr>
-                        <tr>
-                            <td>sRGB → Linear converters</td>
-                            <td>Convert channel values between sRGB and linear. Useful for checking the math.</td>
-                            <td>Don't solve the alpha-blend problem at all.</td>
-                        </tr>
-                        <tr>
-                            <td>Unity "Force Gamma" on Panel Settings</td>
-                            <td>Renders UI Toolkit in gamma in specific render-texture workflows.</td>
-                            <td>Only applies to certain setups and can carry performance / bandwidth costs, so it isn't a universal fix.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p>So I wrote a tiny, dependency-free converter that does the one missing step, and packaged it here as a proper offline tool with a live preview and a transparent math breakdown you can verify.</p>
-        </section>
-
-        <!-- How it works -->
-        <section class="tool-section scroll-reveal">
-            <h2>How to use it</h2>
-            <ul>
-                <li><strong>Figma foreground color</strong> — paste straight from Figma. Accepts <code>#RRGGBBAA</code>, <code>#RGB</code>, <code>rgb()</code>, <code>rgba()</code>, and modern <code>rgb(0 229 191 / 40%)</code> syntax.</li>
-                <li><strong>Background color behind it</strong> — the actual card or page color the element sits on. The correct answer depends on this, so set it to the real surface (default is white).</li>
-                <li>Read the <strong>Recommended Unity UI Toolkit value</strong>. For greyscale colors you keep the same RGB and the alpha increases; for saturated colors the tool warns you and offers an exact <strong>baked opaque</strong> fallback.</li>
-            </ul>
-            <div class="callout">
-                <p><strong>Example:</strong> Figma overlay <code>#00000059</code> on a white background converts to roughly <code>#0000009E</code> in Unity Linear — same black, higher alpha, matching visible result.</p>
-            </div>
-        </section>
-
-        <!-- The tool -->
-        <section class="tool-section scroll-reveal" aria-label="Converter">
-            <h2>The converter</h2>
-            <div class="fux">
-                <p class="subtitle small" style="margin-bottom:18px;color:var(--fx-muted)">Everything runs locally in your browser — nothing is uploaded. Values update live as you type.</p>
-                <section class="grid">
-                    <div class="card"><div class="card-body"><h2>Input</h2>
-                        <div class="field"><label for="fgInput">Figma foreground color</label><input id="fgInput" value="#00000059" spellcheck="false"/><p class="hint">Supports #RGB, #RGBA, #RRGGBB, #RRGGBBAA, rgb(...), rgba(...), and modern rgb(0 229 191 / 40%).</p></div>
-                        <div class="field"><label for="bgInput">Background color behind it</label><input id="bgInput" value="#FFFFFF" spellcheck="false"/><p class="hint">The answer depends on the background. Use the actual UI card/page color from Figma or Unity.</p></div>
-                        <div class="row"><div class="field"><label for="methodSelect">Conversion math</label><select id="methodSelect"><option value="srgb" selected>Accurate sRGB transfer function</option><option value="gamma22">Simple gamma 2.2 approximation</option></select></div><div class="field"><label for="alphaMode">Output strategy</label><select id="alphaMode"><option value="leastSquares" selected>Best-fit same RGB alpha</option><option value="average">Average per-channel alpha</option><option value="max">Max alpha, darkest/safest</option></select></div></div>
-                        <div class="btn-row"><button id="convertBtn">Convert</button><button id="sampleBlack35" class="secondary">Sample #00000059</button><button id="sampleDark85" class="secondary">Sample dark 85%</button><button id="sampleTeal40" class="secondary">Sample teal 40%</button></div>
-                        <div id="error" class="error"></div><div class="fux-footer"><span class="pill">Offline</span><span class="pill">No dependencies</span><span class="pill">UI Toolkit rgba output</span><span class="pill">Per-channel math</span></div>
-                    </div></div>
-                    <div class="card"><div class="card-body"><h2>Output</h2><div id="status" class="status">Enter a color and press Convert.</div>
-                        <div class="output-block"><div class="output-label">Recommended Unity UI Toolkit value</div><div class="big-code"><span id="unityRgba" class="code-text">—</span><button class="copy" data-copy-target="unityRgba">Copy</button></div><div id="unityRgbaNote" class="small"></div></div>
-                        <div class="output-block"><div class="output-label">Unity hex equivalent</div><div class="big-code"><span id="unityHex" class="code-text">—</span><button class="copy" data-copy-target="unityHex">Copy</button></div><div id="unityHexNote" class="small"></div></div>
-                        <div class="output-block"><div class="output-label">Exact baked opaque fallback</div><div class="big-code"><span id="bakedRgba" class="code-text">—</span><button class="copy" data-copy-target="bakedRgba">Copy</button></div><div class="small">This is the final visible Figma color baked as opaque. Use this when the same-RGB alpha solution is not exact enough.</div></div>
-                        <div class="preview-grid"><div class="preview" id="figmaPreview"><div class="preview-title">Figma target</div><div class="preview-inner"><div id="figmaChip" class="chip">Target</div></div></div><div class="preview" id="unityPreview"><div class="preview-title">Unity Linear simulated</div><div class="preview-inner"><div id="unityChip" class="chip">Converted</div></div></div><div class="preview" id="bakedPreview"><div class="preview-title">Baked opaque fallback</div><div class="preview-inner"><div id="bakedChip" class="chip">Exact</div></div></div></div>
-                    </div></div>
+        <div class="fux">
+            <div class="grid">
+                <section class="card" aria-labelledby="input-title">
+                    <div class="card-body">
+                        <h2 id="input-title">Your colors</h2>
+                        <div class="field">
+                            <label for="fgInput">Foreground color</label>
+                            <input id="fgInput" value="#00000059" spellcheck="false" autocomplete="off" aria-describedby="fg-hint error">
+                            <p class="hint" id="fg-hint">Hex, RGB, or RGBA. Include the overlay's alpha, e.g. <code>#00000059</code> or <code>rgba(0, 0, 0, 0.35)</code>.</p>
+                        </div>
+                        <div class="field">
+                            <label for="bgInput">Background color</label>
+                            <input id="bgInput" value="#FFFFFF" spellcheck="false" autocomplete="off" aria-describedby="bg-hint error">
+                            <p class="hint" id="bg-hint">Use an opaque color. For layered backgrounds, enter the final visible background color.</p>
+                        </div>
+                        <details class="advanced-options">
+                            <summary>Advanced options</summary>
+                            <div class="details-body">
+                                <div class="field"><label for="methodSelect">Color conversion</label><select id="methodSelect"><option value="srgb" selected>sRGB transfer function</option><option value="gamma22">Gamma 2.2 approximation</option></select></div>
+                                <div class="field"><label for="alphaMode">Alpha strategy</label><select id="alphaMode"><option value="leastSquares" selected>Best fit across RGB channels</option><option value="average">Average channel alpha</option><option value="max">Highest channel alpha</option></select></div>
+                            </div>
+                        </details>
+                        <div class="btn-row"><button id="convertBtn" type="button">Convert</button></div>
+                        <div id="error" class="error" role="alert" hidden></div>
+                        <div class="sample-options">
+                            <span class="sample-label">Try an example</span>
+                            <div class="btn-row">
+                                <button id="sampleBlack35" type="button" class="secondary">Black 35%</button>
+                                <button id="sampleDark85" type="button" class="secondary">Dark 85%</button>
+                                <button id="sampleTeal40" type="button" class="secondary">Teal 40%</button>
+                            </div>
+                        </div>
+                        <p class="local-note">Values update as you type. Color values stay in your browser.</p>
+                    </div>
                 </section>
-                <details open><summary>Math breakdown</summary><div class="details-body"><p>Figma-style blending is calculated in sRGB/gamma-like color values:</p><pre>FigmaResult = Foreground × FigmaAlpha + Background × (1 - FigmaAlpha)</pre><p>Unity Linear blending happens after converting sRGB values into linear values. To match the Figma result, this tool solves the alpha needed in linear space:</p><pre>UnityAlphaChannel =
-    (Linear(FigmaResult) - Linear(Background))
-    /
-    (Linear(Foreground) - Linear(Background))</pre><p>When the foreground is greyscale over a greyscale background, R/G/B usually solve to the same alpha. For saturated colors like <code>rgba(0, 229, 191, 0.4)</code>, each channel can want a different alpha. Since one UI color only has one alpha, the tool gives a best-fit alpha and also gives an exact baked opaque fallback.</p><div class="table-wrap"><table><thead><tr><th>Channel</th><th>Foreground</th><th>Background</th><th>Figma result</th><th>Solved Unity alpha</th></tr></thead><tbody id="mathRows"><tr><td colspan="5" class="muted">No conversion yet.</td></tr></tbody></table></div><p class="small" id="parsedInfo"></p></div></details>
-                <p class="fux-credit">Built with the help of AI, based on a real Unity UI production problem.</p>
+                <section class="card output-card" aria-labelledby="output-title">
+                    <div class="card-body">
+                        <h2 id="output-title">Converted result</h2>
+                        <p id="status" class="status" role="status">Enter a color to begin.</p>
+                        <div class="output-block">
+                            <h3 class="output-label">Suggested RGBA</h3>
+                            <div class="big-code"><code id="unityRgba" class="code-text">—</code><button type="button" class="copy" data-copy-target="unityRgba" aria-label="Copy suggested RGBA">Copy</button></div>
+                            <p id="unityRgbaNote" class="small"></p>
+                        </div>
+                        <details class="output-formats">
+                            <summary>Hex &amp; opaque formats</summary>
+                            <div class="details-body">
+                                <div class="output-block">
+                                    <h3 class="output-label">Hex with 8-bit alpha</h3>
+                                    <div class="big-code"><code id="unityHex" class="code-text">—</code><button type="button" class="copy" data-copy-target="unityHex" aria-label="Copy hex color">Copy</button></div>
+                                    <p id="unityHexNote" class="small"></p>
+                                </div>
+                                <div class="output-block">
+                                    <h3 class="output-label">Opaque color</h3>
+                                    <div class="big-code"><code id="bakedRgba" class="code-text">—</code><button type="button" class="copy" data-copy-target="bakedRgba" aria-label="Copy opaque color">Copy</button></div>
+                                    <p class="small">The target composite rounded to an opaque RGB color. It loses transparency and applies to this background only.</p>
+                                </div>
+                            </div>
+                        </details>
+                        <p class="result-note">This is a blending estimate. Compare it in your actual Unity panel; rendering settings and color management can affect the result.</p>
+                        <p id="copy-feedback" class="sr-only" role="status"></p>
+                    </div>
+                </section>
+            </div>
+
+            <section class="comparison-section" id="previewPanel" aria-labelledby="comparison-title">
+                <h2 id="comparison-title">Compare the appearance</h2>
+                <div class="preview-grid">
+                    <div class="preview"><h3 class="preview-title">sRGB target</h3><div class="preview-inner" id="figmaPreview"><div id="figmaChip" class="chip" aria-hidden="true"></div></div></div>
+                    <div class="preview"><h3 class="preview-title">Simulated linear result</h3><div class="preview-inner" id="unityPreview"><div id="unityChip" class="chip" aria-hidden="true"></div></div></div>
+                    <div class="preview"><h3 class="preview-title">Opaque color</h3><div class="preview-inner" id="bakedPreview"><div id="bakedChip" class="chip" aria-hidden="true"></div></div></div>
+                </div>
+            </section>
+
+            <details class="math-details">
+                <summary>How the calculation works</summary>
+                <div class="details-body">
+                    <p>The target uses an sRGB alpha blend over an opaque background:</p>
+                    <pre>Target = Foreground × Alpha + Background × (1 − Alpha)</pre>
+                    <p>The solver then finds the alpha needed to approximate that target when blending in linear space:</p>
+                    <pre>Alpha per channel =
+  (Linear(Target) − Linear(Background)) /
+  (Linear(Foreground) − Linear(Background))</pre>
+                    <p>Some colors need a different alpha for each RGB channel. The default strategy finds a single best-fit alpha while preserving RGB. The opaque alternative uses the target composite, rounded to 8-bit channels.</p>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Per-channel conversion results">
+                        <table><caption class="sr-only">Channel values normalized to 0–1, with 8-bit values in parentheses</caption><thead><tr><th scope="col">Channel</th><th scope="col">Foreground</th><th scope="col">Background</th><th scope="col">sRGB target</th><th scope="col">Solved alpha</th></tr></thead><tbody id="mathRows"><tr><td colspan="5">No conversion yet.</td></tr></tbody></table>
+                    </div>
+                    <p class="small" id="parsedInfo"></p>
+                </div>
+            </details>
+            <p class="fux-credit">Built with AI assistance to investigate a Unity UI color-matching problem.</p>
+        </div>
+
+        <section class="tool-guide" aria-labelledby="guide-title">
+            <div>
+                <h2 id="guide-title">Using the result</h2>
+                <ol>
+                    <li>Enter the foreground color and its opacity from your design.</li>
+                    <li>Set the opaque background the element will sit on.</li>
+                    <li>Copy the suggested value and compare it in your Unity UI.</li>
+                </ol>
+                <p>For example, <code>#00000059</code> over white gives an alpha of approximately <code>0.6187</code>, or <code>#0000009E</code>, in this model.</p>
+            </div>
+            <div>
+                <h2>Check your rendering setup</h2>
+                <p>The calculation assumes sRGB source values and linear blending. Unity supports both <a href="https://docs.unity3d.com/6000.0/Documentation/Manual/set-project-color-space.html" target="_blank" rel="noopener noreferrer">linear and gamma workflows</a>, so confirm which your project uses before applying an adjustment.</p>
+                <p>For UI Toolkit render textures, <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.PanelSettings-forceGammaRendering.html" target="_blank" rel="noopener noreferrer">PanelSettings.forceGammaRendering</a> applies only in specific linear-project and texture-format configurations.</p>
             </div>
         </section>
     </main>
-
     <div id="footer-container"></div>
-
     <script>
         LoadPage("../NavbarFolder/navbar.html", "navbar");
         LoadPage("../FooterFolder/footer.html", "footer-container");
     </script>
-    <script src="../Scripts/ui.js"></script>
-    <script>
-    (function () {
-        const root = document.querySelector('.fux');
-        const $ = id => root.querySelector('#' + id);
-        const clamp01 = x => Math.max(0, Math.min(1, x));
-        const round = (v, p = 4) => Math.round(v * Math.pow(10, p)) / Math.pow(10, p);
-        const byteToHex = v => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, "0").toUpperCase();
-        const alphaToHex = a => byteToHex(clamp01(a) * 255);
-        function channelTo255(value) { const t = String(value).trim(); if (t.endsWith("%")) return clamp01(parseFloat(t) / 100) * 255; const n = parseFloat(t); if (!Number.isFinite(n)) throw new Error("Invalid RGB channel: " + value); return Math.max(0, Math.min(255, n)); }
-        function alphaTo01(value) { if (value === undefined || value === null || String(value).trim() === "") return 1; const t = String(value).trim(); if (t.endsWith("%")) return clamp01(parseFloat(t) / 100); const n = parseFloat(t); if (!Number.isFinite(n)) throw new Error("Invalid alpha: " + value); return n > 1 ? clamp01(n / 255) : clamp01(n); }
-        function parseColor(input) { let s = String(input).trim(); if (!s) throw new Error("Color field is empty."); if (s.startsWith("#")) { let h = s.slice(1).trim(); if (![3, 4, 6, 8].includes(h.length)) throw new Error("Invalid hex length. Use #RGB, #RGBA, #RRGGBB, or #RRGGBBAA."); if (h.length === 3 || h.length === 4) h = h.split("").map(ch => ch + ch).join(""); const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16), a = h.length === 8 ? parseInt(h.slice(6, 8), 16) / 255 : 1; if ([r, g, b].some(Number.isNaN) || Number.isNaN(a)) throw new Error("Invalid hex color."); return { r, g, b, a, original: input }; } const m = s.match(/^(rgba?|RGBA?)\((.*)\)$/); if (!m) throw new Error("Unsupported color format. Try #00000059 or rgba(0, 0, 0, 0.35)."); const body = m[2].trim(); let parts = []; if (body.includes(",")) { parts = body.split(",").map(x => x.trim()).filter(Boolean); } else if (body.includes("/")) { const [rgbPart, alphaPart] = body.split("/").map(x => x.trim()); parts = [...rgbPart.split(/\s+/).filter(Boolean), alphaPart]; } else { parts = body.split(/\s+/).filter(Boolean); } if (parts.length < 3 || parts.length > 4) throw new Error("rgb/rgba needs 3 channels and optional alpha."); return { r: channelTo255(parts[0]), g: channelTo255(parts[1]), b: channelTo255(parts[2]), a: alphaTo01(parts[3]), original: input }; }
-        function linearFromSrgb01(x, method) { x = clamp01(x); if (method === "gamma22") return Math.pow(x, 2.2); if (x <= 0.04045) return x / 12.92; return Math.pow((x + 0.055) / 1.055, 2.4); }
-        function srgbFromLinear01(x, method) { x = clamp01(x); if (method === "gamma22") return Math.pow(x, 1 / 2.2); if (x <= 0.0031308) return x * 12.92; return 1.055 * Math.pow(x, 1 / 2.4) - 0.055; }
-        function rgbaString(c, a = null, p = 4) { const aa = a === null ? c.a : a; return `rgba(${Math.round(c.r)}, ${Math.round(c.g)}, ${Math.round(c.b)}, ${round(aa, p)})`; }
-        function hex8(c, a = null) { const aa = a === null ? c.a : a; return `#${byteToHex(c.r)}${byteToHex(c.g)}${byteToHex(c.b)}${alphaToHex(aa)}`; }
-        function rgbBytes(r, g, b) { return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`; }
-        function rgbaBytes(r, g, b, a = 1) { return `rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, ${round(a, 4)})`; }
-        function convert() {
-            const error = $("error"); error.style.display = "none"; error.textContent = "";
-            try {
-                const fg = parseColor($("fgInput").value), bg = parseColor($("bgInput").value), method = $("methodSelect").value, alphaMode = $("alphaMode").value;
-                const names = ["R", "G", "B"], fgVals = [fg.r / 255, fg.g / 255, fg.b / 255], bgVals = [bg.r / 255, bg.g / 255, bg.b / 255];
-                const rows = [], solved = [], desiredSrgb = [], desiredLinear = [], fgLinear = [], bgLinear = [], deltas = [];
-                for (let i = 0; i < 3; i++) { const F = fgVals[i], B = bgVals[i], A = fg.a, figmaResult = F * A + B * (1 - A), resultLinear = linearFromSrgb01(figmaResult, method), fLin = linearFromSrgb01(F, method), bLin = linearFromSrgb01(B, method), denom = fLin - bLin; desiredSrgb.push(figmaResult); desiredLinear.push(resultLinear); fgLinear.push(fLin); bgLinear.push(bLin); deltas.push(denom); let solvedAlpha = null; if (Math.abs(denom) > 1e-7) { solvedAlpha = (resultLinear - bLin) / denom; solved.push(clamp01(solvedAlpha)); } rows.push({ channel: names[i], foreground: F, background: B, figmaResult, solvedAlpha }); }
-                if (solved.length === 0) throw new Error("Foreground and background are the same color, so alpha cannot be solved meaningfully.");
-                let unityAlpha;
-                if (alphaMode === "average") unityAlpha = solved.reduce((a, b) => a + b, 0) / solved.length;
-                else if (alphaMode === "max") unityAlpha = Math.max(...solved);
-                else { let num = 0, den = 0; for (let i = 0; i < 3; i++) { const d = deltas[i]; if (Math.abs(d) <= 1e-7) continue; num += d * (desiredLinear[i] - bgLinear[i]); den += d * d; } unityAlpha = den > 0 ? num / den : solved.reduce((a, b) => a + b, 0) / solved.length; }
-                unityAlpha = clamp01(unityAlpha);
-                const spread = solved.length > 1 ? Math.max(...solved) - Math.min(...solved) : 0, isExact = spread <= 0.035;
-                const unityFinalSrgb = [];
-                for (let i = 0; i < 3; i++) { const mixed = fgLinear[i] * unityAlpha + bgLinear[i] * (1 - unityAlpha); unityFinalSrgb.push(srgbFromLinear01(mixed, method)); }
-                const baked = { r: desiredSrgb[0] * 255, g: desiredSrgb[1] * 255, b: desiredSrgb[2] * 255, a: 1 };
-                $("unityRgba").textContent = rgbaString(fg, unityAlpha, 4);
-                $("unityHex").textContent = hex8(fg, unityAlpha);
-                $("bakedRgba").textContent = rgbaBytes(baked.r, baked.g, baked.b, 1);
-                $("unityRgbaNote").textContent = `Original alpha ${round(fg.a, 4)} → Unity alpha ${round(unityAlpha, 4)}. RGB is kept the same.`;
-                $("unityHexNote").textContent = `Alpha hex: original ${alphaToHex(fg.a)} → Unity ${alphaToHex(unityAlpha)}.`;
-                const status = $("status"); status.className = "status " + (isExact ? "good" : "warn");
-                status.textContent = isExact ? "Good match: all RGB channels agree closely, so keeping the same RGB and changing alpha is reliable." : "Warning: this saturated/non-grey color cannot be matched perfectly with one same-RGB alpha. Use the recommended best-fit alpha, or use the baked opaque fallback for exact visual matching.";
-                $("mathRows").innerHTML = rows.map(row => { const solvedText = row.solvedAlpha === null ? "Not constrained" : round(clamp01(row.solvedAlpha), 4); return `<tr><td>${row.channel}</td><td>${round(row.foreground, 4)} <span class="muted">(${Math.round(row.foreground * 255)})</span></td><td>${round(row.background, 4)} <span class="muted">(${Math.round(row.background * 255)})</span></td><td>${round(row.figmaResult, 4)} <span class="muted">(${Math.round(row.figmaResult * 255)})</span></td><td>${solvedText}</td></tr>`; }).join("");
-                $("parsedInfo").innerHTML = `Parsed foreground: <code>${rgbaString(fg, fg.a, 4)}</code>. Parsed background: <code>${rgbaString(bg, bg.a, 4)}</code>. ` + (bg.a < 1 ? `<strong>Note:</strong> background alpha is parsed but this tool assumes the background is already visually opaque/precomposited.` : "");
-                const bgCss = rgbBytes(bg.r, bg.g, bg.b);
-                $("figmaPreview").style.backgroundColor = bgCss; $("unityPreview").style.backgroundColor = bgCss; $("bakedPreview").style.backgroundColor = bgCss;
-                $("figmaChip").style.backgroundColor = rgbaString(fg, fg.a, 4); $("figmaChip").textContent = "Figma original";
-                $("unityChip").style.backgroundColor = rgbBytes(unityFinalSrgb[0] * 255, unityFinalSrgb[1] * 255, unityFinalSrgb[2] * 255); $("unityChip").textContent = "Unity simulated final";
-                $("bakedChip").style.backgroundColor = rgbBytes(baked.r, baked.g, baked.b); $("bakedChip").textContent = "Baked exact";
-            } catch (e) { error.textContent = e.message || String(e); error.style.display = "block"; $("status").className = "status warn"; $("status").textContent = "Could not convert. Check the input format."; }
-        }
-        $("convertBtn").addEventListener("click", convert);
-        $("fgInput").addEventListener("input", convert);
-        $("bgInput").addEventListener("input", convert);
-        $("methodSelect").addEventListener("change", convert);
-        $("alphaMode").addEventListener("change", convert);
-        $("sampleBlack35").addEventListener("click", () => { $("fgInput").value = "#00000059"; $("bgInput").value = "#FFFFFF"; convert(); });
-        $("sampleDark85").addEventListener("click", () => { $("fgInput").value = "rgba(26, 26, 26, 0.85)"; $("bgInput").value = "#FFFFFF"; convert(); });
-        $("sampleTeal40").addEventListener("click", () => { $("fgInput").value = "rgba(0, 229, 191, 0.4)"; $("bgInput").value = "#FFFFFF"; convert(); });
-        root.querySelectorAll("[data-copy-target]").forEach(button => { button.addEventListener("click", async () => { const target = $(button.getAttribute("data-copy-target")), text = target.textContent; try { await navigator.clipboard.writeText(text); const old = button.textContent; button.textContent = "Copied"; setTimeout(() => button.textContent = old, 900); } catch { const old = button.textContent; button.textContent = "Select text"; setTimeout(() => button.textContent = old, 900); } }); });
-        convert();
-    })();
-    </script>
+    <script src="../Scripts/ui.js?v=20260912"></script>
+    <script src="color-converter.js?v=20260912"></script>
 </body>
 </html>

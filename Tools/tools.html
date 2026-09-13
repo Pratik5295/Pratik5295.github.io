@@ -4,71 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Useful Tools — Pratik Shringarpure</title>
-    <meta name="description" content="A small collection of free, offline utilities for game developers — built by Pratik Shringarpure to solve real production problems in Unity and beyond.">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Useful Game Dev Tools — Pratik Shringarpure">
-    <meta property="og:description" content="Free, offline utilities for game developers, built to solve real Unity production problems.">
+    <title>Developer Tools — Pratik Shringarpure</title>
+    <meta name="description" content="Free browser tools by Pratik Shringarpure for game development workflows, including a Figma to Unity color converter.">
+    <meta property="og:title" content="Developer Tools — Pratik Shringarpure">
+    <meta property="og:description" content="Practical browser tools for game development and Unity UI workflows.">
     <meta property="og:image" content="/Images/ProjectData/Profile.png">
     <meta property="og:type" content="website">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="tools.css?v=20260708">
-    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260708">
-    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260708">
-    <link rel="icon" href="../Images/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="tools.css?v=20260912">
+    <link rel="stylesheet" href="../NavbarFolder/portfolio-nav.css?v=20260912">
+    <link rel="stylesheet" href="../NavbarFolder/navbar.css?v=20260912">
+    <link rel="stylesheet" href="../FooterFolder/footer.css?v=20260912">
+    <link rel="icon" href="../Images/Logo.png" type="image/png">
     <script src="../Scripts/HtmlLoader.js"></script>
-    <script src="../Scripts/animations.js"></script>
 </head>
-<body>
-
+<body class="tools-page portfolio-page">
+    <a class="skip-link" href="#tools-content">Skip to content</a>
     <div id="scroll-progress"></div>
     <button id="back-to-top" aria-label="Back to top">&#8679;</button>
-
     <div id="navbar"></div>
 
-    <main>
-        <!-- Breadcrumb -->
+    <main id="tools-content" tabindex="-1">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span class="breadcrumb-sep">›</span>
-            <span class="breadcrumb-current">Useful Tools</span>
+            <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Developer tools</span>
         </nav>
-
-        <header class="tools-header scroll-reveal">
-            <p class="tools-kicker">Game Dev Utilities</p>
-            <h1>Useful Tools</h1>
-            <p class="tools-lead">Small, free, offline utilities I built to solve real problems while shipping games — the kind of fiddly production issues that don't have a clean tool online. Everything here runs entirely in your browser; nothing is uploaded.</p>
-        </header>
-
+        <div class="tools-header">
+            <p class="tools-kicker">Game development utilities</p>
+            <h1>Developer tools</h1>
+            <p class="tools-lead">Small tools I built for everyday game development work. Free to use, with calculations that run in your browser.</p>
+        </div>
         <section class="tools-grid" aria-label="Available tools">
-            <a class="tool-card scroll-reveal" href="/Tools/figma-unity-color-converter.html">
-                <div class="tool-card-icon" aria-hidden="true">🎨</div>
-                <h2>Figma → Unity Color Converter</h2>
-                <p>Convert a Figma sRGB color (with alpha) into the equivalent Unity UI Toolkit <strong>Linear-space</strong> rgba, so semi-transparent UI renders exactly like your design instead of coming out lighter.</p>
-                <div class="tool-card-tags">
-                    <span class="tool-card-tag">Unity</span>
-                    <span class="tool-card-tag">UI Toolkit</span>
-                    <span class="tool-card-tag">Color</span>
-                    <span class="tool-card-tag">Offline</span>
+            <a class="tool-card" href="/Tools/figma-unity-color-converter.html">
+                <div class="tool-card-content">
+                    <p class="tool-category">Unity · UI Toolkit · Color</p>
+                    <h2>Figma → Unity Color Converter</h2>
+                    <p>Estimate the alpha needed to match an sRGB overlay in a linear blending workflow. Compare the result against your chosen background and copy the RGBA or hex value.</p>
+                    <span class="tool-card-cta">Open converter <span aria-hidden="true">↗</span></span>
                 </div>
-                <span class="tool-card-cta">Open Tool</span>
+                <div class="tool-example" aria-hidden="true">
+                    <span class="example-caption">Black overlay on white</span>
+                    <div class="example-row"><span>Original sRGB</span><code>#00000059</code></div>
+                    <div class="example-row"><span>Linear blend estimate</span><code>#0000009E</code></div>
+                    <span class="example-note">Same RGB. Adjusted alpha.</span>
+                </div>
             </a>
-
-            <!-- More tools land here as they're built -->
         </section>
     </main>
-
     <div id="footer-container"></div>
-
     <script>
         LoadPage("../NavbarFolder/navbar.html", "navbar");
         LoadPage("../FooterFolder/footer.html", "footer-container");
     </script>
-    <script src="../Scripts/ui.js"></script>
+    <script src="../Scripts/ui.js?v=20260912"></script>
 </body>
 </html>

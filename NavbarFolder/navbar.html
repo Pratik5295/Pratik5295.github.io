@@ -1,161 +1,52 @@
 <div class="nav-wrapper" id="nav-wrapper">
     <header>
         <a href="/" class="logo">
-            <img src="/Images/ProjectData/Profile.png" alt="Pratik" class="logo-avatar">
+            <img src="/Images/ProjectData/Profile.png" alt="" width="36" height="36" class="logo-avatar">
             Pratik Shringarpure
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Open navigation" aria-controls="navbar-menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </button>
     </header>
 
     <div class="header-info">
-        <div class="subtitle">
-            <span id="typewriter">Game Developer</span>
-        </div>
+        <p class="subtitle">Game Developer</p>
         <div class="social-icons">
-            <a href="https://github.com/Pratik5295" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="/Images/Social/Icon-Github.png" alt="GitHub">
+            <a href="https://github.com/Pratik5295" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)">
+                <img src="/Images/Social/Icon-Github.png" alt="" width="18" height="18">
             </a>
-            <a href="https://www.linkedin.com/in/pratik-shringarpure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="/Images/Social/LinkedIn-Icon.png" alt="LinkedIn">
+            <a href="https://www.linkedin.com/in/pratik-shringarpure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)">
+                <img src="/Images/Social/LinkedIn-Icon.png" alt="" width="18" height="18">
             </a>
-            <a href="https://www.youtube.com/channel/UCMES0qUHnZriS-L0bVLqTLw" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <img src="/Images/Social/Icon-Youtube.png" alt="YouTube">
+            <a href="https://www.youtube.com/channel/UCMES0qUHnZriS-L0bVLqTLw" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in a new tab)">
+                <img src="/Images/Social/Icon-Youtube.png" alt="" width="18" height="18">
             </a>
-            <a href="#" data-copy-email="pratikshringarpure05@gmail.com" aria-label="Copy email">
-                <img src="/Images/Social/Icon-Email.png" alt="Email">
+            <a href="mailto:pratikshringarpure05@gmail.com" aria-label="Email Pratik">
+                <img src="/Images/Social/Icon-Email.png" alt="" width="18" height="18">
             </a>
         </div>
     </div>
 
-    <nav class="navbar" id="navbar-menu">
+    <nav class="navbar" id="navbar-menu" aria-label="Main navigation">
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a class="nav-link" href="/">Home</a></li>
             <li class="dropdown" id="nav-dropdown">
-                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Projects <span class="dropdown-arrow">&#9660;</span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="/#section-professional">Professional</a></li>
-                    <li><a href="/#section-recent">Recent Work</a></li>
-                    <li><a href="/#section-games">Game Projects</a></li>
-                    <li><a href="/#section-art">Art Projects</a></li>
+                <button type="button" class="nav-link dropdown-toggle" id="projects-toggle" aria-expanded="false" aria-controls="projects-menu">
+                    Projects <span class="dropdown-arrow" aria-hidden="true">&#9662;</span>
+                </button>
+                <ul class="dropdown-menu" id="projects-menu" hidden>
+                    <li><a class="nav-link" href="/#section-professional">Professional work</a></li>
+                    <li><a class="nav-link" href="/#section-recent">Recent work</a></li>
+                    <li><a class="nav-link" href="/#section-games">Game projects</a></li>
+                    <li><a class="nav-link" href="/#section-art">Art projects</a></li>
                 </ul>
             </li>
-            <li class="dropdown" id="nav-dropdown-tools">
-                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Useful Tools <span class="dropdown-arrow">&#9660;</span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="/Tools/tools.html">All Tools</a></li>
-                    <li><a href="/Tools/figma-unity-color-converter.html">Figma → Unity Converter</a></li>
-                </ul>
-            </li>
-            <li><a href="https://github.com/Pratik5295" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://www.artstation.com/pratikshringarpure5" target="_blank" rel="noopener noreferrer">ArtStation</a></li>
-            <li><a href="/Pages/aboutme.html">Resume</a></li>
-            <li><a href="#" data-copy-email="pratikshringarpure05@gmail.com">Contact</a></li>
+            <li><a class="nav-link" href="/Tools/tools.html" data-section="/Tools/">Tools</a></li>
+            <li><a class="nav-link" href="/Pages/aboutme.html">About &amp; résumé</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
     </nav>
 </div>
-
-<script>
-    (function () {
-        // ---- Compact nav on scroll ----
-        var wrapper = document.getElementById('nav-wrapper');
-        function updateCompact() {
-            if (!wrapper) return;
-            wrapper.classList.toggle('nav-compact', window.scrollY > 80);
-        }
-        window.addEventListener('scroll', updateCompact, { passive: true });
-        updateCompact();
-
-        // ---- Hamburger toggle ----
-        var btn = document.getElementById('hamburger');
-        var menu = document.getElementById('navbar-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', function () {
-                btn.classList.toggle('active');
-                menu.classList.toggle('open');
-            });
-        }
-
-        // ---- Dropdown toggle (supports multiple dropdowns) ----
-        var dropdowns = Array.prototype.slice.call(document.querySelectorAll('.navbar .dropdown'));
-
-        dropdowns.forEach(function (dropdownEl) {
-            var dropdownToggle = dropdownEl.querySelector('.dropdown-toggle');
-            var dropdownMenu = dropdownEl.querySelector('.dropdown-menu');
-            if (!dropdownToggle || !dropdownMenu) return;
-
-            dropdownToggle.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Close any sibling dropdowns first
-                dropdowns.forEach(function (other) {
-                    if (other !== dropdownEl) {
-                        other.classList.remove('open');
-                        var t = other.querySelector('.dropdown-toggle');
-                        if (t) t.setAttribute('aria-expanded', 'false');
-                    }
-                });
-                var open = dropdownEl.classList.toggle('open');
-                dropdownToggle.setAttribute('aria-expanded', open);
-            });
-
-            // Close dropdown + mobile menu when a dropdown link is clicked
-            dropdownMenu.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    dropdownEl.classList.remove('open');
-                    dropdownToggle.setAttribute('aria-expanded', 'false');
-                    if (menu && menu.classList.contains('open')) {
-                        btn.classList.remove('active');
-                        menu.classList.remove('open');
-                    }
-                });
-            });
-        });
-
-        // Close all dropdowns when clicking outside of them
-        document.addEventListener('click', function (e) {
-            dropdowns.forEach(function (dropdownEl) {
-                if (!dropdownEl.contains(e.target)) {
-                    dropdownEl.classList.remove('open');
-                    var t = dropdownEl.querySelector('.dropdown-toggle');
-                    if (t) t.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-
-        // Close mobile menu when a top-level non-dropdown link is clicked
-        if (menu) {
-            menu.querySelectorAll('ul > li:not(.dropdown) > a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    if (menu.classList.contains('open')) {
-                        btn.classList.remove('active');
-                        menu.classList.remove('open');
-                    }
-                });
-            });
-        }
-
-        // ---- Active page highlight ----
-        var currentPath = window.location.pathname;
-        document.querySelectorAll('nav.navbar ul li a').forEach(function (link) {
-            var href = link.getAttribute('href') || '';
-            if (href.startsWith('http') || href.startsWith('#') || href.indexOf('#') !== -1) return;
-            var isHome = href === '/' && (currentPath === '/' || currentPath.endsWith('/index.html') || currentPath === '');
-            var isMatch = href !== '/' && currentPath.indexOf(href.replace(/^\//, '')) !== -1;
-            if (isHome || isMatch) link.classList.add('active');
-        });
-
-        // ---- Typewriter effect ----
-        var el = document.getElementById('typewriter');
-        if (el && !el.dataset.init) {
-            el.dataset.init = '1';
-            el.textContent = 'Game Developer';
-        }
-    })();
-</script>
+<script src="/NavbarFolder/navbar.js?v=20260912"></script>

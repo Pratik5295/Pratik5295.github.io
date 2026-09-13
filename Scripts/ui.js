@@ -33,9 +33,13 @@
         if (existing) existing.remove();
         var toast = document.createElement('div');
         toast.id = 'toast-notification';
-        toast.textContent = message;
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-atomic', 'true');
         document.body.appendChild(toast);
-        requestAnimationFrame(function () { toast.classList.add('visible'); });
+        requestAnimationFrame(function () {
+            toast.textContent = message;
+            toast.classList.add('visible');
+        });
         setTimeout(function () {
             toast.classList.remove('visible');
             setTimeout(function () { if (toast.parentNode) toast.remove(); }, 400);
@@ -52,9 +56,9 @@
         if (navigator.clipboard) {
             navigator.clipboard.writeText(email).then(function () {
                 showToast('Email copied to clipboard!');
-            }).catch(function () { window.location.href = 'mailto:' + email; });
+            }).catch(function () { showToast('Could not copy. Please select and copy the email address.'); });
         } else {
-            window.location.href = 'mailto:' + email;
+            showToast('Could not copy. Please select and copy the email address.');
         }
     });
 
