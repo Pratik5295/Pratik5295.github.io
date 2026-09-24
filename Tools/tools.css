@@ -233,7 +233,7 @@ code, pre { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, m
     padding: 0.7rem 0.85rem;
     color: var(--text);
     background: var(--bg);
-    border: 1px solid rgba(199, 204, 208, 0.28);
+    border: 1px solid #687479;
     border-radius: 6px;
     font-size: 1rem;
     line-height: 1.5;
@@ -255,6 +255,7 @@ code, pre { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, m
 
 .fux .hint,
 .fux .small { margin-top: 0.625rem; }
+.fux .hint { font-size: 0.875rem; }
 .fux .local-note,
 .fux .result-note { margin-top: 1.25rem; }
 .fux .btn-row { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 1rem; }
@@ -279,7 +280,7 @@ code, pre { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, m
 .fux button.copy:hover { background: rgba(199, 204, 208, 0.05); border-color: var(--muted); color: var(--text); }
 .fux button:disabled { opacity: 0.45; cursor: not-allowed; background: transparent; border-color: var(--line); }
 .fux .sample-options { margin-top: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
-.fux .sample-label { color: var(--muted); font-size: 0.8125rem; }
+.fux .sample-label { color: var(--muted); font-size: 0.875rem; }
 .fux .sample-options .btn-row { margin-top: 0.65rem; }
 .fux .error { margin-top: 1rem; padding: 0.85rem 1rem; border: 1px solid rgba(238, 152, 147, 0.4); border-radius: 6px; background: rgba(238, 152, 147, 0.06); color: #ffd6d3; font-size: 0.875rem; line-height: 1.7; }
 
@@ -302,7 +303,7 @@ code, pre { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, m
 .fux details { margin-top: 1.5rem; border-top: 1px solid var(--line); }
 .fux summary { min-height: 44px; padding: 0.85rem 0; color: var(--silver); font-size: 0.875rem; font-weight: 500; line-height: 1.7; cursor: pointer; }
 .fux summary::marker { color: var(--muted); }
-.fux .details-body { padding: 0.5rem 0 0.75rem; color: var(--silver); font-size: 0.9375rem; line-height: 1.8; }
+.fux .details-body { padding: 0.5rem 0 0.75rem; color: var(--silver); font-size: 1rem; line-height: 1.8; }
 .fux .comparison-section { margin-top: 2rem; }
 .fux .preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .fux .preview { min-width: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -311,7 +312,7 @@ code, pre { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, m
 .fux .chip { width: 85%; min-height: 105px; border-radius: 6px; }
 .fux .math-details { margin-top: 2rem; border-bottom: 1px solid var(--line); }
 .fux .math-details .details-body > p { max-width: 90ch; }
-.fux pre { margin: 1rem 0; padding: 1rem; overflow: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); color: var(--text); font-size: 0.8125rem; line-height: 1.8; }
+.fux pre { margin: 1rem 0; padding: 1rem; white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); color: var(--text); font-size: 0.8125rem; line-height: 1.8; }
 .fux .table-wrap { margin: 1.25rem 0; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
 .fux table { width: 100%; min-width: 580px; border-collapse: collapse; font-size: 0.8125rem; }
 .fux th, .fux td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -321,7 +322,7 @@ code, pre { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, m
 .fux-credit { margin-top: 1rem; }
 
 .tool-guide { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-.tool-guide p, .tool-guide li { color: var(--silver); font-size: 0.9375rem; line-height: 1.85; }
+.tool-guide p, .tool-guide li { color: var(--silver); font-size: 1rem; line-height: 1.85; }
 .tool-guide p + p, .tool-guide ol + p { margin-top: 1rem; }
 .tool-guide ol { padding-left: 1.25rem; }
 .tool-guide li + li { margin-top: 0.5rem; }

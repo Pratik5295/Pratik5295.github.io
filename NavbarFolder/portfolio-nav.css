@@ -1,4 +1,14 @@
 /* Shared header layout for the portfolio pages. */
+.portfolio-page :is(main, .site-footer) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.portfolio-page :is(main, section[id], #contact),
+.portfolio-page :focus {
+    scroll-margin-top: var(--header-offset, 9rem);
+}
+
 .portfolio-page #navbar {
     position: sticky;
     top: 0;
@@ -26,4 +36,10 @@
     .portfolio-page .nav-wrapper { gap: 0.35rem; }
     .portfolio-page nav.navbar { margin-top: 0; }
     .portfolio-page .header-info { flex-wrap: wrap; }
+}
+
+/* A short landscape viewport needs its full height for reading. */
+@media (max-height: 500px) {
+    .portfolio-page #navbar { position: static; }
+    .portfolio-page nav.navbar { max-height: none; overflow: visible; }
 }

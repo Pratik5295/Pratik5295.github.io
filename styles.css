@@ -48,6 +48,10 @@ main {
     display: block;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 a {
     color: inherit;
 }
@@ -59,9 +63,20 @@ input {
 
 /* ---- Scroll Reveal ---- */
 .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-reveal.reveal-pending {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-reveal:focus-within {
+    opacity: 1;
+    transform: none;
+    transition: none;
 }
 
 .scroll-reveal.visible {
@@ -72,7 +87,7 @@ input {
 /* ---- Homepage introduction ---- */
 .home-intro {
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
     align-items: center;
     gap: clamp(2rem, 4vw, 4rem);
     padding: 3.25rem 0 2.5rem;
@@ -181,7 +196,7 @@ input {
     border: 1px solid var(--line);
     border-radius: 12px;
     background-image:
-        linear-gradient(180deg, rgba(7, 11, 13, 0.04) 0%, rgba(7, 11, 13, 0.9) 45%, #070b0d 76%),
+        linear-gradient(180deg, rgba(7, 11, 13, 0.72) 0%, rgba(7, 11, 13, 0.92) 45%, #070b0d 76%),
         var(--hero-image, url('Images/ProjectData/SS-LMS2.jpg'));
     background-position: center top;
     background-size: cover;
@@ -254,7 +269,8 @@ input {
 }
 
 .hero-carousel-controls {
-    display: flex;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
     align-items: center;
     gap: 0.5rem;
     margin-top: 0.75rem;
@@ -290,6 +306,7 @@ input {
 
 .hero-carousel-dots {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     flex: 1;
@@ -298,7 +315,7 @@ input {
 .hero-dot {
     display: grid;
     place-items: center;
-    width: 24px;
+    width: 44px;
     height: 44px;
     padding: 0;
     background: transparent;
@@ -390,10 +407,12 @@ input {
     text-transform: none;
     letter-spacing: 0;
     text-align: center;
+    line-height: 1.6;
 }
 
 .stat-sublabel {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
     color: var(--muted);
     text-align: center;
     font-weight: 500;
@@ -528,7 +547,7 @@ input {
     padding: 0.65rem 0.85rem;
     color: var(--silver);
     background: var(--bg-2);
-    border: 1px solid var(--line);
+    border: 1px solid #687479;
     border-radius: 6px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -877,12 +896,15 @@ section[id] {
         grid-template-columns: 1fr;
     }
 
-    .section-header,
-    .section-header-with-toggle {
+    .section-header {
         align-items: flex-start;
         padding-left: 0;
-        padding-right: 3.25rem;
+        padding-right: 0;
         text-align: left;
+    }
+
+    .section-header-with-toggle {
+        padding-right: 3.5rem;
     }
 
     .section-header h2 {
@@ -960,6 +982,11 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal.reveal-pending {
+        opacity: 1;
+        transform: none;
+    }
+
     *,
     *::before,
     *::after {

@@ -331,7 +331,7 @@ section[id] {
 
 .context-section p {
     color: var(--silver);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     line-height: 1.8;
     overflow-wrap: anywhere;
 }
@@ -360,6 +360,7 @@ section[id] {
 }
 
 .development-notes summary {
+    min-height: 44px;
     padding: 0.5rem 0;
     color: var(--silver);
     font-size: 1rem;

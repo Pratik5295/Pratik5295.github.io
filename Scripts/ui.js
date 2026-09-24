@@ -1,4 +1,5 @@
 (function () {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     // ---- Scroll Progress Bar ----
     var progressBar = document.getElementById('scroll-progress');
@@ -16,7 +17,9 @@
     }
     if (backToTop) {
         backToTop.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            var destination = document.querySelector('.skip-link') || document.querySelector('main');
+            if (destination) destination.focus({ preventScroll: true });
+            window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
         });
     }
 
@@ -71,47 +74,69 @@
     }
 
     // ---- Section Toggle (collapsible) ----
+    function setSectionExpanded(btn, expanded) {
+        var body = document.getElementById(btn.getAttribute('data-target'));
+        if (!body) return;
+        body.hidden = !expanded;
+        body.classList.toggle('collapsed', !expanded);
+        btn.setAttribute('aria-expanded', String(expanded));
+        btn.setAttribute('aria-label', (expanded ? 'Hide ' : 'Show ') + btn.dataset.sectionName);
+        var label = btn.querySelector('.toggle-label');
+        if (label) label.textContent = expanded ? 'Hide' : 'Show';
+    }
+
     document.addEventListener('click', function (e) {
         var btn = e.target.closest('.section-toggle');
         if (!btn) return;
-        var targetId = btn.getAttribute('data-target');
-        var body = document.getElementById(targetId);
-        if (!body) return;
         var expanded = btn.getAttribute('aria-expanded') === 'true';
-        body.classList.toggle('collapsed', expanded);
-        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        var label = btn.querySelector('.toggle-label');
-        if (label) label.textContent = expanded ? 'Show' : 'Hide';
+        setSectionExpanded(btn, !expanded);
     });
+
+    function revealLinkedSection() {
+        var section = document.getElementById(window.location.hash.slice(1));
+        var btn = section && section.querySelector('.section-toggle');
+        if (btn) setSectionExpanded(btn, true);
+    }
+    window.addEventListener('hashchange', revealLinkedSection);
+    // Reopening the same section link does not emit a hashchange event.
+    document.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href]');
+        if (!link) return;
+        var url = new URL(link.href, window.location.href);
+        if (url.origin === window.location.origin && url.pathname === window.location.pathname && url.hash === window.location.hash) revealLinkedSection();
+    });
+    revealLinkedSection();
 
     // ---- Project Filter + Search ----
     var filterBar = document.getElementById('filter-bar');
     var projectSearch = document.getElementById('project-search-input');
     var emptyState = document.getElementById('game-projects-empty');
+    var resultsStatus = document.getElementById('game-projects-status');
+    var announceTimer;
     function applyProjectFilters() {
         var activeBtn = filterBar ? filterBar.querySelector('.filter-btn.active') : null;
         var filter = activeBtn ? activeBtn.dataset.filter : 'all';
         var query = projectSearch ? projectSearch.value.trim().toLowerCase() : '';
         var visibleCount = 0;
 
-        document.querySelectorAll('#grid-container > [data-tags]').forEach(function (card) {
+        var cards = document.querySelectorAll('#grid-container > [data-tags]');
+        cards.forEach(function (card) {
             var matchesFilter = filter === 'all' || card.dataset.tags.indexOf(filter) !== -1;
             var matchesQuery = !query || card.dataset.tags.indexOf(query) !== -1;
             var match = matchesFilter && matchesQuery;
-            if (match) {
-                visibleCount++;
-                card.style.display = '';
-                requestAnimationFrame(function () { card.style.opacity = '1'; });
-            } else {
-                card.style.opacity = '0';
-                setTimeout(function () {
-                    if (card.style.opacity === '0') card.style.display = 'none';
-                }, 220);
-            }
+            if (match) visibleCount++;
+            card.hidden = !match;
         });
 
         if (emptyState) {
             emptyState.hidden = visibleCount !== 0;
+        }
+        clearTimeout(announceTimer);
+        if (resultsStatus) {
+            announceTimer = setTimeout(function () {
+                var message = visibleCount + ' of ' + cards.length + ' game projects shown.';
+                if (resultsStatus.textContent !== message) resultsStatus.textContent = message;
+            }, 300);
         }
     }
     window.applyProjectFilters = applyProjectFilters;

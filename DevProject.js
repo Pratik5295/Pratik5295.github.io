@@ -164,7 +164,7 @@ function createProjectCard(template, data, staggerIndex, category) {
     var activeFilter = category === 'games' ? document.querySelector('#filter-bar .filter-btn.active') : null;
     if (activeFilter && activeFilter.dataset.filter !== 'all') {
         if (clone.dataset.tags.indexOf(activeFilter.dataset.filter) === -1) {
-            clone.style.display = 'none';
+            clone.hidden = true;
         }
     }
 

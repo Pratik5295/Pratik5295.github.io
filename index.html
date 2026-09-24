@@ -18,13 +18,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20260909-projects">
-    <link rel="stylesheet" href="NavbarFolder/portfolio-nav.css?v=20260912">
-    <link rel="stylesheet" href="NavbarFolder/navbar.css?v=20260912">
+    <link rel="stylesheet" href="styles.css?v=20260922">
+    <link rel="stylesheet" href="NavbarFolder/portfolio-nav.css?v=20260922">
+    <link rel="stylesheet" href="NavbarFolder/navbar.css?v=20260922">
     <link rel="stylesheet" href="FooterFolder/footer.css?v=20260912">
     <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
     <script src="Scripts/HtmlLoader.js"></script>
-    <script src="Scripts/animations.js"></script>
+    <script src="Scripts/animations.js?v=20260922"></script>
 </head>
 <body class="home-page portfolio-page">
 
@@ -97,33 +97,33 @@
     </div>
 
     <!-- Professional Projects Section -->
-    <section id="section-professional">
+    <section id="section-professional" aria-labelledby="professional-title" tabindex="-1">
         <div class="section-header scroll-reveal">
-            <h2>Professional Projects</h2>
+            <h2 id="professional-title">Professional Projects</h2>
             <p>Studio projects and independent releases, spanning UI, backend systems, and full game development.</p>
         </div>
         <div class="projects-grid" id="professional-projects-grid"></div>
     </section>
 
     <!-- Recent Work Section -->
-    <section id="section-recent">
+    <section id="section-recent" aria-labelledby="recent-title" tabindex="-1">
         <div class="section-header scroll-reveal">
-            <h2>Recent Work</h2>
+            <h2 id="recent-title">Recent Work</h2>
             <p>Gameplay systems, custom Unity tools, and narrative prototypes.</p>
         </div>
         <div class="projects-grid" id="recent-projects-grid"></div>
     </section>
 
     <!-- Game Projects Section -->
-    <section id="section-games">
+    <section id="section-games" aria-labelledby="games-title" tabindex="-1">
         <div class="section-header section-header-with-toggle scroll-reveal">
             <div>
-                <h2>Game Projects</h2>
+                <h2 id="games-title">Game Projects</h2>
                 <p>Playable experiments, jams, mobile releases, and technical prototypes.</p>
             </div>
-            <button class="section-toggle" data-target="games-body" aria-controls="games-body" aria-expanded="true" aria-label="Toggle Game Projects">
+            <button class="section-toggle" data-target="games-body" aria-controls="games-body" aria-expanded="true" data-section-name="game projects" aria-label="Hide game projects">
                 <span class="toggle-label">Hide</span>
-                <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg aria-hidden="true" focusable="false" class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
             </button>
@@ -146,21 +146,22 @@
                     <input id="project-search-input" type="search" placeholder="Search projects or tech" autocomplete="off">
                 </label>
             </div>
+            <p class="sr-only" id="game-projects-status" role="status" aria-atomic="true"></p>
             <p class="empty-state" id="game-projects-empty" hidden>No matching projects found.</p>
             <div class="projects-grid" id="grid-container"></div>
         </div>
     </section>
 
     <!-- Art Section -->
-    <section id="section-art">
+    <section id="section-art" aria-labelledby="art-title" tabindex="-1">
         <div class="section-header section-header-with-toggle scroll-reveal">
             <div>
-                <h2>Art Projects</h2>
+                <h2 id="art-title">Art Projects</h2>
                 <p>3D art and visual experiments that support the broader game-development craft.</p>
             </div>
-            <button class="section-toggle" data-target="art-body" aria-controls="art-body" aria-expanded="true" aria-label="Toggle Art Projects">
+            <button class="section-toggle" data-target="art-body" aria-controls="art-body" aria-expanded="true" data-section-name="art projects" aria-label="Hide art projects">
                 <span class="toggle-label">Hide</span>
-                <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg aria-hidden="true" focusable="false" class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
             </button>
@@ -180,7 +181,7 @@
             LoadPage("Art/Homepage-Art.html", "artHomePage");
         });
     </script>
-    <script src="DevProject.js"></script>
-    <script src="Scripts/ui.js?v=20260912"></script>
+    <script src="DevProject.js?v=20260922"></script>
+    <script src="Scripts/ui.js?v=20260922"></script>
 </body>
 </html>

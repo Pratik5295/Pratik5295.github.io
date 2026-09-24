@@ -8,6 +8,7 @@
     const projectsToggle = document.getElementById('projects-toggle');
     const projectsMenu = document.getElementById('projects-menu');
     const dropdown = document.getElementById('nav-dropdown');
+    const navbar = document.getElementById('navbar');
     const mobile = window.matchMedia('(max-width: 768px)');
     let menuOpen = false;
 
@@ -25,6 +26,7 @@
         toggle.setAttribute('aria-label', menuOpen ? 'Close navigation' : 'Open navigation');
         toggle.classList.toggle('active', menuOpen);
         if (!open) setProjectsOpen(false);
+        updateHeaderOffset();
         if (returnFocus) toggle.focus();
     }
 
@@ -94,6 +96,16 @@
         else if (!mobile.matches && activeElement === toggle) menu.querySelector('a').focus();
     });
     window.addEventListener('hashchange', updateCurrentLocation);
+    function updateHeaderOffset() {
+        if (!navbar) return;
+        const sticky = window.getComputedStyle(navbar).position === 'sticky';
+        const offset = sticky ? navbar.getBoundingClientRect().height + 12 : 12;
+        document.documentElement.style.setProperty('--header-offset', Math.ceil(offset) + 'px');
+    }
+    if (typeof ResizeObserver === 'function' && navbar) {
+        new ResizeObserver(updateHeaderOffset).observe(navbar);
+    }
+    window.addEventListener('resize', updateHeaderOffset, { passive: true });
     wrapper.classList.add('nav-ready');
     setMenuOpen(false);
     updateCurrentLocation();
