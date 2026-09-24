@@ -3,7 +3,7 @@
     "subtitle": "Associate Software Engineer | Kazoo Games | Professional",
     "imageUrl": "Images/ProjectData/SSPoolGame.png",
     "engine": "Unity",
-    "status": "Live on Google Play",
+    "status": "Released on Google Play",
     "summary": "Supported the team's work on backend features, internal tools, gacha systems, and UI as an Associate Software Engineer.",
     "description": "Worked at Kazoo Games as an Associate Software Engineer on 8 Ball Champions: PvP Pool Game, supporting the team's development of Azure-connected backend features, internal tools, gacha systems, and player-facing UI.",
     "highlights": [
@@ -21,5 +21,17 @@
     "tech": ["Unity", "C#", "Azure", "Figma", "uGUI"],
     "details": "As an Associate Software Engineer at Kazoo Games, I supported the development team on 8 Ball Champions: PvP Pool Game. My contributions supported work across internal tooling, Microsoft Azure backend integrations, gacha features, and UI implementation. These features were developed collaboratively, with responsibilities shared across the team.",
     "storeUrl": "https://play.google.com/store/apps/details?id=com.kazoo.pool2.gp&hl=en-US",
-    "storeLinkText": "View on Google Play"
+    "storeLinkText": "View on Google Play",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSPoolGame-640.webp",
+            "width": 640,
+            "height": 359
+        },
+        {
+            "url": "Images/Optimized/SSPoolGame-1359.webp",
+            "width": 1359,
+            "height": 762
+        }
+    ]
 }

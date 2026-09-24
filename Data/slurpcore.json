@@ -7,7 +7,7 @@
     "status": "Released",
     "summary": "Shipped a GMTK Game Jam FPS as UI and systems programmer, including HUD, audio, score, and level flow.",
     "description": "An FPS game made for GMTK Game Jam 2024, but instead of shooting bullets you enlarge or shrink the enemy with your scaling gun to make them vulnerable. You need to scale down and then crush/kill them by stomping or walking over them.",
-    "videoUrl": "https://www.youtube.com/embed/cvonGtU0uNM?si=7xHmNGZpG23Q-K1f",
+    "videoUrl": "https://www.youtube.com/embed/cvonGtU0uNM",
     "highlights": [
         { "name": "Scaling Mechanic", "detail": "Core mechanic uses a scaling gun to shrink or enlarge enemies rather than dealing direct damage — enemies must be stomped when small enough." },
         { "name": "UI & Systems", "detail": "Designed and built all UI menus, HUD elements, and the score screen from scratch." },
@@ -22,5 +22,17 @@
         "Integrated art assets and performed bug fixing under jam constraints"
     ],
     "tech": ["Unity", "C#", "GitHub", "Trello"],
-    "details": "This game was created in three days for the Game Maker's Toolkit GMTK Game Jam 2024. The team included two gameplay programmers, one UI and systems programmer, one animator, and two game artists. The jam theme was Scaling, which we turned into an arena survival FPS where shots shrink or enlarge enemies instead of dealing direct damage. I worked as the UI and systems programmer, creating menus, HUD, audio managers, game managers, scoring, level flow, and integration glue. I also supported bug fixing and art integration under jam constraints."
+    "details": "This game was created in three days for the Game Maker's Toolkit GMTK Game Jam 2024. The team included two gameplay programmers, one UI and systems programmer, one animator, and two game artists. The jam theme was Scaling, which we turned into an arena survival FPS where shots shrink or enlarge enemies instead of dealing direct damage. I worked as the UI and systems programmer, creating menus, HUD, audio managers, game managers, scoring, level flow, and integration glue. I also supported bug fixing and art integration under jam constraints.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSSlurpcore-640.webp",
+            "width": 640,
+            "height": 360
+        },
+        {
+            "url": "Images/Optimized/SSSlurpcore-1440.webp",
+            "width": 1440,
+            "height": 810
+        }
+    ]
 }

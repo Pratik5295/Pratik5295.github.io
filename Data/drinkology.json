@@ -1,20 +1,32 @@
 {
     "title": "Drinkology",
     "subtitle": "Hyper-Casual | Party Game | Mobile | Multiplayer",
-    "content": "An hyper-casual drinking party game made for mobile platform.",
+    "content": "A casual party game made for mobile devices.",
     "imageUrl": "Images/ProjectData/SSDrinkology.jpg",
     "engine": "Unity",
-    "status": "Released on Google Play Store",
+    "status": "Released on Google Play",
     "summary": "Designed mobile party-game systems, King's Cup logic, asset integration, and Google Play release support.",
     "description": "Drinkology is a mobile party game featuring multiple mini-games, including King's Cup with an in-app deck and quick competitive tap challenges.",
-    "videoUrl": "https://www.youtube.com/embed/F1eaBGKisQg?si=-6lAApiLgBTeoegT",
+    "videoUrl": "https://www.youtube.com/embed/F1eaBGKisQg",
     "highlights": [],
     "roles": [
-        "Designed and developed core concept of the game",
+        "Designed and developed the game's core concept",
         "Developed King's Cup game logic and collaborated with other developers to integrate it into the game",
-        "Collaborated with artists to help create assets and integrate into the game",
-        "Worked on Google Play Store policies and releasing the game to said platform"
+        "Collaborated with artists on asset creation and integration",
+        "Supported Google Play policy requirements and release preparation"
     ],
     "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Trello"],
-    "details": "This game started as a solo weekend project and later became a small group project. It took around one month to complete and release on Google Play during my Master's studies at RIT. My work focused on gameplay features and the design logistics needed to make a simple mobile party game feel quick, readable, and fun in a social setting. I implemented systems such as card shuffling, random draws, and King's Cup logic while also contributing to game design, asset integration, and release preparation."
+    "details": "This game started as a solo weekend project and later became a small group project. It took around one month to complete and release on Google Play during my Master's studies at RIT. My work focused on gameplay features and the design logistics needed to make a simple mobile party game feel quick, readable, and fun in a social setting. I implemented systems such as card shuffling, random draws, and King's Cup logic while also contributing to game design, asset integration, and release preparation.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSDrinkology-640.webp",
+            "width": 640,
+            "height": 530
+        },
+        {
+            "url": "Images/Optimized/SSDrinkology-720.webp",
+            "width": 720,
+            "height": 596
+        }
+    ]
 }

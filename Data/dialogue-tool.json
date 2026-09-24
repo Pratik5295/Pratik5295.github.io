@@ -9,16 +9,28 @@
     "description": "Designed and developed a custom Unity Editor tool for creating branching dialogue and conversations that can be played directly in-game. Each message stores a speaker, text, unique ID, and dialogue options, with drag-and-drop node connections to form dialogue trees.",
     "videoUrl": "https://drive.google.com/file/d/1KMcEGNsGffncaiMEq6sDTxCMmPlU0L1a/preview",
     "highlights": [
-        { "name": "Dialogue System + UI", "detail": "A dialogue system branching different dialogue options." },
+        { "name": "Dialogue System & UI", "detail": "Branching conversations with player choices, presented through an in-game dialogue interface." },
         { "name": "Node Editor", "detail": "Create, edit, move, delete, and connect nodes through a visual workflow." },
-        { "name": "Scriptable Objects", "detail": "Creates ScriptableObjects for each dialogue tree so data can be reused and edited inside Unity." },
+        { "name": "ScriptableObjects", "detail": "Creates ScriptableObjects for each dialogue tree so data can be reused and edited inside Unity." },
         { "name": "JSON Support", "detail": "Exports dialogue data to JSON so content can also be inspected or edited outside the engine." }
     ],
     "roles": [
         "Designed and developed as a solo project",
         "Designed the tool's features, node architecture, and dialogue data structure",
-        "Planned and tracked tasks using Confluence and JIRA"
+        "Planned and tracked tasks using Confluence and Jira"
     ],
-    "tech": ["Unity", "C#", "GitHub", "JIRA", "Confluence"],
-    "details": "Designed and developed a custom Unity Editor tool for creating branching dialogue and conversations that can be played directly in-game. Each message stores a speaker, text, unique ID, and dialogue options. Users can drag connections between nodes to form a dialogue tree. The tool supports ScriptableObject creation for each dialogue tree and provides JSON export support."
+    "tech": ["Unity", "C#", "GitHub", "Jira", "Confluence"],
+    "details": "Designed and developed a custom Unity Editor tool for creating branching dialogue and conversations that can be played directly in-game. Each message stores a speaker, text, unique ID, and dialogue options. Users can drag connections between nodes to form a dialogue tree. The tool supports ScriptableObject creation for each dialogue tree and provides JSON export support.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSDialogueTool-640.webp",
+            "width": 640,
+            "height": 389
+        },
+        {
+            "url": "Images/Optimized/SSDialogueTool-1165.webp",
+            "width": 1165,
+            "height": 709
+        }
+    ]
 }

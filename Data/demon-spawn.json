@@ -7,7 +7,7 @@
     "status": "Development Paused",
     "summary": "Led enemy AI and combat interactions for a 2D metroidvania capstone vertical slice.",
     "description": "A 2D action-platformer vertical slice where players explore dungeon spaces, solve puzzles, and use melee, ranged, and temporary transformation abilities to survive combat encounters.",
-    "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE?si=xO22PM2Opro1QyBN",
+    "videoUrl": "https://www.youtube.com/embed/c03LAqpoiuE",
     "highlights": [
         { "name": "Enemy AI", "detail": "Developed enemy AI using behaviour trees, waypoint-based patrol systems, and state machines." },
         { "name": "Enemy Roster", "detail": "Implemented four distinct enemy types: melee skeleton, ranged skeleton, flying skull/bat, and a multi-ability boss." },
@@ -20,6 +20,13 @@
         "Developed four enemy types including a multi-ability boss character",
         "Contributed to enemy concept and visual design"
     ],
-    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "JIRA"],
-    "details": "For our Master's capstone project, we created a vertical slice of a 2D action platformer with metroidvania-style level design. The project was designed and developed over nine months. As AI programmer, I designed and implemented enemy behaviours that challenged the player in combat, using behaviour trees, waypoint patrols, and hit/hurt box systems. This was my first experience working in a game-development team toward a polished playable slice, and it taught me a great deal about collaboration, production structure, and wearing multiple hats to deliver a cohesive experience."
+    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Jira"],
+    "details": "For our Master's capstone project, we created a vertical slice of a 2D action platformer with metroidvania-style level design. The project was designed and developed over nine months. As AI programmer, I designed and implemented enemy behaviours that challenged the player in combat, using behaviour trees, waypoint patrols, and hit/hurt box systems. This was my first experience working in a game-development team toward a polished playable slice, and it taught me a great deal about collaboration, production structure, and wearing multiple hats to deliver a cohesive experience.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSDemonSpawn-320.webp",
+            "width": 320,
+            "height": 180
+        }
+    ]
 }

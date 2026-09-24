@@ -4,15 +4,27 @@
     "content": "Integration of Mapbox API with Unity to create a simple navigation system using real world co-ordinates",
     "imageUrl": "Images/ProjectData/SSMapbox.png",
     "engine": "Unity",
-    "status": "Complete",
+    "status": "Development Complete",
     "summary": "Integrated Mapbox with Unity to prototype a real-world coordinate navigation and route display system.",
     "description": "A Unity learning project exploring Mapbox API integration for a simple navigation application that can determine and display a route to a nearby area or building of interest.",
-    "videoUrl": "https://www.youtube.com/embed/7ykU7ceGFKE?si=1OXoaPjcHjnZPyOU",
+    "videoUrl": "https://www.youtube.com/embed/7ykU7ceGFKE",
     "highlights": [],
     "roles": [
         "Learned, understood, and integrated Mapbox with Unity",
         "Developed the supporting UI"
     ],
     "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Mapbox"],
-    "details": "This project was a learning experiment to understand Mapbox API features and Unity integration for map generation and navigation UI. Users could input specific locations, landmarks, or route requests, and the system would generate and display a route from the current location to the chosen destination."
+    "details": "This project was a learning experiment to understand Mapbox API features and Unity integration for map generation and navigation UI. Users could input specific locations, landmarks, or route requests, and the system would generate and display a route from the current location to the chosen destination.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSMapbox-640.webp",
+            "width": 640,
+            "height": 357
+        },
+        {
+            "url": "Images/Optimized/SSMapbox-915.webp",
+            "width": 915,
+            "height": 511
+        }
+    ]
 }

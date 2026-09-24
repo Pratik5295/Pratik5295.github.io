@@ -22,5 +22,17 @@
         "Optimised and built for Android mobile devices"
     ],
     "tech": ["Unity", "C#", "AR Core", "AR Foundation", "GitHub"],
-    "details": "Designed and developed a mobile AR shooter game to explore Unity AR Core and AR Foundation. The game places a virtual battlefield on real-world detected planes, creating an immersive experience where enemies appear in the player's physical environment. Players choose from two characters with distinct stats before surviving waves of enemies. Enemy types use inheritance to share base AI behaviour while allowing for varied attack patterns. The wave system is built using scriptable objects, making it straightforward to configure new waves and enemy types without code changes."
+    "details": "Designed and developed a mobile AR shooter game to explore Unity AR Core and AR Foundation. The game places a virtual battlefield on real-world detected planes, creating an immersive experience where enemies appear in the player's physical environment. Players choose from two characters with distinct stats before surviving waves of enemies. Enemy types use inheritance to share base AI behaviour while allowing for varied attack patterns. The wave system is built using scriptable objects, making it straightforward to configure new waves and enemy types without code changes.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSARShooter-640.webp",
+            "width": 640,
+            "height": 461
+        },
+        {
+            "url": "Images/Optimized/SSARShooter-822.webp",
+            "width": 822,
+            "height": 592
+        }
+    ]
 }

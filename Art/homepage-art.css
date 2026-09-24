@@ -41,6 +41,18 @@
     height: 100%;
 }
 
+.art-image-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    color: #c7ccd0;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
 .home-page .grid-item a:focus-visible {
     outline: 2px solid #27e69b;
     outline-offset: -4px;

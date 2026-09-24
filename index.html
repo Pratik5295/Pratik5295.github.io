@@ -7,23 +7,23 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Pratik Shringarpure — Game Developer Portfolio</title>
-    <meta name="description" content="Pratik Shringarpure — Unity game developer with professional studio experience at Skyhook Games and Kazoo Games. Browse shipped titles, tools, and solo projects.">
+    <meta name="description" content="Pratik Shringarpure — Unity game developer with experience across international studios and teams. Explore UI, gameplay, tools, and released games.">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Pratik Shringarpure — Game Developer Portfolio">
-    <meta property="og:description" content="Unity game developer with professional studio experience at Skyhook Games and Kazoo Games. Shipped titles, tools programming, UI development, and mobile releases.">
+    <meta property="og:description" content="Unity game developer with experience across international studios and teams. Explore UI, gameplay, tools, and released games.">
     <meta property="og:image" content="/Images/ProjectData/Profile.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pratikgamedev.github.io">
+    <meta property="og:url" content="https://pratik5295.github.io/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20260922">
-    <link rel="stylesheet" href="NavbarFolder/portfolio-nav.css?v=20260922">
+    <link rel="stylesheet" href="styles.css?v=20260924">
+    <link rel="stylesheet" href="NavbarFolder/portfolio-nav.css?v=20260924">
     <link rel="stylesheet" href="NavbarFolder/navbar.css?v=20260922">
     <link rel="stylesheet" href="FooterFolder/footer.css?v=20260912">
     <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
-    <script src="Scripts/HtmlLoader.js"></script>
+    <script src="Scripts/HtmlLoader.js?v=20260924"></script>
     <script src="Scripts/animations.js?v=20260922"></script>
 </head>
 <body class="home-page portfolio-page">
@@ -50,7 +50,8 @@
             </div>
         </section>
 
-    <section class="hero-section" aria-labelledby="hero-title" aria-roledescription="carousel" id="featured-carousel">
+    <section class="hero-section" aria-labelledby="hero-title" id="featured-carousel">
+        <img class="hero-image" id="hero-image" src="/Images/Optimized/SS-LMS2-1440.webp" srcset="/Images/Optimized/SS-LMS2-640.webp 640w, /Images/Optimized/SS-LMS2-1440.webp 1440w" sizes="(max-width: 600px) calc(100vw - 1.7rem), (max-width: 960px) calc(100vw - 4rem), 46vw" alt="" width="1440" height="810" fetchpriority="high" decoding="async" data-managed-image="true" data-fallback-src="/Images/ProjectData/SS-LMS2.jpg">
         <div class="hero-content">
             <p class="hero-eyebrow" id="hero-category">Selected work</p>
             <h2 id="hero-title">Lawn Mowing Simulator 2</h2>
@@ -63,7 +64,7 @@
                 <a class="featured-project-link" id="hero-view-more" href="DevProjects/project.html?id=lawn-mowing-sim2">View project <span aria-hidden="true">↗</span></a>
             </div>
         </div>
-        <div class="hero-carousel-controls" aria-label="Featured project carousel controls">
+        <div class="hero-carousel-controls" id="hero-controls" hidden aria-label="Featured project carousel controls">
             <button class="hero-carousel-btn" type="button" id="hero-prev" aria-label="Previous featured project">&#8249;</button>
             <div class="hero-carousel-dots" id="hero-dots" role="group" aria-label="Choose a featured project"></div>
             <button class="hero-carousel-btn" type="button" id="hero-next" aria-label="Next featured project">&#8250;</button>
@@ -81,12 +82,12 @@
         <div class="stat-divider"></div>
         <div class="stat-item">
             <span class="stat-number" data-count="3">3</span>
-            <span class="stat-label">Shipped Titles</span>
+            <span class="stat-label">Featured Releases</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
             <span class="stat-number" data-count="17">17</span>
-            <span class="stat-label">Projects Built</span>
+            <span class="stat-label">Selected Projects</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
@@ -177,11 +178,9 @@
     <script>
         LoadPage("./NavbarFolder/navbar.html", "navbar");
         LoadPage("./FooterFolder/footer.html", "footer-container");
-        window.addEventListener("load", function () {
-            LoadPage("Art/Homepage-Art.html", "artHomePage");
-        });
+        LoadPage("Art/Homepage-Art.html", "artHomePage");
     </script>
-    <script src="DevProject.js?v=20260922"></script>
-    <script src="Scripts/ui.js?v=20260922"></script>
+    <script src="DevProject.js?v=20260924"></script>
+    <script src="Scripts/ui.js?v=20260924"></script>
 </body>
 </html>

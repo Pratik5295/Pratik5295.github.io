@@ -1,20 +1,32 @@
 {
-    "title": "Cube Craft: Minecraft inspired demo",
+    "title": "Cube Craft: Minecraft-Inspired Demo",
     "subtitle": "Unreal Engine 5 | Blueprints | Building Game",
-    "content": "A first person building game created using Unreal Engine 5 and Blueprints.",
+    "content": "A first-person building prototype created using Unreal Engine 5 and Blueprints.",
     "imageUrl": "Images/ProjectData/SSCubeCraft.png",
     "engine": "Unreal",
     "status": "Development Complete",
     "summary": "Created a first-person Unreal Engine 5 building prototype with Blueprints, raycasting, and save/load.",
     "description": "A Minecraft-inspired first-person building prototype developed in Unreal Engine 5 using Blueprints. This was my first Unreal prototype and a practical way to learn the engine through a playable project.",
-    "videoUrl": "https://www.youtube.com/embed/OukHUjFQ6OI?si=KdvrfQzav9nyrlU8",
+    "videoUrl": "https://www.youtube.com/embed/OukHUjFQ6OI",
     "highlights": [],
     "roles": [
         "Designed and developed the concept of the game",
         "Learned and explored Unreal Engine",
         "Used Blueprints to create a playable demo",
-        "Modular code to expand, asset integration (models, animations)"
+        "Created modular Blueprint logic and integrated models and animations"
     ],
-    "tech": ["Unreal", "Blueprints", "GitHub", "JIRA"],
-    "details": "In this first-person building prototype, players gather resources and place blocks to construct a base using six block types. The project includes raycasting, actor spawning, UI systems, and save/load functionality. It was built as a hands-on Unreal Engine 5 learning project using Blueprints. Credit for the 3D model assets goes to Tidal Flask Studios."
+    "tech": ["Unreal", "Blueprints", "GitHub", "Jira"],
+    "details": "In this first-person building prototype, players gather resources and place blocks to construct a base using six block types. The project includes raycasting, actor spawning, UI systems, and save/load functionality. It was built as a hands-on Unreal Engine 5 learning project using Blueprints. Credit for the 3D model assets goes to Tidal Flask Studios.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSCubeCraft-640.webp",
+            "width": 640,
+            "height": 360
+        },
+        {
+            "url": "Images/Optimized/SSCubeCraft-1440.webp",
+            "width": 1440,
+            "height": 810
+        }
+    ]
 }

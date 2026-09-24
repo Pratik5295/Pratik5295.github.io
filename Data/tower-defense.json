@@ -1,18 +1,18 @@
 {
     "title": "3D Tower Defense in Unity",
     "subtitle": "Unity | Tower Defense | Hero Combat | AI Enemies",
-    "content": "An ongoing project and devlog series for a tower defense game made using Unity and C#",
+    "content": "A tower-defense prototype and devlog series made using Unity and C#; development is currently paused.",
     "imageUrl": "Images/ProjectData/SSTowerDef.png",
     "engine": "Unity",
     "status": "Development Paused",
     "summary": "Designed a 3D tower-defense prototype with controllable hero combat, NavMesh AI, towers, and a tile tool.",
     "description": "A 3D tower-defense prototype where players defend a village by placing towers, using traps, and directly controlling a hero character with combat abilities. The project combines traditional tower defense with active player combat.",
-    "videoUrl": "https://www.youtube.com/embed/9yGib-2zKTc?si=XYwg6_pjzOzdRps_",
+    "videoUrl": "https://www.youtube.com/embed/9yGib-2zKTc",
     "highlights": [
         { "name": "Playable Hero Character", "detail": "Players control a hero with unique combat abilities alongside traditional tower placement, adding an active gameplay layer." },
         { "name": "Enemy AI", "detail": "Enemies navigate using Unity NavMesh and state machines, dynamically switching targets between the hero and the base." },
         { "name": "Tower Placement System", "detail": "Two tower types — single-target and area-effect — can be placed strategically to defend the base." },
-        { "name": "Tile Editor Integration", "detail": "Levels are built using a custom-made tile editor tool, demonstrating the tool in a live game context." },
+        { "name": "Tile Editor Integration", "detail": "Levels are built using a custom tile editor, testing its workflow within a playable prototype." },
         { "name": "Modular Architecture", "detail": "Codebase designed for easy expansion of enemy types, tower types, and hero abilities." }
     ],
     "roles": [
@@ -22,6 +22,18 @@
         "Built modular, expandable code and integrated 3D assets and animations",
         "Integrated the custom tile editor tool for level building"
     ],
-    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "JIRA"],
-    "details": "This project is a 3D tower-defense prototype built in Unity and C#. Players defend a town hall against enemy waves by placing towers and controlling a hero character with combat abilities. The enemy AI uses Unity NavMesh, pathfinding, and state machines to target the town hall, switch to the hero when threatened, and resume the objective when appropriate. The UI supports tower placement, ability selection, and two tower types: single-target and area-effect. Levels are built with a custom tile editor tool, keeping the project modular and expandable."
+    "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Jira"],
+    "details": "This project is a 3D tower-defense prototype built in Unity and C#. Players defend a town hall against enemy waves by placing towers and controlling a hero character with combat abilities. The enemy AI uses Unity NavMesh, pathfinding, and state machines to target the town hall, switch to the hero when threatened, and resume the objective when appropriate. The UI supports tower placement, ability selection, and two tower types: single-target and area-effect. Levels are built with a custom tile editor tool, keeping the project modular and expandable.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSTowerDef-640.webp",
+            "width": 640,
+            "height": 371
+        },
+        {
+            "url": "Images/Optimized/SSTowerDef-1252.webp",
+            "width": 1252,
+            "height": 726
+        }
+    ]
 }

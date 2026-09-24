@@ -187,6 +187,7 @@ section[id] {
 }
 
 .project-action-link {
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -222,11 +223,22 @@ section[id] {
 }
 
 .project-media {
+    position: relative;
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: 12px;
+}
+
+.project-media-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    color: var(--muted);
+    font-size: 0.875rem;
 }
 
 .project-media img {
@@ -395,6 +407,20 @@ section[id] {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+.video-alternative {
+    margin: 0.75rem 0 0;
+}
+
+.video-alternative a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    color: var(--emerald-bright);
+    font-size: 0.875rem;
+    text-underline-offset: 0.25em;
 }
 
 .project-nav {

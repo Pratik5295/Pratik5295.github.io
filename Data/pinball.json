@@ -6,8 +6,8 @@
     "engine": "Unity",
     "status": "Development Paused",
     "summary": "Designed levels and polish for a physics prototype where players rotate the level instead of the ball.",
-    "description": "Really Bad Pinball is an eccentric game where players manipulate the level itself to guide the ball. Developed as a prototype over a period of two weeks, the game challenges players to control the level to navigate through obstacles, gather coins, and unlock gates.",
-    "videoUrl": "https://www.youtube.com/embed/yePjMyQLxrQ?si=mpdg4RnN0W9QwOCU",
+    "description": "A physics-based prototype where players rotate the level to guide a ball through obstacles, collect coins, and unlock gates.",
+    "videoUrl": "https://www.youtube.com/embed/yePjMyQLxrQ",
     "highlights": [],
     "roles": [
         "Designed and developed the concept of the game",
@@ -16,5 +16,17 @@
         "Implemented lighting and VFX to give the game a more polished look"
     ],
     "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Trello"],
-    "details": "This was a team assignment for our Gameplay Prototyping course at RIT. Developed over a weekend, the prototype explored a mechanic where players control the level instead of directly controlling the ball. Players rotate the level to guide the ball through obstacles, collect coins, and unlock gates. I designed and structured levels using modular assets, then supported lighting, VFX, and general polish for the playable demo."
+    "details": "This was a team assignment for our Gameplay Prototyping course at RIT. The prototype explored a mechanic where players control the level instead of directly controlling the ball. I designed and structured levels using modular assets, then supported lighting, VFX, and general polish for the playable demo.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSPinball-640.webp",
+            "width": 640,
+            "height": 355
+        },
+        {
+            "url": "Images/Optimized/SSPinball-1022.webp",
+            "width": 1022,
+            "height": 567
+        }
+    ]
 }

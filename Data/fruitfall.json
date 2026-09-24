@@ -7,7 +7,7 @@
     "status": "Released",
     "summary": "Built and released a lightweight Android catch-and-avoid game with custom 2D art and leaderboards.",
     "description": "A hyper-casual Android game where players catch falling fruit while avoiding hazards. The project focused on a simple, readable loop, quick sessions, and mobile-friendly controls.",
-    "videoUrl": "https://www.youtube.com/embed/rDhAdw9RVog?si=2JMkKEnt1slH5_Zx",
+    "videoUrl": "https://www.youtube.com/embed/rDhAdw9RVog",
     "highlights": [],
     "roles": [
         "Designed and developed the core game concept",
@@ -16,5 +16,12 @@
         "Released the game on Google Play and provided small bug-fix updates"
     ],
     "tech": ["Unity", "C#", "Unity Asset Store", "GitHub", "Google Play Store"],
-    "details": "Built in Unity and C# over a short development sprint, Fruitfall is a simple mobile game where players move a basket horizontally to catch falling fruit while avoiding hazards. The game includes three initial levels with escalating challenge. I independently developed the project from scratch, including the 2D assets, gameplay loop, and release preparation."
+    "details": "Built in Unity and C# over a short development sprint, Fruitfall is a simple mobile game where players move a basket horizontally to catch falling fruit while avoiding hazards. The game includes three initial levels with escalating challenge. I independently developed the project from scratch, including the 2D assets, gameplay loop, and release preparation.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSFruitfall-498.webp",
+            "width": 498,
+            "height": 483
+        }
+    ]
 }

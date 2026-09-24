@@ -9,19 +9,31 @@
     "description": "A 2D point-and-click narrative puzzle game made in Unity and C#. Players take the role of a new game studio intern, complete tasks to progress their career, and manage a pressure gauge to avoid getting fired.",
     "videoUrl": "https://drive.google.com/file/d/1X_i6RJ0xGR1i8Cfuo3DnZ9mWsj60SM4S/preview",
     "highlights": [
-        { "name": "Pressure System", "detail": "The health system of the game which is affected by your ability to solve tasks and their accuracy." },
-        { "name": "Drag and Drop", "detail": "Main mechanic used in all puzzles of the game." },
-        { "name": "Complex UI System", "detail": "An entire complex system of UI screens working in sync across various systems." },
+        { "name": "Pressure System", "detail": "A pressure gauge tracks player performance as tasks are completed." },
+        { "name": "Drag and Drop", "detail": "Drag-and-drop interactions form the core mechanic of the game's puzzles." },
+        { "name": "Connected UI Screens", "detail": "UI screens coordinate task, dialogue, puzzle, and pressure systems." },
         { "name": "Dialogue System", "detail": "A branching dialogue system presented through an in-game email interface." },
-        { "name": "Advanced Event Bus", "detail": "An event bus that fires different event types from specific trigger points in the game." },
+        { "name": "Event Bus", "detail": "An event bus connects gameplay triggers to the systems that respond to them." },
         { "name": "Data Handling", "detail": "A ScriptableObject data layer for characters, dialogue, tasks, events, and puzzles." }
     ],
     "roles": [
         "Core Programmer and Producer in a team of 4",
         "Collaborated on game system design as both programmer and producer",
         "Implemented all core systems: UI, dialogue, event bus, drag-and-drop mechanics, and data management",
-        "Managed the JIRA board for task planning and team coordination"
+        "Managed the Jira board for task planning and team coordination"
     ],
-    "tech": ["Unity", "C#", "GitHub", "JIRA"],
-    "details": "The player's objective is to grow from intern to full-time developer by completing tasks accurately and on time. Promotions introduce more responsibility, more complex tasks, and a rising pressure gauge. Beneath the workplace story is a darker secondary narrative: the studio setting and writing slowly reveal that career progress has a supernatural cost. I worked as core programmer and producer, implementing the main UI, dialogue, event, puzzle, and data systems while coordinating production tasks through JIRA."
+    "tech": ["Unity", "C#", "GitHub", "Jira"],
+    "details": "The player's objective is to grow from intern to full-time developer by completing tasks accurately and on time. Promotions introduce more responsibility, more complex tasks, and a rising pressure gauge. Beneath the workplace story is a darker secondary narrative: the studio setting and writing slowly reveal that career progress has a supernatural cost. I worked as core programmer and producer, implementing the main UI, dialogue, event, puzzle, and data systems while coordinating production tasks through Jira.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSHellShift-640.webp",
+            "width": 640,
+            "height": 357
+        },
+        {
+            "url": "Images/Optimized/SSHellShift-1440.webp",
+            "width": 1440,
+            "height": 802
+        }
+    ]
 }

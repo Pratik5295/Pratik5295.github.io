@@ -20,5 +20,17 @@
     ],
     "tech": ["Unity", "C#", "Gen AI", "Google Play", "Android", "iOS"],
     "details": "Chef's Bubble Feast is a bubble shooter puzzle game developed entirely as a solo project. Players work through a 200-level campaign of varying difficulty, making it accessible to casual players while offering a real challenge as levels progress. The game was built to support both Android and iOS platforms and is currently live on Android via the Google Play Store. All artwork was created using generative AI tools, allowing for a rich visual style without a dedicated art team. The game was designed, developed, and published under the Krazy Kraken Games label.",
-    "storeUrl": "https://play.google.com/store/apps/details?id=com.krazykrakengames.chefsbubblefeast"
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.krazykrakengames.chefsbubblefeast",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSChefsGame-640.webp",
+            "width": 640,
+            "height": 315
+        },
+        {
+            "url": "Images/Optimized/SSChefsGame-1014.webp",
+            "width": 1014,
+            "height": 499
+        }
+    ]
 }

@@ -3,153 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Page Not Found | Pratik Shringarpure</title>
+    <meta name="robots" content="noindex">
+    <title>Page not found — Pratik Shringarpure</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="./Images/Logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/Logo.png" type="image/png">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes glitchNum {
-            0%, 90%, 100% { text-shadow: 0 0 30px rgba(4, 188, 117, 0.35); }
-            92% { text-shadow: -4px 0 #d4af37, 4px 0 #04BC75; }
-            94% { text-shadow: 4px 0 #d4af37, -4px 0 #04BC75; }
-            96% { text-shadow: 0 0 30px rgba(4, 188, 117, 0.35); }
-        }
-
-        html, body {
-            height: 100%;
-            background:
-                linear-gradient(135deg, rgba(4, 188, 117, 0.12), transparent 34%),
-                linear-gradient(215deg, rgba(212, 175, 55, 0.07), transparent 30%),
-                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.028) 0 1px, transparent 1px 44px),
-                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 44px),
-                #070b0d;
-            color: #e0dfe4;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                linear-gradient(90deg, rgba(4, 188, 117, 0.07) 1px, transparent 1px),
-                linear-gradient(0deg, rgba(4, 188, 117, 0.04) 1px, transparent 1px);
-            background-size: 96px 96px;
-            opacity: 0.28;
-            z-index: 0;
-            pointer-events: none;
-        }
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(7, 11, 13, 0.08), rgba(7, 11, 13, 0.82));
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .error-code {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(6rem, 20vw, 10rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #04BC75 0%, #d4af37 55%, #04BC75 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            animation: glitchNum 5s infinite;
-            margin-bottom: 0.5rem;
-        }
-
-        .divider {
-            width: 180px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #04BC75, #d4af37, #04BC75, transparent);
-            margin: 1rem auto 1.5rem;
-        }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #e8e8e8;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            color: #8a8a95;
-            font-weight: 300;
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 380px;
-            margin-bottom: 2.5rem;
-        }
-
-        .home-btn {
-            display: inline-block;
-            padding: 0.8rem 2.2rem;
-            background: linear-gradient(135deg, #04BC75, #27e69b);
-            color: #06100d;
-            font-weight: 700;
-            font-size: 0.88rem;
-            text-decoration: none;
-            border-radius: 8px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(4, 188, 117, 0.3);
-        }
-        .home-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(4, 188, 117, 0.45);
-        }
-
-        .logo-link {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            background: linear-gradient(135deg, #04BC75, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 2rem clamp(1.25rem, 5vw, 4rem); min-height: 100vh; display: flex; flex-direction: column; background: #070b0d; color: #edf3ef; font-family: 'Inter', Verdana, sans-serif; }
+        .logo { display: inline-flex; align-items: center; min-height: 44px; color: #edf3ef; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.025em; text-decoration: none; }
+        main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 4rem 0; max-width: 42rem; overflow-wrap: anywhere; }
+        .error-code { margin: 0 0 1.25rem; color: #27e69b; font-size: 0.875rem; font-weight: 600; }
+        h1 { margin: 0; font-size: clamp(2.25rem, 6vw, 3.5rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.045em; }
+        .explanation { max-width: 48ch; margin: 1.5rem 0 2rem; color: #c7ccd0; font-size: 1rem; line-height: 1.8; }
+        .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0.75rem 1.1rem; border: 1px solid #27e69b; border-radius: 6px; background: #27e69b; color: #05100d; font-size: 0.875rem; line-height: 1.5; font-weight: 600; text-decoration: none; }
+        .actions .secondary { border-color: #687479; color: #c7ccd0; background: transparent; }
+        .actions a:hover { background: #70efbf; color: #05100d; }
+        a:focus-visible { outline: 2px solid #27e69b; outline-offset: 4px; }
     </style>
 </head>
 <body>
-    <a href="/" class="logo-link">Pratik Shringarpure</a>
-    <div class="container">
-        <div class="error-code">404</div>
-        <div class="divider"></div>
-        <h1>Page Not Found</h1>
-        <p>This route is not in the current build. The page may have moved, or the link may be out of date.</p>
-        <a href="/" class="home-btn">Back to Portfolio</a>
-    </div>
+    <header><a href="/" class="logo">Pratik Shringarpure</a></header>
+    <main>
+        <p class="error-code">Error 404</p>
+        <h1>Page not found</h1>
+        <p class="explanation">The page may have moved, or the link may be out of date. You can find my projects and experience through the links below.</p>
+        <nav class="actions" aria-label="Find another page">
+            <a href="/">Back to portfolio</a>
+            <a class="secondary" href="/Pages/aboutme.html">About &amp; résumé</a>
+        </nav>
+    </main>
 </body>
 </html>

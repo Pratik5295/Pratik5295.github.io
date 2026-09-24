@@ -9,19 +9,31 @@
     "description": "A third-person narrative prototype made in Unity and C#. The game follows Derek, a detective returning to the force after a nine-month absence caused by an accident. Players solve an assigned case while uncovering what happened during Derek's comatose state.",
     "videoUrl": "https://drive.google.com/file/d/1dJvNPQteytIBZTnUvsmZp2EfaQ9TOXXa/preview",
     "highlights": [
-        { "name": "Dialogue System", "detail": "A dialogue system branching different dialogue options. Messages can trigger different quests, and fire events of its own." },
-        { "name": "IK System", "detail": "Combined the animations in game with IK Rig system to make it feel more natural." },
-        { "name": "Pick up and Drop Puzzle System", "detail": "Puzzle type: pick up and drop objects in right slots created for tutorial." },
-        { "name": "Scriptable Objects for Data Management", "detail": "Scriptable objects used for storing dialogues, quests, pick up objects, etc." },
-        { "name": "Shooting System", "detail": "Shooting mode allows player to fire projectiles in targeted direction. Shooting enabled and disabled state." },
-        { "name": "Quest System", "detail": "A robust quest system coupled with event system created. Different events handled: Key pressed, Object picked up, Enemy killed." }
+        { "name": "Dialogue System", "detail": "Branching dialogue with messages that can trigger quests and gameplay events." },
+        { "name": "Inverse Kinematics", "detail": "Combined character animations with inverse kinematics to create more natural movement." },
+        { "name": "Object Placement Puzzles", "detail": "Tutorial puzzles ask players to pick up objects and place them in matching slots." },
+        { "name": "Data Management", "detail": "Used ScriptableObjects to store dialogue, quests, and collectible object data." },
+        { "name": "Shooting System", "detail": "A shooting mode with enable and disable states lets players aim and fire projectiles." },
+        { "name": "Quest System", "detail": "Connected quest progress to events such as key presses, object pickups, and defeated enemies." }
     ],
     "roles": [
         "Designed and developed as a solo project",
         "Designed the narrative, quest structure, and core game mechanics",
         "Wrote the full game narrative and dialogue content",
-        "Planned and tracked tasks using Confluence and JIRA"
+        "Planned and tracked tasks using Confluence and Jira"
     ],
-    "tech": ["Unity", "C#", "GitHub", "JIRA", "Confluence"],
-    "details": "A third-person narrative prototype made in Unity and C#. The game follows Derek, a detective returning to the force after a nine-month absence caused by an accident. Players solve an assigned case while uncovering what happened during Derek's comatose state. This was a solo project developed over two months, including the design phase."
+    "tech": ["Unity", "C#", "GitHub", "Jira", "Confluence"],
+    "details": "A third-person narrative prototype made in Unity and C#. The game follows Derek, a detective returning to the force after a nine-month absence caused by an accident. Players solve an assigned case while uncovering what happened during Derek's comatose state. This was a solo project developed over two months, including the design phase.",
+    "imageVariants": [
+        {
+            "url": "Images/Optimized/SSDetective-640.webp",
+            "width": 640,
+            "height": 527
+        },
+        {
+            "url": "Images/Optimized/SSDetective-947.webp",
+            "width": 947,
+            "height": 780
+        }
+    ]
 }

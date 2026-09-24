@@ -1,27 +1,31 @@
 async function fetchTemplate(templatePath) {
-    var response = await fetch(cacheBust(templatePath));
-    var text = await response.text();
+    var text = await fetchSiteText(templatePath);
     var template = document.createElement('div');
     template.innerHTML = text;
+    if (!template.querySelector('.project-card-link')) throw new Error('Project template unavailable');
     return template;
 }
 
-async function fetchProjectData(projectId) {
-    try {
-        var response = await fetch(cacheBust('./Data/' + projectId + '.json'));
-        if (!response.ok) throw new Error('Failed to load ' + projectId);
-        var data = await response.json();
+var projectRequests = new Map();
+function fetchProjectData(projectId) {
+    if (projectRequests.has(projectId)) return projectRequests.get(projectId);
+    var request = fetchSiteJSON('./Data/' + encodeURIComponent(projectId) + '.json').then(function (data) {
+        if (!data || typeof data.title !== 'string' || !data.title.trim()) throw new Error('Invalid project: ' + projectId);
+        if (data.tech && !Array.isArray(data.tech)) throw new Error('Invalid project technology list: ' + projectId);
         data._id = projectId;
         return data;
-    } catch (error) {
-        console.error('Error loading project:', projectId, error);
-        return null;
-    }
+    }).catch(function (error) {
+        projectRequests.delete(projectId);
+        throw error;
+    });
+    projectRequests.set(projectId, request);
+    return request;
 }
 
 function createSkeletonCard() {
     var wrapper = document.createElement('div');
     wrapper.className = 'skeleton-wrapper';
+    wrapper.setAttribute('aria-hidden', 'true');
     return wrapper;
 }
 
@@ -34,7 +38,7 @@ function trimText(text, maxLength) {
 
 function setupHeroCarousel(projects) {
     var hero = document.getElementById('featured-carousel');
-    if (!hero) return;
+    if (!hero || hero.dataset.carouselReady) return;
 
     var projectIds = (projects.professional || []).concat(projects.recent || []);
     if (!projectIds.length) return;
@@ -50,9 +54,12 @@ function setupHeroCarousel(projects) {
     var dotsEl = document.getElementById('hero-dots');
     var announcementEl = document.getElementById('hero-announcement');
 
-    Promise.all(projectIds.map(fetchProjectData)).then(function (loadedProjects) {
+    Promise.all(projectIds.map(function (id) { return fetchProjectData(id).catch(function () { return null; }); })).then(function (loadedProjects) {
         var slides = loadedProjects.filter(Boolean);
         if (!slides.length) return;
+        hero.dataset.carouselReady = 'true';
+        document.getElementById('hero-controls').hidden = slides.length < 2;
+        if (slides.length > 1) hero.setAttribute('aria-roledescription', 'carousel');
 
         var currentIndex = 0;
         dotsEl.innerHTML = '';
@@ -71,7 +78,6 @@ function setupHeroCarousel(projects) {
             currentIndex = (index + slides.length) % slides.length;
             var slide = slides[currentIndex];
             var category = (projects.professional || []).indexOf(slide._id) !== -1 ? 'Professional Work' : 'Recent Work';
-            var imageUrl = slide.screenshotUrl || slide.imageUrl || '';
 
             categoryEl.textContent = category;
             titleEl.textContent = slide.title || 'Featured Project';
@@ -79,11 +85,8 @@ function setupHeroCarousel(projects) {
             engineEl.textContent = slide.engine || slide.gameEngine || 'Unity';
             statusEl.textContent = slide.status || category;
             viewMoreEl.href = 'DevProjects/project.html?id=' + slide._id;
-            if (imageUrl) {
-                hero.style.setProperty('--hero-image', "url('" + imageUrl + "')");
-            } else {
-                hero.style.setProperty('--hero-image', 'none');
-            }
+            setProjectImage(document.getElementById('hero-image'), slide,
+                '(max-width: 600px) calc(100vw - 1.7rem), (max-width: 960px) calc(100vw - 4rem), 46vw');
             Array.prototype.forEach.call(dotsEl.children, function (dot, dotIndex) {
                 dot.classList.toggle('active', dotIndex === currentIndex);
                 dot.setAttribute('aria-pressed', dotIndex === currentIndex ? 'true' : 'false');
@@ -135,17 +138,8 @@ function createProjectCard(template, data, staggerIndex, category) {
     // Reserve image space and defer off-screen previews until they are needed.
     var img = clone.querySelector('.projImage');
     var fallback = clone.querySelector('.project-image-fallback');
-    function showImageFallback() {
-        img.hidden = true;
-        fallback.hidden = false;
-    }
-    var imageUrl = data.screenshotUrl || data.imageUrl || '';
-    if (imageUrl) {
-        img.onerror = showImageFallback;
-        img.src = imageUrl;
-    } else {
-        showImageFallback();
-    }
+    setProjectImage(img, data, '(max-width: 600px) calc(100vw - 1.7rem), (max-width: 1080px) calc((100vw - 5.5rem) / 2), (max-width: 1440px) calc((100vw - 10rem) / 3), 428px');
+    if (img.hidden) fallback.hidden = false;
 
     // A short focus line replaces repeated category and engine badges.
     var engine = String(data.engine || data.gameEngine || '').toLowerCase();
@@ -173,40 +167,81 @@ function createProjectCard(template, data, staggerIndex, category) {
 
 async function fillGrid(containerId, projectIds, template, category) {
     var container = document.getElementById(containerId);
-
-    // Skeleton placeholders
+    container.replaceChildren();
+    container.setAttribute('aria-busy', 'true');
+    container.dataset.loadFailed = 'false';
     var skeletons = projectIds.map(function () {
         var sk = createSkeletonCard();
         container.appendChild(sk);
         return sk;
     });
 
-    // Load and replace one by one
-    for (var i = 0; i < projectIds.length; i++) {
-        var data = await fetchProjectData(projectIds[i]);
-        if (data) {
-            var card = createProjectCard(template, data, i, category);
-            container.replaceChild(card, skeletons[i]);
+    async function loadCard(id, slot, index) {
+        try {
+            var data = await fetchProjectData(id);
+            var card = createProjectCard(template, data, index, category);
+            container.replaceChild(card, slot);
             if (window.observeReveal) window.observeReveal(card);
             if (category === 'games' && window.applyProjectFilters) window.applyProjectFilters();
-        } else {
-            container.removeChild(skeletons[i]);
+            return card.querySelector('a');
+        } catch (error) {
+            console.error('Project preview unavailable:', id, error);
+            var failedSlot = document.createElement('div');
+            failedSlot.className = 'project-load-error';
+            var panel = createLoadError('This project preview could not be loaded.', function () {
+                return loadCard(id, failedSlot, index);
+            });
+            var link = document.createElement('a');
+            link.href = 'DevProjects/project.html?id=' + encodeURIComponent(id);
+            link.textContent = 'Open project';
+            panel.appendChild(link);
+            failedSlot.appendChild(panel);
+            container.replaceChild(failedSlot, slot);
+            return panel.querySelector('button');
         }
     }
+    // Fetch independently while retaining the authored order in the grid.
+    await Promise.all(projectIds.map(function (id, index) { return loadCard(id, skeletons[index], index); }));
+    container.setAttribute('aria-busy', 'false');
+    if (category === 'games' && window.applyProjectFilters) window.applyProjectFilters();
 }
 
+var initialization;
 async function init() {
-    var template = await fetchTemplate('Homepage-Project-Template.html');
-    try {
-        var response = await fetch(cacheBust('./Data/projects.json'));
-        var projects = await response.json();
-        setupHeroCarousel(projects);
-        await fillGrid('professional-projects-grid', projects.professional || [], template, 'professional');
-        await fillGrid('recent-projects-grid', projects.recent || [], template, 'recent');
-        await fillGrid('grid-container', projects.games || [], template, 'games');
-    } catch (error) {
-        console.error('Error loading projects list:', error);
-    }
+    if (initialization) return initialization;
+    var grids = { professional: 'professional-projects-grid', recent: 'recent-projects-grid', games: 'grid-container' };
+    initialization = (async function () {
+        Object.values(grids).forEach(function (id) {
+            var container = document.getElementById(id);
+            container.dataset.loadFailed = 'false';
+            container.setAttribute('aria-busy', 'true');
+            container.replaceChildren(createSkeletonCard(), createSkeletonCard(), createSkeletonCard());
+        });
+        try {
+            var results = await Promise.all([fetchTemplate('Homepage-Project-Template.html'), fetchSiteJSON('./Data/projects.json')]);
+            var template = results[0], projects = results[1];
+            if (!projects || !Object.keys(grids).every(function (key) {
+                return Array.isArray(projects[key]) && projects[key].every(function (id) { return typeof id === 'string' && /^[a-z0-9-]+$/.test(id); });
+            })) throw new Error('Project list unavailable');
+            setupHeroCarousel(projects);
+            await Promise.all(Object.keys(grids).map(function (key) { return fillGrid(grids[key], projects[key], template, key); }));
+        } catch (error) {
+            console.error('Could not load projects:', error);
+            Object.values(grids).forEach(function (id) {
+                var container = document.getElementById(id);
+                container.dataset.loadFailed = 'true';
+                container.setAttribute('aria-busy', 'false');
+                container.replaceChildren(createLoadError('Projects could not be loaded. Please try again.', async function () {
+                    await init();
+                    return container.querySelector('a, button');
+                }));
+            });
+            if (window.applyProjectFilters) window.applyProjectFilters();
+        } finally {
+            initialization = null;
+        }
+    })();
+    return initialization;
 }
 
 document.addEventListener('DOMContentLoaded', init);

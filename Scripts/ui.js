@@ -112,12 +112,15 @@
     var projectSearch = document.getElementById('project-search-input');
     var emptyState = document.getElementById('game-projects-empty');
     var resultsStatus = document.getElementById('game-projects-status');
+    var gamesGrid = document.getElementById('grid-container');
     var announceTimer;
     function applyProjectFilters() {
         var activeBtn = filterBar ? filterBar.querySelector('.filter-btn.active') : null;
         var filter = activeBtn ? activeBtn.dataset.filter : 'all';
         var query = projectSearch ? projectSearch.value.trim().toLowerCase() : '';
         var visibleCount = 0;
+        var loading = gamesGrid && gamesGrid.getAttribute('aria-busy') === 'true';
+        var failed = gamesGrid && gamesGrid.dataset.loadFailed === 'true';
 
         var cards = document.querySelectorAll('#grid-container > [data-tags]');
         cards.forEach(function (card) {
@@ -129,12 +132,12 @@
         });
 
         if (emptyState) {
-            emptyState.hidden = visibleCount !== 0;
+            emptyState.hidden = loading || failed || visibleCount !== 0;
         }
         clearTimeout(announceTimer);
         if (resultsStatus) {
             announceTimer = setTimeout(function () {
-                var message = visibleCount + ' of ' + cards.length + ' game projects shown.';
+                var message = loading ? 'Loading game projects…' : failed ? 'Game projects could not be loaded. A retry option is available.' : visibleCount + ' of ' + cards.length + ' game projects shown.';
                 if (resultsStatus.textContent !== message) resultsStatus.textContent = message;
             }, 300);
         }
